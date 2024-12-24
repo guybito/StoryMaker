@@ -21,16 +21,12 @@ class Plotter:
         self.ordered_sentences = []  # Track sentences in the order they appear
         self.graph = Digraph(format="png")  # Initialize Graphviz graph
         self.names_data = names_data or {"male_names": [], "female_names": []}
-        self.pronoun_pattern = self._generate_pronoun_regex()  # Generate dynamic regex for pronouns
+        self.pronoun_pattern = re.compile(r'\b(' + '|'.join(self.pronoun_map.keys()) + r')\b')
         self.root = None
         self.lead_ins = 0
         self.carry_ons = 0
         self.curr_name_mapping = {}
 
-    def _generate_pronoun_regex(self) -> re.Pattern:
-        """Generate a regex pattern based on the pronoun map."""
-        pronoun_keys = '|'.join(map(re.escape, self.pronoun_map.keys()))
-        return re.compile(rf"\b(?:{pronoun_keys})\b", re.IGNORECASE)
 
     def _picker(self, items: List, label: Optional[str] = None) -> Optional[str]:
         """Randomly pick an item from a list."""
@@ -97,13 +93,14 @@ class Plotter:
         root_id = "root"
         conflict = self.plotto['conflicts'][random_clause(B_Clause['nodes'])]
         logging.debug(f"Selected conflict ID: {conflict}")
-        actors = []
+        # actors = []
         self.root = conflict
         plot = self._expand(conflict, root_transform, {"leadIns": self.lead_ins, "carryOns": self.carry_ons},
                             expand_id=root_id).replace('*', '')
         # print("plot = ",plot)
         # plot = self._apply_names(plot, actors)
-        plot = self.fix_pronouns_contextually(plot, actors)
+        # logging.debug(f"actors are: {actors}")
+        plot = self.fix_pronouns_contextually(plot, self.curr_name_mapping)
 
         return {
                 "a clause": f"{A_Clause}",
@@ -159,7 +156,7 @@ class Plotter:
                 gender = self.gender_map.get(symbol, 'any')
                 name = random_name(symbol, description, gender, male_names, female_names)
                 self.curr_name_mapping[symbol] = name
-                actors.append({"symbol": symbol, "name": name, "description": description})
+                # actors.append({"symbol": symbol, "name": name, "description": description})
                 return name
             return re.sub(rg, replacer, text)
         return text
@@ -196,8 +193,18 @@ class Plotter:
             sentence_id = item.get("conflictid")
             if sentence_id not in self.ordered_sentences:
                 if ctx["leadIns"] == 0 and len(self.ordered_sentences) == self.lead_ins + 1:
+                    self.root = item
                     self.ordered_sentences = list(reversed(self.ordered_sentences))
                 self.ordered_sentences.append(sentence_id)  # Track the sentence order
+                # if isinstance(item['description'], list):
+                #     new_description = item['description'][0]
+                #     for sentence_id in item['description'][1]:
+                #         print(type(sentence_id))
+                #         print(self.plotto['conflicts'][sentence_id]['description'])
+                #         print('---------------')
+                #         new_description += ', ' + self.plotto['conflicts'][sentence_id]['description']
+                #         ret.append(f"{item['description']} [{sentence_id}]")
+                # else:
                 ret.append(f"{item['description']} [{sentence_id}]")
                 logging.debug(f"Added main conflict to plot: {sentence_id}")
 
@@ -262,28 +269,29 @@ class Plotter:
 
         # Combine results
         result = "\n\n".join(ret).strip()
-        logging.debug(f"Transform is : {transform}")
         if transform:
-            rg = self._transform_to_regex(transform)
-            if rg:
-                result = rg.sub(lambda m: transform.get(m.group(0), m.group(0)), result)
+            words = result.split()  # פיצול הטקסט למילים
+            updated_words = [transform.get(word, word) for word in words]  # החלפה לפי מילון
+            result = ' '.join(updated_words)
+
+
+            # rg = self._transform_to_regex(transform)
+            # if rg:
+            #     result = rg.sub(lambda m: transform.get(m.group(0), m.group(0)), result)
 
         # Apply names to the final result
         result = self._apply_names(result, [])
         return result
 
-    def fix_pronouns_contextually(self, text: str, actors: List[dict]) -> str:
-        """Fix pronouns dynamically by identifying the subject within the text context."""
-        name_to_actor = {actor["name"]: actor for actor in actors}
+    def fix_pronouns_contextually(self, text: str, actors: dict) -> str:
+        name_to_gender = {actor[1]: self.gender_map.get(actor[0], "none") for actor in actors.items()}
 
         def replace_pronoun_with_context(match):
             pronoun = match.group(0)
             preceding_text = match.string[:match.start()]
-            for name, actor in name_to_actor.items():
+            for name, gender in name_to_gender.items():
                 if name in preceding_text:
-                    gender = self.gender_map.get(actor["symbol"], "any")
                     return self.pronoun_map.get(pronoun, {}).get(gender, pronoun)
             return pronoun
 
         return self.pronoun_pattern.sub(replace_pronoun_with_context, text)
-
