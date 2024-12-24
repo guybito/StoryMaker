@@ -23,7 +23,7 @@ def main():
     )
 
     # Generate the plot and build the graph dynamically
-    plot = generator.generate(lead_ins=2, carry_ons=1)
+    plot = generator.generate(lead_ins=2, carry_ons=2)
 
     # Insert the C clause at the beginning and description at the end of the ordered sentences
     generator.ordered_sentences.append(plot["c clause"])
@@ -58,7 +58,7 @@ def main():
     print(" -> ".join(generator.ordered_sentences))
 
     # Generate the graph representing the story-building process
-    generator.generate_graph(generator.ordered_sentences,plot)
+    # generator.generate_graph(generator.ordered_sentences,plot)
 
 
 if __name__ == "__main__":
