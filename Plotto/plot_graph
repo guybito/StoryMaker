@@ -1,0 +1,14 @@
+digraph {
+	rankdir=TB
+	node_B_clause [label="B clause: Falling Into Misfortune While Seeking Honorably to Discharge an Obligation" color=lightgreen shape=box style="rounded,filled"]
+	node_1298 [label="Cameron is a notorious outlaw, at large and craftily avoiding apprehension [1298]" color=lightblue shape=box style="rounded,filled"]
+	node_B_clause -> node_1298
+	node_883 [label="Cameron, a hunted outlaw in disguise, takes refuge with an enemy, Oliver  Cameron, a hunted outlaw, takes refuge with an enemy, Oliver; and Oliver, considering aerself bound by the laws of hospitality, conceals Cameron and saves aer from aer pursuers, Wyatt, Wyatt  [883]" color=lightblue shape=box style="rounded,filled"]
+	node_1298 -> node_883
+	node_1022 [label="Cameron’s life is saved by aer enemy, Oliver  Cameron’s life, saved by aer enemy, Oliver, is mutually agreed to be forfeit to Oliver whenever Oliver so desires  [1022]" color=lightblue shape=box style="rounded,filled"]
+	node_883 -> node_1022
+	"node_136-1" [label="Cameron and Oliver are in love with Willa . Obliged to carry out the orders of Oliver, Cameron is commanded to commit suicide, [136-1]" color=lightblue shape=box style="rounded,filled"]
+	node_1022 -> "node_136-1"
+	node_C_clause [label="C clause: Achieves a complete and permanent character transformation" color=lightgreen shape=box style="rounded,filled"]
+	"node_136-1" -> node_C_clause
+}
