@@ -27,7 +27,7 @@ def random_clause(arr):
         return None
     return random.choice(arr)
 
-def random_name(character_symbol: str, symbol_description: str, gender: str,
+def random_name(character_symbol: str, gender: str,
                  male_names: List[str], female_names: List[str]) -> str:
     """Generate a random name based on gender."""
     if gender == 'male':
