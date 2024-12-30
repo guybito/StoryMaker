@@ -1,0 +1,16 @@
+digraph {
+	rankdir=TB
+	node_B_clause [label="B clause: Seeking to Save a Person who is Accused of Transgression" color=lightgreen shape=box style="rounded,filled"]
+	node_954 [label="Logan, through erring imagination, becomes discontented with his life and surroundings  Logan, discontented, in a spirit of revolt seeks to achieve contentment  [954]" color=lightblue shape=box style="rounded,filled"]
+	node_B_clause -> node_954
+	node_926 [label="Logan’s lofty aim is to be a benefactor of mankind  Logan, trying to realize his ideal of being a benefactor of mankind, meets with a disturbing experience  [926]" color=lightblue shape=box style="rounded,filled"]
+	node_954 -> node_926
+	node_894 [label="Logan, robbed by Connor and wishing to save his from the law, declares to Wyatt, the officer who has arrested Connor, that he gave Connor the stolen property in his possession [894]" color=lightblue shape=box style="rounded,filled"]
+	node_926 -> node_894
+	node_918a [label="Connor seeks to rebuild his life wasted in dissipation, along the lines of exemplary ideals  Connor, in carrying out a worthy enterprise, changes his name and goes to a place where he is unknown  [918a]" color=lightblue shape=box style="rounded,filled"]
+	node_894 -> node_918a
+	node_683 [label="Connor is a telegraph operator at a lonely railroad way station  Connor is a sheep herder, isolated with his flock of sheep  Connor is a lighthouse keeper on a lonely coast  Connor gradually, because of loneliness, becomes demented  [683]" color=lightblue shape=box style="rounded,filled"]
+	node_918a -> node_683
+	node_C_clause [label="C clause: Foils a guilty plotter and defeats a subtle plot." color=lightgreen shape=box style="rounded,filled"]
+	node_683 -> node_C_clause
+}

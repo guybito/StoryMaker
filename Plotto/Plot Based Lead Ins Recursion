@@ -1,0 +1,16 @@
+digraph {
+	rankdir=TB
+	node_B_clause [label="B clause: Assuming a Fictitious Character When Embarking  Upon a Certain Enterprise" color=lightgreen shape=box style="rounded,filled"]
+	node_1186 [label="Gabriel seeks to rebuild his life, wasted in dissipation, along the line of exemplary ideals  Gabriel, pursuing a worthy enterprise, changes his name and goes to a place where he is unknown  [1186]" color=lightblue shape=box style="rounded,filled"]
+	node_B_clause -> node_1186
+	node_1184 [label="Gabriel’s high place in society is at odds with an enterprise he wishes to undertake  Gabriel, in order to proceed with certain plans, finds he necessary to hide his identity  [1184]" color=lightblue shape=box style="rounded,filled"]
+	node_1186 -> node_1184
+	node_420 [label="Gabriel lives unhappily with his husband, Violet  Gabriel’s marital discontent prompts his to reckless and questionable adventures  [420]" color=lightblue shape=box style="rounded,filled"]
+	node_1184 -> node_420
+	node_246a [label="Gabriel, in love with Violet, of an inferior race, seeks to abandon Violet secretly in order to uphold a lofty conception of duty [246a]" color=lightblue shape=box style="rounded,filled"]
+	node_420 -> node_246a
+	node_348 [label="Gabriel’s enemy, Harrison, is captain of a ship on which Gabriel has taken passage, and on which Violet  [348]" color=lightblue shape=box style="rounded,filled"]
+	node_246a -> node_348
+	node_C_clause [label="C clause: Meets any fate, good or evil." color=lightgreen shape=box style="rounded,filled"]
+	node_348 -> node_C_clause
+}

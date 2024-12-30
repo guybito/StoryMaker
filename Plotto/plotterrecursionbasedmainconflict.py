@@ -8,7 +8,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 
-class Plotter:
+class PlotterRecursionBasedMainConflict:
     """A class for generating plots based on predefined data and templates."""
 
     def __init__(self, plotto_data, gender_map, pronoun_map, flip_genders=False, names_data=None):
@@ -75,7 +75,7 @@ class Plotter:
             if current_node:
                 previous_node = current_node
         # Render the graph to a file
-        self.graph.render("plot_graph", view=True)
+        self.graph.render("Plot Based Main Conflict Recursion", view=True)
 
     def generate(self, lead_ins: int = 1, carry_ons: int = 1):
         """Generate a plot and construct a graph."""
