@@ -1,4 +1,4 @@
-from graphviz import Digraph
+# from graphviz import Digraph
 import re
 from typing import List, Dict, Optional
 from utils import random_clause, random_name
@@ -19,7 +19,7 @@ class PlotterRecursionBasedLeadIns:
         self.flip_genders = flip_genders
         self.expand_ids = []  # Store all expand IDs
         self.ordered_sentences = []  # Track sentences in the order they appear
-        self.graph = Digraph(format="png")  # Initialize Graphviz graph
+        # self.graph = Digraph(format="png")  # Initialize Graphviz graph
         self.names_data = names_data or {"male_names": [], "female_names": []}
         self.pronoun_pattern = re.compile(r'\b(' + '|'.join(self.pronoun_map.keys()) + r')\b')
         self.lead_ins = 0
@@ -35,46 +35,46 @@ class PlotterRecursionBasedLeadIns:
             return None
         return random.choice(items)
 
-    def generate_graph(self, ordered_sentences: List[str], plot: Dict[str, str]):
-        """Generate a graph based on the ordered sentences."""
-        self.graph.attr(rankdir="TB")
-        previous_node = None
-        for sentence_id in ordered_sentences:
-            if sentence_id == plot["description"]:
-                current_node = "node_B_clause"
-                self.graph.node(
-                    current_node,
-                    f"B clause: {plot['description']}",
-                    shape="box",
-                    style="rounded,filled",
-                    color="lightgreen",
-                )
-            elif sentence_id == plot["c clause"]:
-                current_node = "node_C_clause"
-                self.graph.node(current_node, f"C clause: {plot['c clause']}", shape="box", style="rounded,filled",
-                                color="lightgreen", )
-            else:
-                # Handle regular sentences
-                current_node = None
-                for sentence in plot["plot"].split("\n"):
-                    if f"[{sentence_id}]" in sentence:
-                        current_node = f"node_{sentence_id}"
-                        self.graph.node(
-                            current_node,
-                            sentence.strip(),
-                            shape="box",
-                            style="rounded,filled",
-                            color="lightblue",
-                        )
-                        break
-            # Add an edge from the previous node to the current node, if any
-            if current_node and previous_node:
-                self.graph.edge(previous_node, current_node)
-            # Update previous_node
-            if current_node:
-                previous_node = current_node
-        # Render the graph to a file
-        self.graph.render("Plot Based Lead Ins Recursion", view=True)
+    # def generate_graph(self, ordered_sentences: List[str], plot: Dict[str, str]):
+    #     """Generate a graph based on the ordered sentences."""
+    #     self.graph.attr(rankdir="TB")
+    #     previous_node = None
+    #     for sentence_id in ordered_sentences:
+    #         if sentence_id == plot["description"]:
+    #             current_node = "node_B_clause"
+    #             self.graph.node(
+    #                 current_node,
+    #                 f"B clause: {plot['description']}",
+    #                 shape="box",
+    #                 style="rounded,filled",
+    #                 color="lightgreen",
+    #             )
+    #         elif sentence_id == plot["c clause"]:
+    #             current_node = "node_C_clause"
+    #             self.graph.node(current_node, f"C clause: {plot['c clause']}", shape="box", style="rounded,filled",
+    #                             color="lightgreen", )
+    #         else:
+    #             # Handle regular sentences
+    #             current_node = None
+    #             for sentence in plot["plot"].split("\n"):
+    #                 if f"[{sentence_id}]" in sentence:
+    #                     current_node = f"node_{sentence_id}"
+    #                     self.graph.node(
+    #                         current_node,
+    #                         sentence.strip(),
+    #                         shape="box",
+    #                         style="rounded,filled",
+    #                         color="lightblue",
+    #                     )
+    #                     break
+    #         # Add an edge from the previous node to the current node, if any
+    #         if current_node and previous_node:
+    #             self.graph.edge(previous_node, current_node)
+    #         # Update previous_node
+    #         if current_node:
+    #             previous_node = current_node
+    #     # Render the graph to a file
+    #     self.graph.render("Plot Based Lead Ins Recursion", view=True)
 
     def generate(self, lead_ins: int = 1, carry_ons: int = 1):
         """Generate a plot and construct a graph."""
@@ -184,6 +184,24 @@ class PlotterRecursionBasedLeadIns:
                 name = random_name(symbol, gender, male_names, female_names)
                 self.curr_name_mapping[symbol] = name
 
+    def expand_description(self, conflict_id):
+        conflict = self.plotto['conflicts'].get(conflict_id, {})
+        description = conflict.get("description", [])
+        expanded_description = []
+
+        for part in description:
+            if isinstance(part, list):  # Reference to another conflict
+                referenced_id = part[0]
+                referenced_description = self.expand_description(referenced_id)
+                referenced_description = re.sub(r'(?<!\s)\s(?!\s)', '', referenced_description)
+                referenced_description = re.sub(r'\s+', ' ', referenced_description).strip()
+
+                expanded_description.append(referenced_description)
+            else:
+                expanded_description.append(part)
+
+        full_description = " ".join(expanded_description)
+        return full_description
 
     def _expand(self, item, transform, ctx, start=None, end=None, expand_id=""):
         """Expand an item recursively and track meaningful IDs in order."""
@@ -209,9 +227,15 @@ class PlotterRecursionBasedLeadIns:
                 #         rest_of_sentence += self.fill_sentences(s_id)
                 #     item["description"] = curr_sentence_description + rest_of_sentence
                 # item['description'] = self._apply_names(item['description'])
-                item['description'] = self._apply_names(item['description'])
-                ret.append(f"{item['description']} [{sentence_id}]")
+
+                expanded_description = self.expand_description(sentence_id)  # Expand the description
+                item['description'] = expanded_description
+                ret.append(f"{expanded_description} [{sentence_id}]")
                 logging.debug(f"Added main conflict to plot: {sentence_id}")
+                # -------------
+                # item['description'] = self._apply_names(item['description'])
+                # ret.append(f"{item['description']} [{sentence_id}]")
+                # logging.debug(f"Added main conflict to plot: {sentence_id}")
 
         if ctx.get("leadIns", 0) > 0 and "leadIns" in item:
             ctx["leadIns"] -= 1
