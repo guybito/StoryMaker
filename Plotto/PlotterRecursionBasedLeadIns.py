@@ -4,6 +4,7 @@ from typing import List, Dict, Optional
 from utils import random_clause, random_name
 import random
 import logging
+from Plotter import *
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -13,6 +14,7 @@ class PlotterRecursionBasedLeadIns:
 
     def __init__(self, plotto_data, gender_map, pronoun_map, flip_genders=False, names_data=None):
         """Initialize the Plotter class."""
+        # super().__init__( plotto_data, gender_map, pronoun_map, flip_genders=False, names_data=None)
         self.plotto = plotto_data
         self.gender_map = gender_map  # Add gender_map as an instance variable
         self.pronoun_map = pronoun_map  # Add pronoun map as an instance variable
@@ -112,7 +114,6 @@ class PlotterRecursionBasedLeadIns:
         transform.update({f"B-{i}": f"A-{i}" for i in range(10)})
         return transform
 
-    #re-write the function
     def _apply_names(self, text: str) -> str:
         """Replace character symbols with names, treating suffixes as distinct characters."""
         if isinstance(text, list):
@@ -134,7 +135,6 @@ class PlotterRecursionBasedLeadIns:
             return re.sub(rg, replacer, text)
         return text
 
-    #re-write the function
     def _transform_to_regex(self, mapping: dict) -> re.Pattern:
         """Create a regex pattern for matching character symbols."""
         keys = [str(key) for key in sorted(mapping.keys(), key=len, reverse=True)]
@@ -143,15 +143,6 @@ class PlotterRecursionBasedLeadIns:
         # Match exact words and variants like `A-2` or `A_b`
         pattern = r'\b(?:' + '|'.join(map(re.escape, keys)) + r')\b(?:(?:-|\b)\w+)?'
         return re.compile(pattern)
-
-    # def _transform_to_regex(self, mapping: dict) -> re.Pattern:
-    #     """Create a regex pattern for matching character symbols."""
-    #     keys = [str(key) for key in sorted(mapping.keys(), key=len, reverse=True)]
-    #     if not keys:
-    #         return re.compile(r'(?!x)x')  # Matches nothing
-    #     # pattern = r'\b(?:' + '|'.join(map(re.escape, keys)) + r')(?![a-z])'
-    #     pattern = r'\b(?:' + '|'.join(map(re.escape, keys)) + r')\b(?![a-z])'
-    #     return re.compile(pattern)
 
     def fill_sentences(self, sentence_id):
             full_sentence = ''
@@ -183,7 +174,6 @@ class PlotterRecursionBasedLeadIns:
                 female_names = self.names_data["female_names"]
                 name = random_name(symbol, gender, male_names, female_names)
                 self.curr_name_mapping[symbol] = name
-
 
     def _expand(self, item, transform, ctx, start=None, end=None, expand_id=""):
         """Expand an item recursively and track meaningful IDs in order."""

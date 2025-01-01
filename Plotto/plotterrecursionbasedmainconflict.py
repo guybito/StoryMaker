@@ -1,4 +1,5 @@
 from graphviz import Digraph
+from Plotter import *
 import re
 from typing import List, Dict, Optional
 from utils import random_clause, random_name
@@ -13,6 +14,7 @@ class PlotterRecursionBasedMainConflict:
 
     def __init__(self, plotto_data, gender_map, pronoun_map, flip_genders=False, names_data=None):
         """Initialize the Plotter class."""
+        # super().__init__( plotto_data, gender_map, pronoun_map, flip_genders=False, names_data=None)
         self.plotto = plotto_data
         self.gender_map = gender_map  # Add gender_map as an instance variable
         self.pronoun_map = pronoun_map  # Add pronoun map as an instance variable
@@ -144,15 +146,6 @@ class PlotterRecursionBasedMainConflict:
         # Match exact words and variants like `A-2` or `A_b`
         pattern = r'\b(?:' + '|'.join(map(re.escape, keys)) + r')\b(?:(?:-|\b)\w+)?'
         return re.compile(pattern)
-
-    # def _transform_to_regex(self, mapping: dict) -> re.Pattern:
-    #     """Create a regex pattern for matching character symbols."""
-    #     keys = [str(key) for key in sorted(mapping.keys(), key=len, reverse=True)]
-    #     if not keys:
-    #         return re.compile(r'(?!x)x')  # Matches nothing
-    #     # pattern = r'\b(?:' + '|'.join(map(re.escape, keys)) + r')(?![a-z])'
-    #     pattern = r'\b(?:' + '|'.join(map(re.escape, keys)) + r')\b(?![a-z])'
-    #     return re.compile(pattern)
 
     def fill_sentences(self, sentence_id):
             full_sentence = ''
