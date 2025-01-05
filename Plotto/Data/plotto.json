@@ -3302,7 +3302,7 @@
 						"v": "1432",
 						"tfm": {
 							"A": "F-A",
-							"NW": "A"
+							"NW-A": "A"
 						}
 					}
 				]
@@ -10490,13 +10490,13 @@
 					{
 						"v": "245",
 						"tfm": {
-							"A": "SN-A, son of A"
+							"A": "SN"
 						}
 					},
 					{
 						"v": "305",
 						"tfm": {
-							"B": "D-B, daughter of A’s second wife"
+							"B": "D-B"
 						}
 					}
 				]
@@ -11665,7 +11665,8 @@
 							"B": "B-3"
 						}
 					}
-				]
+				],
+
 			]
 		},
 		"426": {
@@ -18120,7 +18121,7 @@
 					"1209a"
 				]
 			},
-			"description": "A finds a motor stage wrecked and the U. S. mail it was carrying scattered from the broken pouches. The stage driver, A-4, has gone for help. A picks up a torn letter, reads it, and discovers that B is in misfortune * A, a fugitive from justice, seeks to rescue B from aer misfortunes **"
+			"description": "A finds a motor stage wrecked and the U-A. S. mail it was carrying scattered from the broken pouches. The stage driver, A-4, has gone for help. A picks up a torn letter, reads it, and discovers that B is in misfortune * A, a fugitive from justice, seeks to rescue B from aer misfortunes **"
 		},
 		"674": {
 			"group": "Enterprise",
@@ -26570,7 +26571,7 @@
 							{
 								"v": "1041",
 								"tfm": {
-									"A": "U"
+									"A": "U-A"
 								}
 							}
 						]
@@ -27101,13 +27102,13 @@
 					{
 						"v": "611a",
 						"tfm": {
-							"A": "NW"
+							"A": "NW-A"
 						}
 					},
 					{
 						"v": "1024",
 						"tfm": {
-							"A": "NW"
+							"A": "NW-A"
 						}
 					}
 				]
@@ -27131,7 +27132,7 @@
 					}
 				]
 			},
-			"description": "A’s nephew and ward, NW, is wild and reckless and A is unable to manage aer * A passes aer unmanageable nephew and ward, NW, along to a friend in the West, A-2, who declares that ae will either kill NW or tame aer **"
+			"description": "A’s nephew and ward, NW-A, is wild and reckless and A is unable to manage aer * A passes aer unmanageable nephew and ward, NW-A, along to a friend in the West, A-2, who declares that ae will either kill NW-A or tame aer **"
 		},
 		"1000": {
 			"group": "Enterprise",
@@ -27455,14 +27456,14 @@
 					{
 						"v": "276",
 						"tfm": {
-							"A": "GCH",
+							"A": "GCH-A",
 							"F-A": "A"
 						}
 					},
 					{
 						"v": "288",
 						"tfm": {
-							"A": "GCH",
+							"A": "GCH-A",
 							"ancestor": "A"
 						}
 					}
@@ -27474,20 +27475,20 @@
 					{
 						"v": "118",
 						"tfm": {
-							"A": "GCH",
+							"A": "GCH-A",
 							"GF-A": "A"
 						}
 					},
 					{
 						"v": "628",
 						"tfm": {
-							"A": "GCH",
+							"A": "GCH-A",
 							"B": "A"
 						}
 					}
 				]
 			},
-			"description": "A’s impecunious grandchild, GCH, buys A a birthday present, X, on credit * X, a birthday present, will not ae delivered until it is paid for ** A pays for X, a birthday present, which aer impecunious grandchild, GCH, is giving aer ***"
+			"description": "A’s impecunious grandchild, GCH-A, buys A a birthday present, X, on credit * X, a birthday present, will not ae delivered until it is paid for ** A pays for X, a birthday present, which aer impecunious grandchild, GCH-A, is giving aer ***"
 		},
 		"1013": {
 			"group": "Enterprise",
@@ -29158,7 +29159,7 @@
 					"1374"
 				]
 			},
-			"description": "A, giving ten years of aer life to a miserly uncle, U, in exchange for a college education, loses aer ambition and enterprise * A’s uncle, U, has promised A all that ae has when ae dies, but U dies a bankrupt; and A is thrown upon the world with abilities obscured and enterprise strangled **"
+			"description": "A, giving ten years of aer life to a miserly uncle, U-A, in exchange for a college education, loses aer ambition and enterprise * A’s uncle, U-A, has promised A all that ae has when ae dies, but U-A dies a bankrupt; and A is thrown upon the world with abilities obscured and enterprise strangled **"
 		},
 		"1066": {
 			"group": "Enterprise",
@@ -30806,7 +30807,7 @@
 						"v": "1432",
 						"tfm": {
 							"A": "A-8",
-							"NW": "CN"
+							"NW-A": "CN"
 						}
 					}
 				]
@@ -31589,12 +31590,12 @@
 					{
 						"v": "1309b",
 						"tfm": {
-							"A-3": "AUX"
+							"A-3": "AU-B"
 						}
 					}
 				]
 			},
-			"description": "B, traveling alone, invents a fictitious aunt, AUX, as a chaperone"
+			"description": "B, traveling alone, invents a fictitious aunt, AU-B, as a chaperone"
 		},
 		"1159": {
 			"group": "Enterprise",
@@ -32915,7 +32916,7 @@
 					}
 				]
 			},
-			"description": "A’s cousin, CN, has long been mysteriously missing * A’s uncle, U, dies and leaves A’s cousin, CN, a large estate. A impersonates CN **"
+			"description": "A’s cousin, CN, has long been mysteriously missing * A’s uncle, U-A, dies and leaves A’s cousin, CN, a large estate. A impersonates CN **"
 		},
 		"1203": {
 			"group": "Enterprise",
@@ -34642,7 +34643,7 @@
 					{
 						"v": "1024",
 						"tfm": {
-							"A": "NW"
+							"A": "NW-A"
 						}
 					}
 				]
@@ -34653,14 +34654,14 @@
 					{
 						"v": "117",
 						"tfm": {
-							"A": "NW",
+							"A": "NW-A",
 							"F-A": "A"
 						}
 					},
 					"1432"
 				]
 			},
-			"description": "A disapproves of aer nephew, NW; and A, sick unto death, sends for a lawyer, A-8, to draw aer will * A’s nephew, NW, tricks A into thinking that ae is A-8, the lawyer who has come to draw A’s will **"
+			"description": "A disapproves of aer nephew, NW-A; and A, sick unto death, sends for a lawyer, A-8, to draw aer will * A’s nephew, NW-A, tricks A into thinking that ae is A-8, the lawyer who has come to draw A’s will **"
 		},
 		"1271": {
 			"group": "Enterprise",
@@ -38626,7 +38627,7 @@
 						"v": "1127",
 						"tfm": {
 							"A": "A-8",
-							"CN": "NW"
+							"CN": "NW-A"
 						}
 					},
 					"1270"
@@ -38638,19 +38639,19 @@
 					{
 						"v": "1001b",
 						"tfm": {
-							"U": "A",
-							"A": "NW"
+							"U-A": "A",
+							"A": "NW-A"
 						}
 					},
 					{
 						"v": "1107a",
 						"tfm": {
-							"A": "NW"
+							"A": "NW-A"
 						}
 					}
 				]
 			},
-			"description": "A dies and leaves aer fortune to a nephew, NW * A dies and leaves aer fortune to a nephew, NW, who has been mysteriously missing for years **"
+			"description": "A dies and leaves aer fortune to a nephew, NW-A * A dies and leaves aer fortune to a nephew, NW-A, who has been mysteriously missing for years **"
 		},
 		"1434": {
 			"group": "Enterprise",
@@ -43166,7 +43167,7 @@
 					{
 						"v": "821",
 						"tfm": {
-							"son SN": "brother A-3"
+							"SN": "A-3"
 						}
 					}
 				]
@@ -43227,7 +43228,7 @@
 						"v": "982a",
 						"tfm": {
 							"A": "A-8",
-							"NW": "A"
+							"NW-A": "A"
 						}
 					},
 					{
@@ -45220,7 +45221,7 @@
 						"v": "1432",
 						"tfm": {
 							"A": "U-A",
-							"NW": "A"
+							"NW-A": "A"
 						}
 					},
 					"606"
@@ -47129,7 +47130,7 @@
 							{
 								"v": "1290b",
 								"tfm": {
-									"A": "SN-A",
+									"A": "SN",
 									"F-A": "A"
 								}
 							}
@@ -52234,7 +52235,7 @@
 						"v": "982a",
 						"tfm": {
 							"A": "F-B",
-							"NW": "A"
+							"NW-A": "A"
 						}
 					},
 					{
@@ -54244,7 +54245,7 @@
 					{
 						"v": "611a",
 						"tfm": {
-							"A": "NW"
+							"A": "NW-A"
 						}
 					},
 					{
@@ -54263,19 +54264,19 @@
 					{
 						"v": "701",
 						"tfm": {
-							"A-2": "NW"
+							"A-2": "NW-A"
 						}
 					},
 					{
 						"v": "812b",
 						"tfm": {
-							"A": "NW",
+							"A": "NW-A",
 							"F-B": "A"
 						}
 					}
 				]
 			},
-			"description": "A agrees to take in hand and control an incorrigible youth, NW, who has proved too hard a problem for aer uncle and guardian, A’s friend, A-2"
+			"description": "A agrees to take in hand and control an incorrigible youth, NW-A, who has proved too hard a problem for aer uncle and guardian, A’s friend, A-2"
 		},
 		"982b": {
 			"group": "Enterprise",
@@ -54358,7 +54359,7 @@
 							"end": "*"
 						},
 						"tfm": {
-							"A": "U"
+							"A": "U-A"
 						}
 					},
 					"926",
@@ -54373,7 +54374,7 @@
 					"865"
 				]
 			},
-			"description": "A has $500,000. A rich relative, U, bequeaths a million dollars to A, provided ae shall spend aer half-million within a year * A, with a half million dollars must be “broke” within a year, and ae must not give away any money nor spend a cent foolishly **"
+			"description": "A has $500,000. A rich relative, U-A, bequeaths a million dollars to A, provided ae shall spend aer half-million within a year * A, with a half million dollars must be “broke” within a year, and ae must not give away any money nor spend a cent foolishly **"
 		},
 		"1001a": {
 			"group": "Enterprise",
@@ -54408,14 +54409,14 @@
 					{
 						"v": "117",
 						"tfm": {
-							"F-A": "U"
+							"F-A": "U-A"
 						}
 					},
 					{
 						"v": "1432",
 						"tfm": {
-							"A": "U",
-							"NW": "A"
+							"A": "U-A",
+							"NW-A": "A"
 						}
 					}
 				]
@@ -54432,7 +54433,7 @@
 					}
 				]
 			},
-			"description": "A is to inherit a fortune from aer uncle, U, on condition that ae shall never leave aer native land * B, an enemy of U who has left a fortune to A on condition that ae shall never travel abroad, wins a promise from A that ae will travel abroad after ae dies **"
+			"description": "A is to inherit a fortune from aer uncle, U-A, on condition that ae shall never leave aer native land * B, an enemy of U-A who has left a fortune to A on condition that ae shall never travel abroad, wins a promise from A that ae will travel abroad after ae dies **"
 		},
 		"1006a": {
 			"group": "Enterprise",
@@ -55146,8 +55147,8 @@
 							{
 								"v": "1432",
 								"tfm": {
-									"A": "U",
-									"NW": "A"
+									"A": "U-A",
+									"NW-A": "A"
 								}
 							},
 							{
@@ -57781,7 +57782,7 @@
 					{
 						"v": "1432",
 						"tfm": {
-							"NW": "SN"
+							"NW-A": "SN"
 						}
 					},
 					"1432"
@@ -57830,7 +57831,7 @@
 					{
 						"v": "490b",
 						"tfm": {
-							"A-2": "U"
+							"A-2": "U-A"
 						}
 					},
 					"1057b",
@@ -57843,18 +57844,18 @@
 					{
 						"v": "781",
 						"tfm": {
-							"A": "U"
+							"A": "U-A"
 						}
 					},
 					{
 						"v": "867",
 						"tfm": {
-							"A-2": "U"
+							"A-2": "U-A"
 						}
 					}
 				]
 			},
-			"description": "A’s rich uncle, U, promises to leave aer wealth to A when A and aer spouse, B, shall be blessed with a son and heir * A, seeking by strategy to secure a rich inheritance, fails in aer plans when aer uncle, U, discovers A’s “son and heir” to be a girl **"
+			"description": "A’s rich uncle, U-A, promises to leave aer wealth to A when A and aer spouse, B, shall be blessed with a son and heir * A, seeking by strategy to secure a rich inheritance, fails in aer plans when aer uncle, U-A, discovers A’s “son and heir” to be a girl **"
 		},
 		"1289d": {
 			"group": "Enterprise",
@@ -58045,7 +58046,7 @@
 						"v": "1432",
 						"tfm": {
 							"A": "F-A",
-							"NW": "A"
+							"NW-A": "A"
 						}
 					}
 				]
@@ -60655,8 +60656,8 @@
 					{
 						"v": "1432",
 						"tfm": {
-							"A": "U",
-							"NW": "A"
+							"A": "U-A",
+							"NW-A": "A"
 						}
 					},
 					"1433a"

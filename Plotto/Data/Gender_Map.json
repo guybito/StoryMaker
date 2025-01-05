@@ -55,6 +55,8 @@
   "D": "female",
   "CN": "any",
   "CH": "any",
+  "CH-1": "any",
+  "CH-2": "any",
   "AX": "male",
   "BX": "female",
   "X": "none"

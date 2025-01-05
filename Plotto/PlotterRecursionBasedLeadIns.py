@@ -1,6 +1,8 @@
 # from graphviz import Digraph
 import re
 from typing import List, Dict, Optional
+
+import utils
 from utils import random_clause, random_name
 import random
 import logging
@@ -170,6 +172,12 @@ class PlotterRecursionBasedLeadIns:
             print(f'tfm items: {tfm.items()}')
             original_character = self.curr_name_mapping.get(org)
             new_character = self.curr_name_mapping.get(new)
+            if not new_character:
+                new_character = utils.random_name(new, self.gender_map[new], self.names_data["male_names"], self.names_data["female_names"])
+                self.curr_name_mapping[new] = new_character
+            if not original_character:
+                original_character = utils.random_name(new, self.gender_map[org], self.names_data["male_names"], self.names_data["female_names"])
+                self.curr_name_mapping[org] = original_character
             print(f'original character: {original_character}')
             print(f'new character: {new_character}')
             sentence = sentence.replace(original_character, new_character)
