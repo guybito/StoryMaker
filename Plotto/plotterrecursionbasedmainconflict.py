@@ -161,18 +161,19 @@ class PlotterRecursionBasedMainConflict:
     def tfm_characters(self, tfm, sentence):
         print(f'characters are: {self.curr_name_mapping.items()}')
         for org, new in tfm.items():
+            self.known_symbols(org)
             self.known_symbols(new)
             print(f'tfm items: {tfm.items()}')
             original_character = self.curr_name_mapping.get(org)
             new_character = self.curr_name_mapping.get(new)
-            if not new_character:
-                new_character = utils.random_name(new, self.gender_map[new], self.names_data["male_names"],
-                                                  self.names_data["female_names"])
-                self.curr_name_mapping[new] = new_character
-            if not original_character:
-                original_character = utils.random_name(new, self.gender_map[org], self.names_data["male_names"],
-                                                       self.names_data["female_names"])
-                self.curr_name_mapping[org] = original_character
+            # if not new_character:
+            #     new_character = utils.random_name(new, self.gender_map[new], self.names_data["male_names"],
+            #                                       self.names_data["female_names"])
+            #     self.curr_name_mapping[new] = new_character
+            # if not original_character:
+            #     original_character = utils.random_name(new, self.gender_map[org], self.names_data["male_names"],
+            #                                            self.names_data["female_names"])
+            #     self.curr_name_mapping[org] = original_character
             print(f'original character: {original_character}')
             print(f'new character: {new_character}')
             sentence = sentence.replace(original_character, new_character)
@@ -262,26 +263,29 @@ class PlotterRecursionBasedMainConflict:
                     expand_id=f"{expand_id}-vstartend"
                 )
                 # Apply names to the expanded v item
-                if item.get("tfm"):
-                    expanded_v = self.tfm_characters(item.get("tfm"), expanded_v)
                 expanded_v = self._apply_names(expanded_v)
+                if item.get("tfm"):
+                    print(f'tfm is: {item.get("tfm")} 1')
+                    expanded_v = self.tfm_characters(item.get("tfm"), expanded_v)
                 ret.append(expanded_v)
             elif item.get("op") == "+":
                 logging.debug(f"Expanding conflict v with chaining: {item}")
                 for sub in item["v"]:
                     expanded_sub = self._expand(sub, item.get("tfm"), ctx, expand_id=f"{expand_id}-vop")
                     # Apply names to each sub-item in the list
-                    if item.get("tfm"):
-                        expanded_sub = self.tfm_characters(item.get("tfm"), expanded_sub)
                     expanded_sub = self._apply_names(expanded_sub)
+                    if item.get("tfm"):
+                        print(f'tfm is: {item.get("tfm")} 2')
+                        expanded_sub = self.tfm_characters(item.get("tfm"), expanded_sub)
                     ret.append(expanded_sub)
             else:
                 logging.debug(f"Expanding conflict v: {item}")
                 expanded_v = self._expand(item["v"], item.get("tfm"), ctx, expand_id=f"{expand_id}-v")
                 # Apply names to the expanded v item
-                if item.get("tfm"):
-                        expanded_v = self.tfm_characters(item.get("tfm"), expanded_v)
                 expanded_v = self._apply_names(expanded_v)
+                if item.get("tfm"):
+                        print(f'tfm is: {item.get("tfm")} 3')
+                        expanded_v = self.tfm_characters(item.get("tfm"), expanded_v)
                 ret.append(expanded_v)
         # Combine results
         result = "\n\n".join(ret).strip()

@@ -42,7 +42,7 @@ def main():
             names_data=names_data,
         )
 
-        plot = generatorBasedMainConflict.generate(lead_ins=2, carry_ons=2)
+        plot = generatorBasedMainConflict.generate(lead_ins=3, carry_ons=3)
         generatorBasedMainConflict.ordered_sentences.append(plot["c clause"])
         generatorBasedMainConflict.ordered_sentences.insert(0, plot["description"])
 
@@ -121,7 +121,7 @@ def main():
     main_conflict_folder = 'RecursionBasedMainConflict'
     lead_ins_folder = 'RecursionBasedLeadIns'
     rec_based_main_conflict(base_folder, main_conflict_folder)
-    rec_based_lead_ins(base_folder, lead_ins_folder)
+    # rec_based_lead_ins(base_folder, lead_ins_folder)
 
 
 if __name__ == "__main__":
