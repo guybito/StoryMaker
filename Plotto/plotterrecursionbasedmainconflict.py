@@ -99,6 +99,7 @@ class PlotterRecursionBasedMainConflict:
         self.root = conflict
         plot = self._expand(conflict, root_transform, {"leadIns": self.lead_ins, "carryOns": self.carry_ons},
                             expand_id=root_id).replace('*', '')
+        plot = self._apply_names(plot)
         plot = self.fix_pronouns_contextually(plot, self.curr_name_mapping)
         return {
                 "a clause": f"{A_Clause}",
@@ -158,26 +159,53 @@ class PlotterRecursionBasedMainConflict:
             else:
                 return new_description
 
+    # def tfm_characters(self, tfm, sentence):
+    #     print(f'characters are: {self.curr_name_mapping.items()}')
+    #     for org, new in tfm.items():
+    #         self.known_symbols(org)
+    #         self.known_symbols(new)
+    #         print(f'tfm items: {tfm.items()}')
+    #         original_character = self.curr_name_mapping.get(org)
+    #         new_character = self.curr_name_mapping.get(new)
+    #         # if not new_character:
+    #         #     new_character = utils.random_name(new, self.gender_map[new], self.names_data["male_names"],
+    #         #                                       self.names_data["female_names"])
+    #         #     self.curr_name_mapping[new] = new_character
+    #         # if not original_character:
+    #         #     original_character = utils.random_name(new, self.gender_map[org], self.names_data["male_names"],
+    #         #                                            self.names_data["female_names"])
+    #         #     self.curr_name_mapping[org] = original_character
+    #         print(f'original character: {original_character}')
+    #         print(f'new character: {new_character}')
+    #         sentence = sentence.replace(original_character, new_character)
+    #     return sentence
+
+    import re
+
     def tfm_characters(self, tfm, sentence):
-        print(f'characters are: {self.curr_name_mapping.items()}')
-        for org, new in tfm.items():
-            self.known_symbols(org)
-            self.known_symbols(new)
-            print(f'tfm items: {tfm.items()}')
-            original_character = self.curr_name_mapping.get(org)
-            new_character = self.curr_name_mapping.get(new)
-            # if not new_character:
-            #     new_character = utils.random_name(new, self.gender_map[new], self.names_data["male_names"],
-            #                                       self.names_data["female_names"])
-            #     self.curr_name_mapping[new] = new_character
-            # if not original_character:
-            #     original_character = utils.random_name(new, self.gender_map[org], self.names_data["male_names"],
-            #                                            self.names_data["female_names"])
-            #     self.curr_name_mapping[org] = original_character
-            print(f'original character: {original_character}')
-            print(f'new character: {new_character}')
-            sentence = sentence.replace(original_character, new_character)
-        return sentence
+        print(f'sentence: {sentence}')
+        all_sentences = sentence.split("\n\n")
+        print(f'sentence in inx 0: {all_sentences[0]}')
+        curr_sentence = all_sentences[0]
+        # Split the current sentence by spaces, commas, periods, single quotes, and other punctuation marks
+        # This updated regex ensures apostrophes are correctly handled as delimiters
+        words = re.split(r'(\s+|[.,!?;\'()]+)', curr_sentence)
+        transformed_words = []
+        for word in words:
+            if word in tfm:
+                new_word = tfm[word]
+                # Check for circular transformation (new_word -> word)
+                # if new_word in tfm and tfm.get(new_word) == word:
+                #     # Circular transformation detected, skip transformation for this word
+                #     transformed_words.append(word)
+                # else:
+                transformed_words.append(new_word)  # Apply the transformation if no circular reference
+            else:
+                transformed_words.append(word)  # Keep the word as is if no transformation
+        print(f'Joined transformed words: {"".join(transformed_words)}')
+        # Join the transformed words back into a sentence
+        all_sentences[0] =  "".join(transformed_words)
+        return "\n\n".join(all_sentences)
 
     def known_symbols(self, symbol):
         if self.curr_name_mapping.get(symbol) is None:
@@ -213,7 +241,7 @@ class PlotterRecursionBasedMainConflict:
                 #         rest_of_sentence += self.fill_sentences(s_id)
                 #     item["description"] = curr_sentence_description + rest_of_sentence
                 # item['description'] = self._apply_names(item['description'])
-                item['description'] = self._apply_names(item['description'])
+                # item['description'] = self._apply_names(item['description'])
                 ret.append(f"{item['description']} [{sentence_id}]")
                 logging.debug(f"Added main conflict to plot: {sentence_id}")
 
@@ -223,7 +251,7 @@ class PlotterRecursionBasedMainConflict:
             logging.debug(f"Processing lead-in for main conflict: {item.get('conflictid', 'N/A')}")
             lead_in_result = self._expand(item["leadIns"], None, ctx, expand_id=lead_in_id)
             # Apply names to the lead-in result
-            lead_in_result = self._apply_names(lead_in_result)
+            # lead_in_result = self._apply_names(lead_in_result)
             ret.append(lead_in_result)
         # Handle carry-ons
         if ctx.get("carryOns", 0) > 0 and "carryOns" in item:
@@ -232,7 +260,7 @@ class PlotterRecursionBasedMainConflict:
             logging.debug(f"Processing carry-on for main conflict: {item.get('conflictid', 'N/A')}")
             carryon = self._expand(self.root["carryOns"], transform, ctx, expand_id=carryon_id)
             # Apply names to the carry-on result
-            carryon = self._apply_names(carryon)
+            # carryon = self._apply_names(carryon)
             ret.append(carryon)
         # Expand sub-items
         if isinstance(item, str):
@@ -240,13 +268,13 @@ class PlotterRecursionBasedMainConflict:
             expanded_item = self._expand(self.plotto["conflicts"].get(item, None), None, ctx,
                                          expand_id=f"{expand_id}-str")
             # Apply names to the expanded string item
-            expanded_item = self._apply_names(expanded_item)
+            # expanded_item = self._apply_names(expanded_item)
             ret.append(expanded_item)
         elif isinstance(item, list):
             logging.debug(f"Expanding conflict list: {item}")
             expanded_list = self._expand(self._picker(item, "plot option"), None, ctx, expand_id=f"{expand_id}-list")
             # Apply names to the expanded list item
-            expanded_list = self._apply_names(expanded_list)
+            # expanded_list = self._apply_names(expanded_list)
             ret.append(expanded_list)
         elif "v" in item:
             if isinstance(item['v'], str):
@@ -263,7 +291,7 @@ class PlotterRecursionBasedMainConflict:
                     expand_id=f"{expand_id}-vstartend"
                 )
                 # Apply names to the expanded v item
-                expanded_v = self._apply_names(expanded_v)
+                # expanded_v = self._apply_names(expanded_v)
                 if item.get("tfm"):
                     print(f'tfm is: {item.get("tfm")} 1')
                     expanded_v = self.tfm_characters(item.get("tfm"), expanded_v)
@@ -273,7 +301,7 @@ class PlotterRecursionBasedMainConflict:
                 for sub in item["v"]:
                     expanded_sub = self._expand(sub, item.get("tfm"), ctx, expand_id=f"{expand_id}-vop")
                     # Apply names to each sub-item in the list
-                    expanded_sub = self._apply_names(expanded_sub)
+                    # expanded_sub = self._apply_names(expanded_sub)
                     if item.get("tfm"):
                         print(f'tfm is: {item.get("tfm")} 2')
                         expanded_sub = self.tfm_characters(item.get("tfm"), expanded_sub)
@@ -282,15 +310,15 @@ class PlotterRecursionBasedMainConflict:
                 logging.debug(f"Expanding conflict v: {item}")
                 expanded_v = self._expand(item["v"], item.get("tfm"), ctx, expand_id=f"{expand_id}-v")
                 # Apply names to the expanded v item
-                expanded_v = self._apply_names(expanded_v)
+                # expanded_v = self._apply_names(expanded_v)
                 if item.get("tfm"):
                         print(f'tfm is: {item.get("tfm")} 3')
                         expanded_v = self.tfm_characters(item.get("tfm"), expanded_v)
+                        print(f'expanded_v: {expanded_v}')
                 ret.append(expanded_v)
         # Combine results
         result = "\n\n".join(ret).strip()
-        # Apply names to the final result
-        result = self._apply_names(result)
+        # print(f'result is: {result}')
         return result
 
     def fix_pronouns_contextually(self, text: str, actors: dict) -> str:
