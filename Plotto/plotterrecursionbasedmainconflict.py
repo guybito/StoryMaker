@@ -1,9 +1,9 @@
 from graphviz import Digraph
 from Plotter import *
 import re
-import utils
+import helper_funcs
 from typing import List, Dict, Optional
-from utils import random_clause, random_name
+from helper_funcs import random_clause, random_name
 import random
 import logging
 
@@ -107,6 +107,7 @@ class PlotterRecursionBasedMainConflict:
                 "subgroup": B_Clause["subgroup"],
                 "description": B_Clause["description"],
                 "actors": [{"symbol": symbol, "name": name} for symbol, name in self.curr_name_mapping.items()],
+                "main conflict": conflict["description"],
                 "plot": f"{B_Clause}\n\n{plot}\n\n{C_Clause}".strip(),
                 "c clause": f"{C_Clause}"
                 }
