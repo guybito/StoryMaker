@@ -1,11 +1,10 @@
 from graphviz import Digraph
 import re
 from typing import List, Dict, Optional
-from utils import random_clause, random_name
+from helper_funcs import random_clause, random_name
 import random
 import logging
 from Plotter import *
-import utils
 
 logging.basicConfig(level=logging.DEBUG)
 
