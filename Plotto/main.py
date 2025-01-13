@@ -1,9 +1,14 @@
-from utils import load_names, load_gender_map, load_pronoun_map
+
+from helper_funcs import load_names, load_gender_map, load_pronoun_map
 from plotterrecursionbasedmainconflict import PlotterRecursionBasedMainConflict
 from PlotterRecursionBasedLeadIns import PlotterRecursionBasedLeadIns
 import json
+import api_backend
 import os
 
+
+
+import time
 
 def write_to_file(base_output_folder, folder_name, content):
     """Helper function to write content to a dynamically named file in a specific folder."""
@@ -53,8 +58,10 @@ def main():
         content.append(f"Description = B clause : {plot['description']}")
         content.append("\nActors:")
         for character in generatorBasedMainConflict.curr_name_mapping.items():
-            content.append(f"  - {character[0]} : {character[1]}")
+            character_description = plotto_data["characters"].get(character[0])
+            content.append(f"  - {character[0]} : {character[1]} - {character_description}")
 
+        content.append(f'\nMain conflict: {plot["main conflict"]}')
         ordered_plot = []
         for sentence_id in generatorBasedMainConflict.ordered_sentences:
             for sentence in plot["plot"].split("\n"):
@@ -62,10 +69,10 @@ def main():
                     ordered_plot.append(sentence.strip())
                     break
 
-        content.append("\nPlot:")
+        content.append("\n\nPlot:")
         content.append(f"B clause : {plot['description']}")
         content.extend(ordered_plot)
-        content.append(f"C clause : {plot['c clause']}")
+        content.append(f"\nC clause : {plot['c clause']}")
 
         content.append("\nSentence Order (Ordered):")
         content.append(" -> ".join(generatorBasedMainConflict.ordered_sentences))
@@ -95,8 +102,10 @@ def main():
         content.append(f"Description = B clause : {plot['description']}")
         content.append("\nActors:")
         for character in generatorBasedLeadIns.curr_name_mapping.items():
-            content.append(f"  - {character[0]} : {character[1]}")
+            character_description = plotto_data["characters"].get(character[0])
+            content.append(f"  - {character[0]} : {character[1]} - {character_description}")
 
+        content.append(f'\nMain conflict: {plot["main conflict"]}')
         ordered_plot = []
         for sentence_id in generatorBasedLeadIns.ordered_sentences:
             for sentence in plot["plot"].split("\n"):
@@ -104,10 +113,10 @@ def main():
                     ordered_plot.append(sentence.strip())
                     break
 
-        content.append("\nPlot:")
+        content.append("\n\nPlot:")
         content.append(f"B clause : {plot['description']}")
         content.extend(ordered_plot)
-        content.append(f"C clause : {plot['c clause']}")
+        content.append(f"\nC clause : {plot['c clause']}")
 
         content.append("\nSentence Order (Ordered):")
         content.append(" -> ".join(generatorBasedLeadIns.ordered_sentences))
@@ -126,4 +135,57 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # openai.api_key = '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'
+    input_file_path = "C:\\SemesterG\\FinalProject\\Code\\GeneratedPlots\\RecursionBasedMainConflict\\2.txt"
+    with open(input_file_path, "r") as file:
+        file_content = file.read()
+    first_instruction = """
+    Im adding the skeleton of my story (a txt file) that detailed about a skeleton of a story (A theme about the main character of the story (under the title A clause), the theme of the story (under the the titles group and sub-group), the theme of the main conflict (under the title description),
+    the names and the description of the characters of the story (under the title actors), the description of the main conflict (under the title main conflict), the descriptions of each lead-in\carry-on of the main conflict
+    (under the title plot, it's already organized by order that means that the first description is the first lead-in and so on until the main conflict description and after will be the carry-ons by order until the c clause
+    and the description of the c clause (under the title c clause). this is some info about the meaning of each clause: The A Clause is the Protagonist Clause, The B Clause originates and carries on the action and the C Clause carries on and terminates the action.now after i explained about the input i gave you i want you please to give a title to the story based the info you have from the skeleton of the story (the txt file)
+    your response should be only the title without bolding or things like that! be the most creative you can!
+    """
+    second_instruction = """
+    Im adding the skeleton of my story (a txt file) that detailed about a skeleton of a story (A theme about the main character of the story (under the title A clause), the theme of the story (under the the titles group and sub-group), the theme of the main conflict (under the title description),
+    the names and the description of the characters of the story (under the title actors), the description of the main conflict (under the title main conflict), the descriptions of each lead-in\carry-on of the main conflict
+    (under the title plot, it's already organized by order that means that the first description is the first lead-in and so on until the main conflict description and after will be the carry-ons by order until the c clause
+    and the description of the c clause (under the title c clause). this is some info about the meaning of each clause: The A Clause is the Protagonist Clause, The B Clause originates and carries on the action and the C Clause carries on and terminates the action.now after i explained about the input i gave you i want you please to do the following (by order):1. give a title to the story based the info you have from the skeleton of the story (the txt file)
+    2. i want you to write for me the opening of the story based on the info i gave you (using the info from the A clause and the actors), do it using maximum 60 words. 3. now i want you to expand the plot (using the info from the B clause, the main conflict and the plot), do it by expanding each paragraph in the plot to 75 words each. 4. now do the same you did for the opening of the story (in section 2) for the ending of the story (using the info from what you wrote in the previous section and the description of the c clause),
+    do it using maximum 60 words. most important make it looks like a story (without any numbering or titling paragraphs or things like that!, its should look like title and then paragraphs)
+    """
+    first_prompt = file_content + "  " + first_instruction
+    second_prompt = file_content + "\n\n" + second_instruction
+    api_backend.start_chat_gpt()
+    story_title = api_backend.make_gpt_request_and_copy(first_prompt.replace('\n', ' '))
+    print(f'the title is: {story_title}')
+    time.sleep(1)
+    story_content = api_backend.make_gpt_request_and_copy(second_prompt.replace('\n', ' '))
+    api_backend.stop_chat_gpt()
+
+    # response = openai.ChatCompletion.create(
+    #     model="gpt-3.5-turbo",
+    #     messages = [
+    #     {"role": "system",
+    #      "content": "You are an expert in story writing. You create compelling narratives, craft engaging plots, and develop vivid characters. Provide professional advice on how to enhance storytelling."},
+    #     {"role": "user", "content": prompt}
+    #     ]
+    # )
+    #
+    # full_response = response['choices'][0]['message']['content']
+    # if "\n\n" in full_response:
+    #     title, story = full_response.split("\n\n", 1)
+    # else:
+    #     title, story = full_response, ""
+    #
+    output_file_path = f'C:\\SemesterG\\FinalProject\\Code\\GeneratedPlots\\StoriesBasedMainConflict\\{story_title.strip()}.txt'
+    #
+    # Write the content to the file
+    with open(output_file_path, "w") as file:
+        file.write(story_content)
+    print(f"Output written to {output_file_path}")
+
+
+
+
 
