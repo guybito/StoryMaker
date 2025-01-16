@@ -1,16 +1,11 @@
-
+import re
 from helper_funcs import load_names, load_gender_map, load_pronoun_map
 from plotterrecursionbasedmainconflict import PlotterRecursionBasedMainConflict
 from PlotterRecursionBasedLeadIns import PlotterRecursionBasedLeadIns
-import json
 import api_backend
 import os
-from ai21 import AI21Client
-from ai21.models.chat import ChatMessage, ResponseFormat, DocumentSchema, FunctionToolDefinition, ToolDefinition, ToolParameters
-
-
-
-
+import requests
+import json
 import time
 
 def write_to_file(base_output_folder, folder_name, content):
@@ -81,7 +76,6 @@ def main():
         content.append(" -> ".join(generatorBasedMainConflict.ordered_sentences))
 
         # generatorBasedMainConflict.generate_graph(generatorBasedMainConflict.ordered_sentences, plot)
-        # print(content)
         write_to_file(dir_folder, folder_name, "\n".join(content))
 
     def rec_based_lead_ins(dir_folder, folder_name):
@@ -125,7 +119,6 @@ def main():
         content.append(" -> ".join(generatorBasedLeadIns.ordered_sentences))
 
         # generatorBasedLeadIns.generate_graph(generatorBasedLeadIns.ordered_sentences, plot)
-        # print(content)
         write_to_file(dir_folder, folder_name, "\n".join(content))
 
     # Call the functions
@@ -137,53 +130,132 @@ def main():
 
 
 if __name__ == "__main__":
-    # main()
-    # input_file_path = "C:\\SemesterG\\FinalProject\\Code\\GeneratedPlots\\RecursionBasedMainConflict\\2.txt"
-    # with open(input_file_path, "r") as file:
-    #     file_content = file.read()
-    # first_instruction = """
-    # Im adding the skeleton of my story (a txt file) that detailed about a skeleton of a story (A theme about the main character of the story (under the title A clause), the theme of the story (under the the titles group and sub-group), the theme of the main conflict (under the title description),
-    # the names and the description of the characters of the story (under the title actors), the description of the main conflict (under the title main conflict), the descriptions of each lead-in\carry-on of the main conflict
-    # (under the title plot, it's already organized by order that means that the first description is the first lead-in and so on until the main conflict description and after will be the carry-ons by order until the c clause
-    # and the description of the c clause (under the title c clause). this is some info about the meaning of each clause: The A Clause is the Protagonist Clause, The B Clause originates and carries on the action and the C Clause carries on and terminates the action.now after i explained about the input i gave you i want you please to give a title to the story based the info you have from the skeleton of the story (the txt file)
-    # your response should be only the title without bolding or things like that! be the most creative you can!
-    # """
-    # second_instruction = """
-    # Im adding the skeleton of my story (a txt file) that detailed about a skeleton of a story (A theme about the main character of the story (under the title A clause), the theme of the story (under the the titles group and sub-group), the theme of the main conflict (under the title description),
-    # the names and the description of the characters of the story (under the title actors), the description of the main conflict (under the title main conflict), the descriptions of each lead-in\carry-on of the main conflict
-    # (under the title plot, it's already organized by order that means that the first description is the first lead-in and so on until the main conflict description and after will be the carry-ons by order until the c clause
-    # and the description of the c clause (under the title c clause). this is some info about the meaning of each clause: The A Clause is the Protagonist Clause, The B Clause originates and carries on the action and the C Clause carries on and terminates the action.now after i explained about the input i gave you i want you please to do the following (by order):1. give a title to the story based the info you have from the skeleton of the story (the txt file)
-    # 2. i want you to write for me the opening of the story based on the info i gave you (using the info from the A clause and the actors), do it using maximum 60 words. 3. now i want you to expand the plot (using the info from the B clause, the main conflict and the plot), do it by expanding each paragraph in the plot to 75 words each. 4. now do the same you did for the opening of the story (in section 2) for the ending of the story (using the info from what you wrote in the previous section and the description of the c clause),
-    # do it using maximum 60 words. most important make it looks like a story (without any numbering or titling paragraphs or things like that!, its should look like title and then paragraphs)
-    # """
-    # first_prompt = file_content + "  " + first_instruction
-    # second_prompt = file_content + "\n\n" + second_instruction
-    # api_backend.start_chat_gpt()
-    # story_title = api_backend.make_gpt_request_and_copy(first_prompt.replace('\n', ' '))
-    # print(f'the title is: {story_title}')
-    # time.sleep(1)
-    # story_content = api_backend.make_gpt_request_and_copy(second_prompt.replace('\n', ' '))
-    # api_backend.stop_chat_gpt()
-    #
-    # output_file_path = f'C:\\SemesterG\\FinalProject\\Code\\GeneratedPlots\\StoriesBasedMainConflict\\{story_title.strip()}.txt'
-    #
-    # # Write the content to the file
-    # with open(output_file_path, "w") as file:
-    #     file.write(story_content)
-    # print(f"Output written to {output_file_path}")
+    main()
+    story_title = ''
+    story_content = ''
+    api_key = "Dp3hMfNcVHebFcwEX1CX35xWFWgLrJY3"
+    input_file_path = "C:\\SemesterG\\FinalProject\\Code\\GeneratedPlots\\RecursionBasedMainConflict\\10.txt"
+    with open(input_file_path, "r") as file:
+        file_content = file.read()
+    second_instruction = """
+                    You are tasked with crafting an immersive and well-rounded story based on the provided plot framework. This story should be engaging, vivid, and address key aspects of storytelling effectively. Follow these instructions closely to ensure a superior narrative.
+                    Plot Skeleton Format
+                    The plot framework will be provided in the following format:
+                    A Clause: Describes the initial state or identity of the protagonist or main subject of the story. It sets the stage for the story and establishes the baseline for what is about to change.
+                    Group: Indicates the overarching theme or genre of the story (e.g., Enterprise, Love, Adventure).
+                    Subgroup: Specifies the subgenre or nuanced theme within the group (e.g., Simulation, Redemption, Betrayal).
+                    B Clause: Outlines the central challenge, event, or action that sets the protagonist on their journey. This is the primary engine of the plot and often introduces the main conflict.
+                    Actors: Lists the key characters in the story, their names, and roles. These roles are indicated using placeholders (e.g., A, B, F-B, etc.) to show their relationship to the plot. The writer is expected to integrate these roles into the narrative with depth and distinction. (note: if the symbol X appears switch it in this way - an inanimate object, an object of mystery, an uncertain quantity, if Y\Z appear switch it with an exotic place that fits the plot).
+                    Plot Description: Provides a sequential outline of events that will shape the story, including pivotal moments, challenges, and character dynamics.
+                    C Clause: Concludes the narrative, indicating the resolution of the conflict and the ultimate fate of the characters.
 
-    messages = [ChatMessage(content="Who was the first emperor of rome", role="user")]
+                    Story Requirements
+                    1. Character Development
+                    Clearly identify the protagonist and provide a compelling backstory that motivates their actions.
+                    Define the protagonist's goal or "want," ensuring they take an active role in achieving it.
+                    Include weaknesses, fears, or vulnerabilities that humanize the protagonist and make them relatable.
+                    Show a clear arc of change for the protagonist, where they grow, learn a lesson, or address their weaknesses by the end.
+                    Ensure supporting characters are distinct, colorful, and contribute meaningfully to the protagonist’s journey. Avoid stereotypes or unnecessary characters.
+                    Develop characters physically, mentally, and socially to create a multidimensional cast.
+                    2. Conflict
+                    Define a main conflict that is challenging and relatable, ensuring it sustains tension throughout the story.
+                    Relate the conflict to the human condition so it resonates with a broad audience.
+                    Incorporate external events and internal emotional struggles for both the protagonist and supporting characters.
+                    Introduce subplots with their own conflicts, which intertwine meaningfully with the main plot.
+                    Escalate the conflict effectively toward the climax, and ensure it is fully resolved by the end.
+                    3. Craft
+                    Use modern, vivid English with sophisticated word choice to create vivid imagery.
+                    Include rich descriptions of settings, characters, and actions to immerse readers in the story.
+                    Ensure the writing is clear, concise, and grammatically correct.
+                    Use language to convey atmosphere, tension, and movement in an engaging way.
+                    4. Dialogue
+                    Craft dialogue that reflects each character's individuality and is appropriate for their background, time period, and personality.
+                    Use dialogue to express subtext and layers of meaning, avoiding overly expository or platitudinal lines.
+                    Ensure conversations flow naturally, contribute to character development, and advance the plot.
+                    5. Subplot
+                    Incorporate subplots that have a clear beginning, middle, and end, with challenges and reversals that add depth to the story.
+                    Ensure subplots relate directly to the main plot and enrich the protagonist's journey.
+                    Resolve subplots meaningfully, with a clear payoff.
+                    6. Logic
+                    Avoid plot holes or inconsistencies. Ensure every detail aligns with established facts in the story.
+                    Clarify any potential ambiguities or unanswered questions to avoid reader confusion.
+                    Ensure all major elements are consistent with the internal logic of the story.
+                    7. Pacing
+                    Balance action and dialogue for smooth narrative progression.
+                    Maintain mystery and suspense throughout the story by introducing questions and revealing answers at the right time.
+                    Ensure scenes flow logically and build causally ("this because this").
+                    Include moments of anticipation, irony, or surprise that feel earned and align with the narrative.
+                    8. Originality
+                    Present an original premise that feels novel or refreshing within its genre.
+                    Avoid over-reliance on clichés or recycled themes.
+                    Introduce unique elements that make the story stand out, such as innovative character dynamics or unexpected twists.
+                    9. Structure
+                    Follow a clear beginning, middle, and end that forms a coherent whole.
+                    Include structural beats (Pre‐Existing Life, Call to Action, Act One Decision, Midpoint, Climax, Resolution, etc.) at effective moments.
+                    Ensure every scene drives the plot progression, character arc, or both.
+                    Plant details early that pay off later in the narrative.
+                    Formatting Requirements
+                    Write the story in clear, distinct paragraphs for better readability.
+                    Provide a title that reflects the essence of the story.
+                    Ensure the story spans around 500 words and delivers an engaging, complete narrative and being written in modern English
+                    """
+    second_prompt = file_content + "\n\n" + second_instruction
+    while True:
+        user_input = input("Enter 'c' to create a story with chatGPT or 'j' to create a story with jamba: ").lower()
 
-    client = AI21Client()
+        if user_input == 'c':
+            first_instruction = """
+                Im adding the skeleton of my story (a txt file) that detailed about a skeleton of a story (A theme about the main character of the story (under the title A clause), the theme of the story (under the the titles group and sub-group), the theme of the main conflict (under the title description),
+                the names and the description of the characters of the story (under the title actors), the description of the main conflict (under the title main conflict), the descriptions of each lead-in\carry-on of the main conflict
+                (under the title plot, it's already organized by order that means that the first description is the first lead-in and so on until the main conflict description and after will be the carry-ons by order until the c clause
+                and the description of the c clause (under the title c clause). this is some info about the meaning of each clause: The A Clause is the Protagonist Clause, The B Clause originates and carries on the action and the C Clause carries on and terminates the action.now after i explained about the input i gave you i want you please to give a title to the story based the info you have from the skeleton of the story (the txt file)
+                your response should be only the title without bolding or things like that! be the most creative you can!
+                """
+            # Assuming api_backend is defined elsewhere
+            api_backend.start_chat_gpt()
+            first_prompt = file_content + "  " + first_instruction
+            story_title = api_backend.make_gpt_request_and_copy(first_prompt.replace('\n', ' '))
+            print(f'the title is: {story_title}')
+            time.sleep(1)
+            story_content = api_backend.make_gpt_request_and_copy(second_prompt.replace('\n', ' '))
+            api_backend.stop_chat_gpt()
+            break  # Exit the loop after successful execution of 'c' part
 
-    response = client.chat.completions.create(
-        messages=messages,
-        model="jamba-1.5-mini",
-        stream=True
-    )
+        elif user_input == 'j':
+            url = 'https://api.ai21.com/studio/v1/chat/completions'
+            headers = {
+                'Authorization': f'Bearer {api_key}',
+                'Content-Type': 'application/json'
+            }
+            payload = {
+                "model": "jamba-1.5-large",
+                "messages": [
+                    {"role": "user", "content": second_prompt.replace('\n', ' ')}
+                ],
+                "maxTokens": 100,
+                "temperature": 0.7
+            }
 
-    for chunk in response:
-        print(chunk.choices[0].delta.content, end="")
+            response = requests.post(url, headers=headers, data=json.dumps(payload))
+
+            if response.status_code == 200:
+                result = response.json()
+                story_content = result['choices'][0]['message']['content']
+                story_title = re.findall(r'\*\*(.*?)\*\*', story_content)
+            else:
+                print(f'Error: {response.status_code}')
+                print(response.json())
+            break  # Exit the loop after successful execution of 'j' part
+
+        else:
+            print("Invalid input. Please enter 'c' or 'j'.")
+    output_file_path = f'C:\\SemesterG\\FinalProject\\Code\\GeneratedPlots\\StoriesBasedMainConflict\\{story_title[0].split("Title: ")[1]}.txt'
+    # Write the content to the file
+    with open(output_file_path, "w") as file:
+        file.write(story_content)
+    print(f"Output written to {output_file_path}")
+
+
 
 
 
