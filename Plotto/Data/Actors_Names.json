@@ -1,0 +1,35 @@
+{
+  "male_names": [
+    "John", "David", "Michael", "Robert", "Daniel", "William", "James", "Joseph",
+    "Benjamin", "Ethan", "Liam", "Noah", "Alexander", "Jacob", "Samuel", "Lucas",
+    "Logan", "Elijah", "Aiden", "Owen", "Gabriel", "Ryan", "Nathan", "Caleb",
+    "Matthew", "Jack", "Oliver", "Sebastian", "Leo", "Henry", "Julian", "Isaac",
+    "Tomer", "Ido", "Guy", "Or", "Dan", "Jonathan", "Aaron", "Levi", "Adam",
+    "Zachary", "Eli", "Jesse", "Jordan", "Max", "Simon", "Jason", "Kevin",
+    "Luke", "Mason", "Adrian", "Mark", "Anthony", "Andrew", "Brandon", "Charles",
+    "Thomas", "Nicholas", "Patrick", "George", "Stephen", "Peter", "Connor",
+    "Christian", "Paul", "Henry", "Victor", "Arthur", "Austin", "Spencer",
+    "Dylan", "Finn", "Calvin", "Dominic", "Eric", "Cameron", "Edward", "Hunter",
+    "Joshua", "Keith", "Timothy", "Phillip", "Gregory", "Harvey", "Louis",
+    "Martin", "Miles", "Ronan", "Theo", "Tobias", "Vincent", "Walter", "Wyatt",
+    "Xavier", "Seth", "Blake", "Evan", "Dean", "Rafael", "Jude", "Oscar",
+    "Harrison", "Cole", "Damian", "Elliot", "Frederick", "Graham", "Hugo"
+  ],
+  "female_names": [
+    "Mary", "Linda", "Barbara", "Elizabeth", "Patricia", "Jennifer", "Emily",
+    "Sophia", "Olivia", "Ava", "Mia", "Emma", "Amelia", "Charlotte", "Isabella",
+    "Hannah", "Samantha", "Abigail", "Lily", "Ella", "Scarlett", "Victoria",
+    "Grace", "Chloe", "Alice", "Madison", "Zoey", "Layla", "Avery", "Mila",
+    "Nora", "Ellie", "Leah", "Naomi", "Aurora", "Harper", "Aria", "Lila",
+    "Ofir", "Ofek", "Talia", "Shira", "Noa", "Yael", "Eden", "Dana", "Rivka",
+    "Sarah", "Rachel", "Rebecca", "Leila", "Ruby", "Ivy", "Hazel", "Julia",
+    "Anna", "Natalie", "Sophia", "Delilah", "Clara", "Maya", "Naomi", "Eleanor",
+    "Daisy", "Violet", "Molly", "Stella", "Rose", "Summer", "Paige", "Sienna",
+    "Audrey", "Phoebe", "Lola", "Zara", "Eva", "Lucy", "Amber", "Jasmine",
+    "Isla", "Poppy", "Eliza", "Margaret", "Helena", "Bethany", "Catherine",
+    "Brooke", "Savannah", "Bella", "Alexandra", "Martha", "Esther", "Joanna",
+    "Angelina", "Amara", "Caroline", "Danielle", "Fiona", "Gemma", "Kate",
+    "Katherine", "Melody", "Sofia", "Vivian", "Willa", "Veronica", "Tessa",
+    "Lauren", "Marina", "Nicole", "Serena", "Lindsay", "Tamara", "Theresa"
+  ]
+}
