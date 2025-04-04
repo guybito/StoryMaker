@@ -4,7 +4,7 @@ from plotterrecursionbasedmainconflict import PlotterRecursionBasedMainConflict
 from PlotterRecursionBasedLeadIns import PlotterRecursionBasedLeadIns
 # import api_backend
 import os
-import requests
+# import requests
 import json
 import time
 
@@ -122,7 +122,7 @@ def main():
         write_to_file(dir_folder, folder_name, "\n".join(content))
 
     # Call the functions
-    base_folder = "C:\\Users\\tomerkatzav\\Desktop\\tempPlotto"
+    base_folder = "C:\\Users\\guybi\\Documents\\Plotto Plots"
     # base_folder = "C:\\SemesterG\\FinalProject\\Code\\GeneratedPlots"  # Replace with the actual base directory path
     main_conflict_folder = 'RecursionBasedMainConflict'
     lead_ins_folder = 'RecursionBasedLeadIns'
