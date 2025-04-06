@@ -34,7 +34,7 @@ class PlotGenieBasic:
         save_plot_to_file(): Saves the plot description to a text file.
     """
 
-    def __init__(self, data_dir="Data", seed=None):
+    def __init__(self, data_dir="Utils", seed=None):
         self.last_plot_description = None
         if seed is not None:
             random.seed(seed)

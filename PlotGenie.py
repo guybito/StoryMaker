@@ -19,45 +19,8 @@ import json
 import random
 import os
 import re
+from sentence_transformers import SentenceTransformer, util
 
-with open("Data/Thematic_Keywords.json", "r", encoding="utf-8") as f:
-    THEMATIC_KEYWORDS = json.load(f)
-
-
-def get_theme(*texts):
-    """
-    Identifies a thematic keyword category that matches any of the provided text inputs.
-    Useful to maintain narrative consistency across categories like complications or crises.
-
-    Args:
-        *texts (str): Variable number of string inputs from which to extract theme.
-
-    Returns:
-        str or None: The name of the matched theme or None if no theme found.
-    """
-    combined_text = " ".join(texts).lower()
-    for theme, keywords in THEMATIC_KEYWORDS.items():
-        if any(kw in combined_text for kw in keywords):
-            return theme
-    return None
-
-
-def filter_by_theme(category_list, theme):
-    """
-    Filters a list of story elements based on whether they match the given theme.
-    If no items match, returns the full original list (fallback).
-
-    Args:
-        category_list (list): List of strings representing story elements.
-        theme (str or None): Theme name to filter by.
-
-    Returns:
-        list: Filtered list of elements matching the theme, or full list if no match.
-    """
-    if not theme:
-        return category_list
-    filtered = [item for item in category_list if any(kw in item.lower() for kw in THEMATIC_KEYWORDS[theme])]
-    return filtered if filtered else category_list
 
 
 class PlotGenie:
@@ -74,23 +37,70 @@ class PlotGenie:
         save_plot_to_file(): Saves the plot description to a text file.
     """
 
-    def __init__(self, data_dir="Data", seed=None):
+    def __init__(self, data_dir="Utils", seed=None):
         self.last_plot_description = None
+        self.genres = ['Romance', 'Adventure', 'Mystery', 'Comedy', 'Dramatic']
         if seed is not None:
             random.seed(seed)
         self.data_dir = data_dir
-        self.locale = self.load_json("Locale.json")
-        self.hero = self.load_json("Usual_Male_Characters.json") + self.load_json("Unusual_Male_Characters.json")
-        self.beloved = self.load_json("Usual_Female_Characters.json") + self.load_json("Unusual_Female_Characters.json")
+        self.locale = self.load_json("cleaned_Locale.json")
+        self.hero = self.load_multiple_jsons(["cleaned_Usual_Male_Characters.json", "cleaned_Unusual_Male_Characters.json"])
+        self.beloved = self.load_multiple_jsons(["cleaned_Usual_Female_Characters.json", "cleaned_Unusual_Female_Characters.json"])
         self.problems = self.load_multiple_jsons([
-            "Problems_1.json", "Problems_2.json", "Problems_3.json",
-            "Problems_4.json", "Problems_5.json", "Problems_6.json"
+            "cleaned_Problems_1.json", "cleaned_Problems_2.json", "cleaned_Problems_3.json",
+            "cleaned_Problems_4.json", "cleaned_Problems_5.json", "cleaned_Problems_6.json"
         ])
-        self.obstacles = self.load_json("Obstacles_To_Love.json")
-        self.complications = self.load_json("Complications.json")
-        self.predicaments = self.load_json("Predicaments.json")
-        self.crises = self.load_json("Crises.json")
-        self.climaxes = self.load_json("Climaxes_Surprise_Twists.json")
+        self.obstacles = self.load_json("cleaned_Obstacles_To_Love.json")
+        self.complications = self.load_json("cleaned_Complications.json")
+        self.predicaments = self.load_json("cleaned_Predicaments.json")
+        self.crises = self.load_json("cleaned_Crises.json")
+        self.climaxes = self.load_json("cleaned_Climaxes_Surprise_Twists.json")
+        self.category_mapping = {
+            "locale": self.locale,
+            "hero": self.hero,
+            "beloved": self.beloved,
+            "problems": self.problems,
+            "obstacles": self.obstacles,
+            "complications": self.complications,
+            "predicaments": self.predicaments,
+            "crises": self.crises,
+            "climaxes": self.climaxes,
+        }
+        self.chosen_elements = []
+
+    def get_genre(self, random_genre=True):
+        if random_genre:
+            return random.choice(self.genres)
+        else:
+            return None
+
+    def get_category_elements(self, category):
+        return self.category_mapping[category]
+
+    def filter_by_genre(self, category, genre):
+        """
+        Filters a list of story elements based on whether they match the given theme.
+        If no items match, returns the full original list (fallback).
+
+        Args:
+            category (string): String that represents the story elements.
+            genre (string): genre name to filter by.
+
+        Returns:
+            list: Filtered list of elements matching the genre, or full list if no match.
+        """
+        if not genre:
+            return self.get_category_elements(category)
+        model = SentenceTransformer('all-MiniLM-L6-v2')
+        category_elements = self.category_mapping.get(category)
+        genre_embedding = model.encode(genre, convert_to_tensor=True)
+        sim_res = []
+        for element in category_elements:
+            element_embedding = model.encode(element, convert_to_tensor=True)
+            similarity = util.cos_sim(element_embedding, genre_embedding).item()
+            if similarity > 0.2:
+                sim_res.append((element, similarity))
+        return random.choice(sim_res)
 
     def load_json(self, filename):
         """Load a single JSON file from the data directory."""
@@ -108,33 +118,24 @@ class PlotGenie:
     def generate_plot(self, show_theme=False, save=False):
         """Randomly select one element from each story category to form a plot."""
         # Choose random values for required plot components
-        hero = random.choice(self.hero)
-        beloved = random.choice(self.beloved)
-        problem = random.choice(self.problems)
-        obstacle = random.choice(self.obstacles)
-        # Derive the theme from both problem and obstacle text
-        theme = get_theme(problem, obstacle)
-        if show_theme and theme:
-            print(f"🧠 Identified theme: {theme}")
-
-        complication = random.choice(filter_by_theme(self.complications, theme))
-        predicament = random.choice(filter_by_theme(self.predicaments, theme))
-        crisis = random.choice(filter_by_theme(self.crises, theme))
-        locale = random.choice(filter_by_theme(self.locale, theme))
-        climax = random.choice(filter_by_theme(self.climaxes, theme))
+        genre = self.get_genre()
+        for category in self.category_mapping.keys():
+            element = self.filter_by_genre(category, genre)
+            self.chosen_elements.append(element[0])
 
         plot = {
-            "Locale": locale,
-            "Hero": hero,
-            "Beloved": beloved,
-            "Problem": problem,
-            "Obstacle": obstacle,
-            "Complication": complication,
-            "Predicament": predicament,
-            "Crisis": crisis,
-            "Climax": climax,
+            "Genre": genre,
+            "Locale": self.chosen_elements[0],
+            "Hero": self.chosen_elements[1],
+            "Beloved": self.chosen_elements[2],
+            "Problem": self.chosen_elements[3],
+            "Obstacle": self.chosen_elements[4],
+            "Complication": self.chosen_elements[5],
+            "Predicament": self.chosen_elements[6],
+            "Crisis": self.chosen_elements[7],
+            "Climax": self.chosen_elements[8],
         }
-
+        print(plot)
         self.last_plot_description = (
             f"In this story set {plot['Locale'].lower()}, our hero is a {plot['Hero'].lower()} who falls in love with a {plot['Beloved'].lower()}...\n"
             f"Their goal is blocked by a major problem: {plot['Problem'].lower()}.\n"
@@ -147,7 +148,7 @@ class PlotGenie:
 
         # Optionally save the generated plot to a new text file
         if save:
-            self.save_plot_to_file(theme=theme)
+            self.save_plot_to_file(genre=genre)
         return plot
 
     def describe_plot(self):
@@ -155,7 +156,7 @@ class PlotGenie:
         header = "📖 Here is your generated plot:\n" + "=" * 35 + "\n"
         return header + getattr(self, 'last_plot_description', "No plot generated yet.")
 
-    def save_plot_to_file(self, theme=None):
+    def save_plot_to_file(self, genre=None):
         """Automatically save the last generated plot description to a numbered text file."""
         directory = "Plot Genie Plots"
         os.makedirs(directory, exist_ok=True)
@@ -171,8 +172,8 @@ class PlotGenie:
 
         next_number = max(numbers, default=0) + 1
 
-        if theme:
-            theme_safe = theme.replace(" ", "_").lower()
+        if genre:
+            theme_safe = genre.replace(" ", "_").lower()
             filename = f"Plot_{next_number}_{theme_safe}.txt"
         else:
             filename = f"Plot_{next_number}.txt"
