@@ -66,12 +66,13 @@ class PlotGenie:
             "crises": self.crises,
             "climaxes": self.climaxes,
         }
-        self.chosen_elements = []
+        self.chosen_elements_index = []
 
     def get_genre(self, random_genre=True):
         if random_genre:
             return random.choice(self.genres)
         else:
+            # TODO: if we want to let the user choose the genre - change it here
             return None
 
     def get_category_elements(self, category):
@@ -95,11 +96,11 @@ class PlotGenie:
         category_elements = self.category_mapping.get(category)
         genre_embedding = model.encode(genre, convert_to_tensor=True)
         sim_res = []
-        for element in category_elements:
-            element_embedding = model.encode(element, convert_to_tensor=True)
+        for i in range(0, len(category_elements)):
+            element_embedding = model.encode(category_elements[i], convert_to_tensor=True)
             similarity = util.cos_sim(element_embedding, genre_embedding).item()
             if similarity > 0.2:
-                sim_res.append((element, similarity))
+                sim_res.append((i, similarity))
         return random.choice(sim_res)
 
     def load_json(self, filename):
@@ -115,27 +116,58 @@ class PlotGenie:
             combined.extend(self.load_json(filename))
         return combined
 
+    def load_original_data(self):
+        """Load the original data from the utils directory."""
+        locale = self.load_json("Locale.json")
+
+        hero = self.load_multiple_jsons(["Usual_Male_Characters.json", "Unusual_Male_Characters.json"])
+        beloved = self.load_multiple_jsons(["Usual_Female_Characters.json", "Unusual_Female_Characters.json"])
+        problems = self.load_multiple_jsons([
+            "Problems_1.json", "Problems_2.json", "Problems_3.json",
+            "Problems_4.json", "Problems_5.json", "Problems_6.json"
+        ])
+        obstacles = self.load_json("Obstacles_To_Love.json")
+        complications = self.load_json("Complications.json")
+        predicaments = self.load_json("Predicaments.json")
+        crises = self.load_json("Crises.json")
+        climaxes = self.load_json("Climaxes_Surprise_Twists.json")
+
+        res = []
+        res.append(locale[self.chosen_elements_index[0]])
+        res.append(hero[self.chosen_elements_index[1]])
+        res.append(beloved[self.chosen_elements_index[2]])
+        res.append(problems[self.chosen_elements_index[3]])
+        res.append(obstacles[self.chosen_elements_index[4]])
+        res.append(complications[self.chosen_elements_index[5]])
+        res.append(predicaments[self.chosen_elements_index[6]])
+        res.append(crises[self.chosen_elements_index[7]])
+        res.append(climaxes[self.chosen_elements_index[8]])
+        return res
+
+
     def generate_plot(self, show_theme=False, save=False):
         """Randomly select one element from each story category to form a plot."""
         # Choose random values for required plot components
         genre = self.get_genre()
         for category in self.category_mapping.keys():
             element = self.filter_by_genre(category, genre)
-            self.chosen_elements.append(element[0])
+            self.chosen_elements_index.append(element[0])
+
+        res = self.load_original_data()
 
         plot = {
             "Genre": genre,
-            "Locale": self.chosen_elements[0],
-            "Hero": self.chosen_elements[1],
-            "Beloved": self.chosen_elements[2],
-            "Problem": self.chosen_elements[3],
-            "Obstacle": self.chosen_elements[4],
-            "Complication": self.chosen_elements[5],
-            "Predicament": self.chosen_elements[6],
-            "Crisis": self.chosen_elements[7],
-            "Climax": self.chosen_elements[8],
+            "Locale": res[0],
+            "Hero": res[1],
+            "Beloved": res[2],
+            "Problem": res[3],
+            "Obstacle": res[4],
+            "Complication": res[5],
+            "Predicament": res[6],
+            "Crisis": res[7],
+            "Climax": res[8],
         }
-        print(plot)
+
         self.last_plot_description = (
             f"In this story set {plot['Locale'].lower()}, our hero is a {plot['Hero'].lower()} who falls in love with a {plot['Beloved'].lower()}...\n"
             f"Their goal is blocked by a major problem: {plot['Problem'].lower()}.\n"
