@@ -36,3 +36,5 @@ pg = PlotGenie()
 
 plot = pg.generate_plot(show_theme=True, save=True)
 print(pg.describe_plot())
+prompt = pg.generate_adaptive_prompt(1000)
+print(prompt)

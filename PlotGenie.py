@@ -169,6 +169,7 @@ class PlotGenie:
         }
 
         self.last_plot_description = (
+            f"Genre: {plot['Genre']}\n"
             f"In this story set {plot['Locale'].lower()}, our hero is a {plot['Hero'].lower()} who falls in love with a {plot['Beloved'].lower()}...\n"
             f"Their goal is blocked by a major problem: {plot['Problem'].lower()}.\n"
             f"However, love does not come easy because {plot['Obstacle'].lower()}.\n"
@@ -187,6 +188,155 @@ class PlotGenie:
         """Return the latest plot description in story format, with an introductory header."""
         header = "📖 Here is your generated plot:\n" + "=" * 35 + "\n"
         return header + getattr(self, 'last_plot_description', "No plot generated yet.")
+
+    def generate_adaptive_prompt(self, word_count):
+        """
+        Generate an English prompt instructing an AI to write a full-length story based on a plot.
+
+        Args:
+            word_count (int): Desired word count for the final story.
+
+        Returns:
+            str: A rich prompt suitable for feeding into an AI writing model.
+        """
+
+        # TODO: Right now there is genre in the plot_text, if not helpful for the prompt, remove it.
+        if not self.last_plot_description:
+            return "No plot has been generated yet. Please run generate_plot() first."
+        plot_text = self.last_plot_description
+
+        # Adjust narrative guidelines based on word count
+        if word_count <= 1500:
+            instructions = (
+                "- Keep the story concise and impactful.\n"
+                "- Focus on a single main character and conflict.\n"
+                "- Avoid too many subplots or detailed backstory.\n"
+            )
+        elif word_count <= 4000:
+            instructions = (
+                "- Focus on one or two characters with light emotional development.\n"
+                "- Include a clear central conflict and resolution.\n"
+                "- Use minimal dialogue and description.\n"
+            )
+        elif word_count <= 10000:
+            instructions = (
+                "- Include meaningful character development.\n"
+                "- Introduce at least one subplot or side character.\n"
+                "- Use dialogue and emotion to deepen the story.\n"
+            )
+        elif word_count <= 20000:
+            instructions = (
+                "- Develop rich character arcs and relationships.\n"
+                "- Include multiple turning points or dramatic sequences.\n"
+                "- Balance narration, action, and dialogue.\n"
+            )
+        else:
+            instructions = (
+                "- Craft a full, multi-layered narrative with depth and detail.\n"
+                "- Include several subplots and diverse characters.\n"
+                "- Explore themes, internal struggles, and a satisfying resolution.\n"
+            )
+
+            # Advanced writing criteria inspired by literary review standards
+        advanced_criteria = (
+            "Additionally, ensure the story meets high literary standards across four dimensions:\n"
+            "CHARACTER:\n"
+            "- Ensure the main character is clearly identifiable and undergoes a meaningful arc.\n"
+    
+            "- Provide clear goals, backstory, and internal vulnerability.\n"
+            
+            "- Make supporting characters diverse and distinct, each serving a clear role.\n"
+            
+            "- Show characters' psychological, social, and physical dimensions.\n"
+                        
+            "CONFLICT:\n"
+            
+            "- Present a strong central conflict that escalates over time.\n"
+            
+            "- Ensure the stakes are clear and relatable to universal human experiences.\n"
+            
+            "- Include both internal (emotional) and external (event-based) conflicts.\n"
+            
+            "- Keep the source of conflict consistent throughout the story.\n"
+
+            "CRAFT:\n"
+            
+            "- Use clear, modern English. Maintain excellent grammar and sentence structure.\n"
+            
+            "- Describe characters, setting, and actions vividly and concisely.\n"
+            
+            "- Avoid unnecessary details, and make descriptions visual and demonstrable.\n"
+            
+            "LOGIC:\n"
+            
+            "- Avoid plot holes or contradictions.\n"
+            
+            "- Make sure all questions are resolved and events flow logically.\n"
+
+        )
+
+        # Add title request and language specification
+        title_request = (
+            "Give the story an appropriate, compelling title.")
+        language_request = (
+            "Write the entire story in clear, modern English. Avoid archaic expressions.")
+
+        return (
+            f"Write a story of approximately {word_count} words.\n"
+            f"{title_request}\n"
+            f"{language_request}\n"
+            f"The story is based on the following plot skeleton:\n"
+            f"{plot_text}"
+            f"Use the plot above to craft a complete narrative with the following guidelines:\n"
+            f"{instructions}"
+            f"- Describe the setting and emotional tone.\n"
+            f"- Emphasize the central conflict.\n"
+            f"- Use natural dialogue where appropriate.\n"
+            f"- You may expand on events while remaining faithful to the plot.\n"
+            f"Aim for a smooth and engaging narrative voice. A dramatic or open ending is welcome.\n"
+            f"{advanced_criteria}"
+        )
+
+    # TODO: Add when we got an API Key
+    # def send_prompt_to_claude(self, word_count, api_key, model="claude-3-opus-20240229", save_to_file=False):
+    #     """
+    #     Sends the generated prompt to Claude via Anthropic API and returns the story.
+    #
+    #     Args:
+    #         word_count (int): Target word count for the story.
+    #         api_key (str): Your Anthropic Claude API key.
+    #         model (str): Claude model ID (default: claude-3-opus-20240229).
+    #         save_to_file (bool): Whether to save the generated story to a file.
+    #
+    #     Returns:
+    #         str: Generated story text from Claude.
+    #     """
+    #     prompt = self.generate_adaptive_prompt(word_count)
+    #     if prompt.startswith("No plot"):
+    #         return prompt
+    #
+    #     response = requests.post(
+    #         url="https://api.anthropic.com/v1/messages",
+    #         headers={
+    #             "x-api-key": api_key,
+    #             "anthropic-version": "2023-06-01",
+    #             "content-type": "application/json"
+    #         },
+    #         json={
+    #             "model": model,
+    #             "max_tokens": 4096,
+    #             "messages": [{"role": "user", "content": prompt}]
+    #         }
+    #     )
+    #
+    #     if response.status_code == 200:
+    #         data = response.json()
+    #         self.last_story_text = data['content'][0]['text'] if data.get('content') else None
+    #         if save_to_file:
+    #             self.save_story_to_file()
+    #         return self.last_story_text if self.last_story_text else "No story generated."
+    #     else:
+    #         return f"❌ Request failed with status {response.status_code}: {response.text}"
 
     def save_plot_to_file(self, genre=None):
         """Automatically save the last generated plot description to a numbered text file."""
