@@ -19,7 +19,8 @@ import json
 import random
 import os
 import re
-from sentence_transformers import SentenceTransformer, util
+# from sentence_transformers import SentenceTransformer, util
+from sentence_transformers import  util
 
 
 
@@ -67,6 +68,26 @@ class PlotGenie:
             "climaxes": self.climaxes,
         }
         self.chosen_elements_index = []
+        self.embedding_dir = "with_embeddings"
+        self.embeddings_cache = {}
+        self.genre_embeddings = self.load_genre_embeddings()
+        # self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+        self.load_all_embeddings()
+
+    def load_genre_embeddings(self):
+        path = os.path.join(self.embedding_dir, "genres_with_embeddings.json")
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return {item["text"]: item["embedding"] for item in data}
+
+    def load_all_embeddings(self):
+        for category, original_list in self.category_mapping.items():
+            filename = f"cleaned_{category.capitalize()}_with_embeddings.json"
+            path = os.path.join(self.embedding_dir, filename)
+            if os.path.exists(path):
+                with open(path, 'r', encoding='utf-8') as f:
+                    loaded = json.load(f)
+                    self.embeddings_cache[category] = loaded
 
     def get_genre(self, random_genre=True):
         if random_genre:
@@ -90,18 +111,38 @@ class PlotGenie:
         Returns:
             list: Filtered list of elements matching the genre, or full list if no match.
         """
-        if not genre:
-            return self.get_category_elements(category)
-        model = SentenceTransformer('all-MiniLM-L6-v2')
-        category_elements = self.category_mapping.get(category)
-        genre_embedding = model.encode(genre, convert_to_tensor=True)
+        if not genre or category not in self.embeddings_cache:
+            return random.choice(list(enumerate(self.category_mapping[category])))
+
+        genre_embedding = self.genre_embeddings.get(genre)
+        if genre_embedding is None:
+            return random.choice(list(enumerate(self.category_mapping[category])))
+
+        candidates = self.embeddings_cache[category]
+
         sim_res = []
-        for i in range(0, len(category_elements)):
-            element_embedding = model.encode(category_elements[i], convert_to_tensor=True)
-            similarity = util.cos_sim(element_embedding, genre_embedding).item()
+        for i, item in enumerate(candidates):
+            element_embedding = item["embedding"]
+            similarity = util.cos_sim(genre_embedding, element_embedding).item()
             if similarity > 0.2:
                 sim_res.append((i, similarity))
-        return random.choice(sim_res)
+
+        if sim_res:
+            return random.choice(sim_res)
+        else:
+            return random.choice(list(enumerate(self.category_mapping[category])))
+        # if not genre:
+        #     return self.get_category_elements(category)
+        # model = SentenceTransformer('all-MiniLM-L6-v2')
+        # category_elements = self.category_mapping.get(category)
+        # genre_embedding = model.encode(genre, convert_to_tensor=True)
+        # sim_res = []
+        # for i in range(0, len(category_elements)):
+        #     element_embedding = model.encode(category_elements[i], convert_to_tensor=True)
+        #     similarity = util.cos_sim(element_embedding, genre_embedding).item()
+        #     if similarity > 0.2:
+        #         sim_res.append((i, similarity))
+        # return random.choice(sim_res)
 
     def load_json(self, filename):
         """Load a single JSON file from the data directory."""
