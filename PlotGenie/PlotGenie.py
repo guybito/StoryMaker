@@ -67,15 +67,15 @@ class PlotGenie:
     """
 
     def __init__(self, data_dir="Utils", seed=None):
+        self.genre = None
         self.last_plot_description = None
         self.genres = ['Romance', 'Adventure', 'Mystery', 'Comedy', 'Dramatic']
         if seed is not None:
             random.seed(seed)
-        ### Add the correct directory ###
         self.cleaned_data_dir = 'Utils_Cleaned'
         self.data_dir = data_dir
         self.embedding_dir = "with_embeddings"
-        self.genre = self.get_genre()
+
         self.locale = self.load_json("cleaned_Locale.json", self.cleaned_data_dir)
         self.hero = self.load_multiple_jsons(
             ["cleaned_Usual_Male_Characters.json", "cleaned_Unusual_Male_Characters.json"], self.cleaned_data_dir)
@@ -122,13 +122,6 @@ class PlotGenie:
                     loaded = json.load(f)
                     self.embeddings_cache[category] = loaded
 
-    def get_genre(self, random_genre=True):
-        if random_genre:
-            return random.choice(self.genres)
-        else:
-            # TODO: if we want to let the user choose the genre - change it here
-            return None
-
     def get_category_elements(self, category):
         return self.category_mapping[category]
 
@@ -157,7 +150,7 @@ class PlotGenie:
         for i, item in enumerate(candidates):
             element_embedding = item["embedding"]
             similarity = util.cos_sim(genre_embedding, element_embedding).item()
-            ### need to check the thershold ###
+            ### need to check the threshold ###
             if similarity > 0.2:
                 sim_res.append((i, similarity))
 
@@ -183,7 +176,8 @@ class PlotGenie:
         """Load the original data from the utils directory."""
         locale = self.load_json("Locale.json", self.data_dir)
         hero = self.load_multiple_jsons(["Usual_Male_Characters.json", "Unusual_Male_Characters.json"], self.data_dir)
-        beloved = self.load_multiple_jsons(["Usual_Female_Characters.json", "Unusual_Female_Characters.json"], self.data_dir)
+        beloved = self.load_multiple_jsons(["Usual_Female_Characters.json", "Unusual_Female_Characters.json"],
+                                           self.data_dir)
         problems = self.load_multiple_jsons([
             "Problems_1.json", "Problems_2.json", "Problems_3.json",
             "Problems_4.json", "Problems_5.json", "Problems_6.json"
@@ -206,6 +200,8 @@ class PlotGenie:
         """Randomly select one element from each story category to form a plot."""
         if genre is not None:
             self.genre = genre
+        else:
+            self.genre = random.choice(self.genres)
         # Choose random values for required plot components
         for category in self.category_mapping.keys():
             element = self.filter_by_genre(category, self.genre)
@@ -260,7 +256,7 @@ class PlotGenie:
                 "and becomes even more ridiculous with {obstacle}.\n"
                 "Things spiral when {complication} happens,\n"
                 "leading to {predicament}.\n"
-                "Just when it couldn’t get worse, {crisis} unfolds.\n"
+                "Just when it couldn't get worse, {crisis} unfolds.\n"
                 "The story ends with a hilarious twist where {climax}.\n"
             ),
             "Dramatic": (
@@ -354,7 +350,7 @@ class PlotGenie:
         if genre is not None:
             self.genre = genre
         else:
-            self.genre = self.get_genre()
+            self.genre = random.choice(self.genres)
 
         if generate_plot:
             self.generate_plot(save, self.genre)
