@@ -36,11 +36,12 @@
 # # plot = pg.generate_plot(save=True)
 #
 
+# prompt = pg.generate_adaptive_prompt(word_count=500, generate_plot=True, save=True)
+# print(prompt)
+
 
 from PlotGenie import PlotGenie
 
-# prompt = pg.generate_adaptive_prompt(word_count=500, generate_plot=True, save=True)
-# print(prompt)
 
 def run_cli():
     print("🎬 Welcome to Plot Genie - Story Prompt Creator")

@@ -1,10 +1,11 @@
 """
 Plot Genie - Fiction Plot Generator
 
-This module implements a class `PlotGenie` that generates random plot skeletons
-based on the 1934 book "Plot Genie Index" by Wycliffe A. Hill.
+PlotGenie class that generates story plot outlines based on structured categories
+derived from Wycliffe A. Hill’s 1934 "Plot Genie" system.
 It selects elements from predefined lists of story components such as locale,
 characters, problems, obstacles, complications, predicaments, crises, and climaxes.
+Enhanced with semantic filtering via pre-trained sentence embeddings for genre alignment.
 
 Key Features:
 - Modular and extensible
@@ -24,7 +25,13 @@ from sentence_transformers import util
 
 
 def save_prompt_to_file(prompt, genre=None):
-    """Automatically save the last generated prompt description to a numbered text file."""
+    """
+    Saves a generated AI prompt to a uniquely numbered text file.
+
+    Args:
+        prompt (str): The prompt string to be saved.
+        genre (str, optional): Genre tag to include in the filename.
+    """
     directory = "Plot Genie Prompts"
     os.makedirs(directory, exist_ok=True)
 
@@ -54,16 +61,12 @@ def save_prompt_to_file(prompt, genre=None):
 
 class PlotGenie:
     """
-    PlotGenie class for generating random plot skeletons based on categorized story elements.
+    Initializes the PlotGenie object by loading categorized story elements and their
+    semantic embeddings.
 
-    Parameters:
-        data_dir (str): Directory containing the JSON data files.
-        seed (int, optional): Seed for random number generator for reproducibility.
-
-    Methods:
-        generate_plot(): Returns a dictionary with plot components, applying thematic filtering logic to categorize such as Complication, Predicament, Crisis, Climax, and Locale based on shared keywords extracted from the problem and obstacle.
-        describe_plot(): Returns a human-readable description of the generated plot.
-        save_plot_to_file(): Saves the plot description to a text file.
+    Args:
+        data_dir (str): Path to original story data (uncleaned or reference data).
+        seed (int, optional): Random seed for reproducible plot generation.
     """
 
     def __init__(self, data_dir="Utils", seed=None):
@@ -108,12 +111,22 @@ class PlotGenie:
         self.load_all_embeddings()
 
     def load_genre_embeddings(self):
+        """
+        Loads precomputed sentence embeddings for genres from disk.
+
+        Returns:
+            dict: Mapping of genre names to their embedding vectors.
+        """
         path = os.path.join(self.embedding_dir, "genres_with_embeddings.json")
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         return {item["text"]: item["embedding"] for item in data}
 
     def load_all_embeddings(self):
+        """
+        Loads all precomputed embeddings for each story category
+        (e.g., locale, hero, problem...) into a dictionary cache.
+        """
         for category, original_list in self.category_mapping.items():
             filename = f"cleaned_{category.capitalize()}_with_embeddings.json"
             path = os.path.join(self.embedding_dir, filename)
@@ -123,19 +136,29 @@ class PlotGenie:
                     self.embeddings_cache[category] = loaded
 
     def get_category_elements(self, category):
+        """
+        Retrieves the raw list of items for a given category.
+
+        Args:
+            category (str): The category to retrieve (e.g., 'hero').
+
+        Returns:
+            list: All elements from the selected category.
+        """
         return self.category_mapping[category]
 
     def filter_by_genre(self, category, genre):
         """
-        Filters a list of story elements based on whether they match the given genre.
-        If no items match, returns the full original list (fallback).
+        Filters elements in a category by cosine similarity to the selected genre.
+        If no elements pass the threshold (currently hardcoded to 0.2), it falls
+        back to full random selection.
 
         Args:
-            category (string): String that represents the story elements.
-            genre (string): genre name to filter by.
+            category (str): Category name (e.g., 'complication').
+            genre (str): The genre to match against (e.g., 'Mystery').
 
         Returns:
-            list: Filtered list of elements matching the genre, or full list if no match.
+            tuple: (index, similarity score) of the selected item.
         """
         if not genre or category not in self.embeddings_cache:
             return random.choice(list(enumerate(self.category_mapping[category])))
@@ -160,20 +183,37 @@ class PlotGenie:
             return random.choice(list(enumerate(self.category_mapping[category])))
 
     def load_json(self, filename, directory):
-        """Load a single JSON file from the data directory."""
+        """
+        Loads a single JSON file from the specified directory.
+
+        Returns:
+            list or dict: JSON-parsed contents.
+        """
         path = os.path.join(directory, filename)
         with open(path, 'r', encoding='utf-8') as file:
             return json.load(file)
 
     def load_multiple_jsons(self, filenames, directory):
-        """Load and combine multiple JSON files into a single list."""
+        """
+        Loads and combines multiple JSON files from a directory.
+
+        Returns:
+            list: Concatenated list of items from all specified files.
+        """
         combined = []
         for filename in filenames:
             combined.extend(self.load_json(filename, directory))
         return combined
 
     def load_original_data(self):
-        """Load the original data from the utils directory."""
+        """
+        Reloads the original (pre-cleaned) data using the chosen indices
+        from the filtered embedding-based selection. This ensures compatibility
+        with legacy formatting and consistent indexing.
+
+        Returns:
+            list: Ordered list of selected plot components.
+        """
         locale = self.load_json("Locale.json", self.data_dir)
         hero = self.load_multiple_jsons(["Usual_Male_Characters.json", "Unusual_Male_Characters.json"], self.data_dir)
         beloved = self.load_multiple_jsons(["Usual_Female_Characters.json", "Unusual_Female_Characters.json"],
@@ -197,7 +237,22 @@ class PlotGenie:
         return res
 
     def generate_plot(self, save=False, genre=None):
-        """Randomly select one element from each story category to form a plot."""
+        """
+        Generates a plot aligned semantically with a genre.
+
+        Steps:
+        - Selects a genre (random or user-defined).
+        - Filters each category by similarity to the genre embedding.
+        - Retrieves the original elements by their indices.
+        - Constructs a full plot dictionary and a readable plot description.
+
+        Args:
+            save (bool): If True, saves the plot to disk.
+            genre (str): Optional genre to use instead of random selection.
+
+        Returns:
+            dict: Dictionary containing structured plot components.
+        """
         if genre is not None:
             self.genre = genre
         else:
@@ -328,23 +383,27 @@ class PlotGenie:
     #     return plot
 
     def describe_plot(self):
-        """Return the latest plot description in story format, with an introductory header."""
+        """
+        Returns the formatted story skeleton as a readable text.
+
+        Returns:
+            str: Human-readable plot outline.
+        """
         header = "📖 Here is your generated plot:\n" + "=" * 35 + "\n"
         return header + getattr(self, 'last_plot_description', "No plot generated yet.")
 
     def generate_adaptive_prompt(self, word_count, generate_plot=False, save=False, genre=None):
         """
-        Generate an English prompt instructing an AI to write a full-length story based on a plot.
+        Constructs a detailed AI prompt for generating a full story based on a plot.
 
         Args:
-            word_count (int): Desired word count for the final story.
+            word_count (int): Target length for the final story.
+            generate_plot (bool): Whether to generate a new plot or use the existing one.
+            save (bool): Whether to save the prompt as a .txt file.
+            genre (str): Specific genre to use (overrides default/random).
 
         Returns:
-            str: A rich prompt suitable for feeding into an AI writing model.
-            :param genre: Genre of the story.
-            :param save: indicates if the story should be saved or not.
-            :param word_count: Desired word count for the final story.
-            :param generate_plot: If True, the story is generated.
+            str: Fully formatted prompt for use with a generative AI model.
         """
 
         if genre is not None:
@@ -467,6 +526,17 @@ class PlotGenie:
         return prompt
 
     def check_genre_filter_coverage(self, genre=None, threshold=0.2):
+        """
+        Diagnoses how well the selected genre filters the dataset by counting how many
+        items pass the cosine similarity threshold per category.
+
+        Args:
+            genre (str): Genre to check.
+            threshold (float): Cosine similarity threshold.
+
+        Returns:
+            dict: Coverage report per category (items matched / total).
+        """
         if genre is None:
             genre = self.genre
 
@@ -536,7 +606,13 @@ class PlotGenie:
     #         return f"❌ Request failed with status {response.status_code}: {response.text}"
 
     def save_plot_to_file(self, genre=None):
-        """Automatically save the last generated plot description to a numbered text file."""
+        """
+        Saves the last plot description to a numbered file. If genre is provided,
+        it appends it to the filename for easier organization.
+
+        Args:
+            genre (str, optional): Genre string to include in the filename.
+        """
         directory = "Plot Genie Plots"
         os.makedirs(directory, exist_ok=True)
 
