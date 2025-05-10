@@ -224,12 +224,16 @@ class PlotterRecursionBasedMainConflict:
                 name = random_name(symbol, gender, male_names, female_names)
                 self.curr_name_mapping[symbol] = name
 
-    def _expand(self, item, transform, ctx, start=None, end=None, expand_id=""):
+    def _expand(self, item, transform, ctx, start=None, end=None, expand_id="", visited_ids=None):
         """Expand an item recursively and track meaningful IDs in order."""
+        if visited_ids is None:
+            visited_ids = set()
+
         self.expand_ids.append(expand_id)
         ret = []
         if not item:
             return f'NULL [{expand_id}]'
+
         # Add the main conflict description if it hasn't been added yet
         if isinstance(item, dict) and "conflictid" in item:
             sentence_id = item.get("conflictid")
@@ -238,11 +242,10 @@ class PlotterRecursionBasedMainConflict:
                     self.root = item
                     self.ordered_sentences = list(reversed(self.ordered_sentences))
                 self.ordered_sentences.append(sentence_id)
-                # Track the sentence order
+
                 print("description")
                 print(item['description'])
 
-                # ----------
                 description = item.get('description', '')
                 if isinstance(description, list):
                     print("------")
@@ -253,7 +256,7 @@ class PlotterRecursionBasedMainConflict:
                         elif isinstance(part, list):
                             for sub_part in part:
                                 if isinstance(sub_part, str):
-                                    expanded_description.append(self.expand_inner_conflict(sub_part, transform))
+                                    expanded_description.append(self.expand_inner_conflict(sub_part, transform, visited_ids=visited_ids))
                                 elif isinstance(sub_part, dict):
                                     sub_v = sub_part.get("v")
                                     sub_transform = sub_part.get("tfm", {})
@@ -266,25 +269,34 @@ class PlotterRecursionBasedMainConflict:
                                                 for sub_v_item in sub_v:
                                                     expanded_description.append(
                                                         self.expand_inner_conflict(sub_v_item, sub_transform, start,
-                                                                                   end)
+                                                                                   end, visited_ids=visited_ids)
                                                     )
                                             elif operation == "?":
                                                 selected_value = self._picker(sub_v, "plot option")
-                                                expanded_description.append(
-                                                    self.expand_inner_conflict(selected_value, sub_transform, start,
-                                                                               end)
-                                                )
+                                                if isinstance(selected_value, dict):
+                                                    selected_id = selected_value.get("v")
+                                                    selected_tfm = selected_value.get("tfm", {})
+                                                    selected_start = selected_value.get("start", "")
+                                                    selected_end = selected_value.get("end", "")
+                                                    expanded_description.append(
+                                                        self.expand_inner_conflict(selected_id, selected_tfm,
+                                                                                   selected_start, selected_end, visited_ids=visited_ids)
+                                                    )
+                                                else:
+                                                    expanded_description.append(
+                                                        self.expand_inner_conflict(selected_value, sub_transform, start,
+                                                                                   end, visited_ids=visited_ids)
+                                                    )
                                         else:
                                             for sub_v_item in sub_v:
                                                 expanded_description.append(
-                                                    self.expand_inner_conflict(sub_v_item, sub_transform, start, end)
+                                                    self.expand_inner_conflict(sub_v_item, sub_transform, start, end, visited_ids=visited_ids)
                                                 )
                                     elif isinstance(sub_v, str):
                                         expanded_description.append(
-                                            self.expand_inner_conflict(sub_v, sub_transform, start, end)
+                                            self.expand_inner_conflict(sub_v, sub_transform, start, end, visited_ids=visited_ids)
                                         )
                         elif isinstance(part, dict):
-                            # אם `part` הוא מילון עם `v`
                             sub_v = part.get("v")
                             sub_transform = part.get("tfm", {})
                             start = part.get("start", "")
@@ -294,68 +306,68 @@ class PlotterRecursionBasedMainConflict:
                                     operation = part["op"]
                                     if operation == "+":
                                         for sub_v_item in sub_v:
-                                            expanded_description.append(
-                                                self.expand_inner_conflict(sub_v_item, sub_transform, start, end)
-                                            )
+                                            if isinstance(sub_v_item, dict):
+                                                inner_id = sub_v_item.get("v")
+                                                inner_tfm = sub_v_item.get("tfm", {})
+                                                inner_start = sub_v_item.get("start", "")
+                                                inner_end = sub_v_item.get("end", "")
+                                                expanded_description.append(
+                                                    self.expand_inner_conflict(inner_id, inner_tfm, inner_start,
+                                                                               inner_end, visited_ids=visited_ids)
+                                                )
+                                            else:
+                                                expanded_description.append(
+                                                    self.expand_inner_conflict(sub_v_item, sub_transform, start, end, visited_ids=visited_ids)
+                                                )
+
                                     elif operation == "?":
                                         selected_value = self._picker(sub_v, "plot option")
-                                        expanded_description.append(
-                                            self.expand_inner_conflict(selected_value, sub_transform, start, end)
-                                        )
+                                        if isinstance(selected_value, dict):
+                                            selected_id = selected_value.get("v")
+                                            selected_tfm = selected_value.get("tfm", {})
+                                            selected_start = selected_value.get("start", "")
+                                            selected_end = selected_value.get("end", "")
+                                            expanded_description.append(
+                                                self.expand_inner_conflict(selected_id, selected_tfm, selected_start,
+                                                                           selected_end, visited_ids=visited_ids)
+                                            )
+                                        else:
+                                            expanded_description.append(
+                                                self.expand_inner_conflict(selected_value, sub_transform, start, end, visited_ids=visited_ids)
+                                            )
                                 else:
                                     for sub_v_item in sub_v:
                                         expanded_description.append(
-                                            self.expand_inner_conflict(sub_v_item, sub_transform, start, end)
+                                            self.expand_inner_conflict(sub_v_item, sub_transform, start, end, visited_ids=visited_ids)
                                         )
                             elif isinstance(sub_v, str):
                                 expanded_description.append(
-                                    self.expand_inner_conflict(sub_v, sub_transform, start, end)
+                                    self.expand_inner_conflict(sub_v, sub_transform, start, end, visited_ids=visited_ids)
                                 )
                     item['description'] = ''.join(expanded_description)
                     print(" FULL SENTENCE AFTER CONCAT!")
                     print(item['description'])
-                # ---------
-                # if isinstance(item['description'], list):
-                #     rest_of_sentence = ''
-                #     curr_sentence_description = item['description'][0]
-                #     for s_id in item['description'][1]:
-                #         rest_of_sentence += self.fill_sentences(s_id)
-                #     item["description"] = curr_sentence_description + rest_of_sentence
-                # item['description'] = self._apply_names(item['description'])
-                # item['description'] = self._apply_names(item['description'])
+
                 ret.append(f"{item['description']} [{sentence_id}]")
-                logging.debug(f"Added main conflict to plot: {sentence_id}")
 
         if ctx.get("leadIns", 0) > 0 and "leadIns" in item:
             ctx["leadIns"] -= 1
             lead_in_id = f"{expand_id}-leadIn"
-            logging.debug(f"Processing lead-in for main conflict: {item.get('conflictid', 'N/A')}")
             lead_in_result = self._expand(item["leadIns"], None, ctx, expand_id=lead_in_id)
-            # Apply names to the lead-in result
-            # lead_in_result = self._apply_names(lead_in_result)
             ret.append(lead_in_result)
-        # Handle carry-ons
+
         if ctx.get("carryOns", 0) > 0 and "carryOns" in item:
             ctx["carryOns"] -= 1
             carryon_id = f"{expand_id}-carryOn"
-            logging.debug(f"Processing carry-on for main conflict: {item.get('conflictid', 'N/A')}")
             carryon = self._expand(self.root["carryOns"], transform, ctx, expand_id=carryon_id)
-            # Apply names to the carry-on result
-            # carryon = self._apply_names(carryon)
             ret.append(carryon)
-        # Expand sub-items
+
         if isinstance(item, str):
-            logging.debug(f"Expanding conflict: {item}")
             expanded_item = self._expand(self.plotto["conflicts"].get(item, None), None, ctx,
                                          expand_id=f"{expand_id}-str")
-            # Apply names to the expanded string item
-            # expanded_item = self._apply_names(expanded_item)
             ret.append(expanded_item)
         elif isinstance(item, list):
-            logging.debug(f"Expanding conflict list: {item}")
             expanded_list = self._expand(self._picker(item, "plot option"), None, ctx, expand_id=f"{expand_id}-list")
-            # Apply names to the expanded list item
-            # expanded_list = self._apply_names(expanded_list)
             ret.append(expanded_list)
         elif "v" in item:
             if isinstance(item['v'], str):
@@ -363,7 +375,6 @@ class PlotterRecursionBasedMainConflict:
                         list(item.get('tfm').keys())[0]):
                     self.transforms_dict[item['v']] = item.get("tfm")
             if item.get("start") or item.get("end"):
-                logging.debug(f"Expanding conflict v with start or end options: {item}")
                 expanded_v = self._expand(
                     self.plotto["conflicts"].get(item["v"], None),
                     item.get("tfm"),
@@ -372,35 +383,22 @@ class PlotterRecursionBasedMainConflict:
                     item.get("end"),
                     expand_id=f"{expand_id}-vstartend"
                 )
-                # Apply names to the expanded v item
-                # expanded_v = self._apply_names(expanded_v)
                 if item.get("tfm"):
-                    print(f'tfm is: {item.get("tfm")} 1')
                     expanded_v = self.tfm_characters(item.get("tfm"), expanded_v)
                 ret.append(expanded_v)
             elif item.get("op") == "+":
-                logging.debug(f"Expanding conflict v with chaining: {item}")
                 for sub in item["v"]:
                     expanded_sub = self._expand(sub, item.get("tfm"), ctx, expand_id=f"{expand_id}-vop")
-                    # Apply names to each sub-item in the list
-                    # expanded_sub = self._apply_names(expanded_sub)
                     if item.get("tfm"):
-                        print(f'tfm is: {item.get("tfm")} 2')
                         expanded_sub = self.tfm_characters(item.get("tfm"), expanded_sub)
                     ret.append(expanded_sub)
             else:
-                logging.debug(f"Expanding conflict v: {item}")
                 expanded_v = self._expand(item["v"], item.get("tfm"), ctx, expand_id=f"{expand_id}-v")
-                # Apply names to the expanded v item
-                # expanded_v = self._apply_names(expanded_v)
                 if item.get("tfm"):
-                    print(f'tfm is: {item.get("tfm")} 3')
                     expanded_v = self.tfm_characters(item.get("tfm"), expanded_v)
-                    print(f'expanded_v: {expanded_v}')
                 ret.append(expanded_v)
-        # Combine results
+
         result = "\n\n".join(ret).strip()
-        # print(f'result is: {result}')
         return result
 
     def fix_pronouns_contextually(self, text: str, actors: dict) -> str:
@@ -416,11 +414,33 @@ class PlotterRecursionBasedMainConflict:
 
         return self.pronoun_pattern.sub(replace_pronoun_with_context, text)
 
-    def expand_inner_conflict(self, conflict_id, transform=None, start=None, end=None):
+    def expand_inner_conflict(self, conflict_id, transform=None, start=None, end=None, visited_ids=None):
         """
         Expand a specific conflict, apply transformations if needed,
         and return the expanded description.
         """
+        if visited_ids is None:
+            visited_ids = set()
+
+        while isinstance(conflict_id, dict):
+            transform = conflict_id.get("tfm", transform)
+            start = conflict_id.get("start", start)
+            end = conflict_id.get("end", end)
+            conflict_id = conflict_id.get("v")
+
+        while isinstance(conflict_id, list):
+            conflict_id = random.choice(conflict_id)
+            if isinstance(conflict_id, dict):
+                transform = conflict_id.get("tfm", transform)
+                start = conflict_id.get("start", start)
+                end = conflict_id.get("end", end)
+                conflict_id = conflict_id.get("v")
+
+        if conflict_id in visited_ids:
+            return f"[Conflict {conflict_id} – recursion stopped to prevent infinite loop]"
+
+        visited_ids.add(conflict_id)
+
         conflict = self.plotto["conflicts"].get(conflict_id, None)
         if not conflict:
             return f"[Conflict {conflict_id} not found]"
@@ -434,6 +454,7 @@ class PlotterRecursionBasedMainConflict:
             if transform:
                 description = self.tfm_characters(transform, description)
             return description
+
         elif isinstance(description, list):
             expanded_description = []
             for part in description:
@@ -441,6 +462,24 @@ class PlotterRecursionBasedMainConflict:
                     expanded_description.append(part)
                 elif isinstance(part, list):
                     for sub_conflict_id in part:
-                        expanded_sub_description = self.expand_inner_conflict(sub_conflict_id, transform)
+                        if isinstance(sub_conflict_id, dict):
+                            inner_id = sub_conflict_id.get("v")
+                            inner_tfm = sub_conflict_id.get("tfm", {})
+                            inner_start = sub_conflict_id.get("start", "")
+                            inner_end = sub_conflict_id.get("end", "")
+                            expanded_sub_description = self.expand_inner_conflict(
+                                inner_id, inner_tfm, inner_start, inner_end, visited_ids=visited_ids
+                            )
+                        else:
+                            expanded_sub_description = self.expand_inner_conflict(sub_conflict_id, transform, visited_ids=visited_ids)
                         expanded_description.append(expanded_sub_description)
+                elif isinstance(part, dict):
+                    inner_id = part.get("v")
+                    inner_tfm = part.get("tfm", {})
+                    inner_start = part.get("start", "")
+                    inner_end = part.get("end", "")
+                    expanded_sub_description = self.expand_inner_conflict(
+                        inner_id, inner_tfm, inner_start, inner_end, visited_ids=visited_ids
+                    )
+                    expanded_description.append(expanded_sub_description)
             return ''.join(expanded_description)
