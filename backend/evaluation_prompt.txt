@@ -4,639 +4,639 @@ Before you begin, use the following previously evaluated stories as reference. T
 
 REFERENCE EVALUATIONS (JSON format):
 [
-  {
+  {{
     "title": "The Gilded Chains of Ambition",
     "story": "Hugo Lancaster stood at the gates of Whittmore University, the morning sun casting long shadows across the manicured lawns. His hands trembled slightly as he clutched the employment contract—ten years of his life signed away to Katherine Blackwood's enterprise in exchange for the education his family could never afford. At twenty, Hugo had lived a sheltered existence, cocooned by parents who had protected him from life's harsher realities despite their dwindling finances.\n\n\"You're making a mistake,\" his father Aiden had warned the previous night, his weathered face lined with concern. \"There are other ways to get an education without selling your freedom.\" But Hugo, with the naive optimism of youth, had merely smiled. \"This is my chance, Dad. Ms. Blackwood sees potential in me.\"\n\nWhat Hugo failed to recognize was that Katherine Blackwood, the enigmatic CEO of Blackwood Industries, didn't see potential—she saw malleability. Her offer seemed generous: full university tuition in exchange for guaranteed employment after graduation. The contract's fine print, which Hugo had skimmed with blithe disregard, outlined terms that would effectively render him an indentured servant to her corporate empire.\n\nThe first year passed in a blur of lectures, assignments, and growing disillusionment. Hugo excelled academically but struggled with mounting evidence of Katherine's true intentions. She would appear unexpectedly on campus, evaluating his progress with calculating eyes, suggesting course changes that aligned more with her company's needs than his personal aspirations in engineering.\n\n\"You need to focus on petroleum technologies,\" she instructed during their quarterly meeting, sliding a course catalog across the table. \"Your current interest in sustainable energy is... impractical.\"\n\nHugo complied, convinced his idealism could survive these compromises. Each semester, however, brought new directives that subtly steered him away from his original passion. By his junior year, the bright-eyed youth who had entered Whittmore had been replaced by an efficient, obedient student who rarely questioned authority.\n\nEverything changed when Aiden suffered a heart attack. At his father's bedside, Hugo confronted the man's disappointment. \"I raised you to stand for something,\" Aiden whispered, \"not to become someone's instrument.\"\n\nThe words haunted Hugo as he returned to campus, where Katherine waited with another directive—one that would involve falsifying research data to support Blackwood Industries' controversial new drilling project. For the first time, Hugo hesitated.\n\n\"Is there a problem?\" Katherine asked, her voice smooth as polished marble.\n\n\"I can't do this,\" Hugo replied, surprising himself with his steadiness. \"It violates everything I believe in.\"\n\nKatherine's smile never faltered. \"This is precisely why I chose you, Hugo. I needed to know if you would break or bend. Consider this your final exam.\"\n\nIn that moment, Hugo understood. Every obstacle Katherine had placed before him—the course changes, the ethical compromises, the gradual erosion of his ideals—had been tests. Not to break his spirit, but to see if anything remained worth saving.\n\nHugo straightened his shoulders. \"I'm terminating our agreement.\"\n\n\"That would be quite expensive,\" Katherine reminded him.\n\n\"Some costs are worth paying,\" Hugo replied, walking away from the gilded chains he had willingly worn.\n\nThree years later, Hugo graduated with honors, having worked multiple jobs to finance his education. Katherine attended the ceremony, offering not congratulations but a genuine position at her company's new sustainable energy division. Hugo accepted, but on his terms—a partnership of equals rather than servitude.\n\nAiden, watching proudly from the audience, recognized in his son's eyes something that had been missing: authentic purpose, hard-won through adversity and the courage to choose integrity over convenience.\n",
     "categories": [
-      {
+      {{
         "name": "Character",
         "weight": 0.3,
         "questions": [
-          {
+          {{
             "question": "Is the main character clearly identifiable? If the story has two central characters, are both clearly identifiable? If it's an ensemble story, consider the following questions for each main character.",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.18
-          },
-          {
+          }},
+          {{
             "question": "Does the character have a clear backstory?",
             "weight": 0.1,
             "score": 3.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Does the character have a clear goal or \"desire\"? Is the character actively pursuing this goal?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Does the character have a clear inner weakness, fear, vulnerability, or internal need distinct from their external goal? Are there moments when the character is vulnerable or giving, allowing us to identify with them?",
             "weight": 0.1,
             "score": 3.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Does the character undergo a transformation (learning a lesson or overcoming a weakness) that completes their narrative arc?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Does each supporting character significantly contribute to challenging, advancing, or helping the main character on their journey or growth?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Do the supporting characters fulfill typical or archetypal roles (e.g., attractor, ally, mentor, messenger, antagonist/villain, etc.)? If there is a villain, do they effectively contrast with the main character in terms of values, strengths, motivations, or ideology?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Are the supporting characters diverse, distinct from each other, and distinct from the main character?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Is the number of characters appropriate for the narrative (not too many)?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Are characters developed across the following three layers?(Physical/external, Mental/psychological, Social/sociological)",
             "weight": 0.05,
             "score": 3.0,
             "weighted_score": 0.045
-          }
+          }}
         ]
-      },
-      {
+      }},
+      {{
         "name": "Conflict",
         "weight": 0.3,
         "questions": [
-          {
+          {{
             "question": "Is the central conflict strong enough to drive the story and keep the main character sufficiently challenged throughout?",
             "weight": 0.35,
             "score": 4.0,
             "weighted_score": 0.42
-          },
-          {
+          }},
+          {{
             "question": "Does the conflict touch upon universal human conditions? Can a broad audience relate, having faced similar conflicts themselves?",
             "weight": 0.15,
             "score": 3.0,
             "weighted_score": 0.135
-          },
-          {
+          }},
+          {{
             "question": "Are the stakes clear from the beginning? Are they credible within the context of the conflict?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Is the conflict directly related to what we know about the character?",
             "weight": 0.1,
             "score": 3.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Does the conflict escalate and intensify as the story approaches its climax?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Is the source of the conflict consistent throughout?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Do the subplots also include conflict?",
             "weight": 0.05,
             "score": 2.0,
             "weighted_score": 0.03
-          },
-          {
+          }},
+          {{
             "question": "Is there both external conflict (events) and internal conflict (emotions)?",
             "weight": 0.05,
             "score": 3.0,
             "weighted_score": 0.045
-          }
+          }}
         ]
-      },
-      {
+      }},
+      {{
         "name": "Craft",
         "weight": 0.25,
         "questions": [
-          {
+          {{
             "question": "Is the story written in clear, modern English?",
             "weight": 0.2,
             "score": 3.0,
             "weighted_score": 0.15000000000000002
-          },
-          {
+          }},
+          {{
             "question": "Are spelling and grammar correct? Are sentences grammatically and syntactically correct? Are sentence structures and order clear? Are there any typos or spelling errors? (Minor issues such as missing commas are not critical.)",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.15
-          },
-          {
+          }},
+          {{
             "question": "Is the writing clear, concise, and descriptive? (Not confusing, overly long, or lacking necessary details.)",
             "weight": 0.15,
             "score": 3.0,
             "weighted_score": 0.11249999999999999
-          },
-          {
+          }},
+          {{
             "question": "Is there a vivid and accurate description of the main characters, memorable scenes, and a clear geographical setting? Is there effective use of descriptive language to create atmosphere, visual imagery, and engaging depictions of movements and events? Is the writing impressive, sophisticated, and skillful?",
             "weight": 0.15,
             "score": 1.0,
             "weighted_score": 0.0375
-          },
-          {
+          }},
+          {{
             "question": "Is there no unnecessary or inappropriate detail?",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.15
-          },
-          {
+          }},
+          {{
             "question": "Is everything described visually demonstrable, or are there too many descriptions that can't be captured visually (e.g., thoughts, emotional states, etc.)?",
             "weight": 0.2,
             "score": 2.0,
             "weighted_score": 0.1
-          }
+          }}
         ]
-      },
-      {
+      }},
+      {{
         "name": "Logic",
         "weight": 0.15,
         "questions": [
-          {
+          {{
             "question": "Are there no plot holes?",
             "weight": 0.2,
             "score": 2.0,
             "weighted_score": 0.06
-          },
-          {
+          }},
+          {{
             "question": "Are there no unclear points?",
             "weight": 0.2,
             "score": 2.0,
             "weighted_score": 0.06
-          },
-          {
+          }},
+          {{
             "question": "Have all questions raised been answered (no loose ends)?",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Is the story consistent and free of continuity errors?",
             "weight": 0.15,
             "score": 2.0,
             "weighted_score": 0.045
-          },
-          {
+          }},
+          {{
             "question": "Are there no contradictions with previously stated information?",
             "weight": 0.15,
             "score": 1.0,
             "weighted_score": 0.0225
-          },
-          {
+          }},
+          {{
             "question": "Is the logic sound and free from illogical or contrived elements?",
             "weight": 0.15,
             "score": 2.0,
             "weighted_score": 0.045
-          }
+          }}
         ]
-      }
+      }}
     ],
     "overall_weighted_score": 3.23
-  },
-  {
+  }},
+  {{
     "title": "The Price of Vengeance",
     "story": "The sharp winter wind carried whispers of conspiracy through the streets of Verona as Evan Blackwood walked briskly toward the city's grand courthouse. His tailored suit and commanding presence spoke of old money and influence—an aristocrat whose family had shaped the region's politics for generations. Yet today, his usual confidence was tempered by a growing sense of unease.\n\n\"The Duke requests your presence immediately, sir,\" his secretary had informed him earlier. Such an unexpected summons could only mean one thing—Leo Marconi's machinations were finally bearing fruit.\n\nLeo, once Evan's childhood friend and now his bitter rival, had spent years systematically undermining Evan's position in society. What few knew was that their enmity stemmed not from politics but from the heart. Both men had fallen for the captivating Danielle Laurent, whose beauty was matched only by her intellect. While Evan had courted her openly and honorably, Leo had won her affections through charm and calculated deception.\n\n\"I've chosen Leo,\" Danielle had told Evan six months ago, her eyes filled with apology. \"He understands me in ways you never could.\"\n\nWhat Danielle didn't know was that Leo was neck-deep in criminal enterprises, laundering money through his legitimate businesses while secretly trafficking contraband. Evan had discovered this ugly truth but kept silent, knowing revealing it would devastate Danielle. Now, that silence had become his undoing.\n\nAs Evan approached the courthouse steps, guards surrounded him. \"Evan Blackwood, you are under arrest for conspiracy against the state,\" announced the captain, loud enough for the gathering crowd to hear.\n\nLeo watched from across the square, a thin smile playing on his lips as Evan's gaze met his. In that moment, Evan understood—the evidence against him had been fabricated by Leo himself.\n\nThe trial was a farce. Falsified documents linked Evan to radical separatists, while paid witnesses testified to meetings that never occurred. The sentence was swift and severe: death by execution at dawn.\n\nThat night, with the help of his loyal servant, Evan escaped imprisonment. Knowing he couldn't clear his name while remaining in Verona, he fled across the border to the notorious city of Blackwater, a haven for outcasts and criminals.\n\nThere, Evan shed his aristocratic identity, adopting the persona of \"Rook,\" a rough-edged criminal with a talent for strategy. He grew a beard, dirtied his once-immaculate hands, and learned the language of the streets. The transformation was complete when he began moving among thieves and smugglers, gathering intelligence while building a network of his own.\n\n\"You've got a knack for this work,\" commented Silas, an aging fence who had taken a liking to Rook. \"Almost as if you were born to a different life.\"\n\nFrom the shadows, Evan monitored Leo's expanding criminal empire and his relationship with Danielle. With each passing month, his plan for vengeance grew more refined. Not content with merely exposing Leo, Evan meticulously documented his rival's crimes while placing his own agents within Leo's organization.\n\nWhen Danielle finally discovered Leo's true nature—finding incriminating documents that Evan had ensured would reach her—she confronted her lover. Leo, sensing his carefully constructed world crumbling, arranged for her silence through permanent means.\n\nThe night Leo's men came for Danielle, they found not a vulnerable woman but a trap sprung by Rook and his allies. As Leo was publicly exposed, the web of evidence Evan had gathered was anonymously delivered to the authorities.\n\nIn the chaos that followed, Evan revealed himself to Danielle. \"I could have simply killed him,\" he explained, \"but that would have made me no better than he is.\"\n\n\"Why risk everything for me?\" she asked, truly seeing him for the first time.\n\n\"Because some principles matter more than vengeance,\" Evan replied as he turned toward the approaching authorities.\n\nIn his final act, Evan sacrificed his chance at escape to ensure Leo faced justice, accepting that his own name might never be cleared. As he was led away, the lawless person he had become gave way to the honorable man he had always been.\n",
     "categories": [
-      {
+      {{
         "name": "Character",
         "weight": 0.3,
         "questions": [
-          {
+          {{
             "question": "Is the main character clearly identifiable? If the story has two central characters, are both clearly identifiable? If it's an ensemble story, consider the following questions for each main character.",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.18
-          },
-          {
+          }},
+          {{
             "question": "Does the character have a clear backstory?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Does the character have a clear goal or \"desire\"? Is the character actively pursuing this goal?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Does the character have a clear inner weakness, fear, vulnerability, or internal need distinct from their external goal? Are there moments when the character is vulnerable or giving, allowing us to identify with them?",
             "weight": 0.1,
             "score": 3.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Does the character undergo a transformation (learning a lesson or overcoming a weakness) that completes their narrative arc?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Does each supporting character significantly contribute to challenging, advancing, or helping the main character on their journey or growth?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Do the supporting characters fulfill typical or archetypal roles (e.g., attractor, ally, mentor, messenger, antagonist/villain, etc.)? If there is a villain, do they effectively contrast with the main character in terms of values, strengths, motivations, or ideology?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Are the supporting characters diverse, distinct from each other, and distinct from the main character?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Is the number of characters appropriate for the narrative (not too many)?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Are characters developed across the following three layers?(Physical/external, Mental/psychological, Social/sociological)",
             "weight": 0.05,
             "score": 3.0,
             "weighted_score": 0.045
-          }
+          }}
         ]
-      },
-      {
+      }},
+      {{
         "name": "Conflict",
         "weight": 0.3,
         "questions": [
-          {
+          {{
             "question": "Is the central conflict strong enough to drive the story and keep the main character sufficiently challenged throughout?",
             "weight": 0.35,
             "score": 3.0,
             "weighted_score": 0.315
-          },
-          {
+          }},
+          {{
             "question": "Does the conflict touch upon universal human conditions? Can a broad audience relate, having faced similar conflicts themselves?",
             "weight": 0.15,
             "score": 1.0,
             "weighted_score": 0.045
-          },
-          {
+          }},
+          {{
             "question": "Are the stakes clear from the beginning? Are they credible within the context of the conflict?",
             "weight": 0.1,
             "score": 3.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Is the conflict directly related to what we know about the character?",
             "weight": 0.1,
             "score": 3.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Does the conflict escalate and intensify as the story approaches its climax?",
             "weight": 0.1,
             "score": 2.0,
             "weighted_score": 0.06
-          },
-          {
+          }},
+          {{
             "question": "Is the source of the conflict consistent throughout?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Do the subplots also include conflict?",
             "weight": 0.05,
             "score": 2.0,
             "weighted_score": 0.03
-          },
-          {
+          }},
+          {{
             "question": "Is there both external conflict (events) and internal conflict (emotions)?",
             "weight": 0.05,
             "score": 4.0,
             "weighted_score": 0.06
-          }
+          }}
         ]
-      },
-      {
+      }},
+      {{
         "name": "Craft",
         "weight": 0.25,
         "questions": [
-          {
+          {{
             "question": "Is the story written in clear, modern English?",
             "weight": 0.2,
             "score": 4.0,
             "weighted_score": 0.2
-          },
-          {
+          }},
+          {{
             "question": "Are spelling and grammar correct? Are sentences grammatically and syntactically correct? Are sentence structures and order clear? Are there any typos or spelling errors? (Minor issues such as missing commas are not critical.)",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.15
-          },
-          {
+          }},
+          {{
             "question": "Is the writing clear, concise, and descriptive? (Not confusing, overly long, or lacking necessary details.)",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.15
-          },
-          {
+          }},
+          {{
             "question": "Is there a vivid and accurate description of the main characters, memorable scenes, and a clear geographical setting? Is there effective use of descriptive language to create atmosphere, visual imagery, and engaging depictions of movements and events? Is the writing impressive, sophisticated, and skillful?",
             "weight": 0.15,
             "score": 3.0,
             "weighted_score": 0.11249999999999999
-          },
-          {
+          }},
+          {{
             "question": "Is there no unnecessary or inappropriate detail?",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.15
-          },
-          {
+          }},
+          {{
             "question": "Is everything described visually demonstrable, or are there too many descriptions that can't be captured visually (e.g., thoughts, emotional states, etc.)?",
             "weight": 0.2,
             "score": 4.0,
             "weighted_score": 0.2
-          }
+          }}
         ]
-      },
-      {
+      }},
+      {{
         "name": "Logic",
         "weight": 0.15,
         "questions": [
-          {
+          {{
             "question": "Are there no plot holes?",
             "weight": 0.2,
             "score": 2.0,
             "weighted_score": 0.06
-          },
-          {
+          }},
+          {{
             "question": "Are there no unclear points?",
             "weight": 0.2,
             "score": 2.0,
             "weighted_score": 0.06
-          },
-          {
+          }},
+          {{
             "question": "Have all questions raised been answered (no loose ends)?",
             "weight": 0.15,
             "score": 2.0,
             "weighted_score": 0.045
-          },
-          {
+          }},
+          {{
             "question": "Is the story consistent and free of continuity errors?",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Are there no contradictions with previously stated information?",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Is the logic sound and free from illogical or contrived elements?",
             "weight": 0.15,
             "score": 3.0,
             "weighted_score": 0.0675
-          }
+          }}
         ]
-      }
+      }}
     ],
     "overall_weighted_score": 3.34
-  },
-  {
+  }},
+  {{
     "title": "The Price of Ambition",
     "story": "Arthur Blackwell adjusted his tailored suit as he stared out the floor-to-ceiling windows of his downtown office. The cityscape before him was impressive, but incomplete. There, in the distance, lay the final piece of his empire—a modest hillside property owned by Keith Summers, a man of little means but stubborn resolve.\n\"Any progress with the Summers property?\" Bethany asked, entering his office with a stack of reports. As his business partner, she had helped build their real estate development company from scratch, agreeing years ago that their relationship would remain strictly professional—no romantic entanglements to complicate their ambitions.\n\"None,\" Arthur replied, his jaw tightening. \"The sentimental fool won't budge. Says the land has been in his family for five generations. As if that matters in today's market.\"\nPublicly, Arthur was known as a philanthropist and honest businessman. The community celebrated his developments as progress, unaware of the ruthless tactics he employed behind closed doors. His latest project—a luxury mansion that would crown his achievements—required Keith's land, and Arthur would not be denied.\n\"There are other locations,\" Bethany suggested, though she knew Arthur well enough to recognize the dangerous glint in his eyes.\n\"No. That spot has the view I want. And I always get what I want.\"\nThe next day, Arthur visited Keith's modest home, offering twice the market value. The older man stood on his porch, weathered hands clasped before him.\n\"Mr. Blackwell, I appreciate your offer, but this land holds my family's history. My grandfather built that barn with his bare hands. My children learned to swim in that pond. Some things can't be valued in dollars.\"\nArthur's polite smile never reached his eyes. \"Everyone has a price, Mr. Summers. I'll find yours.\"\nWhen generosity failed, Arthur turned to more insidious methods. Through shell companies, he purchased the surrounding properties and began construction projects that disrupted Keith's peace. He manipulated local officials to increase property taxes in the area and called in favors from bank executives to deny Keith loans for necessary repairs to his aging home.\nBethany watched Arthur's machinations with increasing discomfort. \"This isn't right,\" she confronted him one evening. \"We agreed to build honestly.\"\n\"We agreed to build successfully,\" Arthur corrected her. \"Don't pretend your hands are clean.\"\nWithin months, Keith's financial situation became desperate. His home needed critical repairs he couldn't afford, and the tax burden was crushing him. With a heavy heart, he finally agreed to sell.\nOn the day of signing, Keith's eyes were hollow with defeat. As Arthur's pen hovered over the contract, Keith spoke quietly: \"My family has lived on this land through wars, depressions, and natural disasters. We endured because we respected what truly matters. You and your name will never know peace here.\"\nArthur laughed off the old man's words, but that night, standing on his newly acquired property, something shifted within him. The emptiness of his victory struck him with unexpected force. The land he'd coveted seemed to reject his presence, and for the first time, he questioned the worth of his empire.\nWhen Bethany called with news of their biggest investor pulling out—citing \"ethical concerns\"—Arthur's carefully constructed world began to crumble. As lawsuits mounted and former allies distanced themselves, Arthur finally understood the true cost of his ambition.\nMonths later, a humbled Arthur stood at Keith's new modest home, offering not money, but the deed to his ancestral land. \"Keep your development,\" Keith said, surprising Arthur. \"But build something that honors the land. Something that serves people, not pride.\"\nFrom this unlikely alliance emerged a community project that preserved the natural beauty of the property while creating affordable housing that bore Keith's family name. And in the act of relinquishing control, Arthur found something he hadn't known he was seeking—redemption.\n",
     "categories": [
-      {
+      {{
         "name": "Character",
         "weight": 0.3,
         "questions": [
-          {
+          {{
             "question": "Is the main character clearly identifiable? If the story has two central characters, are both clearly identifiable? If it's an ensemble story, consider the following questions for each main character.",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.18
-          },
-          {
+          }},
+          {{
             "question": "Does the character have a clear backstory?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Does the character have a clear goal or \"desire\"? Is the character actively pursuing this goal?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Does the character have a clear inner weakness, fear, vulnerability, or internal need distinct from their external goal? Are there moments when the character is vulnerable or giving, allowing us to identify with them?",
             "weight": 0.1,
             "score": 3.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Does the character undergo a transformation (learning a lesson or overcoming a weakness) that completes their narrative arc?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Does each supporting character significantly contribute to challenging, advancing, or helping the main character on their journey or growth?",
             "weight": 0.1,
             "score": 3.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Do the supporting characters fulfill typical or archetypal roles (e.g., attractor, ally, mentor, messenger, antagonist/villain, etc.)? If there is a villain, do they effectively contrast with the main character in terms of values, strengths, motivations, or ideology?",
             "weight": 0.1,
             "score": 2.0,
             "weighted_score": 0.06
-          },
-          {
+          }},
+          {{
             "question": "Are the supporting characters diverse, distinct from each other, and distinct from the main character?",
             "weight": 0.1,
             "score": 4.0,
             "weighted_score": 0.12
-          },
-          {
+          }},
+          {{
             "question": "Is the number of characters appropriate for the narrative (not too many)?",
             "weight": 0.1,
             "score": 2.0,
             "weighted_score": 0.06
-          },
-          {
+          }},
+          {{
             "question": "Are characters developed across the following three layers?(Physical/external, Mental/psychological, Social/sociological)",
             "weight": 0.05,
             "score": 2.0,
             "weighted_score": 0.03
-          }
+          }}
         ]
-      },
-      {
+      }},
+      {{
         "name": "Conflict",
         "weight": 0.3,
         "questions": [
-          {
+          {{
             "question": "Is the central conflict strong enough to drive the story and keep the main character sufficiently challenged throughout?",
             "weight": 0.35,
             "score": 3.0,
             "weighted_score": 0.315
-          },
-          {
+          }},
+          {{
             "question": "Does the conflict touch upon universal human conditions? Can a broad audience relate, having faced similar conflicts themselves?",
             "weight": 0.15,
             "score": 3.0,
             "weighted_score": 0.135
-          },
-          {
+          }},
+          {{
             "question": "Are the stakes clear from the beginning? Are they credible within the context of the conflict?",
             "weight": 0.1,
             "score": 2.0,
             "weighted_score": 0.06
-          },
-          {
+          }},
+          {{
             "question": "Is the conflict directly related to what we know about the character?",
             "weight": 0.1,
             "score": 3.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Does the conflict escalate and intensify as the story approaches its climax?",
             "weight": 0.1,
             "score": 3.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Is the source of the conflict consistent throughout?",
             "weight": 0.1,
             "score": 3.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Do the subplots also include conflict?",
             "weight": 0.05,
             "score": 3.0,
             "weighted_score": 0.045
-          },
-          {
+          }},
+          {{
             "question": "Is there both external conflict (events) and internal conflict (emotions)?",
             "weight": 0.05,
             "score": 4.0,
             "weighted_score": 0.06
-          }
+          }}
         ]
-      },
-      {
+      }},
+      {{
         "name": "Craft",
         "weight": 0.25,
         "questions": [
-          {
+          {{
             "question": "Is the story written in clear, modern English?",
             "weight": 0.2,
             "score": 4.0,
             "weighted_score": 0.2
-          },
-          {
+          }},
+          {{
             "question": "Are spelling and grammar correct? Are sentences grammatically and syntactically correct? Are sentence structures and order clear? Are there any typos or spelling errors? (Minor issues such as missing commas are not critical.)",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.15
-          },
-          {
+          }},
+          {{
             "question": "Is the writing clear, concise, and descriptive? (Not confusing, overly long, or lacking necessary details.)",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.15
-          },
-          {
+          }},
+          {{
             "question": "Is there a vivid and accurate description of the main characters, memorable scenes, and a clear geographical setting? Is there effective use of descriptive language to create atmosphere, visual imagery, and engaging depictions of movements and events? Is the writing impressive, sophisticated, and skillful?",
             "weight": 0.15,
             "score": 3.0,
             "weighted_score": 0.11249999999999999
-          },
-          {
+          }},
+          {{
             "question": "Is there no unnecessary or inappropriate detail?",
             "weight": 0.15,
             "score": 3.0,
             "weighted_score": 0.11249999999999999
-          },
-          {
+          }},
+          {{
             "question": "Is everything described visually demonstrable, or are there too many descriptions that can't be captured visually (e.g., thoughts, emotional states, etc.)?",
             "weight": 0.2,
             "score": 3.0,
             "weighted_score": 0.15000000000000002
-          }
+          }}
         ]
-      },
-      {
+      }},
+      {{
         "name": "Logic",
         "weight": 0.15,
         "questions": [
-          {
+          {{
             "question": "Are there no plot holes?",
             "weight": 0.2,
             "score": 2.0,
             "weighted_score": 0.06
-          },
-          {
+          }},
+          {{
             "question": "Are there no unclear points?",
             "weight": 0.2,
             "score": 2.0,
             "weighted_score": 0.06
-          },
-          {
+          }},
+          {{
             "question": "Have all questions raised been answered (no loose ends)?",
             "weight": 0.15,
             "score": 2.0,
             "weighted_score": 0.045
-          },
-          {
+          }},
+          {{
             "question": "Is the story consistent and free of continuity errors?",
             "weight": 0.15,
             "score": 2.0,
             "weighted_score": 0.045
-          },
-          {
+          }},
+          {{
             "question": "Are there no contradictions with previously stated information?",
             "weight": 0.15,
             "score": 4.0,
             "weighted_score": 0.09
-          },
-          {
+          }},
+          {{
             "question": "Is the logic sound and free from illogical or contrived elements?",
             "weight": 0.15,
             "score": 3.0,
             "weighted_score": 0.0675
-          }
+          }}
         ]
-      }
+      }}
     ],
     "overall_weighted_score": 3.12
-  }
+  }}
 ]
 
 ---

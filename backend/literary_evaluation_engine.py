@@ -1,26 +1,18 @@
-import openai
 import anthropic
-# import google.generativeai as genai
-import os
-import httpx
-import json
-from backend.schemas import EvaluationRecord
 from pathlib import Path
 
-
-
-anthropic_client = anthropic.Anthropic(api_key="YOUR_ANTHROPIC_API_KEY")
+anthropic_client = anthropic.Anthropic(api_key="ססס")
 
 
 BASE_DIR = Path(__file__).resolve().parent
 with open(BASE_DIR / "evaluation_prompt.txt", "r", encoding="utf-8") as f:
     CRITERIA_PROMPT = f.read()
 
-async def generate_claude_evaluation_report(story_id: int, story_title: str, story_text: str) -> EvaluationRecord:
+def generate_claude_evaluation_report(story_id: int, story_title: str, story_text: str)-> dict:
     prompt = CRITERIA_PROMPT.format(story=story_text, title=story_title, id=story_id)
-    response = await anthropic_client.messages.create(
-        model="claude-3-opus-20240229",
-        max_tokens=2000,
+    response = anthropic_client.messages.create(
+        model="claude-3-7-sonnet-20250219",
+        max_tokens=20000,
         temperature=0.3,
         messages=[{"role": "user", "content": prompt}]
     )
@@ -31,13 +23,22 @@ async def generate_claude_evaluation_report(story_id: int, story_title: str, sto
     return _parse_response(story_id, story_title, content)
 
 
-def _parse_response(story_id: int, story_title: str, content: str) -> EvaluationRecord:
+def _parse_response(story_id: int, story_title: str, content: str) :
     lines = content.splitlines()
     final_score_line = next((line for line in lines if "final score" in line.lower()), None)
     score = float(final_score_line.split(":")[1].strip()) if final_score_line else 0.0
-    return EvaluationRecord(
-        story_id=story_id,
-        story_title=story_title,
-        final_score=score,
-        full_response={"raw_response": content}
-    )
+
+    print("📝 Claude Raw Response:")
+    print(content)
+    print("\n✅ Parsed Result:")
+    print(f"Story ID: {story_id}")
+    print(f"Story Title: {story_title}")
+    print(f"Final Score: {score}")
+
+    return {
+        "story_id": story_id,
+        "story_title": story_title,
+        "final_score": score,
+        "raw_response": content
+    }
+
