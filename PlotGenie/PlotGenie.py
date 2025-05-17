@@ -21,7 +21,7 @@ import random
 import os
 import re
 # from sentence_transformers import SentenceTransformer, util
-from sentence_transformers import util
+# from sentence_transformers import util
 
 
 def save_prompt_to_file(prompt, genre=None):
@@ -173,7 +173,7 @@ class PlotGenie:
         for i, item in enumerate(candidates):
             element_embedding = item["embedding"]
             similarity = util.cos_sim(genre_embedding, element_embedding).item()
-            ### need to check the threshold ###
+            # need to check the threshold #
             if similarity > 0.2:
                 sim_res.append((i, similarity))
 

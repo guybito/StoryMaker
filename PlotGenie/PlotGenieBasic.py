@@ -18,6 +18,36 @@ Data source: JSON files containing the categorized plot elements.
 import json
 import random
 import os
+import re
+
+
+def save_prompt_to_file(prompt):
+    """
+    Saves a generated AI prompt to a uniquely numbered text file.
+
+    Args:
+        prompt (str): The prompt string to be saved.
+    """
+    directory = "Plot Genie Prompts"
+    os.makedirs(directory, exist_ok=True)
+
+    existing = [file for file in os.listdir(directory) if file.startswith("Prompt_") and file.endswith(".txt")]
+    number_pattern = re.compile(r"Prompt_(\d+)(?:_.*?)?\.txt")
+    numbers = []
+
+    for file in existing:
+        match = number_pattern.match(file)
+        if match:
+            numbers.append(int(match.group(1)))
+
+    next_number = max(numbers, default=0) + 1
+    filename = f"Prompt_{next_number}.txt"
+
+    filepath = os.path.join(directory, filename)
+    with open(filepath, 'w', encoding='utf-8') as file:
+        file.write(prompt)
+
+    print(f"📚 Prompt saved to: {filepath}")
 
 
 class PlotGenieBasic:
@@ -35,7 +65,6 @@ class PlotGenieBasic:
     """
 
     def __init__(self, data_dir="Utils", seed=None):
-        self.last_plot_description = None
         if seed is not None:
             random.seed(seed)
         self.data_dir = data_dir
@@ -65,7 +94,7 @@ class PlotGenieBasic:
             combined.extend(self.load_json(filename))
         return combined
 
-    def generate_plot(self, save=False):
+    def generate_plot(self):
         """Randomly select one element from each story category to form a plot."""
         plot = {
             "Locale": random.choice(self.locale),
@@ -78,36 +107,78 @@ class PlotGenieBasic:
             "Crisis": random.choice(self.crises),
             "Climax": random.choice(self.climaxes),
         }
-        self.last_plot_description = (
-            f"In this story set {plot['Locale'].lower()}, our hero is a {plot['Hero'].lower()} who falls in love with a {plot['Beloved'].lower()}...\n"
-            f"Their goal is blocked by a major problem: {plot['Problem'].lower()}.\n"
-            f"However, love does not come easy because {plot['Obstacle'].lower()}.\n"
-            f"Things become more tangled when {plot['Complication'].lower()},\n"
-            f"and matters worsen as {plot['Predicament'].lower()}.\n"
-            f"At the height of tension, a crisis hits: {plot['Crisis'].lower()}.\n"
-            f"The story climaxes in a twist where {plot['Climax'].lower()}\n"
+
+        # self.last_plot_description = (
+        #     f"Locale: {plot['Locale'].lower()}\n"
+        #     f"Hero: {plot['Hero'].lower()}\n"
+        #     f"Beloved: {plot['Beloved'].lower()}\n"
+        #     f"Problem: {plot['Problem'].lower()}\n"
+        #     f"Obstacle: {plot['Obstacle'].lower()}\n"
+        #     f"Complication: {plot['Complication'].lower()}\n"
+        #     f"Predicament: {plot['Predicament'].lower()}\n"
+        #     f"Crisis: {plot['Crisis'].lower()}\n"
+        #     f"Climax: {plot['Climax'].lower()}\n"
+        # )
+
+        plot_string = (
+            f"In this story set in a {plot['Locale'].lower()}, our main character is a {plot['Hero'].lower()}, accompanied by a key supporting figure, a {plot['Beloved'].lower()}.\n"
+            f"Their shared objective faces a significant obstacle: {plot['Problem'].lower()}.\n"
+            f"Progress becomes difficult due to {plot['Obstacle'].lower()}.\n"
+            f"The situation grows more complex when {plot['Complication'].lower()},\n"
+            f"and deteriorates further as {plot['Predicament'].lower()}.\n"
+            f"Tension peaks when an unexpected crisis arises: {plot['Crisis'].lower()}.\n"
+            f"The story reaches a turning point in a pivotal moment where {plot['Climax'].lower()}.\n"
         )
-        if save:
-            self.save_plot_to_file()
-        return plot
+        
+        return plot_string
 
     def describe_plot(self):
         """Return the latest plot description in story format."""
         header = "📖 Here is your generated plot:\n" + "=" * 35 + "\n"
         return header + getattr(self, 'last_plot_description', "No plot generated yet.")
 
-    def save_plot_to_file(self):
-        """Automatically save the last generated plot description to a numbered text file."""
-        directory = "Plot Genie Plots"
-        os.makedirs(directory, exist_ok=True)
+    def generate_prompt(self, word_count, save=False):
+        plot = self.generate_plot()
 
-        existing = [f for f in os.listdir(directory) if f.startswith("Plot_") and f.endswith(".txt")]
-        numbers = [int(f[5:-4]) for f in existing if f[5:-4].isdigit()]
-        next_number = max(numbers, default=0) + 1
+        prompt = f""" 
+            Role: you are story writing expert
+            The Plot:
+            {plot}
+            
+            You are tasked with crafting an immersive and well-rounded story based on the provided plot 
+            framework. This story should be in modern English, engaging, vivid, and address key aspects of storytelling effectively. Follow these instructions closely to ensure a superior narrative.
+                                Story Requirements
+                                1. Character Development
+                                Clearly identify the protagonist and provide a compelling backstory that motivates their actions.
+                                Define the protagonist's goal or "want," ensuring they take an active role in achieving it.
+                                Include weaknesses, fears, or vulnerabilities that humanize the protagonist and make them relatable.
+                                Show a clear arc of change for the protagonist, where they grow, learn a lesson, or address their weaknesses by the end.
+                                Ensure supporting characters are distinct, colorful, and contribute meaningfully to the protagonist’s journey. Avoid stereotypes or unnecessary characters.
+                                Develop characters physically, mentally, and socially to create a multidimensional cast.
+                                2. Conflict
+                                Define a main conflict that is challenging and relatable, ensuring it sustains tension throughout the story.
+                                Relate the conflict to the human condition so it resonates with a broad audience.
+                                Incorporate external events and internal emotional struggles for both the protagonist and supporting characters.
+                                Introduce subplots with their own conflicts, which intertwine meaningfully with the main plot.
+                                Escalate the conflict effectively toward the climax, and ensure it is fully resolved by the end.
+                                3. Logic
+                                Avoid plot holes or inconsistencies. Ensure every detail aligns with established facts in the story.
+                                Clarify any potential ambiguities or unanswered questions to avoid reader confusion.
+                                Ensure all major elements are consistent with the internal logic of the story.
+                                4. Craft
+                                Use modern, vivid English with sophisticated word choice to create vivid imagery.
+                                Include rich descriptions of settings, characters, and actions to immerse readers in the story.
+                                Ensure the writing is clear, concise, and grammatically correct.
+                                5. Formatting Requirements
+                                Write the story in clear, distinct paragraphs for better readability.
+                                Provide a title that reflects the essence of the story.
+                                Ensure the story spans around {word_count} words and delivers an engaging, complete narrative and being written in modern English
+                                6. Title
+                                write the title of the story at the beginning of the story, in the next format: *the real title of the story*
+            """
+        print(prompt)
 
-        filename = f"Plot_{next_number}.txt"
-        filepath = os.path.join(directory, filename)
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(self.last_plot_description)
+        if save:
+            save_prompt_to_file(prompt)
 
-        print(f"📚 Plot saved to: {filepath}")
+        return prompt

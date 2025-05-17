@@ -1,4 +1,7 @@
 import re
+
+import claude_service
+import helper_functions
 from helper_funcs import load_names, load_gender_map, load_pronoun_map
 from plotterrecursionbasedmainconflict import PlotterRecursionBasedMainConflict
 from PlotterRecursionBasedLeadIns import PlotterRecursionBasedLeadIns
@@ -7,6 +10,8 @@ import os
 # import requests
 import json
 import time
+from claude_service import *
+
 
 def write_to_file(base_output_folder, folder_name, content):
     """Helper function to write content to a dynamically named file in a specific folder."""
@@ -25,6 +30,51 @@ def write_to_file(base_output_folder, folder_name, content):
         file.write(content)
     print(f"Output written to {file_path}")
 
+
+# prompt = """
+# Role: you are story writing expert
+# You are tasked with crafting an immersive and well-rounded story based on the provided plot
+# framework. This story should be in modern English, engaging, vivid, and address key aspects of storytelling effectively. Follow these instructions closely to ensure a superior narrative.
+#
+#                      Plot Skeleton Format
+#                     The plot framework will be provided in the following format:
+#                     A Clause: Describes the initial state or identity of the protagonist or main subject of the story. It sets the stage for the story and establishes the baseline for what is about to change.
+#                     Group: Indicates the overarching theme or genre of the story (e.g., Enterprise, Love, Adventure).
+#                     Subgroup: Specifies the subgenre or nuanced theme within the group (e.g., Simulation, Redemption, Betrayal).
+#                     B Clause: Outlines the central challenge, event, or action that sets the protagonist on their journey. This is the primary engine of the plot and often introduces the main conflict.
+#                     Actors: Lists the key characters in the story, their names, and roles. These roles are indicated using placeholders (e.g., A, B, F-B, etc.) to show their relationship to the plot. The writer is expected to integrate these roles into the narrative with depth and distinction. (note: if the symbol X appears switch it in this way - an inanimate object, an object of mystery, an uncertain quantity, if Y\Z appear switch it with an exotic place that fits the plot).
+# Plot Description: Provides a sequential outline of events that will shape the story, including pivotal moments, challenges, and character dynamics.
+#                     C Clause: Concludes the narrative, indicating the resolution of the conflict and the ultimate fate of the characters.
+#
+#                     Story Requirements
+#                     1. Character Development
+#                     Clearly identify the protagonist and provide a compelling backstory that motivates their actions.
+#                     Define the protagonist's goal or "want," ensuring they take an active role in achieving it.
+#                     Include weaknesses, fears, or vulnerabilities that humanize the protagonist and make them relatable.
+#                     Show a clear arc of change for the protagonist, where they grow, learn a lesson, or address their weaknesses by the end.
+#                     Ensure supporting characters are distinct, colorful, and contribute meaningfully to the protagonist’s journey. Avoid stereotypes or unnecessary characters.
+#                     Develop characters physically, mentally, and socially to create a multidimensional cast.
+#                     2. Conflict
+#                     Define a main conflict that is challenging and relatable, ensuring it sustains tension throughout the story.
+#                     Relate the conflict to the human condition so it resonates with a broad audience.
+#                     Incorporate external events and internal emotional struggles for both the protagonist and supporting characters.
+#                     Introduce subplots with their own conflicts, which intertwine meaningfully with the main plot.
+#                     Escalate the conflict effectively toward the climax, and ensure it is fully resolved by the end.
+#                     3. Logic
+#                     Avoid plot holes or inconsistencies. Ensure every detail aligns with established facts in the story.
+#                     Clarify any potential ambiguities or unanswered questions to avoid reader confusion.
+#                     Ensure all major elements are consistent with the internal logic of the story.
+#                     4. Craft
+#                     Use modern, vivid English with sophisticated word choice to create vivid imagery.
+#                     Include rich descriptions of settings, characters, and actions to immerse readers in the story.
+#                     Ensure the writing is clear, concise, and grammatically correct.
+#                     5. Formatting Requirements
+#                     Write the story in clear, distinct paragraphs for better readability.
+#                     Provide a title that reflects the essence of the story.
+#                     Ensure the story spans around 1500 words and delivers an engaging, complete narrative and being written in modern English
+#                     6. Title
+#                     write the title of the story at the beginning of the story, in the next format: *the real title of the story*
+# """
 
 def main():
     data_folder = "data"
@@ -49,7 +99,6 @@ def main():
         generatorBasedMainConflict.ordered_sentences.append(plot["c clause"])
         generatorBasedMainConflict.ordered_sentences.insert(0, plot["description"])
 
-        content.append("\nGenerated Plot Based on Main Conflict Recursion:")
         content.append(f"A clause : {plot['a clause']}")
         content.append(f"Group: {plot['group']}")
         content.append(f"Subgroup: {plot['subgroup']}")
@@ -71,12 +120,55 @@ def main():
         content.append(f"B clause : {plot['description']}")
         content.extend(ordered_plot)
         content.append(f"\nC clause : {plot['c clause']}")
-
-        content.append("\nSentence Order (Ordered):")
-        content.append(" -> ".join(generatorBasedMainConflict.ordered_sentences))
-
-        # generatorBasedMainConflict.generate_graph(generatorBasedMainConflict.ordered_sentences, plot)
         write_to_file(dir_folder, folder_name, "\n".join(content))
+
+
+        # content.append("\nSentence Order (Ordered):")
+        # content.append(" -> ".join(generatorBasedMainConflict.ordered_sentences))
+        # generatorBasedMainConflict.generate_graph(generatorBasedMainConflict.ordered_sentences, plot)
+        final_prompt_string = "\n".join(content)
+        return final_prompt_string
+
+
+    def generate_prompt(plot_string, word_count):
+        prompt = f""" 
+            Role: you are story writing expert
+            The Plot:
+            {plot_string}
+
+            You are tasked with crafting an immersive and well-rounded story based on the provided plot 
+            framework. This story should be in modern English, engaging, vivid, and address key aspects of storytelling effectively. Follow these instructions closely to ensure a superior narrative.
+                                Story Requirements
+                                1. Character Development
+                                Clearly identify the protagonist and provide a compelling backstory that motivates their actions.
+                                Define the protagonist's goal or "want," ensuring they take an active role in achieving it.
+                                Include weaknesses, fears, or vulnerabilities that humanize the protagonist and make them relatable.
+                                Show a clear arc of change for the protagonist, where they grow, learn a lesson, or address their weaknesses by the end.
+                                Ensure supporting characters are distinct, colorful, and contribute meaningfully to the protagonist’s journey. Avoid stereotypes or unnecessary characters.
+                                Develop characters physically, mentally, and socially to create a multidimensional cast.
+                                2. Conflict
+                                Define a main conflict that is challenging and relatable, ensuring it sustains tension throughout the story.
+                                Relate the conflict to the human condition so it resonates with a broad audience.
+                                Incorporate external events and internal emotional struggles for both the protagonist and supporting characters.
+                                Introduce subplots with their own conflicts, which intertwine meaningfully with the main plot.
+                                Escalate the conflict effectively toward the climax, and ensure it is fully resolved by the end.
+                                3. Logic
+                                Avoid plot holes or inconsistencies. Ensure every detail aligns with established facts in the story.
+                                Clarify any potential ambiguities or unanswered questions to avoid reader confusion.
+                                Ensure all major elements are consistent with the internal logic of the story.
+                                4. Craft
+                                Use modern, vivid English with sophisticated word choice to create vivid imagery.
+                                Include rich descriptions of settings, characters, and actions to immerse readers in the story.
+                                Ensure the writing is clear, concise, and grammatically correct.
+                                5. Formatting Requirements
+                                Write the story in clear, distinct paragraphs for better readability.
+                                Provide a title that reflects the essence of the story.
+                                Ensure the story spans around {word_count} words and delivers an engaging, complete narrative and being written in modern English
+                                6. Title
+                                write the title of the story at the beginning of the story, in the next format: *the real title of the story*
+            """
+
+        return prompt
 
     def rec_based_lead_ins(dir_folder, folder_name):
         """Generate and save the output for lead-ins recursion."""
@@ -122,11 +214,16 @@ def main():
         write_to_file(dir_folder, folder_name, "\n".join(content))
 
     # Call the functions
-    base_folder = "C:\\Users\\guybi\\Documents\\Plotto Plots"
+    base_folder = "Plotto Plots"
     # base_folder = "C:\\SemesterG\\FinalProject\\Code\\GeneratedPlots"  # Replace with the actual base directory path
     main_conflict_folder = 'RecursionBasedMainConflict'
     lead_ins_folder = 'RecursionBasedLeadIns'
-    rec_based_main_conflict(base_folder, main_conflict_folder)
+    plot = rec_based_main_conflict(base_folder, main_conflict_folder)
+    prompt = generate_prompt(plot, 1500)
+    response = claude_service.send_prompt_to_claude(prompt)
+    story_title = helper_functions.extract_title(response)
+    helper_functions.save_story_to_file(story_title, response)
+    print(response)
     # rec_based_lead_ins(base_folder, lead_ins_folder)
 
 
