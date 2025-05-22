@@ -22,12 +22,12 @@ async def evaluate_with_provider(
 
 
 if __name__ == "__main__":
-    title, story = helper_functions.read_story("../Claude_Stories/Beneath the Asylum Sky.txt")
+    title, story = helper_functions.read_story("../backend/Stories/The Apple that Whispered Fire_improved.txt")
     # print("Title:", title)
     # print("Story:\n", story)
 
     result = generate_claude_evaluation_report(
-        story_id=31,
+        story_id=00000000,
         story_title=title,
         story_text=story
     )

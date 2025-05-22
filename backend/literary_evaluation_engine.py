@@ -12,16 +12,6 @@ with open(BASE_DIR / "evaluation_prompt.txt", "r", encoding="utf-8") as f:
 def generate_claude_evaluation_report(story_id: int, story_title: str, story_text: str) -> dict:
     prompt = CRITERIA_PROMPT.format(story=story_text, title=story_title, id=story_id)
     content = claude_service.send_prompt_to_claude(prompt)
-    # response = anthropic_client.messages.create(
-    #     model="claude-3-7-sonnet-20250219",
-    #     max_tokens=20000,
-    #     temperature=0.3,
-    #     messages=[{"role": "user", "content": prompt}]
-    # )
-    # if not response or not response.content or not response.content[0].text.strip():
-    #     raise ValueError("Empty or invalid response from Claude.")
-    #
-    # content = response.content[0].text
     return _parse_response(story_id, story_title, content)
 
 

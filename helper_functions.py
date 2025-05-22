@@ -12,6 +12,7 @@ def save_story_to_file(title: str, story: str):
         f.write(story)
 
     print(f"Story saved to: {file_path}")
+    return file_path
 
 
 def extract_title(text):

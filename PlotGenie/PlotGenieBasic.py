@@ -64,7 +64,7 @@ class PlotGenieBasic:
         save_plot_to_file(): Saves the plot description to a text file.
     """
 
-    def __init__(self, data_dir="Utils", seed=None):
+    def __init__(self, data_dir="../StoryMaker/PlotGenie/Utils", seed=None):
         if seed is not None:
             random.seed(seed)
         self.data_dir = data_dir
@@ -176,7 +176,6 @@ class PlotGenieBasic:
                                 6. Title
                                 write the title of the story at the beginning of the story, in the next format: *the real title of the story*
             """
-        print(prompt)
 
         if save:
             save_prompt_to_file(prompt)
