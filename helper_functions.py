@@ -1,8 +1,7 @@
 import os
 
 
-def save_story_to_file(title: str, story: str):
-    folder_name = "Stories"
+def save_story_to_file(title: str, story: str, folder_name="Stories"):
     os.makedirs(folder_name, exist_ok=True)
 
     safe_title = "".join(c for c in title if c.isalnum() or c in (' ', '_', '-')).rstrip()
