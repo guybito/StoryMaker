@@ -1,14 +1,42 @@
 # from graphviz import Digraph
-from Plotter import *
+import os
+
 import re
-import helper_funcs
 from typing import List, Dict, Optional
-from helper_funcs import random_clause, random_name
 import random
 import logging
 
+from Plotto.helper_funcs import random_clause, random_name
+
 logging.basicConfig(level=logging.DEBUG)
 
+def save_prompt_to_file(prompt):
+    """
+    Saves a generated AI prompt to a uniquely numbered text file.
+
+    Args:
+        prompt (str): The prompt string to be saved.
+    """
+    directory = "Results/Plotto_Prompts"
+    os.makedirs(directory, exist_ok=True)
+
+    existing = [file for file in os.listdir(directory) if file.startswith("Prompt_") and file.endswith(".txt")]
+    number_pattern = re.compile(r"Prompt_(\d+)(?:_.*?)?\.txt")
+    numbers = []
+
+    for file in existing:
+        match = number_pattern.match(file)
+        if match:
+            numbers.append(int(match.group(1)))
+
+    next_number = max(numbers, default=0) + 1
+    filename = f"Prompt_{next_number}.txt"
+
+    filepath = os.path.join(directory, filename)
+    with open(filepath, 'w', encoding='utf-8') as file:
+        file.write(prompt)
+
+    print(f"📚 Prompt saved to: {filepath}")
 
 class PlotterRecursionBasedMainConflict:
     """A class for generating plots based on predefined data and templates."""
@@ -111,6 +139,49 @@ class PlotterRecursionBasedMainConflict:
                 "plot": f"{B_Clause}\n\n{plot}\n\n{C_Clause}".strip(),
                 "c clause": f"{C_Clause}"
                 }
+
+    def generate_prompt(self, plot_string, word_count, save=True):
+        prompt = f""" 
+                  Role: you are story writing expert
+                  The Plot:
+                  {plot_string}
+
+                  You are tasked with crafting an immersive and well-rounded story based on the provided plot 
+                  framework. This story should be in modern English, engaging, vivid, and address key aspects of storytelling effectively. Follow these instructions closely to ensure a superior narrative.
+                                      Story Requirements
+                                      1. Character Development
+                                      Clearly identify the protagonist and provide a compelling backstory that motivates their actions.
+                                      Define the protagonist's goal or "want," ensuring they take an active role in achieving it.
+                                      Include weaknesses, fears, or vulnerabilities that humanize the protagonist and make them relatable.
+                                      Show a clear arc of change for the protagonist, where they grow, learn a lesson, or address their weaknesses by the end.
+                                      Ensure supporting characters are distinct, colorful, and contribute meaningfully to the protagonist’s journey. Avoid stereotypes or unnecessary characters.
+                                      Develop characters physically, mentally, and socially to create a multidimensional cast.
+                                      2. Conflict
+                                      Define a main conflict that is challenging and relatable, ensuring it sustains tension throughout the story.
+                                      Relate the conflict to the human condition so it resonates with a broad audience.
+                                      Incorporate external events and internal emotional struggles for both the protagonist and supporting characters.
+                                      Introduce subplots with their own conflicts, which intertwine meaningfully with the main plot.
+                                      Escalate the conflict effectively toward the climax, and ensure it is fully resolved by the end.
+                                      3. Logic
+                                      Avoid plot holes or inconsistencies. Ensure every detail aligns with established facts in the story.
+                                      Clarify any potential ambiguities or unanswered questions to avoid reader confusion.
+                                      Ensure all major elements are consistent with the internal logic of the story.
+                                      4. Craft
+                                      Use modern, vivid English with sophisticated word choice to create vivid imagery.
+                                      Include rich descriptions of settings, characters, and actions to immerse readers in the story.
+                                      Ensure the writing is clear, concise, and grammatically correct.
+                                      5. Formatting Requirements
+                                      Write the story in clear, distinct paragraphs for better readability.
+                                      Provide a title that reflects the essence of the story.
+                                      Ensure the story spans around {word_count} words and delivers an engaging, complete narrative and being written in modern English
+                                      6. Title
+                                      write the title of the story at the beginning of the story, in the next format: the real title of the story
+                  """
+
+        if save:
+            save_prompt_to_file(prompt)
+
+        return prompt
     #### need to check the purpose of this function ####
     def _get_gender_transform(self):
         """Create a mapping to flip genders."""
@@ -184,9 +255,7 @@ class PlotterRecursionBasedMainConflict:
     import re
 
     def tfm_characters(self, tfm, sentence):
-        print(f'sentence: {sentence}')
         all_sentences = sentence.split("\n\n")
-        print(f'sentence in inx 0: {all_sentences[0]}')
         curr_sentence = all_sentences[0]
         # Split the current sentence by spaces, commas, periods, single quotes, and other punctuation marks
         # This updated regex ensures apostrophes are correctly handled as delimiters
@@ -210,7 +279,6 @@ class PlotterRecursionBasedMainConflict:
                 transformed_words.append(new_word)  # Apply the transformation if no circular reference
             else:
                 transformed_words.append(word)  # Keep the word as is if no transformation
-        print(f'Joined transformed words: {"".join(transformed_words)}')
         # Join the transformed words back into a sentence
         all_sentences[0] =  "".join(transformed_words)
         return "\n\n".join(all_sentences)
@@ -243,12 +311,9 @@ class PlotterRecursionBasedMainConflict:
                     self.ordered_sentences = list(reversed(self.ordered_sentences))
                 self.ordered_sentences.append(sentence_id)
 
-                print("description")
-                print(item['description'])
 
                 description = item.get('description', '')
                 if isinstance(description, list):
-                    print("------")
                     expanded_description = []
                     for part in description:
                         if isinstance(part, str):
@@ -345,8 +410,6 @@ class PlotterRecursionBasedMainConflict:
                                     self.expand_inner_conflict(sub_v, sub_transform, start, end, visited_ids=visited_ids)
                                 )
                     item['description'] = ''.join(expanded_description)
-                    print(" FULL SENTENCE AFTER CONCAT!")
-                    print(item['description'])
 
                 ret.append(f"{item['description']} [{sentence_id}]")
 

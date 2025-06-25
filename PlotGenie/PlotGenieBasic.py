@@ -28,7 +28,7 @@ def save_prompt_to_file(prompt):
     Args:
         prompt (str): The prompt string to be saved.
     """
-    directory = "Plot Genie Prompts"
+    directory = "Results/Plot_Genie_Prompts"
     os.makedirs(directory, exist_ok=True)
 
     existing = [file for file in os.listdir(directory) if file.startswith("Prompt_") and file.endswith(".txt")]
@@ -107,18 +107,6 @@ class PlotGenieBasic:
             "Crisis": random.choice(self.crises),
             "Climax": random.choice(self.climaxes),
         }
-
-        # self.last_plot_description = (
-        #     f"Locale: {plot['Locale'].lower()}\n"
-        #     f"Hero: {plot['Hero'].lower()}\n"
-        #     f"Beloved: {plot['Beloved'].lower()}\n"
-        #     f"Problem: {plot['Problem'].lower()}\n"
-        #     f"Obstacle: {plot['Obstacle'].lower()}\n"
-        #     f"Complication: {plot['Complication'].lower()}\n"
-        #     f"Predicament: {plot['Predicament'].lower()}\n"
-        #     f"Crisis: {plot['Crisis'].lower()}\n"
-        #     f"Climax: {plot['Climax'].lower()}\n"
-        # )
 
         plot_string = (
             f"In this story set in a {plot['Locale'].lower()}, our main character is a {plot['Hero'].lower()}, accompanied by a key supporting figure, a {plot['Beloved'].lower()}.\n"

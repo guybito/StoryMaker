@@ -60,7 +60,7 @@ def format_review_text(raw_text: str) -> str:
 
 
 def convert_story_to_html(input_file_path: str, review_file_path: str, output_filename: str = "story.html"):
-    output_dir = "STORY_TO_SHOW"
+    output_dir = "Results/HTML_Stories"
     os.makedirs(output_dir, exist_ok=True)
 
     with open(input_file_path, 'r', encoding='utf-8') as f:

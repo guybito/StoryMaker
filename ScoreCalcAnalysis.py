@@ -60,52 +60,52 @@ def update_overall_score_in_file(file_path, new_score):
         print(f"❌ Failed to update file '{file_path}': {e}")
 
 
-# הגדרת תיקייה וקובץ פלט
-report_directory = 'Reports'
-output_file_name = 'PlotGenieTwoStories.txt'
+def run_analysis(report_directory='Results/Reports', output_file_name='Results/Reports_Score_Analysis.txt'):
+    # Collect Reports
+    try:
+        files_in_directory = os.listdir(report_directory)
+    except FileNotFoundError:
+        print(f"Error: The directory '{report_directory}' was not found.")
+        files_in_directory = []
 
-# איסוף כל קבצי הדוח
-try:
-    files_in_directory = os.listdir(report_directory)
-except FileNotFoundError:
-    print(f"Error: The directory '{report_directory}' was not found.")
-    files_in_directory = []
+    report_files = [f for f in files_in_directory if f.endswith('.txt')]
 
-report_files = [f for f in files_in_directory if f.endswith('.txt')]
+    # Write analysis to output file and fix report scores
+    with open(output_file_name, 'w', encoding='utf-8') as outfile:
+        if not report_files:
+            outfile.write(f"No .txt files found in directory: {report_directory}.\n")
+        else:
+            report_files.sort()
+            for file_name in report_files:
+                full_file_path = os.path.join(report_directory, file_name)
+                outfile.write(f"--- Processing File: {file_name} ---\n")
 
-# כתיבה לקובץ הפלט
-with open(output_file_name, 'w', encoding='utf-8') as outfile:
-    if not report_files:
-        outfile.write(f"No .txt files found in directory: {report_directory}.\n")
-    else:
-        report_files.sort()
-        for file_name in report_files:
-            full_file_path = os.path.join(report_directory, file_name)
-            outfile.write(f"--- Processing File: {file_name} ---\n")
+                overall_total, category_sums, error_message = analyze_report_scores(full_file_path)
 
-            overall_total, category_sums, error_message = analyze_report_scores(full_file_path)
+                if error_message:
+                    outfile.write(f"{error_message}\n")
+                elif overall_total > 0 or any(category_sums.values()):
+                    outfile.write(
+                        f"Total Weighted Score for all questions (excluding overall line): {overall_total:.4f}\n\n")
 
-            if error_message:
-                outfile.write(f"{error_message}\n")
-            elif overall_total > 0 or any(category_sums.values()):
-                outfile.write(f"Total Weighted Score for all questions (excluding overall line): {overall_total:.4f}\n\n")
+                    outfile.write("Weighted Scores by Category:\n")
+                    for category, total_score in category_sums.items():
+                        outfile.write(f"  {category}: {total_score:.4f}\n")
 
-                outfile.write("Weighted Scores by Category:\n")
-                for category, total_score in category_sums.items():
-                    outfile.write(f"  {category}: {total_score:.4f}\n")
+                    sum_of_category_totals = sum(category_sums.values())
+                    outfile.write(f"\nSum of all category totals: {sum_of_category_totals:.4f}\n")
 
-                sum_of_category_totals = sum(category_sums.values())
-                outfile.write(f"\nSum of all category totals: {sum_of_category_totals:.4f}\n")
+                    update_overall_score_in_file(full_file_path, sum_of_category_totals)
 
-                update_overall_score_in_file(full_file_path, sum_of_category_totals)
-
-                if abs(overall_total - sum_of_category_totals) < 1e-9:
-                    outfile.write("Verification: The sum of category totals matches the total weighted score for all questions.\n")
+                    if abs(overall_total - sum_of_category_totals) < 1e-9:
+                        outfile.write(
+                            "Verification: The sum of category totals matches the total weighted score for all questions.\n")
+                    else:
+                        outfile.write(
+                            f"Verification: There is a discrepancy ({overall_total - sum_of_category_totals:.4f}) between the sum of category totals and the total weighted score for all questions.\n")
                 else:
-                    outfile.write(f"Verification: There is a discrepancy ({overall_total - sum_of_category_totals:.4f}) between the sum of category totals and the total weighted score for all questions.\n")
-            else:
-                outfile.write(f"No valid 'Weighted Score' data found in '{file_name}' or an error occurred.\n")
+                    outfile.write(f"No valid 'Weighted Score' data found in '{file_name}' or an error occurred.\n")
 
-            outfile.write("-" * 40 + "\n\n")
+                outfile.write("-" * 40 + "\n\n")
 
-print(f"✅ Analysis complete. Updated files and results written to '{output_file_name}'.")
+    print(f"✅ Analysis complete. Updated files and results written to '{output_file_name}'.")

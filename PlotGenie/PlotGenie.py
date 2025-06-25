@@ -20,8 +20,7 @@ import json
 import random
 import os
 import re
-# from sentence_transformers import SentenceTransformer, util
-# from sentence_transformers import util
+from sentence_transformers import util
 
 
 def save_prompt_to_file(prompt, genre=None):
@@ -342,46 +341,6 @@ class PlotGenie:
             self.save_plot_to_file(genre=self.genre)
         return plot
 
-    # def generate_plot(self, save=False, genre=None):
-    #     """Randomly select one element from each story category to form a plot."""
-    #     if genre is not None:
-    #         self.genre = genre
-    #     # Choose random values for required plot components
-    #     for category in self.category_mapping.keys():
-    #         element = self.filter_by_genre(category, self.genre)
-    #         self.chosen_elements_index.append(element[0])
-    #
-    #     res = self.load_original_data()
-    #
-    #     plot = {
-    #         "Genre": self.genre,
-    #         "Locale": res[0],
-    #         "Hero": res[1],
-    #         "Beloved": res[2],
-    #         "Problem": res[3],
-    #         "Obstacle": res[4],
-    #         "Complication": res[5],
-    #         "Predicament": res[6],
-    #         "Crisis": res[7],
-    #         "Climax": res[8],
-    #     }
-    #
-    #     # TODO: change the description - not always love.
-    #     self.last_plot_description = (
-    #         f"In this story set {plot['Locale'].lower()}, our hero is a {plot['Hero'].lower()} who falls in love with a {plot['Beloved'].lower()}...\n"
-    #         f"Their goal is blocked by a major problem: {plot['Problem'].lower()}.\n"
-    #         f"However, love does not come easy because {plot['Obstacle'].lower()}.\n"
-    #         f"Things become more tangled when {plot['Complication'].lower()},\n"
-    #         f"and matters worsen as {plot['Predicament'].lower()}.\n"
-    #         f"At the height of tension, a crisis hits: {plot['Crisis'].lower()}.\n"
-    #         f"The story climaxes in a twist where {plot['Climax'].lower()}\n"
-    #     )
-    #
-    #     # Optionally save the generated plot to a new text file
-    #     if save:
-    #         self.save_plot_to_file(genre=self.genre)
-    #     return plot
-
     def describe_plot(self):
         """
         Returns the formatted story skeleton as a readable text.
@@ -563,47 +522,6 @@ class PlotGenie:
             coverage[category] = (count, total)
 
         return coverage
-
-    # TODO: Add when we got an API Key
-    # def send_prompt_to_claude(self, word_count, api_key, model="claude-3-opus-20240229", save_to_file=False):
-    #     """
-    #     Sends the generated prompt to Claude via Anthropic API and returns the story.
-    #
-    #     Args:
-    #         word_count (int): Target word count for the story.
-    #         api_key (str): Your Anthropic Claude API key.
-    #         model (str): Claude model ID (default: claude-3-opus-20240229).
-    #         save_to_file (bool): Whether to save the generated story to a file.
-    #
-    #     Returns:
-    #         str: Generated story text from Claude.
-    #     """
-    #     prompt = self.generate_adaptive_prompt(word_count)
-    #     if prompt.startswith("No plot"):
-    #         return prompt
-    #
-    #     response = requests.post(
-    #         url="https://api.anthropic.com/v1/messages",
-    #         headers={
-    #             "x-api-key": api_key,
-    #             "anthropic-version": "2023-06-01",
-    #             "content-type": "application/json"
-    #         },
-    #         json={
-    #             "model": model,
-    #             "max_tokens": 4096,
-    #             "messages": [{"role": "user", "content": prompt}]
-    #         }
-    #     )
-    #
-    #     if response.status_code == 200:
-    #         data = response.json()
-    #         self.last_story_text = data['content'][0]['text'] if data.get('content') else None
-    #         if save_to_file:
-    #             self.save_story_to_file()
-    #         return self.last_story_text if self.last_story_text else "No story generated."
-    #     else:
-    #         return f"❌ Request failed with status {response.status_code}: {response.text}"
 
     def save_plot_to_file(self, genre=None):
         """

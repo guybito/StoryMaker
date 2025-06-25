@@ -20,12 +20,12 @@ def _parse_response(story_id: int, story_title: str, content: str):
     final_score_line = next((line for line in lines if "Overall Weighted Score" in line.lower()), None)
     score = float(final_score_line.split(":")[1].strip()) if final_score_line else 0.0
 
-    print("📝 Claude Raw Response:")
-    print(content)
-    print("\n✅ Parsed Result:")
-    print(f"Story ID: {story_id}")
-    print(f"Story Title: {story_title}")
-    print(f"Final Score: {score}")
+    # print("📝 Claude Raw Response:")
+    # print(content)
+    # print("\n✅ Parsed Result:")
+    # print(f"Story ID: {story_id}")
+    # print(f"Story Title: {story_title}")
+    # print(f"Final Score: {score}")
 
     return {
         "story_id": story_id,

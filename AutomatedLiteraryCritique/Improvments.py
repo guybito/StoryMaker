@@ -1,7 +1,3 @@
-import claude_service
-import helper_functions
-
-
 def build_full_review_based_prompt(story_file_path: str, evaluation_file_path: str) -> str:
     with open(story_file_path, 'r', encoding='utf-8') as story_file:
         story_text = story_file.read()
@@ -35,13 +31,3 @@ def build_full_review_based_prompt(story_file_path: str, evaluation_file_path: s
     )
 
     return prompt
-
-
-if __name__ == "__main__":
-    # Test
-    prompt = build_full_review_based_prompt("../Claude_Stories/TestStory5555.txt",
-                                            "/Reports/0_The_Apple_that_Whispered_Fire_Report.txt")
-    response = claude_service.send_prompt_to_claude(prompt)
-    story_title = helper_functions.extract_title(response) + "_improved"
-    helper_functions.save_story_to_file(story_title, response)
-    print(response)
