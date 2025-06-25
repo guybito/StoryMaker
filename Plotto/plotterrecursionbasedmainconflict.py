@@ -1,9 +1,9 @@
 # from graphviz import Digraph
-from Plotter import *
+# from Plotter import *
 import re
-import helper_funcs
+# import helper_funcs
 from typing import List, Dict, Optional
-from helper_funcs import random_clause, random_name
+from Plotto.helper_funcs import random_clause, random_name
 import random
 import logging
 
@@ -453,3 +453,43 @@ class PlotterRecursionBasedMainConflict:
                     )
                     expanded_description.append(expanded_sub_description)
             return ''.join(expanded_description)
+
+    def generate_prompt(self, plot_string, word_count):
+        prompt = f""" 
+                  Role: you are story writing expert
+                  The Plot:
+                  {plot_string}
+
+                  You are tasked with crafting an immersive and well-rounded story based on the provided plot 
+                  framework. This story should be in modern English, engaging, vivid, and address key aspects of storytelling effectively. Follow these instructions closely to ensure a superior narrative.
+                                      Story Requirements
+                                      1. Character Development
+                                      Clearly identify the protagonist and provide a compelling backstory that motivates their actions.
+                                      Define the protagonist's goal or "want," ensuring they take an active role in achieving it.
+                                      Include weaknesses, fears, or vulnerabilities that humanize the protagonist and make them relatable.
+                                      Show a clear arc of change for the protagonist, where they grow, learn a lesson, or address their weaknesses by the end.
+                                      Ensure supporting characters are distinct, colorful, and contribute meaningfully to the protagonist’s journey. Avoid stereotypes or unnecessary characters.
+                                      Develop characters physically, mentally, and socially to create a multidimensional cast.
+                                      2. Conflict
+                                      Define a main conflict that is challenging and relatable, ensuring it sustains tension throughout the story.
+                                      Relate the conflict to the human condition so it resonates with a broad audience.
+                                      Incorporate external events and internal emotional struggles for both the protagonist and supporting characters.
+                                      Introduce subplots with their own conflicts, which intertwine meaningfully with the main plot.
+                                      Escalate the conflict effectively toward the climax, and ensure it is fully resolved by the end.
+                                      3. Logic
+                                      Avoid plot holes or inconsistencies. Ensure every detail aligns with established facts in the story.
+                                      Clarify any potential ambiguities or unanswered questions to avoid reader confusion.
+                                      Ensure all major elements are consistent with the internal logic of the story.
+                                      4. Craft
+                                      Use modern, vivid English with sophisticated word choice to create vivid imagery.
+                                      Include rich descriptions of settings, characters, and actions to immerse readers in the story.
+                                      Ensure the writing is clear, concise, and grammatically correct.
+                                      5. Formatting Requirements
+                                      Write the story in clear, distinct paragraphs for better readability.
+                                      Provide a title that reflects the essence of the story.
+                                      Ensure the story spans around {word_count} words and delivers an engaging, complete narrative and being written in modern English
+                                      6. Title
+                                      write the title of the story at the beginning of the story, in the next format: *the real title of the story*
+                  """
+
+        return prompt
