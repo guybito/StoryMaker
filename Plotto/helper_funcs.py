@@ -1,9 +1,3 @@
-# from selenium import webdriver
-# from selenium.common.exceptions import NoSuchElementException
-# from selenium.common.exceptions import TimeoutException
-# from selenium.webdriver.common.by import By
-# from selenium.webdriver.support import expected_conditions as EC
-# from selenium.webdriver.support.ui import WebDriverWait
 import logging
 import random
 import json
@@ -11,9 +5,6 @@ from typing import List, Dict
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
-
-# logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',
-#                   level=logging.INFO)  # For logging to console, Debugging purposes.
 
 def load_names(file_path: str) -> Dict[str, List[str]]:
     """Load male and female names from a JSON file."""
