@@ -15,14 +15,12 @@ class PlotterRecursionBasedMainConflict:
 
     def __init__(self, plotto_data, gender_map, pronoun_map, flip_genders=False, names_data=None):
         """Initialize the Plotter class."""
-        # super().__init__( plotto_data, gender_map, pronoun_map, flip_genders=False, names_data=None)
         self.plotto = plotto_data
         self.gender_map = gender_map  # Add gender_map as an instance variable
         self.pronoun_map = pronoun_map  # Add pronoun map as an instance variable
         self.flip_genders = flip_genders
         self.expand_ids = []  # Store all expand IDs
         self.ordered_sentences = []  # Track sentences in the order they appear
-        # self.graph = Digraph(format="png")  # Initialize Graphviz graph
         self.names_data = names_data or {"male_names": [], "female_names": []}
         self.pronoun_pattern = re.compile(r'\b(' + '|'.join(self.pronoun_map.keys()) + r')\b')
         self.root = None
@@ -95,7 +93,6 @@ class PlotterRecursionBasedMainConflict:
         root_id = "root"
         conflict = self.plotto['conflicts'][random_clause(B_Clause['nodes'])]
         logging.debug(f"Selected conflict ID: {conflict}")
-        # actors = []
         self.root = conflict
         plot = self._expand(conflict, root_transform, {"leadIns": self.lead_ins, "carryOns": self.carry_ons},
                             expand_id=root_id).replace('*', '')
@@ -135,7 +132,6 @@ class PlotterRecursionBasedMainConflict:
                 gender = self.gender_map.get(symbol, 'any')
                 name = random_name(symbol, gender, male_names, female_names)
                 self.curr_name_mapping[symbol] = name
-                # actors.append({"symbol": symbol, "name": name, "description": description})
                 return name
             return re.sub(rg, replacer, text)
         return text
@@ -160,27 +156,6 @@ class PlotterRecursionBasedMainConflict:
             else:
                 return new_description
 
-    # def tfm_characters(self, tfm, sentence):
-    #     print(f'characters are: {self.curr_name_mapping.items()}')
-    #     for org, new in tfm.items():
-    #         self.known_symbols(org)
-    #         self.known_symbols(new)
-    #         print(f'tfm items: {tfm.items()}')
-    #         original_character = self.curr_name_mapping.get(org)
-    #         new_character = self.curr_name_mapping.get(new)
-    #         # if not new_character:
-    #         #     new_character = utils.random_name(new, self.gender_map[new], self.names_data["male_names"],
-    #         #                                       self.names_data["female_names"])
-    #         #     self.curr_name_mapping[new] = new_character
-    #         # if not original_character:
-    #         #     original_character = utils.random_name(new, self.gender_map[org], self.names_data["male_names"],
-    #         #                                            self.names_data["female_names"])
-    #         #     self.curr_name_mapping[org] = original_character
-    #         print(f'original character: {original_character}')
-    #         print(f'new character: {new_character}')
-    #         sentence = sentence.replace(original_character, new_character)
-    #     return sentence
-
     import re
 
     def tfm_characters(self, tfm, sentence):
@@ -202,11 +177,6 @@ class PlotterRecursionBasedMainConflict:
                     transformed_words.append(word)
             elif word in tfm:
                 new_word = tfm[word]
-                # Check for circular transformation (new_word -> word)
-                # if new_word in tfm and tfm.get(new_word) == word:
-                #     # Circular transformation detected, skip transformation for this word
-                #     transformed_words.append(word)
-                # else:
                 transformed_words.append(new_word)  # Apply the transformation if no circular reference
             else:
                 transformed_words.append(word)  # Keep the word as is if no transformation
