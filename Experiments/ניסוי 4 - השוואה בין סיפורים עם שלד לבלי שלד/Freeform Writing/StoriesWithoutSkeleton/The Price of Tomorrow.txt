@@ -1,0 +1,57 @@
+# *The Price of Tomorrow*
+
+The sun was setting as Eliza Morgan stared at the blinking cursor on her laptop screen. The email had arrived three days ago, but she still hadn't responded. "Final offer: $2.5 million for your algorithm." The words seemed to pulse with possibility. At thirty-two, she could finally pay off her student loans, buy that house overlooking the bay, maybe even start the research foundation she'd dreamed about since grad school.
+
+Her tiny apartment in San Francisco's Mission District was cramped with the remnants of five years of obsessive work—whiteboards covered in equations, stacks of research papers, and empty coffee cups. The air smelled perpetually of microwave dinners and the faint electrical scent of overworked computers.
+
+Eliza rubbed her tired eyes and glanced at the framed photo on her desk—her father in his lab coat, smiling proudly on the day she received her PhD in artificial intelligence. "Remember why we do the work, Liz," he'd told her before cancer took him three years ago. "Not for money, but for people."
+
+Her algorithm had started as a passion project—a way to predict medical outcomes based on minimal patient data. But somewhere along the way, she'd stumbled upon something far more powerful: a framework that could predict human behavior with frightening accuracy. The pharmaceutical company making the offer had been clear about their intentions. "Think of the marketing applications," the VP had said with a smile that didn't reach his eyes.
+
+A knock at the door interrupted her thoughts. It was Marcus, her former research partner and the only person who truly understood the implications of her work.
+
+"You haven't answered their email," he said, stepping inside without waiting for an invitation. His lanky frame seemed to fill the small space. "Tell me you're not actually considering it."
+
+"Two and a half million dollars, Marcus." Eliza closed her laptop. "Do you know what I could do with that money?"
+
+Marcus leaned against her kitchen counter, arms crossed. "I know exactly what they'll do with your algorithm. Predict buying patterns, manipulate consumer behavior, maybe sell it to health insurance companies to deny coverage based on predicted illnesses. Is that what you want your life's work to become?"
+
+Eliza felt the familiar tightness in her chest—the same feeling she'd had when she first realized what she'd created. "What's the alternative? Keep it locked away while I scrape by on adjunct teaching? The grant money is gone, Marcus. I've got three months of rent left."
+
+"We could publish it openly," Marcus suggested. "Make it available to everyone, not just the highest bidder."
+
+"And watch as governments use it for surveillance? As corporations reverse-engineer it anyway?" Eliza shook her head. "There's no clean answer here."
+
+Later that night, after Marcus left, Eliza couldn't sleep. She found herself standing at her window, watching the fog roll in over the city. Her phone buzzed with a text from Dr. Patel at San Francisco General: "Patient data you requested attached. Still hope your model can help with our prediction challenges."
+
+The hospital had been her testing ground, where she'd refined the algorithm to predict patient outcomes with limited data—a tool that could revolutionize care in underserved communities. That had been the original purpose, before she discovered its broader applications.
+
+Morning came with clarity. Eliza made her decision over a cup of coffee and the sound of her neighbor's baby crying through the thin walls. She would split the algorithm—keeping the core medical applications open source while recoding the behavioral prediction components with limitations that would prevent the worst abuses.
+
+When she called the pharmaceutical company, their representative was instantly hostile. "The offer was for the complete package, Dr. Morgan. We're not interested in a neutered version."
+
+"Then we don't have a deal," Eliza replied, surprising herself with her steady voice.
+
+The threats came next—veiled at first, then explicit. A competing offer from a defense contractor. Rumors about her mental health circulated in academic circles. Her adjunct position mysteriously disappeared.
+
+Marcus stood by her, helping her secure the algorithm and prepare the medical applications for release to the healthcare community. "You're doing the right thing," he assured her during late nights of coding. "But it's going to get worse before it gets better."
+
+He was right. Three weeks after refusing the offer, Eliza's apartment was broken into. Her backup drives were stolen, but the thieves didn't know about the encrypted cloud storage where she kept her most important work.
+
+The final straw came when Dr. Patel called in a panic. "Someone accessed our patient database using your credentials," she said. "They're saying you sold confidential medical data."
+
+That night, Eliza and Marcus worked frantically to document everything—the original offers, the threats, the timeline of harassment. They published it all alongside the open-source medical algorithm, exposing the pharmaceutical company's tactics while simultaneously releasing the tool that could help thousands of hospitals worldwide.
+
+The story went viral within hours. Tech journalists, medical ethicists, and privacy advocates rallied around her cause. A prominent tech CEO offered her legal support and a position at his company's healthcare division—with the explicit understanding that her work would remain in the public domain.
+
+Six months later, Eliza stood in a hospital in rural India, watching as doctors used her algorithm to triage patients with limited resources. The system wasn't perfect, but it was helping save lives in places where medical expertise was scarce.
+
+"Was it worth it?" Marcus asked as they observed the system in action. "Giving up the money, going through all that?"
+
+Eliza thought about the alternative timeline—one where her work would have been locked behind corporate patents, used to manipulate rather than heal. She thought about her father's words and the true purpose of her research.
+
+"Some things have a price tag," she said, watching as a doctor used her system to diagnose a young child. "And some things are priceless."
+
+As they walked through the hospital corridors, Eliza's phone buzzed with an email notification. Another offer—this time from a coalition of nonprofit hospitals, offering to fund her next project. Not millions, but enough to continue the work that mattered.
+
+She smiled and slipped the phone back into her pocket. Tomorrow's problems could wait until tomorrow. Today, she had finally found the right price for her work: the chance to help others, just as her father had taught her.

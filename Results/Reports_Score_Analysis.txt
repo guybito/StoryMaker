@@ -1,0 +1,26 @@
+--- Processing File: 1_PlotGenie_Redemption's_Embrace_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.0875
+
+Weighted Scores by Category:
+  Character: 0.9900
+  Conflict: 0.9600
+  Craft: 0.8375
+  Logic: 0.3000
+
+Sum of all category totals: 3.0875
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 1_Plotto_The_Vanishing_Act_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.0200
+
+Weighted Scores by Category:
+  Character: 0.9600
+  Conflict: 0.8550
+  Craft: 0.8375
+  Logic: 0.3675
+
+Sum of all category totals: 3.0200
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+

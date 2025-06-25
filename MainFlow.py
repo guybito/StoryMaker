@@ -97,6 +97,7 @@ def mainFlow(algorithm_type, stories_amount=1, words_in_story_amount=2000, impro
 
 if __name__ == "__main__":
     # mainFlow_Plot_Genie(stories_amount=1, words_in_story_amount=2000, create_html=True)
-    mainFlow("Plotto", stories_amount=1, words_in_story_amount=2000, improve=True, create_html=True)
+    mainFlow("Plotto", stories_amount=1, words_in_story_amount=100, improve=False, create_html=True)
+    mainFlow("PlotGenie", stories_amount=1, words_in_story_amount=100, improve=False, create_html=True)
     # mainFlow("Plotto", stories_amount=20, words_in_story_amount=5000, improve=False, create_html=True)
     # mainFlow("PlotGenie", stories_amount=20, words_in_story_amount=5000, improve=False, create_html=True)

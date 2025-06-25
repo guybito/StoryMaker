@@ -1,0 +1,87 @@
+# *The Last Echo of the Moon*
+
+The lunar surface glinted silver in the waning light as Commander Elena Reyes planted the final sensor probe into the dusty regolith. Her breath fogged the inside of her helmet momentarily, a reminder of her humanity in this lifeless landscape. The Earth hung like a blue marble in the black canvas above, seemingly close enough to touch yet impossibly distant.
+
+"Base, this is Reyes. Final echo probe deployed at coordinates 34.7 North, 58.2 East. Heading back to the module now," she reported, her voice steady despite the weariness that had settled into her bones after six hours outside.
+
+"Copy that, Commander. Good work," came the crackled response from Mission Control, followed by an unexpected static burst that made her wince.
+
+The communication interference had been increasing over the past week—one of many reasons why Artemis Base was being decommissioned after just eighteen months of operation. Budget cuts, political pressure, and technical challenges had conspired against humanity's first permanent lunar outpost. Elena and her three crewmates were the last to walk these ancient plains, tasked with shutting down operations before returning home.
+
+As she trudged back toward the habitat module, Elena's thoughts drifted to Dr. Wei Chen, their geologist who had become increasingly withdrawn since they'd received the shutdown orders. He'd discovered something in the moon's subsurface data three weeks ago—something he'd become obsessively secretive about. The change in his behavior had created a palpable tension among the small crew.
+
+Inside the airlock, Elena methodically went through decontamination procedures, the routine allowing her mind to wander back to Earth—to her daughter Sophia's upcoming graduation, an event she'd promised not to miss. The bitter irony wasn't lost on her: she was coming home earlier than planned, but with a sense of failure hanging over the mission.
+
+The inner door hissed open to reveal Lieutenant Marcus Davenport floating anxiously near the entrance, his normally composed features creased with worry.
+
+"Commander, we have a situation with Chen," he said, his voice low. "He's locked himself in the geology lab and isn't responding to comms. Dr. Kapoor tried to override the door, but Chen's blocked the mechanism somehow."
+
+Elena felt a knot form in her stomach. "How long?"
+
+"About forty minutes now. Right after that last communication glitch."
+
+She nodded, quickly shedding her EVA suit. "Where's Kapoor now?"
+
+"Still at the lab door. She thinks—" Marcus hesitated, "—she thinks Chen might be destroying research data."
+
+The command module of Artemis Base was designed for efficiency rather than comfort, its narrow corridors connecting six primary chambers in a roughly hexagonal pattern. Elena moved swiftly through the central hub, passing the small hydroponics garden that Dr. Anika Kapoor had nurtured with near-maternal devotion. The plants would be among the last living things they'd leave behind.
+
+She found Anika outside the geology lab, her dark eyes wide with concern.
+
+"Commander, I heard noises—equipment being moved, possibly damaged," Anika reported. "And he's deleted files from our shared server, research we've been collecting for months."
+
+Elena tapped the intercom. "Wei, it's Commander Reyes. I need you to open this door immediately."
+
+Silence answered her, then a muffled crash.
+
+"Wei, whatever's happening, we can work through it together. But I need you to communicate with me now."
+
+After a long pause, Wei's voice came through, strained and uncharacteristically emotional. "I can't let them bury this, Elena. I can't let them pretend we never found it."
+
+"Found what, Wei? Talk to me."
+
+"The structures," he replied, his voice dropping to a whisper. "The artificial structures beneath Tsiolkovsky crater. The evidence is irrefutable."
+
+Elena exchanged glances with Anika, whose expression reflected her own skepticism. The isolation of space missions could take a psychological toll; they'd all been trained to recognize the signs.
+
+"Wei, please open the door. Let's discuss your findings together."
+
+"They're already trying to block it," he continued as if she hadn't spoken. "The communication 'glitches' started exactly three hours after I transmitted my initial findings to my colleague at Beijing University. It's being suppressed."
+
+Another crash sounded from within the lab, followed by the high-pitched whine of an electrical system being overloaded.
+
+"Marcus," Elena called into her wrist communicator, "I need you at the geology lab with the emergency access kit."
+
+Within minutes, they'd bypassed the lock. The door slid open to reveal chaos—upturned equipment, shattered sample containers, and in the center, Dr. Wei Chen hunched over a makeshift transmission device cobbled together from spare parts.
+
+"Step away from the equipment, Wei," Elena ordered, her commander's voice returning.
+
+Wei looked up, his face gaunt but his eyes burning with conviction. "You need to see this first," he said, gesturing to a screen displaying three-dimensional subsurface imaging of the lunar far side. "These patterns don't occur naturally. The regular spacing, the right angles—it's a structure, Elena. And it's at least fifty thousand years old."
+
+Elena approached cautiously, studying the image. What she saw made her breath catch—geometric patterns too precise to be random, too regular to be explained by natural lunar geology.
+
+"This is why they're shutting us down," Wei continued, his voice steadying. "Someone detected my transmission and now they're ensuring no one else discovers this. Think about it—the sudden budget issues, the technical failures, all happening right after I sent this data."
+
+The implications washed over Elena like a cold wave. If Wei was right—if there truly was evidence of ancient structures beneath the lunar surface—it would rewrite human history and potentially confirm humanity wasn't alone in the universe.
+
+"Wei, this is... extraordinary," she said carefully. "But destroying equipment and locking yourself away isn't the solution."
+
+"I'm not destroying—I'm preserving," he corrected, pointing to several small data drives secured in his pocket. "I've compressed all the evidence. We need to ensure it reaches the right people when we return."
+
+The command center alert suddenly blared, followed by Marcus's urgent voice over the comm system. "Commander, we've got an emergency directive from Mission Control. They're moving up our departure. Evacuation order effective immediately, citing a solar flare warning."
+
+Anika frowned. "That's impossible. Solar activity has been minimal for weeks."
+
+Elena felt the weight of command pressing down on her as three pairs of eyes looked to her for direction. Whatever the truth—whether Wei's discovery was revolutionary or the product of isolation-induced paranoia—she needed to make a decision that would protect her crew while honoring their scientific mission.
+
+"Pack the essential data, all of it," she ordered. "Wei, secure your drives. We're leaving as scheduled in forty-eight hours, not immediately. I'll handle Mission Control."
+
+"They'll override you," Wei warned.
+
+"Not if we're experiencing our own convenient 'communication glitch,'" Elena replied, a plan forming. "Marcus, I need you to give us selective communication failure—enough to receive but with corrupted transmission capability."
+
+As her crew sprang into action, Elena gazed out the small viewport at the desolate lunar landscape. After millennia of humans staring up at the moon and wondering about its mysteries, they might have finally uncovered its greatest secret. Whether they would be allowed to share it with the world remained to be seen.
+
+The next forty-eight hours would determine not just their fate, but possibly humanity's understanding of its place in the universe. As Commander Elena Reyes turned back to her crew, she felt the weight of that responsibility—and the exhilarating possibility that they were about to carry home the greatest discovery in human history.
+
+The lunar module would lift off on schedule, carrying with it either proof that we were never alone, or the last echo of a moon that had kept its secrets for thousands of years.

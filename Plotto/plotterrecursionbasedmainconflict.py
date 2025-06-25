@@ -1,7 +1,7 @@
 # from graphviz import Digraph
-from Plotter import *
+import os
+
 import re
-import helper_funcs
 from typing import List, Dict, Optional
 from Plotto.helper_funcs import random_clause, random_name
 import random
@@ -42,6 +42,7 @@ class PlotterRecursionBasedMainConflict:
 
     def __init__(self, plotto_data, gender_map, pronoun_map, flip_genders=False, names_data=None):
         """Initialize the Plotter class."""
+        self.graph = None
         self.plotto = plotto_data
         self.gender_map = gender_map  # Add gender_map as an instance variable
         self.pronoun_map = pronoun_map  # Add pronoun map as an instance variable
@@ -226,7 +227,6 @@ class PlotterRecursionBasedMainConflict:
             else:
                 return new_description
 
-    import re
 
     def tfm_characters(self, tfm, sentence):
         all_sentences = sentence.split("\n\n")
