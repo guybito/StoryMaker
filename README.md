@@ -100,8 +100,3 @@ Developed by [Dan Vaitzman](https://github.com/DanVaitzman1), [Guy Biton](https:
 
 AI story and critique powered by [Claude 3.7](https://www.anthropic.com/).
 
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
