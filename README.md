@@ -96,7 +96,7 @@ After generation, score analysis is performed automatically via `ScoreCalcAnalys
 
 ## 🧑‍💻 Authors
 
-Developed by [Dan Vaitzman](https://github.com/DanVaitzman1), [Guy Biton](https://github.com/guybito) and collaborators.
+Developed by [Dan Vaitzman](https://github.com/DanVaitzman1), [Guy Biton](https://github.com/guybito), [Tomer Katzav](https://github.com/kattomer), [Ido Dai](https://github.com/IdoDai)
 
 AI story and critique powered by [Claude 3.7](https://www.anthropic.com/).
 
