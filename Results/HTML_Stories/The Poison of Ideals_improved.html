@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>The Poison of Ideals</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+            :root {
+                --bg-color: #fdf6e3;
+                --text-color: #2e2e2e;
+                --btn-color: #333;
+                --btn-hover: #555;
+            }
+
+            body.dark-mode {
+                --bg-color: #1e1e1e;
+                --text-color: #f0f0f0;
+                --btn-color: #ddd;
+                --btn-hover: #fff;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Merriweather', serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                max-width: 800px;
+                margin: auto;
+                padding: 50px 30px;
+                line-height: 2;
+                font-size: 1.15em;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin-bottom: 50px;
+                border-bottom: 3px double #ccc;
+                padding-bottom: 20px;
+                letter-spacing: 2px;
+            }
+
+            p {
+                text-align: justify;
+                margin-bottom: 1.8em;
+            }
+
+            p::first-letter {
+                font-size: 130%;
+                font-weight: bold;
+            }
+
+            #storyContainer {
+                min-height: 600px;
+                position: relative;
+            }
+
+            #paginationControls {
+                text-align: center;
+                margin-top: 30px;
+                min-height: 60px;
+                position: sticky;
+                bottom: 20px;
+                background-color: var(--bg-color);
+                padding: 10px;
+                border-top: 1px solid #aaa;
+            }
+
+            select, label, button {
+                font-size: 1em;
+                margin: 6px 10px;
+            }
+
+            button, select {
+                padding: 6px 14px;
+                border: none;
+                border-radius: 6px;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                transition: background-color 0.3s, color 0.3s;
+                cursor: pointer;
+            }
+
+            button:hover, select:hover {
+                background-color: var(--btn-hover);
+            }
+
+            label {
+                margin: 0 8px;
+                cursor: pointer;
+            }
+
+            input[type="radio"] {
+                margin-right: 4px;
+            }
+
+            #backToTop {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                padding: 10px 15px;
+                font-size: 1em;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                display: none;
+            }
+
+            #controlsTop > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            #controlsTop {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        </style>
+        
+</head>
+<body>
+<h1>The Poison of Ideals</h1>
+
+            <!-- Info Modal Trigger -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button onclick="document.getElementById('infoModal').style.display='block'">ℹ️ Info</button>
+            </div>
+            
+            <!-- Info Modal -->
+            <div id="infoModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:90%; max-width:600px; border-radius:10px; font-family:'Merriweather', serif;">
+                <span onclick="document.getElementById('infoModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2>Story Info</h2>
+                <p><strong>📅 Creation Date:</strong> 05-07-2025 13:32</p>
+                <p><strong>🧠 Algorithm:</strong> Plotto</p>
+                <p><strong>📝 Word Count:</strong> 5671</p>
+                <p><strong>📄 Review:</strong> <button onclick="document.getElementById('reviewModal').style.display='block'">View Review</button></p>
+              </div>
+            </div>
+            <!-- Review Modal -->
+            <div id="reviewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:5% auto; padding:30px; border:1px solid #888; width:90%; max-width:800px; border-radius:10px; font-family:'Merriweather', serif; max-height:85%; overflow-y:auto;">
+                <span onclick="document.getElementById('reviewModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2 style="margin-top:0;">📘 Story Review</h2>
+                <p><strong>📘 Story Title:</strong> The Poison of Ideals_improved_improved</p>
+<hr>
+<p>📄 Claude Evaluation Report</p>
+<hr>
+<h2>Literary Analysis of "The Poison of Ideals"</h2>
+<h3>Character (Category Weight = 0.30)</h3>
+<p>1. <strong>Is the main character clearly identifiable?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- Dominic Mercer is unmistakably the protagonist, introduced immediately with clear physical description ("tall with broad shoulders and a jawline that could cut glass") and psychological characteristics (self-proclaimed moral compass).</p>
+<p>2. <strong>Does the character have a clear backstory?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Dominic's professional background as a financial consultant and his history of principled living are established, though deeper childhood influences are not extensively explored beyond brief mentions of his mother's criticism.</p>
+<p>3. <strong>Does the character have a clear goal or "desire"?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Dominic's desires evolve clearly throughout the narrative:</strong> initially to maintain his principles, then to "rescue" Bella, and finally to redeem himself and build something worthwhile through his nonprofit.</p>
+<p>4. <strong>Does the character have a clear inner weakness or vulnerability?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Dominic's self-righteousness and blindness to his own hypocrisy are well-established vulnerabilities. His need for moral superiority makes him susceptible to manipulation, as shown when he "had convinced himself he was rescuing Bella."</p>
+<p>5. <strong>Does the character undergo a transformation?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Dominic experiences a profound transformation from self-righteous moralist to humble realist. This arc is explicitly acknowledged:</strong> "That Dominic—the one who had judged others while failing to examine himself—was gone."</p>
+<p>6. <strong>Do supporting characters contribute to the main character's journey?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Each supporting character serves a clear purpose:</strong> Jordan as foil and eventual mirror, Bella as tempter and manipulator, Dylan as truth-teller and eventual ally, and Rafael as the catalyst for Dominic's self-reckoning.</p>
+<p>7. <strong>Do supporting characters fulfill archetypal roles?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Characters fulfill clear archetypal roles:</strong> Bella as the false victim/manipulator, Jordan as the wounded mentor, Dylan as the unexpected ally/guide, and Rafael as the truth-bringer who forces confrontation.</p>
+<p>8. <strong>Are supporting characters diverse and distinct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Each character has a distinctive personality, motivation, and voice. Jordan's grief-driven behavior contrasts with Bella's calculated manipulation, while Dylan's perceptiveness differs from Rafael's professional detachment.</p>
+<p>9. <strong>Is the number of characters appropriate?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The story maintains a focused cast of five significant characters (Dominic, Jordan, Bella, Dylan, Rafael), each serving a distinct purpose without overcrowding the narrative.</p>
+<p>10. <strong>Are characters developed across three layers?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- Characters are developed physically (Dominic's appearance, Jordan's aging), psychologically (Dominic's self-deception, Jordan's grief), and sociologically (professional relationships, class distinctions), though physical descriptions could be more consistent throughout.</p>
+<h3>Conflict (Category Weight = 0.30)</h3>
+<p>11. <strong>Is the central conflict strong enough to drive the story?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.35</p>
+<p><strong>- Weighted Score:</strong> 0.42</p>
+<p>- The multilayered conflict—Dominic's internal struggle with his principles, the love triangle, the attempted murder, and the legal consequences—creates compelling tension that drives the narrative forward consistently.</p>
+<p>12. <strong>Does the conflict touch upon universal human conditions?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- The story explores universal themes of self-deception, hypocrisy, redemption, and the gap between ideals and actions that readers can readily relate to their own moral compromises.</p>
+<p>13. <strong>Are the stakes clear from the beginning?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- While personal stakes regarding Dominic's principles are established early, the life-or-death stakes emerge gradually as the poisoning plot unfolds, creating effective dramatic escalation.</p>
+<p>14. <strong>Is the conflict directly related to what we know about the character?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The central conflict directly challenges Dominic's self-image as a principled person, forcing him to confront the gap between his professed values and his actions.</p>
+<p>15. <strong>Does the conflict escalate and intensify as the story approaches its climax?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Tension builds effectively from affair to attempted murder to arrest to trial, with each revelation about Bella's true nature and Dominic's self-deception raising the stakes.</p>
+<p>16. <strong>Is the source of the conflict consistent throughout?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The core conflict—Dominic's moral hypocrisy and its consequences—remains consistent even as external circumstances evolve from affair to poisoning to legal proceedings.</p>
+<p>17. <strong>Do the subplots also include conflict?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- Subplots involving Dylan's financial exploitation and Jordan's grief over Barbara contain meaningful conflicts that connect to the main narrative thread.</p>
+<p>18. <strong>Is there both external conflict (events) and internal conflict (emotions)?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.06</p>
+<p>- The story balances external conflicts (the poisoning, legal consequences) with Dominic's internal struggle to reconcile his self-image with his actions.</p>
+<h3>Craft (Category Weight = 0.25)</h3>
+<p>19. <strong>Is the story written in clear, modern English?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.20</p>
+<p>- The prose is consistently clear, contemporary, and accessible while maintaining sophistication in its exploration of complex moral themes.</p>
+<p>20. <strong>Are spelling and grammar correct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The text demonstrates excellent technical control with proper grammar, spelling, and punctuation throughout.</p>
+<p>21. <strong>Is the writing clear, concise, and descriptive?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- While generally well-crafted, some passages could be more concise, particularly in the later sections where reflection occasionally becomes repetitive.</p>
+<p>22. <strong>Is there vivid description of characters, scenes, and settings?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- The story provides effective descriptions of characters and settings (e.g., "his dark eyes intense beneath thick brows"), though some scenes could benefit from more sensory detail.</p>
+<p>23. <strong>Is there no unnecessary or inappropriate detail?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- Most details serve the narrative, though some explanatory passages in the prison and post-prison sections could be trimmed without losing meaning.</p>
+<p>24. <strong>Is everything described visually demonstrable?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- Most scenes are visually concrete, though some passages rely heavily on internal reflection that would be challenging to depict visually.</p>
+<h3>Logic (Category Weight = 0.15)</h3>
+<p>25. <strong>Are there no plot holes?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The plot is generally coherent, though some elements (like how quickly Dominic is released from prison and establishes a nonprofit) could benefit from more explanation.</p>
+<p>26. <strong>Are there no unclear points?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Most narrative elements are clear, though the exact nature of Dominic's financial misconduct with Dylan could be more precisely explained.</p>
+<p>27. <strong>Have all questions raised been answered?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story resolves all major questions about Bella's motives, Dominic's transformation, and the characters' ultimate fates.</p>
+<p>28. <strong>Is the story consistent and free of continuity errors?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The narrative maintains consistent characterization and timeline throughout, with no noticeable continuity errors.</p>
+<p>29. <strong>Are there no contradictions with previously stated information?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story maintains internal consistency, with character motivations and actions aligning with established traits and circumstances.</p>
+<p>30. <strong>Is the logic sound and free from illogical elements?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- Most plot developments follow logically, though Jordan's relatively quick willingness to support Dominic's nonprofit might strain credibility given the severity of the betrayal.</p>
+<h3>Overall Weighted Score: 3.6650</h3>
+<h3>Summary Report:</h3>
+<p>"The Poison of Ideals" presents a compelling character study of moral hypocrisy and redemption. The story's greatest strengths lie in its well-developed protagonist whose transformation feels earned through genuine self-reflection, and its exploration of universal themes regarding the gap between professed values and actual behavior. The supporting characters effectively challenge and illuminate the protagonist's journey, while the multilayered conflict maintains tension throughout. The prose is technically strong, though some passages could be more concise and visually concrete.</p>
+<h3>Suggestions for Improvement:</h3>
+<p><strong>* <strong>Character Development</strong>:</strong> While Dominic's character arc is strong, consider deepening his backstory to explain the origins of his rigid moral framework. What childhood experiences or influences shaped his need to see himself as morally superior?</p>
+<p><strong>* <strong>Scene Visualization</strong>:</strong> Add more sensory details to key scenes, particularly the confrontations between characters. The emotional impact would be strengthened by more concrete physical descriptions of environments and character reactions.</p>
+<p><strong>* <strong>Pacing</strong>:</strong> The final third of the story moves somewhat quickly through Dominic's redemption arc. Consider expanding key moments of his transformation in prison to make his change feel more gradual and hard-won.</p>
+<p><strong>* <strong>Supporting Character Depth</strong>:</strong> While Jordan is well-developed, his relatively quick shift toward reconciliation could be more thoroughly explored to increase credibility. What internal struggle did he face before deciding to support Dominic's nonprofit?</p>
+<p><strong>* <strong>Thematic Subtlety</strong>:</strong> Some of the reflective passages state the moral lessons too directly. Consider allowing readers to draw their own conclusions through character actions and dialogue rather than explicit statements about hypocrisy and redemption.</p>
+              </div>
+            </div>
+        
+
+        <div id="controlsTop">
+            <div>
+                <label><input type="radio" name="viewMode" value="full" checked> Continuous Reading</label>
+                <label><input type="radio" name="viewMode" value="paged"> Paginated View</label>
+            </div>
+
+            <div id="pageOptions" style="display: none;">
+                <label><input type="radio" name="pageMode" value="auto" checked> Auto Paragraphs</label>
+                <label><input type="radio" name="pageMode" value="manual"> Manual</label>
+                <select id="pageSizeSelect" disabled>
+        <option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+                </select>
+            </div>
+
+            <div>
+                <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+
+        </div>
+
+        <div id="storyContainer"></div>
+
+        <div id="paginationControls" style="display: none;">
+            <button id="firstBtn" onclick="firstPage()">⏮ First</button>
+            <button id="prevBtn" onclick="prevPage()">◀ Previous</button>
+            <span id="pageIndicator">Page 1 of X</span>
+            <button id="nextBtn" onclick="nextPage()">Next ▶</button>
+            <button id="lastBtn" onclick="lastPage()">Last ⏭</button>
+        </div>
+
+        <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆ Back to Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script>
+            const paragraphs = ["Dominic Mercer had always considered himself a man of principle. At thirty-five, he stood tall with broad shoulders and a jawline that could cut glass, his dark eyes intense beneath thick brows that furrowed when he contemplated the injustices of the world. His apartment in downtown Seattle was minimalist and modern—much like the tech startup where he worked as a financial consultant. The walls were adorned with framed quotes from philosophers and revolutionaries, testaments to his self-proclaimed moral compass.", "But principles, Dominic had discovered, were expensive to maintain. His refusal to compromise on certain investment strategies had cost him promotions. His insistence on ethical sourcing had strained his budget. And his dedication to authenticity had left him unmarried while his peers settled into comfortable domesticity.", "\"You're too idealistic,\" his mother would say during their monthly phone calls. \"The world doesn't work that way.\"", "Perhaps she was right. Perhaps that's why, when he met Jordan at a charity gala three years ago, something in Dominic had shifted. Jordan Hayes was everything Dominic wasn't—practical, established, and unafraid to bend rules to achieve his goals. At forty-five, Jordan had built a real estate empire that spanned the Pacific Northwest, with properties that housed everything from luxury condos to affordable housing units. His salt-and-pepper hair and designer suits spoke of success, while the slight lines around his eyes hinted at experiences Dominic could only imagine.", "\"The trick,\" Jordan had told him that first night, champagne flute in hand, \"is knowing which principles are worth keeping and which are just dead weight.\"", "Dominic had been captivated. Not just by Jordan's philosophy, but by the man himself—his confidence, his certainty, his unapologetic approach to life. They became fast friends, with Jordan taking on the role of mentor, introducing Dominic to influential people and offering him glimpses into a world where compromise wasn't just necessary but celebrated.", "It was through Jordan that Dominic met Bella.", "Bella Hayes had been Jordan's husband for just over a year when Dominic first encountered him at one of Jordan's lavish dinner parties. Where Jordan was all sharp edges and calculated charm, Bella was soft curves and genuine warmth. His honey-blonde hair fell in waves around a face that seemed perpetually ready to smile, and his green eyes sparkled with an intelligence that belied his seemingly carefree demeanor.", "\"Jordan tells me you're the moral compass he never had,\" Bella had said, his voice carrying a hint of an accent Dominic couldn't quite place.", "\"I think he overestimates my virtue,\" Dominic had replied, suddenly aware of how close they were standing.", "\"Or underestimates his own.\" Bella's smile had faltered then, just for a moment, before returning with renewed brightness. \"Either way, it's refreshing to meet someone who still believes in something.\"", "That conversation marked the beginning of what Dominic would later recognize as his moral unraveling. Over the following months, as he spent more time in the Hayes household, he began to notice the cracks in Jordan and Bella's marriage. The way Jordan would dismiss Bella's opinions in public. The subtle flinches when Jordan raised his voice. The bruises Bella occasionally tried to hide beneath long sleeves, even in summer.", "But more disturbing was the way Jordan would sometimes retreat into brooding silences, staring at photographs of his first husband, Barbara, who had died in a boating accident two years before Jordan met Bella. In these moments, Jordan would become unreachable, lost in memories and regrets that seemed to consume him.", "\"He thinks he failed Barbara,\" Bella confided in Dominic one afternoon as they walked through the Japanese garden behind the Hayes mansion. \"That he wasn't there when Barbara needed him most. And now he's punishing both of us for it.\"", "Dominic had reached for Bella's hand then, a gesture of comfort that lingered too long to be merely friendly. \"You don't deserve that.\"", "\"Don't I?\" Bella's voice had been barely audible. \"Sometimes I wonder if I'm just a poor replacement. A consolation prize.\"", "The affair began slowly, almost imperceptibly. A touch that lasted too long. A glance that revealed too much. Late-night conversations when Jordan was away on business trips. Dominic told himself it was innocent—that he was simply being a friend to someone in need. But deep down, he knew better.", "What he didn't know—what he couldn't have anticipated—was how quickly his moral compass would disintegrate in the face of desire. Or how his self-proclaimed idealism would transform into something darker, more calculating.", "By the time Bella suggested they run away together, Dominic had already convinced himself that their love was not just justified but righteous—a rescue mission rather than a betrayal.", "\"Jordan will destroy you,\" Dominic had warned, his hands cupping Bella's tear-stained face. \"He's already destroying himself with his guilt and his anger. We can save each other.\"", "And so they planned their escape, their elopement disguised as a fresh start. What Dominic didn't realize was that he wasn't saving Bella from Jordan—he was claiming him as a prize, another acquisition in a life that had suddenly become about taking rather than giving.", "The night they fled Seattle, rain pounded against the windshield of Dominic's Audi as they drove south toward Portland. Bella sat silently in the passenger seat, his face illuminated by the occasional flash of lightning, revealing an expression that Dominic couldn't quite read.", "\"Are you having second thoughts?\" Dominic asked, his knuckles white against the steering wheel.", "Bella turned to him, his green eyes shadowed. \"I gave Jordan a glass of wine before I left. With something extra in it.\"", "Dominic's foot slipped on the gas pedal, causing the car to lurch. \"What are you talking about?\"", "\"Poison,\" Bella said simply, as if discussing the weather. \"I couldn't risk him coming after us. He would never let me go otherwise.\"", "The car swerved as Dominic processed this information. \"Jesus Christ, Bella! You killed him?\"", "\"I don't know,\" Bella admitted, his voice eerily calm. \"I ran before I could see if it worked. I was scared.\"", "Dominic pulled the car to the side of the road, rain hammering against the roof as he tried to make sense of what he was hearing. This wasn't part of the plan. This wasn't the clean break he had envisioned. This was murder—or attempted murder at the very least.", "\"We have to go back,\" he said finally, his idealism reasserting itself in the face of this new moral crisis. \"We have to make sure he's okay.\"", "\"And if he's not?\" Bella challenged, his calmness giving way to fear. \"If he's dead, Dominic, we'll both be suspects. You're his best friend who ran off with his husband. I'm his spouse with a motive. We'll spend the rest of our lives in prison.\"", "Dominic stared at Bella, seeing him clearly for the first time—not as a victim to be rescued, but as someone capable of making desperate, dangerous choices. And in that moment, Dominic made a choice of his own.", "\"Call him,\" he said, handing Bella his phone. \"If he answers, we'll know he's alive. If not...\"", "Bella hesitated, then took the phone with trembling hands. He dialed Jordan's number, putting the call on speaker. The rings echoed in the car, each one stretching Dominic's nerves tighter.", "Then, miraculously, Jordan's voice filled the space between them. \"Dominic? Where the hell are you? Bella's missing, and I'm not feeling well. I think I might need to go to the hospital.\"", "Relief flooded through Dominic, followed immediately by a new kind of panic. Jordan was alive but unwell. The poison hadn't killed him, but it had clearly had some effect.", "\"Jordan,\" Dominic said, his mind racing. \"Listen to me. You need to call an ambulance right now. Tell them you think you've been poisoned.\"", "\"Poisoned?\" Jordan's voice was slurred. \"What are you talking about? Where's Bella?\"", "Dominic looked at Bella, whose face had gone pale. \"Bella's with me. We... we were leaving town together. But that's not important right now. You need help, Jordan. Call 911.\"", "There was a long silence on the other end of the line, broken only by the sound of Jordan's labored breathing. \"You and Bella,\" he said finally, his voice hardening despite its weakness. \"I should have known. You've always wanted what was mine, Dominic. Always looking at me with those judgmental eyes while coveting everything I've built.\"", "\"Jordan, please—\"", "\"No,\" Jordan interrupted. \"You listen to me. You think you're rescuing him? You think you're the hero in this story? You're not. You're just another man who wants to possess him. And Bella—\" His voice broke. \"Bella, is this really what you want? To run away with a man who's using you to get back at me?\"", "Bella took the phone from Dominic's hand. \"You're the one who used me, Jordan. As a replacement for Barbara. As a punching bag for your guilt. I'm done being your second choice.\"", "\"Second choice?\" Jordan laughed bitterly. \"You were never second, Bella. Barbara was my past. You were supposed to be my future. But I guess I failed you both in the end.\"", "The line went dead.", "Dominic and Bella sat in stunned silence, the rain continuing its relentless assault on the car. Finally, Dominic turned the key in the ignition.", "\"Where are we going?\" Bella asked, his voice small.", "\"Back to Seattle,\" Dominic replied. \"We need to make sure he gets help.\"", "But when they arrived at the Hayes mansion three hours later, they found it surrounded by police cars and an ambulance. Jordan was being loaded onto a stretcher, conscious but clearly in distress. Detective Rafael Martinez was already on the scene, his sharp eyes narrowing as he spotted Dominic and Bella emerging from the Audi.", "\"Mr. Mercer,\" Rafael said, approaching them with measured steps. \"And Mr. Hayes. Interesting timing. Your husband was just telling us how he suspects someone might have tampered with his wine.\"", "Bella paled, but Dominic stepped forward. \"Officer, we can explain—\"", "\"I'm sure you can,\" Rafael interrupted. \"And you'll have plenty of time to do so down at the station.\"", "As they were separated and led to different police cars, Dominic caught a final glimpse of Jordan being loaded into the ambulance. Their eyes met briefly, and in that moment, Dominic saw not anger or betrayal, but a profound sadness that mirrored his own growing realization: in his quest to save Bella, he had lost himself.", "The interrogation room at the Seattle Police Department was sterile and cold, with fluorescent lights that buzzed overhead and cast harsh shadows across Detective Rafael Martinez's face. Dominic sat across from him, hands folded on the metal table, trying to maintain his composure.", "\"Let me get this straight,\" Rafael said, flipping through his notes. \"You and Mr. Hayes—Bella, that is—were planning to leave town together. But before you left, Bella allegedly put something in his husband's wine. And instead of immediately calling for help, you two drove three hours south before turning around and coming back.\"", "\"We were scared,\" Dominic admitted. \"But we did call Jordan to make sure he was okay.\"", "\"After Bella had already poisoned him,\" Rafael pointed out. \"That's like shooting someone and then calling to ask if they're bleeding.\"", "Dominic winced at the analogy. \"It wasn't like that. Bella was desperate. Jordan... he wasn't always kind to him.\"", "Rafael leaned back in his chair, studying Dominic with practiced skepticism. \"So you're saying this was self-defense? A preemptive strike against an abusive spouse?\"", "\"I'm saying it's complicated,\" Dominic replied, running a hand through his disheveled hair. \"Jordan has been struggling since his first husband died. He takes it out on Bella sometimes. I was just trying to help.\"", "\"By sleeping with his husband and planning to run away together,\" Rafael said flatly. \"Very helpful.\"", "Dominic had no response to that. Put in those terms, his actions seemed not just immoral but predatory. Had he really convinced himself he was rescuing Bella? Or had he simply wanted what Jordan had, as Jordan himself had suggested?", "\"The good news,\" Rafael continued, \"is that Mr. Hayes—Jordan—is going to be fine. The substance in his wine wasn't actually poison. According to the preliminary tests, it was just a large dose of sleeping pills mixed with some kind of powdered supplement. Enough to make him sick, but not lethal.\"", "Relief washed over Dominic, followed quickly by confusion. \"But Bella said—\"", "\"Bella said a lot of things,\" Rafael interrupted. \"Including that you were the one who suggested poisoning Jordan in the first place.\"", "The accusation hit Dominic like a physical blow. \"That's not true! I never—I would never suggest something like that.\"", "Rafael shrugged. \"It's his word against yours. And right now, his story is that you manipulated him into believing Jordan was dangerous, isolated him from his friends, and then convinced him that the only way out was to drug Jordan so you two could escape.\"", "Dominic stared at Rafael in disbelief. This wasn't just a misunderstanding—it was a complete inversion of the truth. Or was it? Had he, in his self-righteousness, pushed Bella toward a desperate act? Had his desire for Bella blinded him to the consequences of their actions?", "\"I want to speak to Bella,\" Dominic said finally.", "\"That's not possible right now,\" Rafael replied. \"He's being questioned separately. But I can tell you that he's been very cooperative. Even mentioned something about you having a history of manipulating people for financial gain.\"", "Dominic's blood ran cold. \"What?\"", "\"According to Bella, you've been using your position at your company to exploit clients, particularly those with connections to Jordan's real estate business. He claims you saw him as just another asset to acquire—a way to get closer to Jordan's wealth and influence.\"", "The accusation was so far from Dominic's self-image that he almost laughed. \"That's absurd. I've always prided myself on my ethics. Ask anyone who knows me.\"", "\"We will,\" Rafael assured him. \"But in the meantime, I'd like to know more about your relationship with Dylan Chen.\"", "The name caught Dominic off guard. Dylan was a client he'd advised on a real estate investment several months ago—a property that, coincidentally, was owned by one of Jordan's companies.", "\"Dylan? He's just a client. I helped him with some investment strategies.\"", "Rafael consulted his notes again. \"According to our information, you advised Mr. Chen to invest heavily in a property that you knew was about to be devalued due to insider information from Jordan Hayes. When Mr. Chen lost a significant amount of money, you offered to buy his shares at a fraction of what he'd paid, only to sell them back to Jordan's company at a profit once the property was revalued.\"", "Dominic's mouth went dry. The transaction had been complex, and yes, he had benefited from information Jordan had shared casually over dinner. But he hadn't seen it as exploitation at the time—just smart business.", "\"It wasn't like that,\" he protested weakly.", "\"Then how was it?\" Rafael challenged. \"Because from where I'm sitting, it looks like you've been using your relationship with Jordan Hayes to enrich yourself at the expense of others. And now you've taken his husband too.\"", "The words struck at the core of Dominic's self-perception. Had he really become the very thing he claimed to despise—someone who used people for personal gain? Had his principles been nothing more than a facade, a way to feel superior while engaging in the same behaviors he criticized in others?", "As the interrogation continued, Dominic found himself questioning everything he thought he knew about himself. And as the hours stretched into days, with bail denied due to flight risk, he had plenty of time to reflect on the path that had led him to a jail cell, facing charges of conspiracy and fraud.", "---", "Three days after his arrest, Dominic was led to a visitation room where, to his surprise, Dylan Chen waited on the other side of the glass partition. Dylan was younger than Dominic, barely thirty, with a round face that made him look even younger. His expression was unreadable as Dominic took his seat and picked up the phone.", "\"I didn't expect to see you here,\" Dominic admitted.", "\"Detective Martinez contacted me,\" Dylan replied, his voice tinny through the receiver. \"He wanted to know if you had defrauded me.\"", "Dominic tensed. \"And what did you tell him?\"", "Dylan studied him for a moment. \"I told him I needed time to think about it. That's why I'm here. I want to hear your side before I make any statements.\"", "The young man's directness caught Dominic off guard. He had always viewed Dylan as just another client—bright but naive, someone who trusted Dominic's expertise without question. Now, facing him across the partition, Dominic saw something he'd missed before: a quiet perceptiveness in Dylan's eyes.", "\"The truth?\" Dominic sighed. \"The truth is I used information Jordan mentioned casually to guide your investment. When the property devalued, I did buy your shares at a discount. I told myself it was just business, that I was actually helping you recoup some losses.\"", "\"But you knew the property would be revalued later,\" Dylan stated flatly.", "Dominic nodded, shame washing over him. \"Yes. Jordan had plans to renovate and rebrand. The information wasn't exactly secret, but it wasn't public knowledge either.\"", "\"So you profited from my loss.\"", "\"Yes.\"", "Dylan leaned back, his expression thoughtful rather than angry. \"You know what's interesting? When you advised me on that investment, you talked a lot about ethical business practices. About how your approach was different because you considered the human impact of financial decisions.\"", "The memory of those conversations made Dominic wince. \"I believed what I was saying. Or I thought I did.\"", "\"That's what makes it worse,\" Dylan said quietly. \"You weren't just lying to me. You were lying to yourself.\"", "The observation struck Dominic with unexpected force. It was one thing to be called out for his actions, but Dylan had identified something deeper—the self-deception at the core of Dominic's character.", "\"What are you going to tell Detective Martinez?\" Dominic asked after a long silence.", "\"The truth,\" Dylan replied. \"That you misled me using privileged information. But I'm also going to tell him that I don't think you're the mastermind Bella is painting you as. You're just a man who couldn't see the gap between who he claimed to be and who he actually was.\"", "Dominic felt a strange mixture of gratitude and shame. \"Why would you show me any kindness after what I did?\"", "Dylan's expression softened slightly. \"Because everyone deserves the chance to see themselves clearly. Even if it happens in a jail cell.\"", "As Dylan stood to leave, he paused. \"One more thing. I've met Bella before, you know. At one of Jordan's parties, about six months ago. He was charming, attentive—especially to the wealthier guests. When he talked about Jordan, there was something calculated in his eyes. I don't think he was ever the victim you thought he was.\"", "With that, Dylan hung up the phone and walked away, leaving Dominic with yet another piece of the puzzle he'd been too blind to see.", "---", "The following week brought another unexpected visitor: Detective Rafael Martinez. This time, they met in a small conference room rather than across a visitation partition. Rafael placed a folder on the table between them.", "\"Mr. Chen gave his statement,\" Rafael said without preamble. \"It corroborates what we found in your financial records. You did exploit insider information, but not on the scale Bella suggested.\"", "\"And what about the poisoning?\" Dominic asked.", "Rafael's expression remained neutral. \"The lab results came back. The substance in Jordan's wine was a mixture of over-the-counter sleeping pills and a protein supplement—the same one Jordan uses at the gym. Enough to make him sick, but not lethal.\"", "\"So Bella didn't actually try to kill him?\"", "\"That's where things get interesting.\" Rafael opened the folder and slid a photograph across the table. It showed a small plastic bag containing white powder. \"This was found in Bella's toiletry kit when we searched your car. It's rat poison. Unused.\"", "Dominic stared at the photograph. \"I don't understand.\"", "\"Neither did we, at first,\" Rafael admitted. \"But then we interviewed Jordan's housekeeper. According to her, Bella asked her about rat poison two weeks ago—whether they had any in the house, where it was kept. She told him they didn't use it because of Jordan's dog.\"", "\"So Bella was planning this,\" Dominic said slowly.", "Rafael nodded. \"It looks that way. But here's where it gets even more interesting.\" He pulled out another document. \"We subpoenaed Bella's financial records. Three months ago, he took out a substantial life insurance policy on Jordan. Two million dollars.\"", "The revelation hit Dominic like a physical blow. \"He was never in danger from Jordan, was he?\"", "\"We don't have evidence of physical abuse,\" Rafael confirmed. \"Jordan admits to emotional distance and arguments, but the housekeeper, the gardener, Jordan's assistant—none of them ever witnessed violence. The bruises Bella showed you? We have security footage of him entering a makeup store the day before he showed you those 'injuries.'\"", "Dominic felt sick. \"He manipulated me.\"", "\"And you let yourself be manipulated,\" Rafael pointed out, \"because it gave you what you wanted—a justification for pursuing your friend's husband.\"", "The harsh truth of Rafael's assessment left Dominic speechless. He had been so convinced of his own righteousness, so certain that he was rescuing Bella from an abusive situation, that he'd ignored all evidence to the contrary.", "\"What happens now?\" Dominic finally asked.", "\"Bella is being charged with attempted murder and insurance fraud,\" Rafael said. \"As for you, the DA is still considering charges related to the financial misconduct with Mr. Chen. But since you didn't actually participate in or know about the poisoning beforehand, those charges have been dropped.\"", "Relief washed over Dominic, followed immediately by shame. He didn't deserve leniency. He had betrayed his friend, compromised his professional ethics, and been willfully blind to Bella's true nature.", "\"I'd like to make a full statement,\" Dominic said. \"About everything. The financial misconduct, my relationship with Bella, all of it.\"", "Rafael studied him for a moment, then nodded. \"That would be helpful. And for what it's worth, Mr. Mercer, recognizing your mistakes is the first step toward not repeating them.\"", "---", "The legal proceedings dragged on for months. Dominic pled guilty to securities fraud for his dealings with Dylan, receiving a sentence of eighteen months in a minimum-security facility. Bella, facing more serious charges, maintained that Dominic had been the mastermind behind everything—a claim that fell apart when investigators uncovered the life insurance policy and evidence of Bella's previous relationships with wealthy older men.", "Jordan, to Dominic's surprise, declined to press additional charges against him. \"Enough lives have been damaged already,\" he told the prosecutor, according to Rafael. \"I just want to move forward.\"", "The minimum-security facility where Dominic served his sentence resembled a college campus more than a prison, with dormitory-style housing and educational programs for inmates. It was here, surrounded by men who had made their own compromises and mistakes, that Dominic began to rebuild his sense of self—not as a paragon of virtue, but as a flawed human being capable of both good and bad choices.", "He enrolled in a restorative justice program, facing the consequences of his actions and working to make amends where possible. He used his financial expertise to teach basic money management to fellow inmates preparing for release. And he began to write—not just letters of apology to those he had wronged, but a journal chronicling his journey from self-righteousness to humility.", "Six months into his sentence, Dylan came to visit again. This time, there was no glass partition between them as they sat at a table in the visitation area.", "\"You look different,\" Dylan observed.", "Dominic ran a hand over his now-short hair. \"Prison haircuts aren't exactly high fashion.\"", "\"That's not what I meant,\" Dylan said with a small smile. \"You seem less... I don't know. Less like you're performing a role.\"", "The observation was surprisingly insightful. \"I spent most of my life playing the part of the principled man,\" Dominic admitted. \"It's exhausting, trying to live up to an impossible standard while secretly breaking it.\"", "\"So what now? Who are you if not the righteous crusader?\"", "Dominic considered the question. \"I'm still figuring that out. But I know I want to be honest—with myself and others. I want to do good work without needing to be seen as good.\"", "Dylan nodded approvingly. \"That sounds like a real principle, not just a pose.\"", "They talked for nearly an hour, with Dylan sharing news from the outside world. He had started working for a different investment firm, one specializing in sustainable development projects. \"The kind of work you used to talk about,\" he noted with gentle irony.", "As their time drew to a close, Dylan hesitated, then said, \"I saw Jordan last week. At a fundraiser for affordable housing.\"", "Dominic's heart skipped a beat. \"How is he?\"", "\"Better, I think. He's seeing a therapist to deal with his grief over Barbara. Says he should have done it years ago.\" Dylan paused. \"He asked about you.\"", "\"What did you tell him?\"", "\"The truth. That you're doing the work of becoming a better person. That you're not making excuses.\"", "Dominic nodded, grateful for Dylan's honesty. \"And Bella? Have you heard anything?\"", "\"He took a plea deal. Five years for the attempted murder charge, with the insurance fraud running concurrently. According to the gossip, he's already charming the guards and making connections with wealthy inmates.\"", "Dominic wasn't surprised. Bella had always been adaptable, always looking for the next opportunity. In a strange way, he admired that resilience, even as he recognized the manipulation behind it.", "\"You know,\" Dylan said as he prepared to leave, \"when all this first happened, I was angry at you. Really angry. But now I'm almost grateful.\"", "\"Grateful?\" Dominic asked, confused.", "\"If you hadn't betrayed my trust, I might never have learned to question financial advisors who talk about ethics while checking out my watch.\" Dylan smiled wryly. \"Sometimes the most valuable lessons come from the worst experiences.\"", "As Dylan left, Dominic reflected on his words. Perhaps that was true for him as well. Perhaps his fall from grace had been necessary for him to see himself clearly for the first time.", "---", "Fourteen months into his sentence, Dominic was granted early release for good behavior. As he stepped out of the prison gates, a familiar figure was waiting for him in the parking lot.", "\"Dylan?\" Dominic said in surprise. \"What are you doing here?\"", "Dylan Chen smiled, leaning against his car. \"Someone had to pick you up. Unless you were planning to walk back to Seattle.\"", "\"I thought I'd call a cab,\" Dominic admitted. \"I didn't expect... I mean, after everything...\"", "\"Like I said before, everyone deserves a second chance,\" Dylan said, opening the passenger door. \"Even self-righteous financial advisors who think they know everything.\"", "Dominic laughed, the sound rusty but genuine. \"I definitely don't think that anymore.\"", "As they drove back toward the city, Dominic watched the landscape change from rural to suburban to urban, a physical manifestation of his journey back to society. But he knew he wasn't returning to his old life. That Dominic—the one who had judged others while failing to examine himself—was gone.", "\"So what now?\" Dylan asked as they approached the city limits. \"Back to finance?\"", "Dominic shook his head. \"No, I don't think so. At least not in the same way. I've been thinking about starting a nonprofit. Something focused on financial literacy for underserved communities.\"", "\"Using your powers for good instead of evil?\" Dylan teased.", "\"Something like that,\" Dominic agreed with a smile. \"What about you? Still investing in sustainable development?\"", "\"Actually, I've been working with Jordan Hayes,\" Dylan revealed. \"After what happened with you, he reached out to make things right. Offered me a position in his company, helping to develop affordable housing projects.\"", "The mention of Jordan sent a pang through Dominic's chest. \"He's a good man, underneath it all. Better than I gave him credit for.\"", "\"He asks about you sometimes,\" Dylan said carefully. \"I think he misses your friendship, even if he won't admit it.\"", "Dominic looked out the window, watching the Seattle skyline come into view. \"Some bridges can't be rebuilt.\"", "\"Maybe,\" Dylan conceded. \"Or maybe they just need a different architect.\"", "---", "Three months after his release, Dominic's nonprofit was taking shape, with Dylan as his first board member and financial backer. They had secured a small office space in a community center and were developing curricula for workshops on budgeting, investing, and debt management.", "One evening, as Dominic was locking up after a particularly successful workshop with single parents, he turned to find Jordan Hayes standing in the hallway.", "Time had been kind to Jordan. His hair was more silver than pepper now, but it suited him. He wore a casual sweater and jeans rather than his usual suits, giving him a softer appearance than Dominic remembered.", "\"Jordan,\" Dominic said, his voice barely above a whisper. \"What are you doing here?\"", "\"Dylan told me about your project,\" Jordan replied, his hands in his pockets. \"It sounds worthwhile.\"", "Dominic nodded, unsure what to say. The last time they had seen each other had been in a courtroom, with Dominic in handcuffs and Jordan testifying about the night Bella had tried to poison him.", "\"Would you like to come in?\" Dominic offered, gesturing to the office. \"It's not much, but we have decent coffee.\"", "Jordan hesitated, then nodded. \"Sure. Coffee sounds good.\"", "They sat across from each other at Dominic's desk, mugs of coffee between them, the silence heavy with unspoken words.", "\"I got your letters,\" Jordan said finally. \"All of them.\"", "\"I wasn't sure,\" Dominic admitted. \"You only answered the first one.\"", "\"I needed time,\" Jordan explained. \"To process everything. To figure out what I wanted to say.\"", "Dominic nodded, understanding all too well the need for time and space to make sense of betrayal.", "\"I saw Bella last month,\" Jordan continued, surprising Dominic. \"At his sentencing. It was the first time since that night.\"", "\"How was that?\" Dominic asked carefully.", "Jordan stared into his coffee. \"Strange. He looked the same, but different somehow. Harder around the eyes. He tried to apologize, said he never meant to hurt me.\" Jordan's laugh was hollow. \"As if drugging me and planning to cash in on my life insurance was an accident.\"", "\"I'm sorry,\" Dominic said quietly. \"For my part in all of it. I should have seen through him.\"", "\"We both should have,\" Jordan replied. \"But Bella was good at showing people what they wanted to see. I wanted a partner who could help me move past Barbara's death. You wanted someone who made you feel heroic.\"", "The assessment was painfully accurate. \"I thought I was rescuing him,\" Dominic admitted. \"It made me feel righteous, like I was finally living up to my principles by saving someone from a monster.\" He met Jordan's eyes. \"But you weren't the monster in that story.\"", "\"No,\" Jordan agreed. \"But I wasn't innocent either. I was so consumed by my grief over Barbara that I didn't see what was happening right in front of me. I chose Bella because he was nothing like her—I thought that would make it easier. Instead, it just highlighted everything I'd lost.\"", "They sat in silence for a moment, two men coming to terms with their shared history of blindness and pain.", "\"I've been seeing a therapist,\" Jordan said eventually. \"Working through my grief over Barbara properly. Should have done it years ago, instead of expecting Bella to fix me.\"", "\"That's good,\" Dominic said sincerely. \"I did a lot of therapy in prison too. It helps.\"", "Jordan nodded, then reached into his jacket and pulled out an envelope. \"The reason I came here tonight... I wanted to give you this in person.\"", "Dominic took the envelope cautiously. Inside was a check for a substantial amount, made out to his nonprofit.", "\"Jordan, I can't—\"", "\"It's not for you,\" Jordan interrupted. \"It's for the work you're doing. Dylan says it's making a difference. That's something I can support, regardless of our history.\"", "Dominic stared at the check, then back at Jordan. \"Thank you. This will help a lot of people.\"", "\"That's the idea.\" Jordan stood, preparing to leave. \"I should go. I have an early meeting tomorrow.\"", "Dominic walked him to the door, feeling the weight of everything that remained unsaid. At the threshold, Jordan turned back.", "\"You know, when I first met you, I admired your principles. Even when they annoyed me, I respected that you stood for something.\" He paused. \"I think I like this version of you better, though. The one who knows he can fail.\"", "\"Me too,\" Dominic said softly.", "Jordan nodded, then extended his hand. \"Good luck with your program, Dominic.\"", "Dominic took the offered hand, feeling the firm grip of the man who had once been his mentor and friend. It wasn't forgiveness, exactly, but it was something. A recognition, perhaps, that they had both been changed by what had happened—and not entirely for the worse.", "\"Thank you, Jordan. For everything.\"", "As Jordan walked away, Dominic stood in the doorway of his small office, watching until he disappeared around the corner. Then he went back inside, sat at his desk, and looked at the check in his hands. It represented not just financial support but a kind of benediction—an acknowledgment that even after terrible mistakes, it was possible to build something worthwhile.", "He had lost much in his journey from self-righteousness to humility—his career, his freedom, his illusions about himself. But in that loss, he had found something more valuable: the capacity to see himself clearly, with all his flaws and contradictions, and to choose a different path forward.", "Not as a person of perfect ideals, but as a human being trying, failing, and trying again to live with integrity in a complicated world."];
+            const storyContainer = document.getElementById("storyContainer");
+            const pagination = document.getElementById("paginationControls");
+            const pageIndicator = document.getElementById("pageIndicator");
+            const pageSizeSelect = document.getElementById("pageSizeSelect");
+            const pageOptions = document.getElementById("pageOptions");
+
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const firstBtn = document.getElementById("firstBtn");
+            const lastBtn = document.getElementById("lastBtn");
+
+            let currentPage = 0;
+            let pageSize = 4;
+
+            function getAutoPageSize() {
+                return Math.max(2, Math.floor(window.innerHeight / 250));
+            }
+
+            function renderPage(page) {
+                const totalPages = Math.ceil(paragraphs.length / pageSize);
+                const start = page * pageSize;
+                const end = start + pageSize;
+                storyContainer.innerHTML = paragraphs.slice(start, end).map(p => `<p>${p}</p>`).join('');
+                pageIndicator.textContent = `Page ${page + 1} of ${totalPages}`;
+                prevBtn.style.display = page > 0 ? "inline-block" : "none";
+                firstBtn.style.display = page > 0 ? "inline-block" : "none";
+                nextBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+                lastBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+            }
+
+            function switchToPagedView() {
+                const mode = document.querySelector('input[name="pageMode"]:checked').value;
+                pageSize = (mode === 'auto') ? getAutoPageSize() : parseInt(pageSizeSelect.value);
+                currentPage = 0;
+                pagination.style.display = 'block';
+                renderPage(currentPage);
+            }
+
+            function switchToFullView() {
+                pagination.style.display = 'none';
+                storyContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+            }
+
+            function nextPage() { const totalPages = Math.ceil(paragraphs.length / pageSize); if ((currentPage + 1) < totalPages) { currentPage++; renderPage(currentPage); } }
+            function prevPage() { if (currentPage > 0) { currentPage--; renderPage(currentPage); } }
+            function firstPage() { currentPage = 0; renderPage(currentPage); }
+            function lastPage() { currentPage = Math.ceil(paragraphs.length / pageSize) - 1; renderPage(currentPage); }
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+
+            function exportToPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const pageHeight = doc.internal.pageSize.height;
+                const margin = 15;
+                let y = margin;
+            
+                // Title
+                doc.setFontSize(18);
+                doc.setFont("times", "bold");
+                doc.text(document.title, doc.internal.pageSize.width / 2, y, { align: "center" });
+                y += 15;
+            
+                // Content
+                doc.setFontSize(12);
+                doc.setFont("times", "normal");
+            
+                paragraphs.forEach(p => {
+                    const lines = doc.splitTextToSize(p, 180);
+                    const blockHeight = lines.length * 8;
+            
+                    if (y + blockHeight > pageHeight - margin) {
+                        doc.addPage();
+                        y = margin;
+                    }
+            
+                    doc.text(lines, margin, y);
+                    y += blockHeight; // space between paragraphs
+                });
+            
+                const safeTitle = document.title.replace(/[^a-z0-9]/gi, "_").toLowerCase();
+                doc.save(`${safeTitle}.pdf`);
+            }
+
+
+            document.querySelectorAll('input[name="viewMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    if (e.target.value === 'full') {
+                        pageOptions.style.display = 'none';
+                        switchToFullView();
+                    } else {
+                        pageOptions.style.display = 'block';
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            document.querySelectorAll('input[name="pageMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    const isManual = e.target.value === 'manual';
+                    pageSizeSelect.disabled = !isManual;
+                    if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            pageSizeSelect.addEventListener('change', () => {
+                if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                    switchToPagedView();
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                const btn = document.getElementById("backToTop");
+                btn.style.display = window.scrollY > 300 ? "block" : "none";
+            });
+
+            switchToFullView();
+        </script>
+        
+</body>
+</html>

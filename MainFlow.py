@@ -26,7 +26,7 @@ def mainFlow(algorithm_type, stories_amount=1, words_in_story_amount=2000, impro
             generator_based_main_conflict = PlotterRecursionBasedMainConflict(plotto_data, gender_map,
                                                                               pronoun_map=pronoun_map,
                                                                               flip_genders=None, names_data=names_data)
-            plot = generator_based_main_conflict.generate(lead_ins=2, carry_ons=2)
+            plot = generator_based_main_conflict.generate(lead_ins=5, carry_ons=5)
             prompt = generator_based_main_conflict.generate_prompt(plot_string=plot, word_count=words_in_story_amount,
                                                                    save=True)
         # ---------------------------------------------------------------------------------------------------------------
@@ -97,7 +97,7 @@ def mainFlow(algorithm_type, stories_amount=1, words_in_story_amount=2000, impro
 
 if __name__ == "__main__":
     # mainFlow_Plot_Genie(stories_amount=1, words_in_story_amount=2000, create_html=True)
-    mainFlow("Plotto", stories_amount=1, words_in_story_amount=100, improve=False, create_html=True)
-    mainFlow("PlotGenie", stories_amount=1, words_in_story_amount=100, improve=False, create_html=True)
+    mainFlow("PlotGenie", stories_amount=20, words_in_story_amount=5000, improve=True, create_html=True)
+    mainFlow("Plotto", stories_amount=20, words_in_story_amount=5000, improve=True, create_html=True)
     # mainFlow("Plotto", stories_amount=20, words_in_story_amount=5000, improve=False, create_html=True)
     # mainFlow("PlotGenie", stories_amount=20, words_in_story_amount=5000, improve=False, create_html=True)

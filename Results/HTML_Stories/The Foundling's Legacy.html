@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Story</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+            :root {
+                --bg-color: #fdf6e3;
+                --text-color: #2e2e2e;
+                --btn-color: #333;
+                --btn-hover: #555;
+            }
+
+            body.dark-mode {
+                --bg-color: #1e1e1e;
+                --text-color: #f0f0f0;
+                --btn-color: #ddd;
+                --btn-hover: #fff;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Merriweather', serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                max-width: 800px;
+                margin: auto;
+                padding: 50px 30px;
+                line-height: 2;
+                font-size: 1.15em;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin-bottom: 50px;
+                border-bottom: 3px double #ccc;
+                padding-bottom: 20px;
+                letter-spacing: 2px;
+            }
+
+            p {
+                text-align: justify;
+                margin-bottom: 1.8em;
+            }
+
+            p::first-letter {
+                font-size: 130%;
+                font-weight: bold;
+            }
+
+            #storyContainer {
+                min-height: 600px;
+                position: relative;
+            }
+
+            #paginationControls {
+                text-align: center;
+                margin-top: 30px;
+                min-height: 60px;
+                position: sticky;
+                bottom: 20px;
+                background-color: var(--bg-color);
+                padding: 10px;
+                border-top: 1px solid #aaa;
+            }
+
+            select, label, button {
+                font-size: 1em;
+                margin: 6px 10px;
+            }
+
+            button, select {
+                padding: 6px 14px;
+                border: none;
+                border-radius: 6px;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                transition: background-color 0.3s, color 0.3s;
+                cursor: pointer;
+            }
+
+            button:hover, select:hover {
+                background-color: var(--btn-hover);
+            }
+
+            label {
+                margin: 0 8px;
+                cursor: pointer;
+            }
+
+            input[type="radio"] {
+                margin-right: 4px;
+            }
+
+            #backToTop {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                padding: 10px 15px;
+                font-size: 1em;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                display: none;
+            }
+
+            #controlsTop > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            #controlsTop {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        </style>
+        
+</head>
+<body>
+<h1>Story</h1>
+
+            <!-- Info Modal Trigger -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button onclick="document.getElementById('infoModal').style.display='block'">ℹ️ Info</button>
+            </div>
+            
+            <!-- Info Modal -->
+            <div id="infoModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:90%; max-width:600px; border-radius:10px; font-family:'Merriweather', serif;">
+                <span onclick="document.getElementById('infoModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2>Story Info</h2>
+                <p><strong>📅 Creation Date:</strong> 05-07-2025 13:19</p>
+                <p><strong>🧠 Algorithm:</strong> Plotto</p>
+                <p><strong>📝 Word Count:</strong> 9273</p>
+                <p><strong>📄 Review:</strong> <button onclick="document.getElementById('reviewModal').style.display='block'">View Review</button></p>
+              </div>
+            </div>
+            <!-- Review Modal -->
+            <div id="reviewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:5% auto; padding:30px; border:1px solid #888; width:90%; max-width:800px; border-radius:10px; font-family:'Merriweather', serif; max-height:85%; overflow-y:auto;">
+                <span onclick="document.getElementById('reviewModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2 style="margin-top:0;">📘 Story Review</h2>
+                <p><strong>📘 Story Title:</strong> The Foundling's Legacy</p>
+<hr>
+<p>📄 Claude Evaluation Report</p>
+<hr>
+<h2>Literary Analysis of "The Foundling's Legacy"</h2>
+<h3>Character (Category Weight = 0.30)</h3>
+<p>1. <strong>Is the main character clearly identifiable?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- Harrison Blackwood is unmistakably the protagonist, introduced immediately with clear physical description ("weathered face," "salt-and-pepper hair") and background as a professional gambler with a complex moral code ("Gentleman Harrison").</p>
+<p>2. <strong>Does the character have a clear backstory?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Harrison's past is well-established through references to his gambling career, college dropout status, and friendship with Patrick. However, some deeper aspects of his past (family history, why he chose gambling) remain unexplored.</p>
+<p>3. <strong>Does the character have a clear goal or "desire"?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Harrison's goal evolves clearly throughout the story - from initially wanting to find Lily's family to ultimately desiring to protect her at all costs, actively pursuing this through increasingly risky actions.</p>
+<p>4. <strong>Does the character have a clear inner weakness or vulnerability?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Harrison's vulnerability is well-portrayed through his gambling addiction, his tendency to avoid commitment, and his fear of authorities. His internal struggle with these weaknesses is evident when he gambles with rent money meant for Lily.</p>
+<p>5. <strong>Does the character undergo a transformation?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Harrison experiences a complete transformation from a self-interested gambler to someone willing to sacrifice everything for Lily, culminating in his decision to leave his entire life behind to protect her.</p>
+<p>6. <strong>Do supporting characters contribute to the main character's journey?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Each supporting character serves a clear purpose:</strong> Patrick provides moral support and academic resources, Gemma challenges and later aids Harrison, Victoria provides crucial information, and The Broker tests Harrison's resolve.</p>
+<p>7. <strong>Do supporting characters fulfill archetypal roles?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- The story features clear archetypal characters:</strong> Patrick as the loyal ally, Gemma as the converted antagonist, Victoria as the wise mentor, Dragomir as the villain, and The Broker as the gatekeeper. Each contrasts effectively with Harrison.</p>
+<p>8. <strong>Are supporting characters diverse and distinct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Supporting characters are well-differentiated through unique speech patterns, motivations, and backgrounds:</strong> Patrick's academic perspective, Gemma's calculating nature, Victoria's protective instincts, and The Broker's businesslike approach.</p>
+<p>9. <strong>Is the number of characters appropriate?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The story maintains a manageable cast with each character serving a distinct purpose. Secondary characters like Eli, Bruno, and Smith appear only when needed without overwhelming the narrative.</p>
+<p>10. <strong>Are characters developed across three layers?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- Harrison is well-developed physically (appearance, actions), psychologically (motivations, fears), and sociologically (profession, relationships). Supporting characters like Gemma and Patrick show development in at least two layers, though some minor characters remain more functional.</p>
+<h3>Conflict (Category Weight = 0.30)</h3>
+<p>11. <strong>Is the central conflict strong enough to drive the story?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.35</p>
+<p><strong>- Weighted Score:</strong> 0.42</p>
+<p>- The central conflict—Harrison's desire to protect Lily from her dangerous grandfather—creates escalating tension throughout the narrative, forcing increasingly difficult choices and driving the plot forward consistently.</p>
+<p>12. <strong>Does the conflict touch upon universal human conditions?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- The story explores universal themes of redemption, sacrifice for a child, and choosing between self-interest and moral responsibility that readers can readily connect with regardless of their personal experiences.</p>
+<p>13. <strong>Are the stakes clear from the beginning?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The initial stakes (finding Lily's family) are clear, though they evolve significantly as the story progresses. The life-or-death nature of the conflict becomes apparent gradually rather than being established immediately.</p>
+<p>14. <strong>Is the conflict directly related to what we know about the character?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The conflict perfectly challenges Harrison's established character traits—his avoidance of commitment, his distrust of authorities, and his moral code—forcing him to confront and overcome these aspects of himself.</p>
+<p>15. <strong>Does the conflict escalate as the story approaches its climax?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The conflict escalates steadily from finding an abandoned baby to legal custody battles to international flight as fugitives, with increasing personal and legal consequences at each stage.</p>
+<p>16. <strong>Is the source of the conflict consistent throughout?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- While the manifestation of the conflict evolves, its source remains consistent:</strong> the threat Dragomir poses to Lily and Harrison's determination to protect her from this danger.</p>
+<p>17. <strong>Do the subplots also include conflict?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p><strong>- Subplots contain their own conflicts:</strong> Harrison's gambling addiction (illustrated in his game with Gemma), his relationship with The Broker, and Gemma's internal conflict about helping Harrison all contain meaningful tension.</p>
+<p>18. <strong>Is there both external conflict and internal conflict?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.06</p>
+<p>- The story balances external conflict (custody battle, escape from Dragomir) with Harrison's internal conflicts about his lifestyle, his worthiness to care for Lily, and his willingness to break laws to protect her.</p>
+<h3>Craft (Category Weight = 0.25)</h3>
+<p>19. <strong>Is the story written in clear, modern English?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.20</p>
+<p>- The prose is consistently clear and accessible with contemporary language and sentence structures that flow naturally throughout the narrative.</p>
+<p>20. <strong>Are spelling and grammar correct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The text demonstrates excellent technical control with proper grammar, spelling, and punctuation throughout.</p>
+<p>21. <strong>Is the writing clear, concise, and descriptive?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The writing balances efficiency with vivid detail, providing necessary information without unnecessary verbosity, as seen in concise yet evocative descriptions like "weathered face told the story of a life spent on the edges of society."</p>
+<p>22. <strong>Is there vivid description of characters, scenes, and settings?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- The story offers strong character descriptions and some effective scene-setting, particularly in the gambling halls and The Broker's office. However, some settings (like Harrison's apartment) could benefit from more sensory detail.</p>
+<p>23. <strong>Is there no unnecessary or inappropriate detail?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The narrative remains focused on relevant details that advance the plot or develop characters, avoiding tangential information or excessive description that would slow the pacing.</p>
+<p>24. <strong>Is everything described visually demonstrable?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- Most elements are presented through observable actions and dialogue, though there are some passages that rely on internal thoughts and emotional states that would be challenging to depict visually.</p>
+<h3>Logic (Category Weight = 0.15)</h3>
+<p>25. <strong>Are there no plot holes?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The plot generally holds together well, though some elements raise questions, such as how Harrison supports himself and Lily financially during the weeks before taking the bartending job.</p>
+<p>26. <strong>Are there no unclear points?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Most plot points are clearly explained, though some elements (like exactly how Victoria's plan was supposed to work originally) remain somewhat ambiguous.</p>
+<p>27. <strong>Have all questions raised been answered?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- The story resolves its main questions about Lily's origins and Harrison's choices, though some secondary questions (like the full extent of Dragomir's crimes) remain partially unexplored.</p>
+<p>28. <strong>Is the story consistent and free of continuity errors?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The narrative maintains strong continuity throughout, with character motivations, timeline, and plot developments remaining consistent from beginning to end.</p>
+<p>29. <strong>Are there no contradictions with previously stated information?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story avoids contradicting established facts, maintaining consistency in character backgrounds, relationships, and plot developments.</p>
+<p>30. <strong>Is the logic sound and free from illogical elements?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- Most plot developments follow logically from established premises, though some elements (like Judge Winters' willingness to provide information to Harrison) stretch credibility somewhat.</p>
+<h3>Overall Weighted Score: 3.7175</h3>
+<h3>Report</h3>
+<p>"The Foundling's Legacy" is an exceptionally well-crafted narrative that excels in character development and conflict escalation. Harrison Blackwood's transformation from a self-interested gambler to a man willing to sacrifice everything for an abandoned child is both convincing and emotionally resonant. The story maintains strong pacing throughout, with each plot development logically flowing from established character motivations. While some minor plot elements could benefit from further clarification, the overall narrative demonstrates sophisticated storytelling technique with well-differentiated characters and thematically rich conflict.</p>
+<h3>Suggestions for Improvement:</h3>
+<p><strong>* <strong>Setting Development</strong>:</strong> While character descriptions are strong, some settings could benefit from more sensory detail to create a more immersive experience. The Chicago setting, particularly locations like Harrison's apartment and the airstrip, could be more vividly rendered.</p>
+<p><strong>* <strong>Backstory Integration</strong>:</strong> Consider providing more glimpses into Harrison's deeper past (childhood, family relationships) to better contextualize his reluctance to form attachments and his eventual transformation when meeting Lily.</p>
+<p><strong>* <strong>Legal/Procedural Details</strong>:</strong> Some aspects of the legal proceedings and law enforcement responses could be more thoroughly researched and detailed to increase plausibility, particularly regarding international custody cases and the judge's unusual behavior.</p>
+<p><strong>* <strong>Secondary Character Arcs</strong>:</strong> While supporting characters are well-differentiated, some (particularly Eli) could benefit from more complete narrative arcs or clearer resolution of their storylines.</p>
+<p><strong>* <strong>Thematic Exploration</strong>:</strong> The story touches on powerful themes of redemption and sacrifice that could be further developed through more explicit moments of Harrison's self-reflection on his transformation.</p>
+              </div>
+            </div>
+        
+
+        <div id="controlsTop">
+            <div>
+                <label><input type="radio" name="viewMode" value="full" checked> Continuous Reading</label>
+                <label><input type="radio" name="viewMode" value="paged"> Paginated View</label>
+            </div>
+
+            <div id="pageOptions" style="display: none;">
+                <label><input type="radio" name="pageMode" value="auto" checked> Auto Paragraphs</label>
+                <label><input type="radio" name="pageMode" value="manual"> Manual</label>
+                <select id="pageSizeSelect" disabled>
+        <option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+                </select>
+            </div>
+
+            <div>
+                <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+
+        </div>
+
+        <div id="storyContainer"></div>
+
+        <div id="paginationControls" style="display: none;">
+            <button id="firstBtn" onclick="firstPage()">⏮ First</button>
+            <button id="prevBtn" onclick="prevPage()">◀ Previous</button>
+            <span id="pageIndicator">Page 1 of X</span>
+            <button id="nextBtn" onclick="nextPage()">Next ▶</button>
+            <button id="lastBtn" onclick="lastPage()">Last ⏭</button>
+        </div>
+
+        <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆ Back to Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script>
+            const paragraphs = ["# The Foundling's Legacy", "Harrison Blackwood had always been a man who lived by his wits. At forty-two, his weathered face told the story of a life spent on the edges of society, where fortunes were made and lost on the turn of a card. His salt-and-pepper hair was always meticulously combed back, and despite his questionable profession, he maintained the appearance of a gentleman—pressed shirts, polished shoes, and a vintage pocket watch that had somehow survived countless desperate nights.", "The gambling halls of Chicago knew him well—too well, perhaps. Harrison had a system, a way of reading people that had served him adequately for years. Not well enough to make him rich, but sufficient to keep him in decent suits and single-malt whiskey. What his acquaintances didn't know was that beneath the calculated exterior beat the heart of a man raised with principles he could never quite shake.", "\"Gentleman Harrison,\" they called him in the underground poker rooms—partly in mockery of his formal manners, partly in genuine respect for a man who, despite his profession, adhered to a personal code that seemed from another era.", "It was a rainy Tuesday night when Harrison's carefully balanced life tilted on its axis. He was cutting through an alley behind the Crimson Ace casino, counting his modest winnings, when he heard it—a soft whimpering sound coming from behind a stack of wooden crates.", "His first instinct was to walk faster. Chicago alleys held countless troubles, none of which were his concern. But something in that sound—vulnerable, innocent—made him pause. Harrison had spent a lifetime ignoring his better angels, but occasionally, they still managed to catch his attention.", "Behind the crates lay a bundle wrapped in what appeared to be an expensive blanket. The whimpering grew louder as he approached. With hesitant hands, Harrison pulled back the fabric to reveal a baby girl, no more than a few months old, her cheeks flushed with cold and tears.", "\"Jesus Christ,\" he muttered, looking around the empty alley. Who would leave an infant alone in such a place? The answer was obvious—someone desperate, someone with no other choice, or someone who simply didn't care.", "He should call the police. That was the proper thing to do. But Harrison had spent most of his adult life avoiding law enforcement. His current identity wouldn't withstand much scrutiny, and there were outstanding warrants in at least two states for various gambling-related offenses.", "As he debated his options, the baby's cries subsided, and she looked up at him with wide, trusting eyes. Harrison noticed something embroidered on the blanket—an intricate coat of arms featuring a lion, a falcon, and what appeared to be a cypress tree. It was clearly the work of skilled hands, suggesting the child came from money, or at least heritage.", "\"What am I supposed to do with you?\" he asked the infant, who responded by grasping his finger with surprising strength.", "That simple gesture decided it. Harrison couldn't leave her there, and he couldn't risk bringing the authorities into his life. He would find the child's family himself. How hard could it be with such a distinctive family crest to guide him?", "He tucked the bundle inside his coat and hurried toward his apartment, already calculating how this unexpected complication would affect his carefully constructed life.", "---", "Harrison's apartment was a modest one-bedroom in an aging building that had once been fashionable. The landlady, Mrs. Finch, was hard of hearing and minded her own business—two qualities Harrison valued highly in a neighbor.", "\"What am I going to call you?\" he asked the baby as he placed her on his bed, surrounding her with pillows to prevent her from rolling off. The infant gurgled in response, seemingly content now that she was warm and safe.", "Harrison searched his kitchen for anything that might serve as baby food, finding only coffee, whiskey, and stale bread. This was clearly going to require assistance.", "He picked up his phone and dialed one of the few numbers he knew by heart.", "\"Patrick? It's Harrison. I need a favor.\"", "Patrick O'Malley had been Harrison's friend since their college days—before Harrison had dropped out and found his calling at the poker table. Unlike Harrison, Patrick had stayed the course, becoming a respected history professor at Northwestern University. He was one of the few people who knew Harrison's real story and still chose to maintain their friendship.", "\"Harrison? It's nearly midnight. What kind of trouble are you in now?\" Patrick's voice was groggy with sleep.", "\"I found a baby.\"", "A long pause followed. \"You're going to need to elaborate on that statement.\"", "Twenty minutes later, Patrick arrived with diapers, formula, and a bewildered expression. He was a tall, lanky man with perpetually disheveled red hair and thick glasses that magnified his intelligent green eyes.", "\"When you said you found a baby, I thought perhaps you were speaking metaphorically,\" Patrick said, staring at the infant who was now sleeping peacefully on Harrison's bed.", "\"What would that even mean?\" Harrison asked, taking the supplies.", "\"I don't know. A new gambling technique? A metaphor for some trouble you've gotten yourself into?\" Patrick shook his head. \"Not an actual human child.\"", "Harrison explained the circumstances while awkwardly preparing a bottle according to the instructions Patrick had brought.", "\"You need to call the police,\" Patrick said firmly. \"This is kidnapping.\"", "\"It's rescue,\" Harrison countered. \"And look at this.\" He showed Patrick the embroidered coat of arms. \"This is a clue to her family. I'm going to find them.\"", "Patrick adjusted his glasses and examined the emblem. \"This is interesting. Definitely European in design. I could research it for you.\"", "\"I'd appreciate that,\" Harrison said, testing the temperature of the formula on his wrist as he'd seen people do in movies.", "\"What are you going to call her in the meantime?\" Patrick asked.", "Harrison looked down at the sleeping infant. \"Lily,\" he said after a moment. \"She reminds me of my grandmother. Same determined expression.\"", "Patrick sighed. \"Harrison, this is madness. You can't take care of a baby. You can barely take care of yourself.\"", "\"It's temporary,\" Harrison insisted. \"Just until we find her family.\"", "\"And if we can't?\"", "Harrison didn't answer. He couldn't imagine failing at this task. For all his flaws, he had always prided himself on his ability to solve problems, to find angles others missed. This would be no different.", "\"Just help me with the research,\" he said finally. \"I'll figure out the rest as I go.\"", "---", "The next morning, Harrison woke to Lily's cries. He had slept on the couch, leaving his bed to the infant, who was now loudly expressing her displeasure at the world.", "\"I hear you,\" he mumbled, stumbling to his feet. \"No need to wake the whole building.\"", "Caring for Lily proved to be more challenging than any poker game he'd ever played. The rules were unclear, the stakes impossibly high, and his opponent completely unpredictable. By midday, he was exhausted, covered in formula, and questioning every life choice that had led him to this moment.", "Yet there was something strangely satisfying about the way Lily would calm when he held her, the way her tiny hand would grasp his finger, the complete trust in her eyes. It was a kind of connection Harrison had spent most of his life avoiding.", "While Lily napped, Harrison began his investigation. He took a clear photograph of the coat of arms and sent it to various government agencies, including the State Department and the Immigration office, explaining that he was trying to locate the family of an abandoned child. He was careful to use one of his alternate email addresses, one not directly connected to his current identity.", "Days passed with no response. Patrick's research had yielded little concrete information—the coat of arms appeared to be of Eastern European origin, possibly Hungarian or Romanian, but it wasn't registered in any of the standard heraldic databases.", "Meanwhile, Harrison's routine adapted to accommodate Lily's presence. He found himself declining poker games to stay home with her. When he did go out, he hired a teenage neighbor, Eli, to babysit. Eli was a lanky seventeen-year-old with dyed black hair and multiple piercings, but beneath the alternative exterior was a responsible kid who needed money for college and genuinely seemed to care for Lily.", "\"She's got your eyes,\" Eli commented one evening as Harrison was preparing to leave for a high-stakes game he couldn't afford to miss.", "\"She's not mine,\" Harrison corrected automatically, though he found himself oddly pleased by the observation.", "\"Whatever you say, Mr. B,\" Eli replied with a knowing smile that irritated Harrison more than it should have.", "The game that night was at the back of a cigar shop owned by a man known only as The Broker. It was higher stakes than Harrison usually played, but he needed the money. Babies, it turned out, were expensive.", "The players were the usual mix of professionals and wealthy amateurs. Harrison recognized most of them, except for a woman seated at the far end of the table. She had platinum blonde hair cut in a severe bob, ice-blue eyes, and the kind of poise that suggested old money or dangerous connections—possibly both.", "\"Gemma Frost,\" she introduced herself when Harrison took the seat beside her. \"And you're Harrison Blackwood. I've heard about you.\"", "\"All good things, I hope,\" Harrison replied with his practiced charm.", "Gemma's smile didn't reach her eyes. \"Interesting things. They say you never cheat, but you always seem to know when others are cheating. They say you once walked away from a royal flush because you suspected the deck was marked.\"", "Harrison maintained his poker face, but inwardly he was unsettled. He didn't like being known, being studied. \"People say a lot of things.\"", "The game progressed, and Harrison found himself distracted. Not by Gemma, though she was certainly distracting with her sharp wit and sharper eyes, but by thoughts of Lily. Was she sleeping? Had Eli remembered the specific way she liked to be rocked before bed?", "His distraction cost him. By midnight, he was down several thousand dollars—money he didn't have. Worse, most of it had gone to Gemma, who played with a calculated precision that matched his own usual style.", "\"One more hand,\" The Broker announced. \"Make it count.\"", "Harrison looked at his chips—barely enough for the minimum bet. He reached into his pocket and felt the envelope containing the rent money he'd set aside. It wasn't his to gamble with, but if he won this hand, he could replace it and have enough left over for Lily's needs for the month.", "He placed the envelope on the table. \"Cash,\" he said. \"Two thousand.\"", "The Broker raised an eyebrow but nodded. Gemma matched his bet without hesitation.", "The cards were dealt. Harrison's hand was good—two pairs, kings and tens. Not unbeatable, but strong. He kept his expression neutral as the betting continued. Gemma raised. Harrison called, pushing the last of his chips forward.", "\"Show,\" The Broker commanded.", "Harrison laid down his cards. \"Two pair.\"", "Gemma revealed her hand. \"Full house, queens over sevens.\"", "The table fell silent. Harrison stared at her cards, then at the pile of chips and cash she was pulling toward her. That was the rent money. That was Lily's formula and diapers. That was the fee he'd promised to Patrick for his research.", "\"Better luck next time, Mr. Blackwood,\" Gemma said, her voice soft but her eyes triumphant.", "Harrison nodded stiffly and stood. \"Congratulations, Ms. Frost. Well played.\"", "Outside, the night air was cold against his face. He had lost before—every gambler has—but never when the stakes felt so personal. For the first time in years, Harrison felt the weight of his choices pressing down on him. He had gambled with money that wasn't his to lose, money meant for the child who now depended on him.", "As he walked home, Harrison made a decision. He would find Lily's family, not just because it was the right thing to do, but because he was clearly not fit to care for her. His lifestyle, his choices, his very nature made him unsuitable as a guardian. The sooner he solved the mystery of her origins, the better it would be for everyone.", "---", "Three weeks later, Harrison was no closer to finding Lily's family, but his life had undergone a transformation nonetheless. He had taken a job tending bar at a respectable establishment called The Sovereign—the first legitimate employment he'd held in over a decade. The pay wasn't great, but it was steady, and the manager didn't ask too many questions about his background.", "Lily was growing rapidly, her personality emerging more each day. She had a determined spirit that both challenged and charmed Harrison. When she smiled—a recent development—it was like sunshine breaking through clouds, illuminating parts of Harrison's heart he had long ago walled off.", "Patrick continued his research into the coat of arms, now with the assistance of a graduate student specializing in Eastern European history. They had narrowed the origin to Romania, specifically to a region in Transylvania known for its ancient noble families.", "\"The problem,\" Patrick explained over coffee in Harrison's apartment, \"is that many of these families were scattered during the Communist era. Records were destroyed, properties confiscated. Tracing a specific lineage is like trying to follow a thread through a labyrinth.\"", "Lily was on a blanket on the floor, attempting to roll over with fierce concentration. Harrison watched her, a strange mixture of pride and melancholy washing over him.", "\"What if we can't find them?\" he asked quietly.", "Patrick studied his friend's face. \"You've grown attached to her.\"", "It wasn't a question, so Harrison didn't answer. Instead, he said, \"I'm not what she needs. I'm a gambler with a false identity and a history of running from commitment. She deserves better.\"", "\"Perhaps,\" Patrick agreed. \"But it's worth noting that since she came into your life, you've gotten a legitimate job, stopped gambling, and shown more responsibility than I've seen from you in twenty years.\"", "Harrison shrugged uncomfortably. \"Temporary adjustments for a temporary situation.\"", "Patrick didn't look convinced, but he changed the subject. \"I've been meaning to ask—have you noticed anyone unusual hanging around? Anyone taking an interest in you or Lily?\"", "The question caught Harrison off guard. \"No. Why?\"", "Patrick hesitated. \"Just a feeling. The coat of arms is distinctive. If it belongs to a powerful family, and if they're looking for Lily...\"", "\"They might be looking for me too,\" Harrison finished the thought. \"But no one knows I have her except you and Eli.\"", "\"And whoever you sent those emails to,\" Patrick reminded him.", "Harrison felt a chill. He had been careful, but not careful enough. If someone was tracking those emails...", "\"I'll keep my eyes open,\" he promised.", "After Patrick left, Harrison stood at the window, watching the street below with new wariness. Was someone out there, watching his apartment? Waiting for an opportunity to take Lily? Or worse, to harm her for some reason he couldn't fathom?", "The thought of anyone threatening Lily awakened something primal in Harrison. He had spent his life avoiding attachments, commitments, anything that might make him vulnerable. But in that moment, he recognized that it was too late—he was already vulnerable where Lily was concerned.", "\"I won't let anyone hurt you,\" he whispered to the baby, who had finally succeeded in rolling onto her stomach and was now looking up at him with triumphant eyes.", "---", "The following evening, Harrison was working his usual shift at The Sovereign when a familiar face appeared at the bar. Gemma Frost, elegant in a tailored black suit, took a seat directly in front of him.", "\"Mr. Blackwood,\" she greeted him with that same cold smile. \"I heard you'd taken up honest work. I had to see for myself.\"", "Harrison maintained his professional demeanor. \"What can I get you, Ms. Frost?\"", "\"Macallan 18, neat.\" She watched as he poured the scotch. \"You've been busy since our game. New job, new responsibilities. I hear you've even become a father of sorts.\"", "Harrison's hand froze momentarily before he set the glass in front of her. \"I don't know what you're talking about.\"", "Gemma took a sip of her scotch, her eyes never leaving his face. \"A baby girl. Found in an alley. Distinctive family crest on her blanket. Ringing any bells?\"", "\"Who are you?\" Harrison asked, his voice low and tense.", "\"Someone interested in the child.\" Gemma placed a business card on the bar. \"When you're ready to discuss it properly, call me. I'll make it worth your while.\"", "Before Harrison could respond, she stood, leaving her drink mostly untouched and a hundred-dollar bill beside it. \"Keep the change. You'll need it for diapers.\"", "Harrison watched her leave, the business card burning a hole in his pocket. It read simply \"Gemma Frost, Acquisitions\" with a phone number. No company name, no address.", "His shift couldn't end fast enough. He called Eli repeatedly on his break, but the teenager didn't answer. By the time Harrison was free to leave, his anxiety had reached a fever pitch.", "He ran the six blocks to his apartment building, taking the stairs two at a time. When he reached his door, he found it slightly ajar. Heart pounding, he pushed it open.", "Eli was on the floor, unconscious but breathing. The apartment had been searched—drawers pulled out, cushions overturned. And Lily's crib was empty.", "\"No,\" Harrison whispered, the word torn from his throat. \"No, no, no.\"", "He rushed to Eli's side, shaking the boy gently. \"Eli! Wake up. Where's Lily?\"", "Eli's eyes fluttered open, unfocused at first, then widening with panic. \"Mr. B? They took her. Two men. I tried to stop them, but they hit me...\"", "\"When? How long ago?\" Harrison demanded.", "\"Maybe twenty minutes?\" Eli winced, touching a growing lump on his head. \"They said something about taking her to the marina.\"", "Harrison was already moving, grabbing his keys and the gun he kept hidden behind a loose baseboard—a relic from his more dangerous days that he'd never quite been able to part with.", "\"Call the police,\" he told Eli. \"Tell them everything.\"", "\"But won't you get in trouble?\" Eli asked, struggling to sit up.", "Harrison paused at the door. \"Doesn't matter. Just make sure they know Lily's been kidnapped.\"", "As he raced toward the marina, Harrison's mind was clearer than it had been in years. The consequences for himself—arrest, imprisonment for his past crimes—were irrelevant. All that mattered was Lily's safety.", "The marina was largely deserted at this hour, a few lights glowing from boats where people lived aboard. Harrison moved silently along the docks, searching for any sign of activity.", "Near the end of the pier, he spotted a sleek yacht with its lights on. As he watched, a figure emerged on deck—Gemma Frost, unmistakable even in the dim light. She appeared to be arguing with someone still inside the cabin.", "Harrison approached cautiously, using the other boats as cover. When he was close enough, he could hear snippets of conversation.", "\"...not what we agreed,\" Gemma was saying. \"The child was to be unharmed.\"", "A man's voice responded, too low for Harrison to make out the words.", "\"I don't care about your orders,\" Gemma snapped. \"This isn't right.\"", "Harrison had heard enough. He moved swiftly onto the yacht, gun raised. \"Where is she?\" he demanded.", "Gemma spun around, surprise flashing across her face before she composed herself. \"Harrison. I was hoping you'd come.\"", "\"Where is Lily?\" he repeated, his voice deadly calm.", "\"Below deck. She's safe.\" Gemma held up her hands. \"This isn't what it looks like.\"", "\"It looks like kidnapping.\"", "\"It's recovery,\" came a new voice. A man stepped from the cabin—tall, with military bearing and cold eyes. \"The child belongs to my employer.\"", "\"Christian,\" Gemma said warningly. \"We agreed to handle this my way.\"", "\"Your way failed,\" Christian replied dismissively. He addressed Harrison. \"The child is the granddaughter of Victor Dragomir, one of the wealthiest men in Romania. She was taken from her mother's home three months ago. We've been tracking her ever since.\"", "Harrison kept his gun steady. \"Prove it.\"", "Christian reached slowly into his jacket and produced a photograph. It showed a young woman holding a baby, and beside them stood an elderly man with aristocratic features. The baby was wrapped in a blanket bearing the same coat of arms Harrison had been researching.", "\"Her mother died shortly after this was taken,\" Christian continued. \"A home invasion. The baby disappeared. Mr. Dragomir has been searching for his granddaughter ever since.\"", "Harrison's mind raced. If this was true, then Lily had a family—a wealthy, powerful family who could give her everything he couldn't. But something didn't add up.", "\"If you're working for her grandfather, why the secrecy? Why not approach me directly?\"", "\"Because we weren't sure of your involvement,\" Gemma answered. \"We needed to determine whether you were part of the kidnapping ring or simply found her by chance.\"", "\"And now?\" Harrison asked.", "\"Now we know you care for her,\" Gemma said softly. \"Which is why I was trying to convince Christian to let me handle this differently.\"", "A cry came from below deck—Lily's cry. Harrison's resolve hardened. \"Take me to her. Now.\"", "Christian looked like he might object, but Gemma nodded. \"This way.\"", "They led Harrison below, where Lily was in a small cabin, being tended to by an older woman with silver hair and gentle hands. When Lily saw Harrison, she reached for him, her little face lighting up with recognition.", "Harrison holstered his gun and took her into his arms, relief washing over him. \"Hey, little one,\" he murmured. \"You're okay.\"", "The older woman watched them with an odd expression. \"You've been caring for her?\" she asked in accented English.", "\"Yes,\" Harrison replied, not taking his eyes off Lily. \"For almost two months now.\"", "\"You've done well,\" the woman said, studying him. \"She is healthy, happy. Not what we expected to find.\"", "Harrison finally looked at her. \"And who are you?\"", "\"Victoria Petrov. I was nurse to her mother, and to her mother before her.\" The old woman's eyes were shrewd. \"I know this family better than anyone.\"", "\"Is what they're saying true? About her grandfather?\"", "Victoria hesitated, glancing at Christian and Gemma. \"It is... partially true. Victor Dragomir is her grandfather. He has been searching for her. But there is more to the story than they have told you.\"", "Christian stepped forward. \"That's enough, Victoria. We have the child. Our job is done.\"", "\"Your job, perhaps,\" Victoria replied with unexpected steel in her voice. \"Mine is to protect this child, as I promised her mother.\"", "Harrison sensed an undercurrent he didn't understand. \"What aren't you telling me?\"", "Victoria looked him directly in the eyes. \"Victor Dragomir is a dangerous man. His daughter, Eliza, fled from him with her baby because she feared what he would do to them both. The home invasion was no random attack.\"", "\"You're speaking treason, old woman,\" Christian warned.", "\"I'm speaking truth,\" Victoria countered. \"And you know it.\"", "Harrison held Lily tighter. \"You're saying her grandfather is responsible for her mother's death?\"", "\"I'm saying he is not a man to be trusted with a child,\" Victoria replied carefully. \"Especially not this child, who stands to inherit everything when he dies.\"", "The cabin fell silent except for Lily's soft babbling as she played with Harrison's collar. The implications were clear—if Victoria was telling the truth, sending Lily to her grandfather might be sentencing her to death.", "\"I can't let you take her,\" Harrison said finally.", "Christian's hand moved toward his jacket. \"You don't have a choice.\"", "\"Actually,\" came a new voice from the cabin doorway, \"he does.\"", "Everyone turned to see Patrick standing there, accompanied by two uniformed police officers.", "\"Professor O'Malley,\" Gemma said, surprise evident in her voice. \"This is unexpected.\"", "\"I've been following Harrison since he left the bar,\" Patrick explained. \"When I saw him board this yacht with a gun, I thought he might need backup.\" He nodded to the officers. \"I took the liberty of explaining the situation to Chicago's finest.\"", "One of the officers stepped forward. \"We've received reports of a kidnapping. Is this the child in question?\"", "\"Yes,\" Harrison and Christian said simultaneously.", "The officer looked between them. \"This is going to require some sorting out. I suggest everyone come down to the station to give statements.\"", "Christian's expression darkened. \"This is an international matter. The child is a Romanian citizen.\"", "\"Then I'm sure the Romanian consulate will be happy to get involved,\" the officer replied evenly. \"In the meantime, the child stays with child protective services until we determine custody.\"", "Harrison felt Lily's small body against his chest, her complete trust in him. The thought of handing her over to strangers, even temporarily, was unbearable. But he knew that fighting now would only make things worse.", "\"Can I have a moment with her?\" he asked the officer. \"Before you take her?\"", "The officer nodded, and the others stepped back to give him space.", "Harrison looked down at Lily, memorizing her face—the curious eyes, the determined chin, the way her hair curled at her temples. \"I'm going to fix this,\" he whispered to her. \"I promise. I won't let anyone hurt you.\"", "As if she understood, Lily reached up and patted his cheek with her tiny hand. Harrison felt something break inside him—a wall he had built long ago, crumbling in the face of this child's innocent trust.", "He handed her to the female officer, who took her with practiced gentleness. \"We'll take good care of her,\" she assured him.", "As they all left the yacht, Harrison found himself walking beside Victoria. \"Is it true?\" he asked quietly. \"About her grandfather?\"", "Victoria nodded slightly. \"Eliza was my charge from the day she was born. I would not lie about this.\"", "\"Then help me protect Lily,\" Harrison urged. \"Tell the authorities what you know.\"", "\"It is not so simple,\" Victoria replied. \"Victor Dragomir is a powerful man with connections in many governments. His version of events will be believed over mine.\"", "\"Then what can we do?\"", "Victoria studied him thoughtfully. \"You love this child.\"", "It wasn't a question, but Harrison answered anyway. \"Yes.\"", "\"Then perhaps there is a way,\" she said. \"But it will require courage and sacrifice.\"", "Harrison looked ahead to where the officer was carrying Lily toward a waiting car. \"I'm listening.\"", "---", "The next forty-eight hours were a blur of police stations, statements, and legal consultations. Harrison found himself explaining his discovery of Lily over and over, each time careful to present himself as a concerned citizen who had tried to do the right thing.", "What he didn't mention was his conversation with Victoria, or the plan they had begun to formulate.", "Christian and Gemma had been detained for questioning regarding the kidnapping. It turned out that while they did work for Victor Dragomir, they had no legal authority to take Lily. Christian was facing serious charges, but Gemma's involvement was less clear—especially after Harrison declined to press charges against her.", "\"Why would you do that?\" Patrick asked when they finally had a moment alone in the police station hallway.", "\"Because I think she was trying to help,\" Harrison replied. \"In her own way.\"", "Patrick shook his head. \"You're taking an awful risk trusting her.\"", "\"I'm not trusting her,\" Harrison corrected. \"I'm giving her an opportunity to choose sides.\"", "Meanwhile, the Romanian consulate had become involved, confirming that Victor Dragomir had indeed reported his granddaughter missing. They were pushing for Lily to be returned to Romania immediately.", "Harrison's lawyer—a sharp-eyed woman named Maya Chen whom Patrick had recommended—was fighting to delay any decisions until a full investigation could be conducted.", "\"The problem,\" Maya explained during a hurried consultation, \"is that on paper, Dragomir looks perfect. Wealthy, respected, the grieving father of a murdered daughter. His claim to the child is legally sound.\"", "\"And my claim?\" Harrison asked.", "Maya's expression softened. \"You have no legal claim, Harrison. You found her, yes, but you didn't report it properly. Technically, you could be charged with kidnapping yourself.\"", "\"But I wasn't trying to—\"", "\"I know,\" Maya interrupted. \"And thankfully, the detective in charge seems to believe your story. But in terms of custody, you're not a relative, you have a questionable employment history, and your background check raised several red flags.\"", "Harrison ran a hand through his hair in frustration. \"So what do we do?\"", "\"We stall,\" Maya said. \"We request DNA testing to confirm Dragomir's relationship. We petition for a full investigation into the circumstances of the mother's death. We buy time.\"", "Time was exactly what Harrison needed for Victoria's plan to work. The old nurse had contacts in Romania—people who had been loyal to Eliza and who might have evidence of Victor's true nature. But gathering that evidence and getting it to Chicago would take time.", "As Harrison left the consultation room, he found Gemma waiting in the hallway. She had been released pending further investigation, though her passport had been confiscated.", "\"Can we talk?\" she asked.", "Harrison nodded, and they moved to a quiet corner.", "\"I want you to know I never intended for the child to be harmed,\" Gemma said. \"When Dragomir hired me to find his granddaughter, he presented it as a rescue mission. It was only later that I began to suspect his motives weren't entirely pure.\"", "\"Why are you telling me this?\" Harrison asked.", "\"Because I'm trying to decide if I should help you or not,\" Gemma replied frankly. \"Victoria reached out to me. She told me about your plan.\"", "Harrison tensed. \"And?\"", "\"And it's dangerous, possibly illegal, and likely to make some very powerful people very angry.\" Gemma's lips curved in a small smile. \"But it might be the right thing to do.\"", "\"Does that matter to you? The right thing?\"", "Gemma considered the question. \"It hasn't, for a long time. But perhaps it should start to.\" She straightened her shoulders. \"I have resources that could be useful to you. Contacts. Information about Dragomir's operations.\"", "\"Why would you risk crossing him?\"", "\"Let's just say I've seen enough to know that Victoria's concerns are valid.\" Gemma's expression hardened. \"And I don't like being used as a pawn in someone else's game.\"", "Harrison studied her, trying to determine if this was another manipulation. But there was something in her eyes—a resolve, a clarity—that seemed genuine.", "\"Alright,\" he said finally. \"But if you betray us—\"", "\"You'll what?\" Gemma challenged. \"You're a bar tender with a gambling problem and a questionable past. I'm not particularly frightened.\"", "Despite everything, Harrison found himself smiling. \"Fair point. But I'm also a man with nothing left to lose.\"", "Gemma nodded, acknowledging the implicit threat. \"Then we understand each other.\"", "As she walked away, Harrison felt a strange mix of hope and dread. The pieces were falling into place, but the game they were playing was dangerous beyond anything he'd ever attempted. And the stakes—Lily's future, her very life perhaps—couldn't be higher.", "---", "A week later, Harrison stood before Judge Eleanor Winters in family court, listening as lawyers argued over Lily's fate. Victor Dragomir had arrived from Romania two days earlier—a distinguished-looking man in his seventies with silver hair and the bearing of someone accustomed to being obeyed.", "Harrison had watched from across the courtroom as Dragomir presented himself as the grieving grandfather, speaking eloquently of his daughter's tragic death and his desperate search for his only grandchild. It was a compelling performance, one that seemed to move several people in the courtroom to tears.", "DNA testing had confirmed Dragomir's relationship to Lily, and the Romanian government was putting significant pressure on the American authorities to return the child to her only living relative.", "Harrison's own testimony had been brief. He had explained how he found Lily, his attempts to locate her family, and the care he had provided her. When asked why he hadn't immediately contacted the authorities, he had been honest about his past legal troubles and his fear of losing Lily to a system that might not have her best interests at heart.", "Now, as the arguments concluded, Judge Winters looked thoughtfully at both men.", "\"This is not a simple case,\" she began. \"On one hand, we have a biological relative with the legal right to custody. On the other, we have a man who, despite his unorthodox methods, has clearly provided loving care to this child during a vulnerable time in her life.\"", "She turned to Harrison. \"Mr. Blackwood, while I appreciate your concern for the child, the law is clear. In the absence of evidence that Mr. Dragomir is unfit, he has the primary right to custody of his granddaughter.\"", "Harrison felt his heart sink. Maya had warned him this was the likely outcome, but hearing it made it real in a way that planning hadn't.", "\"However,\" the judge continued, \"I am troubled by certain aspects of this case. The circumstances of the child's appearance in Chicago remain unclear. The death of her mother raises questions that have not been fully addressed.\"", "She turned to Dragomir. \"Mr. Dragomir, I am granting you temporary custody of your granddaughter, pending a more thorough investigation into these matters. You will be permitted to return to Romania with the child, but you must make her available for follow-up inquiries and possible court appearances.\"", "Dragomir nodded graciously. \"Of course, Your Honor. I want only what is best for my granddaughter.\"", "\"Mr. Blackwood,\" the judge continued, \"while you have no legal claim to the child, your obvious care for her welfare is noted. The court grants you the right to petition for visitation in the future, should you wish to maintain a relationship with her.\"", "Harrison barely heard the rest of the judge's statements. Lily would be leaving with Dragomir. The plan had failed. Victoria's contacts hadn't been able to gather the evidence in time, and now it was too late.", "As the court adjourned, Harrison watched Dragomir shake hands with his lawyers, his face a mask of appropriate solemnity. Their eyes met briefly across the room, and Harrison saw something cold and triumphant in the older man's gaze.", "Outside the courthouse, Patrick was waiting. \"I heard,\" he said simply. \"I'm sorry, Harrison.\"", "Harrison nodded, unable to speak past the tightness in his throat.", "\"What will you do now?\" Patrick asked.", "Before Harrison could answer, Maya approached them, her expression carefully neutral. \"Harrison, Judge Winters would like to speak with you privately in her chambers.\"", "Puzzled, Harrison followed Maya back into the courthouse. In her chambers, Judge Winters was reviewing documents when they entered.", "\"Mr. Blackwood,\" she said, gesturing for him to sit. \"What I'm about to say is off the record.\"", "Harrison glanced at Maya, who nodded encouragingly.", "\"I received some information this morning,\" the judge continued. \"Information that, had it been properly submitted as evidence, might have changed my ruling today.\"", "She slid a folder across the desk. Inside were photographs and documents—evidence of Victor Dragomir's connections to organized crime, transcripts of threats made against his daughter, financial records showing suspicious transfers around the time of her death.", "\"Where did you get this?\" Harrison asked, though he suspected he knew the answer.", "\"It was delivered anonymously,\" Judge Winters replied. \"Unfortunately, anonymously submitted evidence cannot be considered in court. Especially when it appears to have been obtained through... questionable means.\"", "Harrison understood what she wasn't saying. The evidence was likely illegal—hacked emails, recorded conversations without consent, documents that should have been confidential.", "\"The law requires me to make decisions based on admissible evidence,\" the judge continued. \"But as a human being, I have concerns about this child's welfare.\" She leaned forward. \"Mr. Dragomir leaves for Romania tomorrow evening. His flight departs at 8:45 PM from O'Hare. Terminal 5.\"", "Harrison stared at her, understanding dawning. She was giving him information—information that could be crucial to Victoria's plan.", "\"Thank you, Your Honor,\" he said carefully. \"For explaining your ruling to me.\"", "Judge Winters nodded. \"That will be all, Mr. Blackwood. I wish you well.\"", "Outside, Harrison quickly filled Maya and Patrick in on what had happened.", "\"She's basically telling you when and where to intercept them,\" Maya said, looking troubled. \"That's... highly unusual.\"", "\"And potentially career-ending if anyone found out,\" Patrick added.", "Harrison looked at the folder in his hands. \"This is enough, isn't it? To prove Dragomir is dangerous?\"", "\"Maybe in the court of public opinion,\" Maya replied. \"But legally? Without proper chain of custody and authentication? It would be challenged and likely dismissed.\"", "Harrison made his decision. \"Then we go with Victoria's plan. Tonight.\"", "---", "The plan was simple in concept, complex in execution. Victoria, using her position as Lily's former nurse, had convinced Dragomir to hire her to care for the child during their return to Romania. This gave her access to both Dragomir and Lily.", "Meanwhile, Gemma had arranged for a private plane to be waiting at a small airfield outside Chicago. If they could get Lily away from Dragomir at the airport and to the waiting plane, they could fly her to Canada, where Victoria had contacts in the Romanian expatriate community who could help them build a legal case against Dragomir.", "It was kidnapping, technically. Harrison was under no illusions about that. But he believed it was necessary to protect Lily from a man who had likely orchestrated her mother's murder and would not hesitate to harm her if she stood in the way of his ambitions.", "The evening of the flight, Harrison, Patrick, and Eli positioned themselves at Terminal 5. Eli, with his youth and inconspicuous appearance, was their observer, tracking Dragomir's movements through the terminal. Patrick was stationed near security, ready to create a diversion if necessary. Harrison waited near the restrooms, where Victoria had arranged to bring Lily.", "\"They're coming,\" Eli's voice came through the earpiece Harrison wore. \"Dragomir, Victoria, two security guys, and Lily. Heading toward check-in.\"", "Harrison's heart raced. This was it—their one chance to save Lily. If they failed, she would be beyond their reach, in a country where Dragomir's influence made him virtually untouchable.", "\"Victoria is heading toward the restrooms with Lily,\" Eli reported. \"Dragomir is staying at check-in with one guard. The other is following Victoria at a distance.\"", "Harrison tensed. The guard was an unexpected complication. \"Patrick, we need that diversion now.\"", "\"On it,\" Patrick replied.", "Moments later, a commotion erupted near security—Patrick, pretending to be an irate traveler, was loudly accusing someone of stealing his laptop. As planned, the disturbance drew attention, including that of the guard following Victoria.", "Harrison moved quickly toward the family restroom. Victoria emerged with Lily in her arms, looking anxiously around.", "\"The guard?\" she asked as Harrison approached.", "\"Distracted, but not for long,\" Harrison replied, taking Lily from her. The baby immediately recognized him, her face lighting up with a smile that squeezed his heart.", "\"Go now,\" Victoria urged. \"I will delay them as long as possible.\"", "\"You're not coming?\" Harrison hadn't expected this.", "Victoria shook her head. \"I must return to create confusion about where she has gone. Otherwise, they will know immediately to look for you.\"", "Harrison realized she was right, but the thought of leaving her to face Dragomir's wrath was troubling. \"He'll know you helped us.\"", "\"I am an old woman,\" Victoria said with dignity. \"I have lived my life. That child deserves to live hers.\" She touched Lily's cheek gently. \"Go. The service corridor behind the restrooms will lead you to an employee exit. Gemma is waiting with a car.\"", "Harrison wanted to say more, to thank her properly, but there was no time. He nodded once, then slipped through the door Victoria indicated, Lily secure in his arms.", "The service corridor was empty, lit by fluorescent lights that buzzed overhead. Harrison moved quickly, following the signs toward the exit. Behind him, he could hear the faint sounds of the commotion Patrick had created, now dying down.", "At the exit, as promised, Gemma waited in a nondescript sedan. Harrison climbed into the back seat with Lily.", "\"Any problems?\" Gemma asked, pulling away from the curb before he'd even closed the door.", "\"Not yet,\" Harrison replied, securing Lily with a seatbelt as best he could. \"But they'll realize she's missing soon.\"", "Gemma nodded, her eyes on the rearview mirror. \"Patrick and Eli?\"", "\"They'll make their own way out. Separate routes, as planned.\"", "They drove in tense silence, taking a circuitous route to avoid main roads where police might set up checkpoints once the alarm was raised. Lily, seemingly sensing the gravity of the situation, remained unusually quiet, occasionally babbling softly to herself but otherwise content in Harrison's arms.", "\"We're being followed,\" Gemma announced suddenly, her voice calm but her knuckles white on the steering wheel.", "Harrison turned to look out the rear window. A black SUV was several cars behind them, matching their turns. \"Dragomir's security?\"", "\"Likely,\" Gemma replied. \"They must have realized what happened faster than we anticipated.\"", "\"Can you lose them?\"", "Gemma's lips curved in a grim smile. \"Watch me.\"", "What followed was a harrowing demonstration of driving skill that Harrison would have appreciated under different circumstances. Gemma wove through traffic, took sudden turns, and at one point drove through a shopping mall parking garage to emerge on an entirely different street.", "The SUV stayed with them, closing the distance.", "\"They're good,\" Gemma admitted. \"Professional.\"", "Harrison held Lily tighter as Gemma took another sharp turn. \"We need to reach the airfield.\"", "\"We won't make it,\" Gemma said flatly. \"Not with them on our tail. We need a new plan.\"", "Harrison's mind raced. They couldn't go to the police—he would be arrested for kidnapping, and Lily would be returned to Dragomir. They couldn't return to his apartment or any place connected to him. They needed somewhere safe, somewhere unexpected.", "\"I have an idea,\" he said. \"But you're not going to like it.\"", "---", "The Crimson Ace casino looked much the same as it had the night Harrison found Lily—gaudy neon sign, windowless facade, an air of faded glamour clinging to its brick exterior. It was the last place anyone would look for a man with a baby.", "Gemma had managed to lose their pursuers temporarily with a risky maneuver involving a freight train crossing, but they knew it wouldn't be long before Dragomir's men picked up their trail again.", "\"A casino?\" Gemma asked incredulously as they parked in the alley behind the building. \"This is your brilliant plan?\"", "\"The owner owes me a favor,\" Harrison explained, gathering Lily and the small bag of supplies Victoria had prepared. \"And there's a private apartment upstairs where he lets high rollers stay sometimes. It's not in my name, not connected to me in any official way.\"", "Gemma looked skeptical but followed as Harrison led the way to a nondescript door at the back of the building. He knocked in a specific pattern, and after a moment, the door opened to reveal a burly man with a shaved head and numerous tattoos.", "\"Harrison?\" the man said, surprise evident in his voice. \"What the—\" His eyes widened as he noticed Lily. \"Is that a baby?\"", "\"Hello, Bruno,\" Harrison replied. \"I need to see The Broker. It's urgent.\"", "Bruno hesitated, then stepped aside. \"He's in his office. But I gotta warn you, he's not in a great mood.\"", "They followed Bruno through a back hallway that bypassed the main casino floor, eventually reaching a door marked \"Private.\" Bruno knocked, then opened it without waiting for a response.", "The Broker was a small, precise man with wire-rimmed glasses and the demeanor of an accountant rather than a casino owner. He looked up from his desk with annoyance that quickly turned to surprise.", "\"Harrison Blackwood,\" he said, leaning back in his chair. \"I heard you'd gone straight. And now you show up at my door with a woman, a baby, and what I assume is significant trouble.\"", "\"I need the upstairs apartment,\" Harrison said without preamble. \"Just for tonight. We'll be gone by morning.\"", "The Broker studied him thoughtfully. \"The last time you were here, you lost quite a bit of money. Money you still haven't repaid, if I recall correctly.\"", "\"I know,\" Harrison acknowledged. \"And I'll make it right. But right now, I need a safe place for the child.\"", "\"The child,\" The Broker repeated, his gaze shifting to Lily, who was watching the exchange with curious eyes. \"Your child?\"", "Harrison hesitated. \"Yes,\" he said finally. \"My child.\"", "The Broker seemed to consider this, then nodded slowly. \"Bruno will show you up. One night, Harrison. And then we talk about your debt.\"", "\"Thank you,\" Harrison said, relief washing over him.", "The upstairs apartment was small but clean, with a bedroom, a living area with a sofa, and a basic kitchenette. Bruno brought them some food and basic supplies for Lily, then left them alone.", "\"Your friend seems surprisingly accommodating for a criminal,\" Gemma observed, helping Harrison settle Lily on the bed, surrounding her with pillows to prevent her from rolling off.", "\"The Broker has a complicated history,\" Harrison replied. \"He was a foster kid, bounced around the system. Has a soft spot for children in difficult situations.\"", "Gemma raised an eyebrow. \"You're full of surprises, Harrison Blackwood.\"", "Harrison smiled faintly. \"I could say the same about you, Gemma Frost. Professional gambler one day, criminal mastermind the next.\"", "\"I prefer 'strategic consultant,'\" Gemma corrected with a hint of humor. She sobered quickly. \"What's the plan now? We can't stay here forever.\"", "Harrison sat on the edge of the bed, watching Lily as she began to drift off to sleep. \"Victoria's contacts in Canada are still our best option. We just need a new way to get there.\"", "\"Dragomir will have people watching airports, train stations, bus terminals,\" Gemma pointed out. \"And by now, there's probably an AMBER Alert out for Lily.\"", "Harrison nodded grimly. The reality of their situation was sinking in. They had rescued Lily from immediate danger, but they had also made themselves fugitives. Every law enforcement agency in the area would be looking for them.", "\"We need help,\" he admitted. \"Someone with resources we don't have.\"", "Gemma was quiet for a moment. \"I might know someone,\" she said finally. \"But reaching out to him would be risky. He doesn't exactly operate on the right side of the law.\"", "\"At this point, neither do we,\" Harrison pointed out.", "Gemma nodded. \"I'll make the call. But Harrison...\" She hesitated. \"You should know that once we go down this road, there's no going back to your old life. Ever.\"", "Harrison looked at Lily, peaceful in sleep, trusting that she was safe because he was near. In that moment, he knew with absolute certainty that he would give up everything—his freedom, his future, his very life if necessary—to protect her.", "\"I understand,\" he said quietly. \"Make the call.\"", "---", "The following morning brought a visitor to the apartment—a man Harrison had never seen before but immediately recognized as dangerous. He moved with the fluid grace of someone trained in combat, his eyes constantly scanning, assessing. He introduced himself simply as \"Smith.\"", "\"Gemma explained your situation,\" Smith said, declining the offer of coffee. \"Interesting problem.\"", "Harrison, who had been up most of the night watching over Lily, was in no mood for understatement. \"Can you help us get to Canada or not?\"", "Smith smiled thinly. \"Direct. I like that.\" He placed a folder on the table. \"New identities for both of you and the child. Passports, driver's licenses, birth certificates. The works.\"", "Harrison opened the folder. The documents looked authentic, right down to the wear marks on the passport edges. According to these papers, he was now James Miller, Gemma was his wife Sarah, and Lily was their daughter Emma.", "\"These are good,\" Harrison admitted. \"But they won't help us cross the border. Every checkpoint will be looking for a man with a baby matching Lily's description.\"", "\"That's why you're not going to any checkpoint,\" Smith replied. \"There's a private airstrip near Lake Michigan. Small planes fly between there and Canada regularly, carrying packages that don't go through official channels. One of those planes has room for three passengers tonight.\"", "Harrison exchanged glances with Gemma. Smugglers. They would be putting Lily's life in the hands of drug runners or worse.", "\"Is it safe?\" he asked.", "\"Safer than staying here,\" Smith answered bluntly. \"Dragomir's men found your friend Patrick this morning.\"", "Harrison felt his blood run cold. \"Is he—\"", "\"Alive,\" Smith assured him. \"But in the hospital. They were... persuasive in their questioning.\"", "Guilt and anger surged through Harrison. Patrick had risked everything to help him, and now he was paying the price.", "\"What about Eli?\" he asked.", "\"The kid's fine,\" Smith said. \"Smart enough to go to ground when things went south. But it's only a matter of time before they find him too.\"", "Harrison made his decision. \"What time is the flight?\"", "\"Midnight,\" Smith replied. \"I'll have a car waiting in the alley at eleven. Bring only what you can carry in one bag.\" He stood to leave. \"One more thing. The pilot is taking a significant risk. The fee is fifty thousand dollars. Cash.\"", "Harrison stared at him. \"I don't have that kind of money.\"", "Smith shrugged. \"Not my problem. Figure it out by eleven, or stay here and wait for Dragomir's men to find you.\" With that, he left.", "Gemma, who had been silent during the exchange, spoke up. \"I have about twenty thousand in an offshore account I can access.\"", "Harrison ran a hand through his hair in frustration. \"I've got maybe five thousand hidden away. That still leaves us twenty-five short.\"", "They both knew there was only one place Harrison could get that kind of money quickly.", "\"The Broker,\" Gemma said.", "Harrison nodded grimly. \"The Broker.\"", "---", "The Broker listened to Harrison's request with an impassive expression, his fingers steepled beneath his chin.", "\"Let me understand this correctly,\" he said when Harrison had finished. \"You want me to give you twenty-five thousand dollars, on top of the money you already owe me, so that you can flee the country with a child you've essentially kidnapped.\"", "Put that way, it sounded insane. Harrison pressed on anyway. \"I'm not asking for a gift. I'm asking for a loan. I'll pay you back, with interest.\"", "\"From Canada? As a fugitive?\" The Broker's skepticism was evident. \"What exactly would you use as collateral for such a loan?\"", "Harrison had anticipated this question. \"My services. You know my skills at the table. I can work for you, remotely. Consult on games, train dealers to spot cheaters, whatever you need.\"", "The Broker considered this. \"An interesting proposal. But insufficient.\"", "Harrison felt desperation rising. \"Then what would be sufficient?\"", "\"Information,\" The Broker replied. \"About Victor Dragomir.\"", "Harrison blinked in surprise. \"You know Dragomir?\"", "\"I know of him,\" The Broker corrected. \"His organization has been making moves to expand into Chicago. My territory. I would find it... valuable to have leverage against him.\"", "Understanding dawned. \"The evidence. The documents showing his criminal activities.\"", "The Broker nodded. \"Precisely. Give me copies of everything you have on Dragomir, and I'll give you the money you need.\"", "Harrison hesitated. Those documents were their insurance, their only leverage against Dragomir. Giving them to The Broker meant potentially losing control of how they were used.", "\"I need your word that you won't use them in a way that could harm Lily,\" Harrison said finally.", "The Broker smiled thinly. \"You're hardly in a position to make demands, Harrison. But as it happens, I have no interest in the child. My quarrel is with Dragomir himself.\"", "It was a risk, but Harrison had no choice. \"Deal.\"", "---", "At exactly eleven o'clock, a car pulled into the alley behind the Crimson Ace. Harrison, Gemma, and Lily slipped out the back door and into the waiting vehicle. The driver, another of Smith's associates, said nothing as they settled in.", "Harrison held Lily close, her small body warm against his chest. She was awake but quiet, as if sensing the gravity of the moment. Gemma sat beside them, her face tense in the dim light.", "\"Did you leave the documents?\" she asked in a low voice.", "Harrison nodded. \"The Broker has what he wanted. And we have what we need.\" He patted the inside pocket of his jacket, where the cash was securely stowed.", "The drive to the airstrip took nearly an hour, following back roads and industrial areas to avoid main thoroughfares where police might be watching. Lily fell asleep halfway there, lulled by the motion of the car.", "The airstrip, when they reached it, was little more than a cleared stretch of land with a few small hangars at one end. A single-engine plane waited on the makeshift runway, its pilot leaning against the fuselage smoking a cigarette.", "\"You the passengers?\" the pilot asked as they approached. He was younger than Harrison had expected, maybe in his early thirties, with the weathered look of someone who spent most of his life outdoors.", "\"Yes,\" Harrison confirmed. \"Smith sent us.\"", "The pilot nodded. \"Got the payment?\"", "Harrison handed over the envelope of cash, which the pilot counted quickly before tucking it into his jacket. \"We leave in five minutes. No bathroom on board, so if you need to go, do it now.\"", "As Gemma took the opportunity to use the small facility in one of the hangars, Harrison stood by the plane with Lily, looking up at the night sky. It was clear, stars visible despite the distant glow of Chicago's lights.", "\"I don't know if I'm doing the right thing,\" he said softly to the sleeping child. \"Running away, taking you from everything you know. But I promise you this—I will keep you safe. Whatever it takes.\"", "Gemma returned, and they boarded the small plane. The interior was cramped, with most of the space taken up by what Harrison suspected were illegal goods. They squeezed into the remaining seats, securing Lily between them as best they could.", "The pilot went through a brief pre-flight check, then started the engine. The plane vibrated around them as it began to move, picking up speed along the darkened runway.", "As they lifted into the air, Harrison looked down at the receding lights of Chicago—the city where he had spent most of his adult life, the place where he had found Lily, and now a place he might never see again.", "Beside him, Gemma reached over and took his hand, squeezing it gently. No words were necessary. They were in this together now, bound by their choice to protect a child neither of them had expected to care for.", "Lily stirred in her sleep, making a small sound before settling again. Harrison adjusted the blanket around her, his heart full of a strange mixture of fear and determination.", "Whatever came next—whether they succeeded in building a case against Dragomir, whether they found a way to give Lily the life she deserved, whether they themselves found redemption in this unexpected journey—Harrison knew one thing with absolute certainty: he would never again be the man he had been before finding Lily in that alley.", "The gambler who lived by his wits and for himself alone was gone. In his place was a man who had discovered, to his own surprise, that there were things in this world worth any risk, any sacrifice.", "As the plane leveled off, heading north toward the Canadian border and whatever future awaited them, Harrison Blackwood—now James Miller—held tight to the child who had changed everything, and faced forward."];
+            const storyContainer = document.getElementById("storyContainer");
+            const pagination = document.getElementById("paginationControls");
+            const pageIndicator = document.getElementById("pageIndicator");
+            const pageSizeSelect = document.getElementById("pageSizeSelect");
+            const pageOptions = document.getElementById("pageOptions");
+
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const firstBtn = document.getElementById("firstBtn");
+            const lastBtn = document.getElementById("lastBtn");
+
+            let currentPage = 0;
+            let pageSize = 4;
+
+            function getAutoPageSize() {
+                return Math.max(2, Math.floor(window.innerHeight / 250));
+            }
+
+            function renderPage(page) {
+                const totalPages = Math.ceil(paragraphs.length / pageSize);
+                const start = page * pageSize;
+                const end = start + pageSize;
+                storyContainer.innerHTML = paragraphs.slice(start, end).map(p => `<p>${p}</p>`).join('');
+                pageIndicator.textContent = `Page ${page + 1} of ${totalPages}`;
+                prevBtn.style.display = page > 0 ? "inline-block" : "none";
+                firstBtn.style.display = page > 0 ? "inline-block" : "none";
+                nextBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+                lastBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+            }
+
+            function switchToPagedView() {
+                const mode = document.querySelector('input[name="pageMode"]:checked').value;
+                pageSize = (mode === 'auto') ? getAutoPageSize() : parseInt(pageSizeSelect.value);
+                currentPage = 0;
+                pagination.style.display = 'block';
+                renderPage(currentPage);
+            }
+
+            function switchToFullView() {
+                pagination.style.display = 'none';
+                storyContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+            }
+
+            function nextPage() { const totalPages = Math.ceil(paragraphs.length / pageSize); if ((currentPage + 1) < totalPages) { currentPage++; renderPage(currentPage); } }
+            function prevPage() { if (currentPage > 0) { currentPage--; renderPage(currentPage); } }
+            function firstPage() { currentPage = 0; renderPage(currentPage); }
+            function lastPage() { currentPage = Math.ceil(paragraphs.length / pageSize) - 1; renderPage(currentPage); }
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+
+            function exportToPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const pageHeight = doc.internal.pageSize.height;
+                const margin = 15;
+                let y = margin;
+            
+                // Title
+                doc.setFontSize(18);
+                doc.setFont("times", "bold");
+                doc.text(document.title, doc.internal.pageSize.width / 2, y, { align: "center" });
+                y += 15;
+            
+                // Content
+                doc.setFontSize(12);
+                doc.setFont("times", "normal");
+            
+                paragraphs.forEach(p => {
+                    const lines = doc.splitTextToSize(p, 180);
+                    const blockHeight = lines.length * 8;
+            
+                    if (y + blockHeight > pageHeight - margin) {
+                        doc.addPage();
+                        y = margin;
+                    }
+            
+                    doc.text(lines, margin, y);
+                    y += blockHeight; // space between paragraphs
+                });
+            
+                const safeTitle = document.title.replace(/[^a-z0-9]/gi, "_").toLowerCase();
+                doc.save(`${safeTitle}.pdf`);
+            }
+
+
+            document.querySelectorAll('input[name="viewMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    if (e.target.value === 'full') {
+                        pageOptions.style.display = 'none';
+                        switchToFullView();
+                    } else {
+                        pageOptions.style.display = 'block';
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            document.querySelectorAll('input[name="pageMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    const isManual = e.target.value === 'manual';
+                    pageSizeSelect.disabled = !isManual;
+                    if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            pageSizeSelect.addEventListener('change', () => {
+                if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                    switchToPagedView();
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                const btn = document.getElementById("backToTop");
+                btn.style.display = window.scrollY > 300 ? "block" : "none";
+            });
+
+            switchToFullView();
+        </script>
+        
+</body>
+</html>

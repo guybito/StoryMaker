@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>The Unlikely Hero of Serengeti</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+            :root {
+                --bg-color: #fdf6e3;
+                --text-color: #2e2e2e;
+                --btn-color: #333;
+                --btn-hover: #555;
+            }
+
+            body.dark-mode {
+                --bg-color: #1e1e1e;
+                --text-color: #f0f0f0;
+                --btn-color: #ddd;
+                --btn-hover: #fff;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Merriweather', serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                max-width: 800px;
+                margin: auto;
+                padding: 50px 30px;
+                line-height: 2;
+                font-size: 1.15em;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin-bottom: 50px;
+                border-bottom: 3px double #ccc;
+                padding-bottom: 20px;
+                letter-spacing: 2px;
+            }
+
+            p {
+                text-align: justify;
+                margin-bottom: 1.8em;
+            }
+
+            p::first-letter {
+                font-size: 130%;
+                font-weight: bold;
+            }
+
+            #storyContainer {
+                min-height: 600px;
+                position: relative;
+            }
+
+            #paginationControls {
+                text-align: center;
+                margin-top: 30px;
+                min-height: 60px;
+                position: sticky;
+                bottom: 20px;
+                background-color: var(--bg-color);
+                padding: 10px;
+                border-top: 1px solid #aaa;
+            }
+
+            select, label, button {
+                font-size: 1em;
+                margin: 6px 10px;
+            }
+
+            button, select {
+                padding: 6px 14px;
+                border: none;
+                border-radius: 6px;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                transition: background-color 0.3s, color 0.3s;
+                cursor: pointer;
+            }
+
+            button:hover, select:hover {
+                background-color: var(--btn-hover);
+            }
+
+            label {
+                margin: 0 8px;
+                cursor: pointer;
+            }
+
+            input[type="radio"] {
+                margin-right: 4px;
+            }
+
+            #backToTop {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                padding: 10px 15px;
+                font-size: 1em;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                display: none;
+            }
+
+            #controlsTop > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            #controlsTop {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        </style>
+        
+</head>
+<body>
+<h1>The Unlikely Hero of Serengeti</h1>
+
+            <!-- Info Modal Trigger -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button onclick="document.getElementById('infoModal').style.display='block'">ℹ️ Info</button>
+            </div>
+            
+            <!-- Info Modal -->
+            <div id="infoModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:90%; max-width:600px; border-radius:10px; font-family:'Merriweather', serif;">
+                <span onclick="document.getElementById('infoModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2>Story Info</h2>
+                <p><strong>📅 Creation Date:</strong> 05-07-2025 12:45</p>
+                <p><strong>🧠 Algorithm:</strong> Plot Genie</p>
+                <p><strong>📝 Word Count:</strong> 5307</p>
+                <p><strong>📄 Review:</strong> <button onclick="document.getElementById('reviewModal').style.display='block'">View Review</button></p>
+              </div>
+            </div>
+            <!-- Review Modal -->
+            <div id="reviewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:5% auto; padding:30px; border:1px solid #888; width:90%; max-width:800px; border-radius:10px; font-family:'Merriweather', serif; max-height:85%; overflow-y:auto;">
+                <span onclick="document.getElementById('reviewModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2 style="margin-top:0;">📘 Story Review</h2>
+                <p><strong>📘 Story Title:</strong> The Unlikely Hero of Serengeti</p>
+<hr>
+<p>📄 Claude Evaluation Report</p>
+<hr>
+<h2>Literary Analysis of "The Unlikely Hero of Serengeti"</h2>
+<h3>Detailed Question Evaluation</h3>
+<p>### Character (Category Weight = 0.30)</p>
+<p>1. <strong>Is the main character clearly identifiable?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- Marcus Reed/Mateo Rivera is clearly established as the protagonist from the opening paragraph, with consistent focus on his perspective, motivations, and journey throughout the narrative.</p>
+<p>2. <strong>Does the character have a clear backstory?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The story provides detailed backstory about Marcus's past as environmental activist Mateo Rivera, his exposure of a fishing corporation's illegal practices, and how he was forced into hiding with a new identity.</p>
+<p>3. <strong>Does the character have a clear goal or "desire"?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Marcus has a clear goal to reunite with his family while keeping them safe, which drives his actions throughout the story, culminating in his journey to Portland to stop Elena.</p>
+<p>4. <strong>Does the character have a clear inner weakness or vulnerability?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p><strong>- Marcus struggles with guilt over separating his family and fears they no longer love him, shown in his thoughts:</strong> "What if Elena no longer loved him? What if Sofia had forgotten him?"</p>
+<p>5. <strong>Does the character undergo a transformation?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p><strong>- Marcus transforms from a man in hiding to someone willing to face danger directly, culminating in his decision to testify:</strong> "No more running, no more hiding."</p>
+<p>6. <strong>Do supporting characters contribute to the main character's journey?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Gerald provides crucial help and wisdom, Elena's actions force Marcus to make difficult choices, and Sofia's bravery with the livestream helps resolve the conflict.</p>
+<p>7. <strong>Do supporting characters fulfill archetypal roles?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Gerald serves as a mentor/ally, Elena represents both motivation and conflict, Victor Reyes functions as a clear antagonist, and Sofia acts as both catalyst and helper.</p>
+<p>8. <strong>Are supporting characters diverse and distinct?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p><strong>- Characters have distinct personalities and roles:</strong> Gerald with his historical impersonations and wisdom, Elena with her determination, Sofia with her tech-savvy bravery, and Reyes as the threatening enforcer.</p>
+<p>9. <strong>Is the number of characters appropriate?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The story maintains a focused cast (Marcus, Elena, Sofia, Gerald, Reyes, Diane) without introducing unnecessary characters that might dilute the narrative.</p>
+<p>10. <strong>Are characters developed across three layers?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- Characters show physical traits (Marcus's weathered appearance), psychological aspects (Elena's resentment), and sociological elements (Gerald's background as professor and veteran).</p>
+<p>### Conflict (Category Weight = 0.30)</p>
+<p>11. <strong>Is the central conflict strong enough to drive the story?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.35</p>
+<p><strong>- Weighted Score:</strong> 0.42</p>
+<p>- The conflict between Marcus's need to protect his family and the corporation's pursuit creates high stakes that drive the narrative forward with increasing tension.</p>
+<p>12. <strong>Does the conflict touch upon universal human conditions?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.135</p>
+<p>- The story explores universal themes of family separation, sacrifice for loved ones, and the moral dilemma of standing up for what's right versus ensuring safety.</p>
+<p>13. <strong>Are the stakes clear from the beginning?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The stakes regarding Marcus's safety are established early, though the full extent of the danger to his family becomes clearer as the story progresses.</p>
+<p>14. <strong>Is the conflict directly related to what we know about the character?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The conflict stems directly from Marcus's past as an environmental activist who exposed corporate wrongdoing, making it intrinsically tied to his character.</p>
+<p>15. <strong>Does the conflict escalate as the story approaches its climax?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Tension builds progressively from the discovery that Elena has been located, to Marcus's journey to Portland, culminating in the armed confrontation at the café.</p>
+<p>16. <strong>Is the source of conflict consistent throughout?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The threat from Oceanic Harvest Corporation remains the consistent source of external conflict throughout the narrative.</p>
+<p>17. <strong>Do the subplots also include conflict?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- The subplot of Marcus and Elena's strained relationship contains meaningful conflict about trust, resentment, and reconciliation.</p>
+<p>18. <strong>Is there both external conflict and internal conflict?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.06</p>
+<p>- The story balances external conflict (corporate threats, physical danger) with internal conflict (Marcus's guilt, fear of rejection, Elena's resentment).</p>
+<p>### Craft (Category Weight = 0.25)</p>
+<p>19. <strong>Is the story written in clear, modern English?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.20</p>
+<p>- The prose is consistently clear, contemporary, and accessible, with natural dialogue and effective narrative flow.</p>
+<p>20. <strong>Are spelling and grammar correct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The text demonstrates proper grammar, spelling, and syntax throughout with no noticeable errors.</p>
+<p>21. <strong>Is the writing clear, concise, and descriptive?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- The writing effectively conveys the narrative, though some sections could be more concise without losing essential information.</p>
+<p>22. <strong>Is there vivid description of characters and settings?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- The story includes effective descriptions like "the morning sun cast a golden hue over the Serengeti Zoo," though some scenes could benefit from more sensory detail.</p>
+<p>23. <strong>Is there no unnecessary or inappropriate detail?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- Most details serve the narrative, though some exposition about the Foundation and corporate threats could be more integrated into the action.</p>
+<p>24. <strong>Is everything described visually demonstrable?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The story generally presents visually demonstrable scenes, particularly during the café confrontation, though some emotional states are described directly rather than shown.</p>
+<p>### Logic (Category Weight = 0.15)</p>
+<p>25. <strong>Are there no plot holes?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The plot is generally consistent, though Gerald's appearance at the café in Portland is somewhat convenient and not fully explained.</p>
+<p>26. <strong>Are there no unclear points?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Most plot elements are clear, though the specific legal situation with the corporation and the Foundation's role could be more precisely defined.</p>
+<p>27. <strong>Have all questions raised been answered?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- The story resolves the main conflict and family reunion, though some questions about the future and legal proceedings remain open-ended.</p>
+<p>28. <strong>Is the story consistent and free of continuity errors?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- The narrative maintains consistency in character motivations and timeline, with no significant continuity errors.</p>
+<p>29. <strong>Are there no contradictions with previously stated information?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story maintains internal consistency with no contradictions in established facts or character backgrounds.</p>
+<p>30. <strong>Is the logic sound and free from contrived elements?</strong></p>
+<p><strong>- Score:</strong> 2.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- While most plot developments follow logically, Gerald's timely appearance in Portland and his combat skills feel somewhat contrived to serve the resolution.</p>
+<h3>Overall Weighted Score: 3.4925</h3>
+<h3>Summary Report</h3>
+<p>"The Unlikely Hero of Serengeti" presents a compelling narrative about sacrifice, family, and moral courage. The story excels in character development, particularly with the protagonist Marcus/Mateo, whose internal and external conflicts drive the plot effectively. The narrative structure builds tension progressively toward a satisfying climax and resolution. While the story demonstrates strong technical writing skills, some plot elements rely on convenient timing, and certain scenes could benefit from more sensory detail to enhance immersion.</p>
+<h3>Suggestions for Improvement:</h3>
+<p><strong>* <strong>Strengthen logical consistency:</strong> </strong> Provide clearer explanation for how Gerald tracked Marcus to Portland and arrived at the precise moment needed, as this coincidence currently feels contrived.</p>
+<p><strong>* <strong>Enhance sensory details:</strong> </strong> Add more specific sensory information during key scenes (especially the café confrontation) to create a more immersive experience for readers.</p>
+<p><strong>* <strong>Tighten exposition:</strong> </strong> Integrate background information about the Foundation and corporate threats more organically into the action rather than through extended explanatory passages.</p>
+<p><strong>* <strong>Develop secondary character motivations:</strong> </strong> While Elena's actions drive much of the plot, her decision to suddenly go public could be more thoroughly developed to enhance believability.</p>
+<p><strong>* <strong>Balance internal/external representation:</strong> </strong> Show more of characters' emotional states through actions and physical responses rather than direct statements about their feelings.</p>
+              </div>
+            </div>
+        
+
+        <div id="controlsTop">
+            <div>
+                <label><input type="radio" name="viewMode" value="full" checked> Continuous Reading</label>
+                <label><input type="radio" name="viewMode" value="paged"> Paginated View</label>
+            </div>
+
+            <div id="pageOptions" style="display: none;">
+                <label><input type="radio" name="pageMode" value="auto" checked> Auto Paragraphs</label>
+                <label><input type="radio" name="pageMode" value="manual"> Manual</label>
+                <select id="pageSizeSelect" disabled>
+        <option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+                </select>
+            </div>
+
+            <div>
+                <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+
+        </div>
+
+        <div id="storyContainer"></div>
+
+        <div id="paginationControls" style="display: none;">
+            <button id="firstBtn" onclick="firstPage()">⏮ First</button>
+            <button id="prevBtn" onclick="prevPage()">◀ Previous</button>
+            <span id="pageIndicator">Page 1 of X</span>
+            <button id="nextBtn" onclick="nextPage()">Next ▶</button>
+            <button id="lastBtn" onclick="lastPage()">Last ⏭</button>
+        </div>
+
+        <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆ Back to Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script>
+            const paragraphs = ["The morning sun cast a golden hue over the Serengeti Zoo, illuminating the mist that hovered above the artificial lake. Marcus Reed stood at the edge of the water, his weathered hands gripping a fishing rod with practiced ease. At forty-five, his salt-and-pepper hair and sun-creased face told the story of a man who had spent most of his life near water. The zoo's lake was a far cry from the open seas he once navigated, but it had become his sanctuary, a place where he could find peace amid the chaos of his life.", "Marcus wasn't an ordinary zoo employee. As the head of aquatic exhibits, he maintained the delicate ecosystems of the zoo's water features and cared for its aquatic inhabitants. But his true passion remained fishing—a skill passed down through generations of his family. Even here, in this controlled environment, he found solace in the rhythmic cast and retrieve, the patient wait for a bite.", "\"Quite the peaceful morning, isn't it, Mr. Reed?\" The voice, tinged with a distinctive British accent, broke through Marcus's reverie.", "Marcus turned to find Winston Churchill—or rather, Gerald Hoffman, the zoo's resident historical impersonator—approaching in his signature bowler hat and three-piece suit, complete with a prop cigar that never left his hand.", "\"Morning, Winston,\" Marcus replied with a small smile. \"Early rounds today?\"", "Gerald, a retired history professor who had found a second career bringing historical figures to life for zoo visitors, nodded. \"The early bird catches the worm, as they say. Or in your case, the fish.\"", "Marcus chuckled. Over the past year, he and Gerald had formed an unlikely friendship. Their morning conversations had become a ritual, a moment of normalcy in Marcus's otherwise tumultuous existence.", "\"Any luck today?\" Gerald asked, gesturing toward the still water.", "\"Not yet. But fishing isn't always about the catch,\" Marcus replied, reeling in his line to recast.", "Gerald nodded thoughtfully. \"As I once said—or rather, as Churchill once said—success is not final, failure is not fatal: it is the courage to continue that counts.\"", "Marcus appreciated Gerald's company and his penchant for historical quotes. The older man's presence was comforting, especially now when Marcus's life had become increasingly complicated.", "What Gerald didn't know—what no one at the zoo knew—was that Marcus wasn't just a fisherman turned zoo employee. He was a man in hiding, a refugee from persecution that had driven him from his coastal hometown three years ago. His real name was Mateo Rivera, a former environmental activist who had exposed a powerful fishing corporation's illegal practices, resulting in threats against his life and the lives of his family.", "The Coastal Preservation Foundation, a non-profit organization dedicated to protecting marine ecosystems, had helped him establish a new identity and find employment at the Serengeti Zoo, far from the coastal regions where he might be recognized. But the safety came at a terrible price—separation from his wife, Elena, and their teenage daughter, Sofia.", "For their protection, they had been relocated separately, with minimal contact allowed between them. The arrangement was meant to be temporary, but as the threats persisted and the legal battles dragged on, their separation had stretched from months into years.", "Marcus cast his line again, watching the lure disappear beneath the surface with a soft plop. The repetitive motion was therapeutic, allowing him to momentarily forget the weight of his circumstances.", "\"You seem troubled today, my friend,\" Gerald observed, his keen eyes studying Marcus's face. \"More so than usual.\"", "Marcus sighed. Gerald was perceptive—another quality that made him excellent at his job. \"Just thinking about family,\" he admitted vaguely.", "\"Ah, family. The source of our greatest joys and deepest sorrows,\" Gerald nodded sagely. \"I miss mine terribly. My wife passed five years ago, and my children are scattered across the country with lives of their own.\"", "Marcus felt a pang of empathy. At least he knew his family was alive, even if he couldn't be with them. \"I'm sorry about your wife.\"", "Gerald waved a hand dismissively. \"Life goes on, Mr. Reed. We adapt, we survive. It's what humans do best.\" He checked his pocket watch. \"Speaking of which, I should begin my rounds. The children especially enjoy meeting historical figures before the crowds become overwhelming.\"", "As Gerald walked away, Marcus felt the familiar ache of loneliness settle in his chest. He had adapted, yes, but survival wasn't living. And lately, the burden had become almost unbearable.", "Three days ago, he had received news that changed everything. His contact at the Foundation had informed him that Elena had been located by the corporation's hired investigators. She was safe for now, but they recommended another relocation—further away, with even stricter protocols for communication.", "Marcus couldn't bear the thought. Three years of separation had already taken its toll. Elena's last letter, received six months ago, had been distant, formal. She wrote of Sofia's achievements in school, of their new apartment, of the community they had found. But the warmth, the intimacy they once shared, was noticeably absent. It was as if she were writing to a distant relative rather than her husband.", "The Foundation had arranged a rare video call for tomorrow—a chance for Marcus to see his family, to discuss the situation. But he dreaded it. What if Elena no longer loved him? What if Sofia had forgotten him? What if they had built a life that no longer had room for him?", "These thoughts plagued him as he finished his morning fishing and headed to his office near the aquarium. The day ahead was busy—a new shipment of tropical fish was arriving, and the penguin exhibit needed maintenance. Work would provide a temporary distraction, but the weight of tomorrow's call hung over him like a storm cloud.", "Little did Marcus know that the storm was already brewing, and it would soon break with a fury that would test him in ways he never imagined.", "---", "Elena Rivera adjusted her blouse nervously as she waited for the video call to connect. Beside her, Sofia fidgeted with her phone, her expression a mixture of anticipation and apprehension. At sixteen, she had spent her formative teenage years without her father's physical presence, and Elena could see the toll it had taken.", "\"Do I look okay?\" Elena asked, smoothing her dark hair.", "Sofia glanced up from her phone. \"You look fine, Mom. It's just Dad.\"", "The \"just Dad\" stung Elena. There was a time when Mateo—now Marcus—had been the center of their universe, the glue that held their family together. Now, he was almost a stranger, a face on a screen, a voice on the phone, a memory fading with time.", "The screen flickered, and suddenly, there he was. Mateo looked older than Elena remembered, his once jet-black hair now streaked with gray, his face more lined. But his eyes—those warm brown eyes that had captivated her twenty years ago—remained the same.", "\"Elena,\" he breathed, his voice catching. \"Sofia. It's so good to see you both.\"", "Sofia offered a small wave. \"Hi, Dad.\"", "Elena forced a smile. \"Hello, Mateo. You look well.\"", "The conversation that followed was stilted, awkward. They exchanged pleasantries, updates on their lives, careful to avoid any specifics that might compromise their security. Sofia spoke of her interest in marine biology—a passion inherited from her father—and her upcoming college applications. Elena mentioned her job at a local library, the book club she had joined, the small garden she had started on their apartment balcony.", "Mateo listened intently, drinking in every detail, every glimpse into the life he had been forced to abandon. When it was his turn, he spoke of the zoo, of the animals, of Gerald and his historical impersonations. He didn't mention the loneliness, the nightmares, the constant fear. He wanted them to believe he was okay.", "Finally, they reached the reason for the call. The Foundation representative, a serious woman named Diane, joined to explain the situation.", "\"We have reason to believe that Oceanic Harvest Corporation has located Elena and Sofia,\" she explained. \"We're recommending immediate relocation to a different state, possibly even out of the country.\"", "Elena's face fell. \"Another move? Sofia is just settling into her school. She has friends, activities. I have a job I enjoy. We can't just uproot our lives again.\"", "Mateo felt a surge of guilt. This was his fault. If he hadn't exposed the corporation, if he hadn't made himself a target...", "\"There's another option,\" Diane continued. \"The corporation's legal troubles have intensified. There's a federal investigation into their practices now, partly thanks to the evidence Mateo provided. If he were willing to testify in court, to come forward publicly...\"", "\"No,\" Elena interrupted firmly. \"That would put him in even more danger.\"", "\"It might actually resolve this situation once and for all,\" Diane countered. \"With federal protection, with the spotlight of a high-profile case, the corporation would be foolish to attempt any retaliation.\"", "Mateo leaned forward. \"If it means ending this, if it means we could be together again...\"", "\"Dad, no,\" Sofia spoke up, her voice stronger than before. \"We've already lost three years. I don't want to lose you permanently.\"", "The conversation circled, with no resolution in sight. Elena was adamant about not relocating again, equally adamant about Mateo not testifying. Mateo was torn between his duty to protect his family and his desperate desire to reunite with them. Sofia, caught in the middle, grew increasingly withdrawn as the adults argued.", "By the time the call ended, nothing had been decided except that they would speak again in a few days. The screen went dark, leaving Mateo alone in his small apartment, the echo of his family's voices fading like ghosts.", "He didn't sleep that night. Instead, he paced, wrestled with his conscience, and ultimately made a decision that would set in motion a chain of events none of them could have anticipated.", "---", "The Serengeti Zoo was unusually busy for a Tuesday. A local school had organized a field trip, filling the pathways with excited children and harried teachers. Marcus moved through the crowds, his mind elsewhere as he headed toward the aquarium.", "\"Mr. Reed!\" Gerald's booming Churchill voice cut through the noise. \"A moment of your time, if you please.\"", "Marcus paused, waiting for the older man to catch up. Gerald was in full Churchill regalia, complete with a prop cigar and walking stick. Despite his theatrical appearance, his expression was serious.", "\"There's something you should know,\" Gerald said, dropping the Churchill accent and speaking in his normal voice. \"I overheard some concerning conversation near the administrative offices. Two men asking about you, showing your photograph to the receptionist.\"", "Marcus felt a chill run down his spine. \"What did they look like?\"", "\"Corporate types. Suits, expensive watches. One had a scar across his right cheek.\" Gerald's eyes narrowed. \"They didn't seem like the usual zoo patrons.\"", "A scar across the right cheek. Marcus knew immediately who it was—Victor Reyes, head of security for Oceanic Harvest Corporation. The man who had personally threatened him three years ago.", "\"Did the receptionist tell them anything?\" Marcus asked, trying to keep his voice steady.", "\"I don't believe so. She seemed confused by their questions. But they mentioned returning tomorrow.\" Gerald studied Marcus's face. \"You're in some kind of trouble, aren't you?\"", "Marcus hesitated. Gerald had been a good friend, perhaps his only friend in this new life. But involving him could be dangerous.", "\"It's complicated,\" he finally said. \"And potentially dangerous. You should stay away from me for a while.\"", "Gerald straightened, affronted. \"Mr. Reed—or whatever your real name might be—I may be an old man playing dress-up, but I was a history professor for forty years. I've studied enough human conflict to recognize when someone is in danger.\" He placed a hand on Marcus's shoulder. \"And I've lived long enough to know that facing danger alone is rarely the wisest course.\"", "Before Marcus could respond, his phone buzzed with a text message. It was from Diane at the Foundation: \"URGENT. Call immediately.\"", "\"I need to take this,\" Marcus said, already moving toward a quieter area. \"Thank you for the warning, Gerald. Really.\"", "He found a secluded bench near the reptile house and called Diane.", "\"What's happening?\" he asked without preamble.", "Diane's voice was tense. \"Elena and Sofia's location has been compromised. We're moving them now, but there's a complication. Elena is refusing to go.\"", "\"What? Why?\"", "\"She says she's tired of running, tired of living in fear. She wants to stay and fight.\" Diane sounded frustrated. \"She's talking about going public with your story, about reaching out to journalists.\"", "Marcus felt panic rising in his chest. \"That's suicide. The corporation would—\"", "\"I know. I've tried to reason with her, but she's adamant. Sofia is terrified, caught between loyalty to her mother and fear for both of your safety.\"", "Marcus closed his eyes, trying to think. \"Let me talk to Elena. Set up another call.\"", "\"That's just it—she's not answering our calls anymore. She's shut us out.\" Diane paused. \"Mateo, I think she's planning something drastic. And soon.\"", "The implications hit Marcus like a physical blow. Elena, his cautious, practical Elena, was about to put herself in the crosshairs of a corporation that had already demonstrated its willingness to eliminate threats.", "\"Where are they?\" he demanded.", "\"Mateo, you know I can't—\"", "\"Where are they, Diane? I need to stop her before she does something that gets her killed.\"", "There was a long silence on the other end of the line. Finally, Diane sighed. \"They're in Portland. Apartment 302 at the Riverside Complex on Burnside Street. But Mateo, if you go there, you're exposing yourself too. The corporation has people looking for you, including at your workplace.\"", "\"I know. They're already here.\" Marcus stood, decision made. \"I'm going to Portland. Today.\"", "\"At least let us arrange secure transportation, a safe house—\"", "\"No time. And frankly, I'm not sure I trust the Foundation's security measures anymore.\" The words came out harsher than he intended. \"I'll handle this my way.\"", "He ended the call before Diane could protest further. His mind was racing, calculating. Portland was a six-hour drive from his current location. If he left now, he could be there by nightfall. But first, he needed to gather his emergency supplies—the cash, the alternate ID, the prepaid phone that the Foundation had provided for just such a contingency.", "As he hurried toward the staff exit, a familiar figure blocked his path. Gerald, still in his Churchill costume, stood with arms crossed.", "\"Going somewhere in a hurry, Mr. Reed?\"", "Marcus tried to step around him. \"I don't have time to explain, Gerald. I need to leave. Now.\"", "Gerald didn't budge. \"Those men are watching the main exits. I saw them position themselves after speaking with the receptionist.\" He gestured toward a service door partially hidden behind a maintenance cart. \"That leads to the delivery area. My car is parked there—the blue Volvo. Keys are under the floor mat.\" He pressed a card into Marcus's hand. \"My address. Come when you can. We'll sort this out.\"", "Marcus stared at the older man, momentarily speechless. \"Gerald, I can't involve you in this. These people are dangerous.\"", "Gerald's eyes twinkled with unexpected mischief. \"As Churchill once said, 'You have enemies? Good. That means you've stood up for something, sometime in your life.'\" He straightened his bowler hat. \"Now go. I'll create a small diversion near the main entrance. Nothing too dramatic—perhaps Winston Churchill suffering a minor health episode.\"", "Before Marcus could protest further, Gerald was striding toward the main plaza, already clutching his chest theatrically. Marcus watched him for a moment, a surge of gratitude warming his chest, before slipping through the service door.", "True to Gerald's word, the blue Volvo was parked in the delivery area, partially hidden behind a catering truck. Marcus found the keys, started the engine, and drove away from the Serengeti Zoo—away from the sanctuary that had protected him for three years, toward an uncertain reunion with the family he feared might no longer recognize him as their own.", "---", "The drive to Portland was tense, each mile bringing Marcus closer to a confrontation he both dreaded and desperately needed. He stopped only once, at a gas station where he used the prepaid phone to try Elena's number. It went straight to voicemail. He left a brief message—\"It's me. I'm coming. Don't do anything until I get there\"—and continued driving.", "As the city skyline appeared on the horizon, dusk was settling over Portland, painting the sky in shades of orange and purple. Marcus navigated through unfamiliar streets, following the GPS to the Riverside Complex. It was a modern apartment building, sleek and anonymous, overlooking the Willamette River.", "He parked a block away, surveying the area for any sign of surveillance. Nothing seemed immediately suspicious, but Marcus had learned to be cautious. He approached the building from the riverside path, using the gathering darkness as cover.", "The security door required a key fob, but Marcus waited until a resident exited, catching the door before it closed. Inside, he took the stairs to the third floor, his heart pounding with each step. Apartment 302 was at the end of the hallway, its door indistinguishable from the others except for the small potted plant beside it—a peace lily, Elena's favorite.", "Marcus stood before the door, suddenly paralyzed with uncertainty. What if she didn't want to see him? What if the distance between them had grown too vast to bridge? What if she no longer loved him?", "Before he could knock, the door opened. Sofia stood there, her eyes widening in shock.", "\"Dad?\" she whispered, as if afraid speaking too loudly would make him disappear.", "\"Sofia,\" Marcus breathed, drinking in the sight of his daughter. She had grown taller, her features more defined, the child he remembered now clearly a young woman. \"Can I come in?\"", "Sofia glanced over her shoulder nervously before stepping aside. \"Mom's not here. She left this morning and hasn't come back. I've been trying to call her, but she's not answering.\"", "Marcus felt a fresh wave of panic. \"Did she say where she was going?\"", "Sofia shook her head. \"She's been acting strange for days. Making phone calls when she thinks I'm not listening, researching something on her laptop.\" She wrapped her arms around herself. \"The Foundation people came by yesterday, trying to get us to leave, but Mom refused. They got into a huge argument.\"", "Marcus moved further into the apartment, noting the signs of hasty packing—half-filled suitcases, clothes strewn across the couch, documents spread on the dining table. He picked up a business card: \"Katherine Winters, Investigative Journalist, The Portland Tribune.\"", "\"Has your mother mentioned this person?\" he asked, showing Sofia the card.", "Sofia's expression confirmed his suspicion before she even spoke. \"That's who she's been calling. I heard her arranging a meeting.\" She bit her lip. \"Dad, what's going on? Are we in danger?\"", "Marcus wanted to reassure her, to tell her everything would be fine, but he couldn't bring himself to lie. \"Yes,\" he said simply. \"The people I exposed, they've found us. And if your mother is meeting with a journalist, she's putting herself directly in their path.\"", "Sofia's phone buzzed with a text message. She checked it, her face paling. \"It's Mom. She says she's at the Tribune office downtown, finalizing the details for an exposé. She says she's doing this for us, so we can stop running.\" Sofia looked up, tears in her eyes. \"Dad, we have to stop her.\"", "Marcus was already heading for the door. \"Stay here. Lock the door. Don't open it for anyone but me or your mother.\"", "\"No,\" Sofia said firmly, grabbing her jacket. \"I'm coming with you. She's my mother, and you haven't seen her in three years. You don't know how stubborn she's become.\"", "Marcus wanted to argue, but time was of the essence. And perhaps Sofia was right—Elena might listen to their daughter if not to him.", "They hurried to Gerald's Volvo, and Marcus drove toward downtown Portland, following Sofia's directions to the Tribune building. The streets were busy with evening traffic, each red light an agony of impatience.", "\"There it is,\" Sofia pointed to a modern glass building with the newspaper's logo illuminated above the entrance.", "Marcus parked illegally at the curb, ignoring the no-parking signs. \"Stay close to me,\" he instructed Sofia as they hurried toward the building.", "The lobby was quiet, with only a security guard at the desk. Marcus approached, trying to appear calm. \"We're looking for Katherine Winters. It's urgent that we speak with her.\"", "The guard checked his computer. \"Ms. Winters left about twenty minutes ago. Said she was meeting a source at the Riverfront Café down the street.\"", "Marcus thanked him, and they rushed back outside. The Riverfront Café was visible a block away, its outdoor seating area lit with string lights that reflected off the river beyond.", "As they approached, Marcus scanned the patrons, looking for Elena. He spotted her at a corner table, engaged in intense conversation with a woman who must be Katherine Winters. Relief flooded through him at the sight of his wife, alive and seemingly well.", "But the relief was short-lived. Over Elena's shoulder, Marcus noticed a man at the bar, his attention fixed on Elena's table. Even from this distance, the scar on his right cheek was visible.", "Victor Reyes had found her first.", "\"Sofia, stay here,\" Marcus ordered, his voice leaving no room for argument. \"Call 911. Tell them there's a threat of violence at the Riverfront Café.\"", "Before Sofia could protest, Marcus was moving toward the café, his focus narrowed to the imminent danger. He needed to reach Elena before Reyes made his move.", "He was halfway across the street when he saw Reyes stand, his hand moving inside his jacket. Marcus broke into a run, shouting Elena's name.", "Elena turned at the sound of his voice, her expression shifting from confusion to shock. \"Mateo?\"", "The journalist, Katherine Winters, looked up in alarm, her hand instinctively reaching for her recorder.", "Reyes, realizing his opportunity was slipping away, pulled out a gun.", "What happened next seemed to unfold in slow motion. Marcus launched himself toward Elena's table as Reyes raised his weapon. Patrons screamed, diving for cover. Katherine Winters knocked over her chair as she scrambled backward.", "And Elena, his Elena, stood frozen in the path of danger, her eyes locked on Marcus as if she couldn't believe he was real.", "The gunshot cracked through the evening air just as Marcus reached Elena, tackling her to the ground. Pain exploded in his shoulder, hot and sharp, but he ignored it, covering Elena's body with his own as more shots followed.", "\"Stay down,\" he gasped, the pain making his vision blur.", "Chaos erupted around them. People were running, screaming. Through the haze of pain, Marcus saw Reyes advancing, his gun still raised. But before he could fire again, a blur of movement intercepted him.", "Gerald Hoffman, still dressed in his Churchill costume, complete with bowler hat and walking stick, had appeared seemingly out of nowhere. With surprising agility for a man in his seventies, he swung his walking stick, catching Reyes across the wrist. The gun clattered to the ground.", "Reyes, momentarily stunned by the bizarre sight of Winston Churchill attacking him, recovered quickly. He lunged at Gerald, his face contorted with rage.", "Gerald, despite his age and the limitations of his costume, fought back with unexpected skill. He dodged Reyes's first punch, used the walking stick to trip him, and then delivered a surprisingly effective jab to the larger man's solar plexus.", "\"Gerald?\" Marcus croaked, disbelieving.", "Elena, still sheltered beneath him, looked equally confused. \"Who is that?\"", "\"A friend,\" Marcus managed, the pain in his shoulder intensifying. \"A very unexpected friend.\"", "The fight between Gerald and Reyes continued, drawing the attention of everyone in the vicinity. Gerald, despite his initial success, was clearly outmatched. Reyes landed a solid blow that sent the older man staggering.", "But Gerald wasn't fighting to win—he was fighting for time. And he had succeeded. The wail of police sirens filled the air, growing louder by the second.", "Reyes, hearing the sirens, made a desperate grab for his fallen gun. Gerald, despite being winded from the blow, lunged forward with his walking stick, knocking the weapon further away.", "\"As Churchill once said,\" Gerald panted, his bowler hat askew but his dignity intact, \"never, never, never give up.\"", "Reyes, realizing he was out of options, turned to flee—only to find himself face to face with Sofia, who had disobeyed her father's order to stay back. She stood blocking Reyes's escape route, her phone held up, recording everything.", "\"This is being livestreamed,\" she announced, her voice remarkably steady. \"To my social media accounts. With your face clearly visible.\"", "Reyes hesitated, caught between the approaching police and the damning evidence being created in real time. That moment of hesitation was enough. Two police officers burst onto the scene, weapons drawn.", "\"Hands up! On the ground, now!\"", "Reyes, recognizing defeat, slowly raised his hands.", "Marcus, still shielding Elena, felt the strength leaving his body as the adrenaline ebbed and the pain took over. \"Elena,\" he whispered, looking down at the woman he had loved for twenty years, the woman he had sacrificed everything to protect. \"I'm sorry. For everything.\"", "Elena's eyes filled with tears as she reached up to touch his face. \"Mateo,\" she said softly, using his real name for the first time in years. \"You came back to us.\"", "\"Always,\" he promised, before the darkness claimed him.", "---", "Marcus awoke to the steady beep of hospital monitors and the sensation of someone holding his hand. He opened his eyes slowly, adjusting to the bright fluorescent lighting.", "Elena sat beside his bed, her head bowed, her hand clasping his. She looked exhausted, dark circles under her eyes, her hair pulled back in a messy ponytail. To Marcus, she had never looked more beautiful.", "\"Elena,\" he whispered, his throat dry.", "She looked up, relief washing over her face. \"You're awake. Thank God.\" She reached for a cup of water with a straw, helping him take a sip. \"The doctors said the bullet missed any major arteries. You're going to be fine.\"", "Marcus nodded, the events at the café coming back to him in fragments. \"Reyes?\"", "\"In custody. And not just for the shooting. The FBI was already building a case against Oceanic Harvest. Your evidence, combined with what happened at the café—which, thanks to Sofia, was captured on video and went viral—has blown the case wide open.\" Elena squeezed his hand. \"It's over, Mateo. Really over.\"", "Marcus closed his eyes briefly, absorbing this information. \"Sofia? Is she okay?\"", "\"She's fine. She's in the cafeteria with your friend Gerald. Quite a character, that one. He's been regaling her with Churchill quotes and stories about the zoo.\" Elena's expression softened. \"He saved your life. Saved all of us, really.\"", "\"Gerald,\" Marcus repeated, still amazed by the older man's unexpected heroism. \"He never mentioned he could fight like that.\"", "\"He was in the army before becoming a professor. Special forces, apparently.\" Elena smiled slightly. \"He said something about how Churchill would have approved of his actions, defending democracy against tyranny.\"", "Marcus chuckled, then winced as the movement jarred his injured shoulder. \"That sounds like Gerald.\"", "A comfortable silence fell between them, filled with unspoken words and emotions too complex for immediate expression. Finally, Elena spoke, her voice quiet but steady.", "\"I didn't recognize you at first, at the café. Not just physically—though you've changed—but who you are now. The man who ran toward danger instead of away from it.\" She met his gaze directly. \"I spent three years angry at you for choosing to run, for choosing separation over standing your ground. I thought it meant you didn't love us enough to fight.\"", "Marcus felt a pang of guilt. \"Elena, I—\"", "She shook her head, stopping him. \"Let me finish. I was wrong. You were protecting us the only way you knew how. And when it mattered most, you came back. You put yourself between me and a bullet.\" Her voice broke slightly. \"That's who you've always been. I just couldn't see it through my anger and fear.\"", "Marcus reached up with his good arm, touching her cheek gently. \"I never stopped loving you. Not for a single day.\"", "Elena leaned into his touch, tears spilling down her cheeks. \"I tried to stop loving you. I thought it would hurt less.\" She gave a watery laugh. \"It didn't work.\"", "The door opened, and Sofia entered, followed by Gerald, who had finally changed out of his Churchill costume into regular clothes. Sofia rushed to her father's bedside, careful of his injury as she hugged him.", "\"Dad! You're awake!\"", "Marcus held his daughter close, savoring the moment he had dreamed of for three long years. \"I'm okay, sweetheart. Thanks to you and your quick thinking with that livestream.\"", "Sofia pulled back, grinning. \"It has like a million views now. People are calling me a hero.\"", "\"You are a hero,\" Marcus affirmed. \"A very brave, very smart hero.\"", "Gerald approached the bed, looking somewhat out of place without his historical persona. \"Good to see you conscious, Mr. Reed. Or should I say Mr. Rivera?\"", "Marcus smiled at his friend. \"Mateo is fine. And thank you, Gerald. For everything. The car, the warning, and especially for taking on Reyes. That was... unexpected.\"", "Gerald shrugged modestly. \"I may be old, but I'm not entirely useless. My military training comes in handy occasionally, though I must admit I'm feeling every one of my seventy-two years today.\" He rubbed his shoulder ruefully. \"That young man had quite a punch.\"", "A knock at the door interrupted their conversation. A serious-looking woman in a suit entered, followed by two men who were clearly federal agents.", "\"Mr. Rivera,\" the woman said, approaching the bed. \"I'm Special Agent Carla Mendez with the FBI. We need to talk about your testimony against Oceanic Harvest Corporation.\"", "Elena tensed beside Marcus, but he squeezed her hand reassuringly. \"I'm ready to tell you everything I know,\" he said firmly. \"No more running, no more hiding.\"", "Agent Mendez nodded. \"Good. Because with your testimony, we can ensure that the people responsible for threatening your family face justice.\" She glanced at Elena and Sofia. \"We'll also be providing protection for all of you until the trial is concluded.\"", "\"And after?\" Elena asked, the question that had haunted them for three years finally spoken aloud. \"What happens after the trial?\"", "Agent Mendez's expression softened slightly. \"That will be up to you. Witness protection is an option, if you feel it's necessary. But with the corporation's leadership facing federal charges, the threat level will be significantly reduced.\"", "Marcus looked at Elena, then at Sofia, then at Gerald—his family, both old and new. \"We'll figure it out together,\" he said. \"As a family.\"", "Elena nodded, a smile breaking through her tears. \"Together,\" she agreed, leaning down to kiss him gently.", "As the agents began discussing the details of the case, Marcus felt, for the first time in three years, the weight lifting from his shoulders. The road ahead would not be easy—there would be a trial, testimony, the challenge of rebuilding their family after years apart. But they would face it together.", "And sometimes, as Gerald had shown, the most unlikely heroes emerged in the most unexpected moments. A retired professor dressed as Winston Churchill. A teenage girl with a smartphone and the courage to stand her ground. A fisherman who had spent years hiding, only to find that the greatest act of protection was not in running away, but in standing firm for those he loved.", "In the sterile hospital room, surrounded by the people who mattered most, Marcus Reed—Mateo Rivera—finally came home."];
+            const storyContainer = document.getElementById("storyContainer");
+            const pagination = document.getElementById("paginationControls");
+            const pageIndicator = document.getElementById("pageIndicator");
+            const pageSizeSelect = document.getElementById("pageSizeSelect");
+            const pageOptions = document.getElementById("pageOptions");
+
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const firstBtn = document.getElementById("firstBtn");
+            const lastBtn = document.getElementById("lastBtn");
+
+            let currentPage = 0;
+            let pageSize = 4;
+
+            function getAutoPageSize() {
+                return Math.max(2, Math.floor(window.innerHeight / 250));
+            }
+
+            function renderPage(page) {
+                const totalPages = Math.ceil(paragraphs.length / pageSize);
+                const start = page * pageSize;
+                const end = start + pageSize;
+                storyContainer.innerHTML = paragraphs.slice(start, end).map(p => `<p>${p}</p>`).join('');
+                pageIndicator.textContent = `Page ${page + 1} of ${totalPages}`;
+                prevBtn.style.display = page > 0 ? "inline-block" : "none";
+                firstBtn.style.display = page > 0 ? "inline-block" : "none";
+                nextBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+                lastBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+            }
+
+            function switchToPagedView() {
+                const mode = document.querySelector('input[name="pageMode"]:checked').value;
+                pageSize = (mode === 'auto') ? getAutoPageSize() : parseInt(pageSizeSelect.value);
+                currentPage = 0;
+                pagination.style.display = 'block';
+                renderPage(currentPage);
+            }
+
+            function switchToFullView() {
+                pagination.style.display = 'none';
+                storyContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+            }
+
+            function nextPage() { const totalPages = Math.ceil(paragraphs.length / pageSize); if ((currentPage + 1) < totalPages) { currentPage++; renderPage(currentPage); } }
+            function prevPage() { if (currentPage > 0) { currentPage--; renderPage(currentPage); } }
+            function firstPage() { currentPage = 0; renderPage(currentPage); }
+            function lastPage() { currentPage = Math.ceil(paragraphs.length / pageSize) - 1; renderPage(currentPage); }
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+
+            function exportToPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const pageHeight = doc.internal.pageSize.height;
+                const margin = 15;
+                let y = margin;
+            
+                // Title
+                doc.setFontSize(18);
+                doc.setFont("times", "bold");
+                doc.text(document.title, doc.internal.pageSize.width / 2, y, { align: "center" });
+                y += 15;
+            
+                // Content
+                doc.setFontSize(12);
+                doc.setFont("times", "normal");
+            
+                paragraphs.forEach(p => {
+                    const lines = doc.splitTextToSize(p, 180);
+                    const blockHeight = lines.length * 8;
+            
+                    if (y + blockHeight > pageHeight - margin) {
+                        doc.addPage();
+                        y = margin;
+                    }
+            
+                    doc.text(lines, margin, y);
+                    y += blockHeight; // space between paragraphs
+                });
+            
+                const safeTitle = document.title.replace(/[^a-z0-9]/gi, "_").toLowerCase();
+                doc.save(`${safeTitle}.pdf`);
+            }
+
+
+            document.querySelectorAll('input[name="viewMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    if (e.target.value === 'full') {
+                        pageOptions.style.display = 'none';
+                        switchToFullView();
+                    } else {
+                        pageOptions.style.display = 'block';
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            document.querySelectorAll('input[name="pageMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    const isManual = e.target.value === 'manual';
+                    pageSizeSelect.disabled = !isManual;
+                    if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            pageSizeSelect.addEventListener('change', () => {
+                if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                    switchToPagedView();
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                const btn = document.getElementById("backToTop");
+                btn.style.display = window.scrollY > 300 ? "block" : "none";
+            });
+
+            switchToFullView();
+        </script>
+        
+</body>
+</html>

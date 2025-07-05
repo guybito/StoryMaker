@@ -1,0 +1,36 @@
+ 
+                  Role: you are story writing expert
+                  The Plot:
+                  {'a clause': 'A Subtle Person', 'group': 'Enterprise', 'subgroup': 'Personal Limitations', 'description': 'Seeking to Overcome Personal Limitations in Carrying Out an Enterprise', 'actors': [{'symbol': 'A', 'name': 'Harrison'}, {'symbol': 'CH', 'name': 'Lily'}, {'symbol': 'A-5', 'name': 'Eli'}, {'symbol': 'A-6', 'name': 'Christian'}, {'symbol': 'X', 'name': 'X'}, {'symbol': 'B', 'name': 'Gemma'}, {'symbol': 'A-3', 'name': 'Patrick'}, {'symbol': 'B-7', 'name': 'Victoria'}], 'main conflict': 'A seeks to find the relatives of CH, a foundling, of whom ae has taken charge * A writes to government authorities sending a copy of a coat of arms found on a foundling. CH’s, coat, but receives no information regarding CH **', 'plot': "{'nodes': ['1071', '1072', '1073', '1074', '1075a', '1075b', '1076', '1077', '1078', '1079', '1080', '1081', '1082a', '1082b', '1083', '1084', '1085', '1086', '1087', '1088', '1089', '1090', '1091', '1092', '1093', '1094', '1095', '1096', '1097a', '1097b', '1098', '1099', '1100'], 'group': 'Enterprise', 'subgroup': 'Personal Limitations', 'description': 'Seeking to Overcome Personal Limitations in Carrying Out an Enterprise'}\n\nHarrison seeks to find the relatives of Lily, a foundling, of whom he has taken charge  Harrison writes to government authorities sending a copy of a coat of arms found on a foundling. Lily’s, coat, but receives no information regarding Lily  [1089]\n\nHarrison is a gambler pursuing his blackleg vocation  Harrison handicaps himself by taking charge of an abandoned baby, Lily  [914]\n\nHarrison is an outlaw, hunted by the authorities and dodging about to escape capture  Harrison, under ban of the law, runs the risk of capture in order to aid Lily Lily, a respectable working girl, seeking employment, follows the advice of a supposed friend, Eli, and finds himself in an immoral dance hall where he is compelled to dance with patrons and serve drinksB, in a fit of discouragement over an unhappy love affair, meditates suicide and writes a note to his friends telling of his motives  Lily, contemplating suicide, writes a note explaining his motives; then he changes his mind—and loses the note  [817]\n\nHarrison is a fugitive from justice, hunted by Christian, an officer of the law  Harrison is in a trap in the town of X. he can escape only by passing through the towns of Y or Z, and detectives, Christian and Christian, are watching for his in both places  [610]\n\nHarrison gambles with money he is holding in trust [754]\n\nHarrison is jealous of his husband, Gemma  Harrison embarks upon an ill-considered enterprise of gambling and loses money that is not his to lose  Harrison gambles with Patrick, the man with whom Harrison believes his husband has an “affair”  [380]\n\nLily is a foundling who knows nothing of his birth and parentage  Lily knows nothing of his birth and parentage, and he finds this a serious and humiliating handicap  [697b]\n\nHarrison, finding by chance an aged nurse, Victoria, learns from his a secret of birth and parentage which means happiness for his [1051]\n\nHarrison is a gentleman of the “old school,” who comes through life enduring with patient fortitude every manner of misfortune; and then, at last, poverty stricken and pronounced a failure according to all the material standards of the world, he still clings to his high ideals and counts his vicissitudes, which could not overcome his ideals, as blessings in disguise [944]\n\nRescues integrity from a serious entanglement.", 'c clause': 'Rescues integrity from a serious entanglement.'}
+
+                  You are tasked with crafting an immersive and well-rounded story based on the provided plot 
+                  framework. This story should be in modern English, engaging, vivid, and address key aspects of storytelling effectively. Follow these instructions closely to ensure a superior narrative.
+                                      Story Requirements
+                                      1. Character Development
+                                      Clearly identify the protagonist and provide a compelling backstory that motivates their actions.
+                                      Define the protagonist's goal or "want," ensuring they take an active role in achieving it.
+                                      Include weaknesses, fears, or vulnerabilities that humanize the protagonist and make them relatable.
+                                      Show a clear arc of change for the protagonist, where they grow, learn a lesson, or address their weaknesses by the end.
+                                      Ensure supporting characters are distinct, colorful, and contribute meaningfully to the protagonist’s journey. Avoid stereotypes or unnecessary characters.
+                                      Develop characters physically, mentally, and socially to create a multidimensional cast.
+                                      2. Conflict
+                                      Define a main conflict that is challenging and relatable, ensuring it sustains tension throughout the story.
+                                      Relate the conflict to the human condition so it resonates with a broad audience.
+                                      Incorporate external events and internal emotional struggles for both the protagonist and supporting characters.
+                                      Introduce subplots with their own conflicts, which intertwine meaningfully with the main plot.
+                                      Escalate the conflict effectively toward the climax, and ensure it is fully resolved by the end.
+                                      3. Logic
+                                      Avoid plot holes or inconsistencies. Ensure every detail aligns with established facts in the story.
+                                      Clarify any potential ambiguities or unanswered questions to avoid reader confusion.
+                                      Ensure all major elements are consistent with the internal logic of the story.
+                                      4. Craft
+                                      Use modern, vivid English with sophisticated word choice to create vivid imagery.
+                                      Include rich descriptions of settings, characters, and actions to immerse readers in the story.
+                                      Ensure the writing is clear, concise, and grammatically correct.
+                                      5. Formatting Requirements
+                                      Write the story in clear, distinct paragraphs for better readability.
+                                      Provide a title that reflects the essence of the story.
+                                      Ensure the story spans around 5000 words and delivers an engaging, complete narrative and being written in modern English
+                                      6. Title
+                                      write the title of the story at the beginning of the story, in the next format: the real title of the story
+                  

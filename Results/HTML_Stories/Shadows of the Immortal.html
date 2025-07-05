@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Shadows of the Immortal</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+            :root {
+                --bg-color: #fdf6e3;
+                --text-color: #2e2e2e;
+                --btn-color: #333;
+                --btn-hover: #555;
+            }
+
+            body.dark-mode {
+                --bg-color: #1e1e1e;
+                --text-color: #f0f0f0;
+                --btn-color: #ddd;
+                --btn-hover: #fff;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Merriweather', serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                max-width: 800px;
+                margin: auto;
+                padding: 50px 30px;
+                line-height: 2;
+                font-size: 1.15em;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin-bottom: 50px;
+                border-bottom: 3px double #ccc;
+                padding-bottom: 20px;
+                letter-spacing: 2px;
+            }
+
+            p {
+                text-align: justify;
+                margin-bottom: 1.8em;
+            }
+
+            p::first-letter {
+                font-size: 130%;
+                font-weight: bold;
+            }
+
+            #storyContainer {
+                min-height: 600px;
+                position: relative;
+            }
+
+            #paginationControls {
+                text-align: center;
+                margin-top: 30px;
+                min-height: 60px;
+                position: sticky;
+                bottom: 20px;
+                background-color: var(--bg-color);
+                padding: 10px;
+                border-top: 1px solid #aaa;
+            }
+
+            select, label, button {
+                font-size: 1em;
+                margin: 6px 10px;
+            }
+
+            button, select {
+                padding: 6px 14px;
+                border: none;
+                border-radius: 6px;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                transition: background-color 0.3s, color 0.3s;
+                cursor: pointer;
+            }
+
+            button:hover, select:hover {
+                background-color: var(--btn-hover);
+            }
+
+            label {
+                margin: 0 8px;
+                cursor: pointer;
+            }
+
+            input[type="radio"] {
+                margin-right: 4px;
+            }
+
+            #backToTop {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                padding: 10px 15px;
+                font-size: 1em;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                display: none;
+            }
+
+            #controlsTop > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            #controlsTop {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        </style>
+        
+</head>
+<body>
+<h1>Shadows of the Immortal</h1>
+
+            <!-- Info Modal Trigger -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button onclick="document.getElementById('infoModal').style.display='block'">ℹ️ Info</button>
+            </div>
+            
+            <!-- Info Modal -->
+            <div id="infoModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:90%; max-width:600px; border-radius:10px; font-family:'Merriweather', serif;">
+                <span onclick="document.getElementById('infoModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2>Story Info</h2>
+                <p><strong>📅 Creation Date:</strong> 05-07-2025 11:37</p>
+                <p><strong>🧠 Algorithm:</strong> Plot Genie</p>
+                <p><strong>📝 Word Count:</strong> 7833</p>
+                <p><strong>📄 Review:</strong> <button onclick="document.getElementById('reviewModal').style.display='block'">View Review</button></p>
+              </div>
+            </div>
+            <!-- Review Modal -->
+            <div id="reviewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:5% auto; padding:30px; border:1px solid #888; width:90%; max-width:800px; border-radius:10px; font-family:'Merriweather', serif; max-height:85%; overflow-y:auto;">
+                <span onclick="document.getElementById('reviewModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2 style="margin-top:0;">📘 Story Review</h2>
+                <p><strong>📘 Story Title:</strong> Shadows of the Immortal</p>
+<hr>
+<p>📄 Claude Evaluation Report</p>
+<hr>
+<h2>Literary Analysis of "Shadows of the Immortal"</h2>
+<h3>Detailed Question-by-Question Evaluation</h3>
+<p>### Character (Category Weight = 0.30)</p>
+<p>1. <strong>Is the main character clearly identifiable?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Question Weight:</strong> 0.15</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p><strong>- Explanation:</strong> Lieutenant Commander Tariq Nassar is unmistakably the protagonist, introduced immediately in the opening paragraph with clear details about his position, age, and background. The narrative consistently follows his perspective throughout.</p>
+<p>2. <strong>Does the character have a clear backstory?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Question Weight:</strong> 0.10</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Explanation:</strong> Tariq's backstory is thoroughly developed, including his naval career, his family history (particularly his father's humiliation by General Aziz and his mother's death), and his past relationship with Layla during university.</p>
+<p>3. <strong>Does the character have a clear goal or "desire"?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Question Weight:</strong> 0.10</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Explanation:</strong> Tariq has multiple clear goals that drive the narrative: avenging his mother's death, clearing his family name, and balancing his duty to his country with his personal desires, including his feelings for Layla.</p>
+<p>4. <strong>Does the character have a clear inner weakness or vulnerability?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.10</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p><strong>- Explanation:</strong> Tariq struggles with balancing duty and personal vengeance, shown in moments like "a storm brewed within him" and his conflict over Layla. However, he sometimes appears too competent without deeper psychological vulnerabilities.</p>
+<p>5. <strong>Does the character undergo a transformation?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.10</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p><strong>- Explanation:</strong> Tariq evolves from seeking pure vengeance to understanding the complexity of the situation, culminating in his appeal to Karim's humanity rather than using force. However, this transformation feels somewhat rushed in the final scenes.</p>
+<p>6. <strong>Do supporting characters contribute to the main character's journey?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Question Weight:</strong> 0.10</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Explanation:</strong> Supporting characters like Samira Khalil, Layla, Karim, and Tariq's father all significantly impact his journey, providing information, challenges, and emotional stakes that drive his development and decisions.</p>
+<p>7. <strong>Do supporting characters fulfill archetypal roles?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Question Weight:</strong> 0.10</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Explanation:</strong> The story features clear archetypal roles: Samira as the loyal ally, Layla as both love interest and messenger, Karim as the shadow/dark reflection of Tariq, Sheikh Mansour/Tahan as the hidden villain, and Tariq's father as the mentor figure.</p>
+<p>8. <strong>Are supporting characters diverse and distinct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Question Weight:</strong> 0.10</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Explanation:</strong> Each supporting character has distinct personalities, motivations, and speech patterns. Samira's professionalism contrasts with Layla's diplomatic caution, while Karim's bitterness differs from Minister Rahman's calculating nature.</p>
+<p>9. <strong>Is the number of characters appropriate?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.10</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p><strong>- Explanation:</strong> The story balances its main cast well, but introduces several minor characters (like Minister Rahman) who could be more fully developed. Some characters, like the impostor crew members, remain generic.</p>
+<p>10. <strong>Are characters developed across three layers?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.05</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p><strong>- Explanation:</strong> Tariq is well-developed physically (naval commander), psychologically (conflicted about duty vs. revenge), and sociologically (position in society, family history). Supporting characters like Layla and Karim have good development, though others remain more two-dimensional.</p>
+<p>### Conflict (Category Weight = 0.30)</p>
+<p>11. <strong>Is the central conflict strong enough to drive the story?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Question Weight:</strong> 0.35</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.42</p>
+<p><strong>- Explanation:</strong> The story presents multiple compelling conflicts that intertwine effectively: Tariq's personal vendetta against Sheikh Mansour, the political tensions between nations, the infiltration of his ship, and his forbidden love for Layla all create sustained tension.</p>
+<p>12. <strong>Does the conflict touch upon universal human conditions?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.15</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.135</p>
+<p><strong>- Explanation:</strong> The story explores universal themes of duty versus personal desire, vengeance versus justice, and family loyalty. The conflict between love and duty in Tariq and Layla's relationship is particularly relatable.</p>
+<p>13. <strong>Are the stakes clear from the beginning?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.10</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p><strong>- Explanation:</strong> The personal stakes for Tariq (avenging his mother, clearing his family name) are clear early on, though the larger geopolitical stakes involving the weapons shipment and summit attack emerge more gradually throughout the narrative.</p>
+<p>14. <strong>Is the conflict directly related to what we know about the character?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Question Weight:</strong> 0.10</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Explanation:</strong> The conflicts directly connect to Tariq's personal history, family background, and professional position. His naval command position makes the ship infiltration relevant, while his family history drives his vendetta against Mansour/Tahan.</p>
+<p>15. <strong>Does the conflict escalate as the story approaches its climax?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Question Weight:</strong> 0.10</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Explanation:</strong> The tension builds effectively from initial suspicions to the dramatic confrontation in the missile control room, with escalating revelations about Karim's identity and the conspiracy adding layers of complexity and urgency.</p>
+<p>16. <strong>Is the source of conflict consistent throughout?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.10</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p><strong>- Explanation:</strong> While the core conflicts remain consistent, the focus shifts somewhat from Tariq's vendetta against Mansour to the broader conspiracy and the revelation about Karim, which slightly dilutes the initial conflict setup.</p>
+<p>17. <strong>Do the subplots also include conflict?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.05</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p><strong>- Explanation:</strong> Subplots like Tariq and Layla's relationship and the political tensions between nations contain their own conflicts that complement the main storyline, though some (like Minister Rahman's engagement to Layla) feel underdeveloped.</p>
+<p>18. <strong>Is there both external conflict (events) and internal conflict (emotions)?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Question Weight:</strong> 0.05</p>
+<p><strong>- Category Weight:</strong> 0.30</p>
+<p><strong>- Weighted Score:</strong> 0.06</p>
+<p><strong>- Explanation:</strong> The story balances external conflicts (the ship infiltration, intercepting the weapons shipment) with Tariq's internal struggles over duty, vengeance, and his feelings for Layla, creating a multidimensional conflict structure.</p>
+<p>### Craft (Category Weight = 0.25)</p>
+<p>19. <strong>Is the story written in clear, modern English?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Question Weight:</strong> 0.20</p>
+<p><strong>- Category Weight:</strong> 0.25</p>
+<p><strong>- Weighted Score:</strong> 0.20</p>
+<p><strong>- Explanation:</strong> The prose is polished, using contemporary language that flows naturally. Sentences are well-constructed with varied structure and appropriate vocabulary for a modern thriller/drama.</p>
+<p>20. <strong>Are spelling and grammar correct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Question Weight:</strong> 0.15</p>
+<p><strong>- Category Weight:</strong> 0.25</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p><strong>- Explanation:</strong> The text demonstrates excellent technical control with no noticeable spelling or grammatical errors. Sentence structures are correct and punctuation is appropriately used throughout.</p>
+<p>21. <strong>Is the writing clear, concise, and descriptive?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.15</p>
+<p><strong>- Category Weight:</strong> 0.25</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p><strong>- Explanation:</strong> The writing is generally clear and descriptive, with effective scene-setting like "The sea breeze carried the familiar scent of salt and diesel." However, some passages become exposition-heavy, particularly during revelations about the conspiracy.</p>
+<p>22. <strong>Is there vivid description of characters, scenes, and settings?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.15</p>
+<p><strong>- Category Weight:</strong> 0.25</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p><strong>- Explanation:</strong> The story creates a clear sense of place with descriptions of the naval vessel, the coastal city, and the lighthouse. Character descriptions like "her dark hair was styled in an elegant updo" provide visual details, though some settings could be more vividly rendered.</p>
+<p>23. <strong>Is there no unnecessary or inappropriate detail?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.15</p>
+<p><strong>- Category Weight:</strong> 0.25</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p><strong>- Explanation:</strong> Most details serve the plot or character development, though some explanatory passages about regional politics and the conspiracy could be more efficiently integrated into the action rather than delivered as exposition.</p>
+<p>24. <strong>Is everything described visually demonstrable?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.20</p>
+<p><strong>- Category Weight:</strong> 0.25</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p><strong>- Explanation:</strong> The story generally presents action and settings in visually concrete terms. However, some emotional states and background information are conveyed through internal thoughts rather than demonstrable actions or dialogue.</p>
+<p>### Logic (Category Weight = 0.15)</p>
+<p>25. <strong>Are there no plot holes?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.20</p>
+<p><strong>- Category Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p><strong>- Explanation:</strong> The plot is generally coherent, though some elements strain credibility, such as how easily Tariq leaves his ship during a critical mission to meet Layla, and how quickly the infiltrators gained access to secure areas of the ship.</p>
+<p>26. <strong>Are there no unclear points?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.20</p>
+<p><strong>- Category Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p><strong>- Explanation:</strong> Most plot elements are clearly explained, though some aspects of the conspiracy (particularly how Tahan maintained his Mansour disguise for decades) could benefit from further clarification.</p>
+<p>27. <strong>Have all questions raised been answered?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.15</p>
+<p><strong>- Category Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p><strong>- Explanation:</strong> The story resolves its main plot questions about the infiltration and weapons shipment, but leaves some threads open, such as the ultimate fate of Tahan/Mansour and the future of Tariq and Layla's relationship.</p>
+<p>28. <strong>Is the story consistent and free of continuity errors?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.15</p>
+<p><strong>- Category Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p><strong>- Explanation:</strong> The narrative maintains consistency in its timeline and character motivations, though there are minor issues with the logistics of ship operations and security protocols that don't always align with naval realities.</p>
+<p>29. <strong>Are there no contradictions with previously stated information?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Question Weight:</strong> 0.15</p>
+<p><strong>- Category Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p><strong>- Explanation:</strong> The story maintains internal consistency with its established facts and character backgrounds. New revelations like Karim's identity build on rather than contradict earlier information.</p>
+<p>30. <strong>Is the logic sound and free from illogical or contrived elements?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Question Weight:</strong> 0.15</p>
+<p><strong>- Category Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p><strong>- Explanation:</strong> Most plot developments follow logically from established premises, though some elements feel convenient, such as Layla having exactly the information Tariq needs and the timing of the weapons shipment coinciding with his meeting with her.</p>
+<h3>Overall Weighted Score: 3.4850</h3>
+<h3>Summary Report</h3>
+<p>"Shadows of the Immortal" presents a compelling political thriller with strong character development and interconnected conflicts that effectively drive the narrative. The protagonist, Tariq Nassar, is well-realized with clear motivations and a satisfying character arc. The story excels in creating a believable geopolitical backdrop with personal stakes, though some plot mechanics occasionally strain credibility. The prose is technically strong with good descriptive elements, though certain expository passages could be more elegantly integrated into the action.</p>
+<h3>Suggestions for Improvement:</h3>
+<p><strong>* <strong>Character Development:</strong> </strong> Deepen Tariq's vulnerabilities beyond his professional competence to create more moments where readers can connect with his humanity. His transformation from vengeance-seeker to peacemaker would benefit from more gradual development.</p>
+<p><strong>* <strong>Plot Mechanics:</strong> </strong> Strengthen the plausibility of certain plot elements, particularly the security protocols on the naval vessel and how easily infiltrators gained access to restricted areas. This would enhance the story's credibility as a military thriller.</p>
+<p><strong>* <strong>Exposition Balance:</strong> </strong> Reduce exposition-heavy passages, especially when revealing conspiracy details. Instead, integrate this information more organically through dialogue and action to maintain narrative momentum.</p>
+<p><strong>* <strong>Setting Detail:</strong> </strong> Enhance the sensory details of key locations like the ship interior and the fictional nations to create a more immersive reading experience. The political backdrop is well-conceived but could benefit from more vivid cultural and environmental specificity.</p>
+<p><strong>* <strong>Supporting Character Development:</strong> </strong> Further develop secondary characters like Minister Rahman and some of the crew members to give them more dimension beyond their functional roles in the plot.</p>
+              </div>
+            </div>
+        
+
+        <div id="controlsTop">
+            <div>
+                <label><input type="radio" name="viewMode" value="full" checked> Continuous Reading</label>
+                <label><input type="radio" name="viewMode" value="paged"> Paginated View</label>
+            </div>
+
+            <div id="pageOptions" style="display: none;">
+                <label><input type="radio" name="pageMode" value="auto" checked> Auto Paragraphs</label>
+                <label><input type="radio" name="pageMode" value="manual"> Manual</label>
+                <select id="pageSizeSelect" disabled>
+        <option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+                </select>
+            </div>
+
+            <div>
+                <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+
+        </div>
+
+        <div id="storyContainer"></div>
+
+        <div id="paginationControls" style="display: none;">
+            <button id="firstBtn" onclick="firstPage()">⏮ First</button>
+            <button id="prevBtn" onclick="prevPage()">◀ Previous</button>
+            <span id="pageIndicator">Page 1 of X</span>
+            <button id="nextBtn" onclick="nextPage()">Next ▶</button>
+            <button id="lastBtn" onclick="lastPage()">Last ⏭</button>
+        </div>
+
+        <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆ Back to Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script>
+            const paragraphs = ["Lieutenant Commander Tariq Nassar stood on the deck of the naval frigate *Al-Zafar*, watching the coastline of Oman fade into the distance as they sailed deeper into the Gulf of Aden. The sea breeze carried the familiar scent of salt and diesel, a combination he had grown to associate with both freedom and duty. At thirty-four, Tariq had spent nearly half his life in the Royal Navy of Madinat Al-Noor, a small but strategically significant nation nestled between Oman and Yemen.", "The morning sun glinted off his meticulously maintained uniform, highlighting the decorations that spoke of his distinguished service. Yet despite his accomplishments, a storm brewed within him—one that had nothing to do with the weather reports indicating clear skies for the next week.", "\"Commander,\" a voice called from behind him. \"Intelligence Officer Samira Khalil requests your presence in the briefing room.\"", "Tariq nodded without turning. \"Tell her I'll be there in five minutes.\"", "When the messenger departed, Tariq allowed himself a moment of vulnerability that no one else would witness. He closed his eyes, and the face that appeared in his mind was not that of Intelligence Officer Khalil, but of Layla Aziz—daughter of General Ibrahim Aziz, the military leader of neighboring Al-Jawhar. The woman he loved. The woman he could not have.", "The woman whose father had publicly humiliated his family, calling the Nassars \"a lineage of cowards\" after Tariq's father had advocated for peace during the border disputes fifteen years ago.", "With a deep breath, Tariq composed himself and headed to the briefing room. His personal vendetta against General Aziz would have to wait. For now, duty called.", "---", "Intelligence Officer Samira Khalil was already reviewing documents when Tariq entered the briefing room. At thirty-two, she had earned her reputation as one of the most capable agents in Madinat Al-Noor's intelligence service. Her dark hair was pulled back in a practical bun, and her olive complexion showed signs of too many hours indoors poring over intelligence reports.", "\"Commander,\" she acknowledged, not looking up from her files. \"Thank you for coming promptly.\"", "\"What's so urgent that it couldn't wait until our scheduled briefing this afternoon?\" Tariq asked, taking a seat across from her.", "Samira finally looked up, her hazel eyes meeting his. \"We've received intelligence that the immortal is on the move.\"", "Tariq's jaw tightened. \"Sheikh Mansour?\"", "\"Yes. Our sources indicate he's left his compound in the mountains and is heading toward the coast. Possibly to Al-Jawhar.\"", "Sheikh Mansour Al-Qadim—a man whose very name caused Tariq's blood to boil. Known as \"the Immortal\" due to surviving numerous assassination attempts and living well beyond his expected years, Mansour was a shadow figure who had manipulated politics in the region for decades. He was also the man responsible for the mysterious illness that had slowly killed Tariq's mother three years ago—an illness that began after she drank from a ceremonial cup offered by Mansour at a peace conference.", "No one could prove it was poison. No one except Tariq, who had witnessed his mother's rapid decline and heard her whispered confession on her deathbed: \"It was the Sheikh... he knew I recognized him from before... from the war...\"", "\"What's he doing in Al-Jawhar?\" Tariq asked, his voice carefully controlled.", "\"Unknown,\" Samira replied. \"But given the current tensions between our nations and the upcoming regional security summit, his presence there is concerning.\"", "Tariq nodded. \"And our mission parameters?\"", "\"Unchanged. We're to patrol the maritime border and ensure no unauthorized vessels cross between our waters and Al-Jawhar's. Additionally...\" She hesitated. \"We've been instructed to gather intelligence on Al-Jawhar's naval capabilities without provoking an incident.\"", "\"Spy on them, you mean.\"", "\"Diplomatic intelligence gathering,\" Samira corrected with the ghost of a smile. \"The Admiral was quite clear that we're to avoid any actions that might escalate tensions.\"", "Tariq leaned back in his chair. \"And yet they send me—the man whose family was publicly insulted by General Aziz.\"", "\"Perhaps they believe you're professional enough to separate personal feelings from duty.\" Samira gathered her files. \"Or perhaps they're testing you.\"", "\"Testing me for what?\"", "\"For future advancement.\" She stood. \"The Admiral mentioned you're being considered for the diplomatic security detail at the summit next month.\"", "The summit—where leaders from all Gulf nations would gather, including General Aziz and, if the intelligence was correct, Sheikh Mansour. The perfect opportunity for revenge against both men who had wronged his family.", "\"I see,\" Tariq said neutrally. \"Is there anything else?\"", "\"Yes. We have a new crew member joining us at our next port—Lieutenant Faisal Hakim. He's being transferred from naval intelligence. I've reviewed his file; he seems competent.\"", "\"I'll review his file myself before he boards,\" Tariq said, rising from his seat. \"Thank you, Officer Khalil.\"", "As he turned to leave, Samira spoke again. \"Commander... I know about your history with General Aziz. And I've read the classified reports about your mother's death. Just... be careful. Personal vendettas have no place in our line of work.\"", "Tariq paused at the door. \"I'm aware of my duty, Officer Khalil.\"", "\"Good,\" she replied. \"Because I'd hate to see a promising career destroyed by the pursuit of revenge.\"", "---", "The coastal city of Mina Al-Salam was a bustling port where the traditional and modern collided in a vibrant display of Madinat Al-Noor's evolving identity. Ancient stone buildings stood alongside glass-fronted offices, while fishermen in traditional dress sold their catch next to trendy cafés frequented by the younger generation.", "Tariq had granted shore leave to half the crew while the *Al-Zafar* took on supplies and underwent minor repairs. He himself had decided to visit his childhood home, a modest but elegant house in the old quarter where his father now lived alone.", "Admiral Nassar (retired) was tending to his small garden when Tariq arrived. At sixty-eight, Hamid Nassar remained straight-backed and dignified, though grief had etched deep lines around his eyes since his wife's death.", "\"Father,\" Tariq called, approaching through the garden gate.", "The older man looked up, a smile breaking across his weathered face. \"Tariq! I didn't expect you until tomorrow.\"", "They embraced, and Tariq felt the familiar mixture of love and sorrow that always accompanied his visits home. The house felt emptier without his mother's presence.", "\"We made good time,\" Tariq explained as they walked inside. \"And I wanted to see you before we continue our patrol.\"", "The interior of the house was cool and dim, decorated with traditional rugs and furnishings that had been in the family for generations. Photos lined the walls—Tariq's naval academy graduation, his parents' wedding, family gatherings from happier times.", "\"Tea?\" his father offered, already moving toward the kitchen.", "\"Please.\"", "While his father prepared the tea, Tariq wandered to the window overlooking the harbor. From here, he could see the *Al-Zafar* docked among other vessels, its sleek profile distinct from the commercial ships surrounding it.", "\"Your ship looks well-maintained,\" his father commented, returning with a tray. \"You must have a good crew.\"", "\"The best,\" Tariq agreed, taking a seat. \"Though we're getting a new lieutenant tomorrow—transferred from naval intelligence.\"", "His father nodded, pouring the tea with practiced precision. \"Intelligence, eh? Keep an eye on that one. In my experience, they're either exceptionally valuable or exceptionally troublesome.\"", "Tariq smiled. \"I'll remember that.\"", "They sipped their tea in comfortable silence for a moment before his father spoke again. \"I heard rumors that Sheikh Mansour has been seen again.\"", "Tariq's hand tightened around his cup. \"Where did you hear that?\"", "\"I may be retired, but I still have friends in the service.\" His father's eyes, so similar to Tariq's own, studied him carefully. \"You're not thinking of doing anything foolish, are you?\"", "\"Of course not,\" Tariq replied too quickly.", "His father set down his cup with deliberate care. \"Your mother would not want you to throw away your career—or your life—seeking revenge.\"", "\"She deserves justice,\" Tariq said, his voice low and intense. \"She was poisoned, Father. We both know it.\"", "\"What we know and what we can prove are different matters.\" The older man sighed. \"Mansour has powerful friends, even in our own government. Why do you think no investigation was ever opened?\"", "\"Because people fear him. They believe the stories that he can't be killed.\"", "\"No man is immortal, Tariq. But some men are protected by systems more enduring than any single life.\" His father leaned forward. \"Promise me you won't pursue this vendetta.\"", "Tariq remained silent.", "\"And what about this business with General Aziz? I hear his daughter now leads their diplomatic corps.\"", "The mention of Layla made Tariq's heart constrict. \"She does.\"", "\"You two were close once, before the border disputes.\"", "\"That was a long time ago,\" Tariq said, though the memories of their university days in London remained vivid—Layla's laughter, her passionate debates in international relations classes, the way her eyes lit up when she spoke of building bridges between their nations.", "\"Not so long,\" his father observed quietly. \"The heart doesn't measure time the way calendars do.\"", "Tariq stood abruptly. \"I should get back to the ship. We sail with the morning tide.\"", "His father rose more slowly. \"Just remember, son—duty to country must sometimes supersede personal desires. That's what makes a true officer.\" He placed a hand on Tariq's shoulder. \"But that doesn't mean abandoning justice or love. It means finding the right path to both.\"", "As Tariq embraced his father goodbye, he wondered if such a path existed. How could he balance his duty to Madinat Al-Noor with his desire to avenge his mother and clear his family's name? And how could he reconcile his feelings for Layla with the bitter enmity between their families?", "These questions followed him back to the ship, where Officer Khalil was waiting with news that would only complicate matters further.", "---", "\"We have a problem,\" Samira said without preamble when Tariq entered his cabin. She had apparently been waiting for his return, a tablet computer in her hands displaying what appeared to be personnel files.", "\"What kind of problem?\" Tariq asked, removing his cap and placing it on his desk.", "\"Lieutenant Faisal Hakim—the officer joining us tomorrow.\" She handed him the tablet. \"I did some additional digging into his background. Something didn't feel right.\"", "Tariq scanned the file displayed on the screen. \"This isn't the same file you showed me earlier.\"", "\"No. This is what I found when I accessed the restricted intelligence database.\" Samira's expression was grim. \"Lieutenant Hakim's credentials are impeccable—too impeccable. Every assignment successful, every evaluation glowing. No officer has a record this clean.\"", "\"You think his file has been sanitized?\"", "\"I think it's been fabricated entirely.\" She reached over and swiped to the next document. \"This is a report from three months ago. The real Faisal Hakim was found dead in his apartment in the capital. The death was ruled a suicide and quickly classified.\"", "Tariq felt a chill run down his spine. \"So whoever is joining us tomorrow...\"", "\"Is an impostor,\" Samira finished. \"And given the timing and our current mission, I don't believe in coincidences.\"", "\"Neither do I.\" Tariq set the tablet down and began pacing. \"The question is, who sent him and why? Al-Jawhar intelligence? Or someone else?\"", "\"I have a theory,\" Samira said, lowering her voice despite the privacy of the cabin. \"What if Sheikh Mansour has infiltrated our naval intelligence? It would explain how he's evaded capture for so long.\"", "The suggestion was disturbing but not implausible. \"If that's true, then this impostor could be working for Mansour.\"", "\"Or he could be working for General Aziz,\" Samira pointed out. \"Either way, we need to decide how to handle this.\"", "Tariq considered their options. \"We could have him arrested the moment he attempts to board.\"", "\"And potentially lose our only lead to whoever's behind this?\" Samira shook her head. \"I suggest we let him join the crew, but keep him under surveillance. Feed him false information and see who he reports to.\"", "It was a risky strategy, but Tariq had to admit it made tactical sense. \"Agreed. But we keep this between us for now. If there's one infiltrator, there could be others.\"", "\"There's one more thing you should know,\" Samira said, hesitating. \"According to my sources, Layla Aziz will be attending a diplomatic function in Mina Al-Salam tonight—at the International Maritime Center.\"", "Tariq's heart skipped a beat. \"Why are you telling me this?\"", "\"Because I know you'll find out anyway, and I'd rather you heard it from me than went in unprepared.\" Her expression softened slightly. \"And because I thought you might want to know.\"", "Tariq turned away, looking out the small cabin window at the darkening sky. \"Thank you for the information, Officer Khalil. That will be all.\"", "After she left, Tariq remained at the window, his thoughts in turmoil. Seeing Layla again after all these years would be difficult enough, but now he had an impostor to deal with and the looming shadow of Sheikh Mansour to consider.", "And somewhere in the midst of all this, he needed to find justice for his mother without compromising his duty or endangering his crew.", "The diplomatic function would be starting in two hours. Despite every rational argument against it, Tariq knew he would be there.", "---", "The International Maritime Center was illuminated against the night sky, its modern architecture a testament to Madinat Al-Noor's aspirations as a regional hub for diplomacy and trade. Tariq, dressed in his formal naval uniform, approached the entrance with a mixture of determination and apprehension.", "He had informed his executive officer that he would be attending the function as a representative of the navy—a plausible excuse that wasn't entirely untrue. Naval officers were often expected to make appearances at such events to maintain good relations with the international community.", "After presenting his identification and invitation (hastily arranged through naval headquarters), Tariq entered the grand reception hall. Crystal chandeliers cast a warm glow over the assembled diplomats, business leaders, and military personnel from various nations. Servers circulated with trays of champagne and hors d'oeuvres, while a string quartet played softly in the corner.", "Tariq accepted a glass of water from a passing server and scanned the room, his heart racing despite his outward composure. And then he saw her.", "Layla Aziz stood across the room, engaged in conversation with an elderly European diplomat. At thirty-three, she had grown even more beautiful than Tariq remembered. Her dark hair was styled in an elegant updo, and she wore a modern, sophisticated gown in deep blue that respected traditional modesty while making a statement of confidence and authority.", "As if sensing his gaze, Layla looked up. Their eyes met across the crowded room, and for a moment, everything else faded away. Surprise flickered across her face, followed by something more complex—a mixture of warmth and wariness that mirrored Tariq's own conflicted emotions.", "She excused herself from her conversation and made her way toward him, navigating through the crowd with graceful determination.", "\"Lieutenant Commander Nassar,\" she greeted him formally when she reached him, her voice carrying the slight British accent she had acquired during their university years. \"This is unexpected.\"", "\"Diplomatic Envoy Aziz,\" he replied with equal formality. \"It's been a long time.\"", "\"Ten years, two months,\" she said, then added with the ghost of a smile, \"Not that I've been counting.\"", "Despite himself, Tariq felt the corner of his mouth twitch upward. \"Of course not. That would be unprofessional.\"", "A brief silence fell between them, heavy with unspoken words and shared memories.", "\"I heard about your mother,\" Layla said finally, her voice softening. \"I wanted to send my condolences, but...\"", "\"But your father would have disapproved,\" Tariq finished for her.", "She didn't deny it. \"Politics makes prisoners of us all, doesn't it?\"", "\"Some more than others.\" Tariq took a sip of his water. \"I understand congratulations are in order. Your appointment as chief diplomatic envoy was well-deserved.\"", "\"Thank you.\" She studied him for a moment. \"You've done well yourself. The youngest commander in the fleet, I'm told.\"", "\"You've been keeping track of my career?\"", "\"Know thy neighbor's capabilities,\" she quoted with a hint of irony. \"My father's favorite saying.\"", "The mention of General Aziz rekindled the anger that always simmered beneath Tariq's surface. \"And how is the General? Still declaring my family cowards at public functions?\"", "Layla's expression hardened slightly. \"That was fifteen years ago, Tariq. People change.\"", "\"Do they? Or do they just become better at hiding who they truly are?\"", "Before she could respond, they were interrupted by the arrival of a tall, distinguished man in his sixties.", "\"Ah, Layla, there you are,\" the man said in Arabic, placing a proprietary hand on her shoulder. \"The Kuwaiti ambassador is asking for you.\"", "Tariq recognized him immediately: Defense Minister Khalid Rahman, one of the most powerful men in Al-Jawhar's government and, if rumors were to be believed, Layla's fiancé.", "\"Minister Rahman,\" Layla acknowledged. \"May I introduce Lieutenant Commander Tariq Nassar of the Royal Madinat Al-Noor Navy.\"", "Rahman's eyes narrowed slightly as he extended his hand. \"Nassar... Any relation to Admiral Hamid Nassar?\"", "\"My father,\" Tariq confirmed, shaking the man's hand firmly.", "\"I see.\" Rahman's smile didn't reach his eyes. \"Well, it's always interesting to meet our... neighbors.\"", "The emphasis he placed on the word made it clear what he really thought of Madinat Al-Noor.", "\"Minister Rahman has been instrumental in preparing for the upcoming security summit,\" Layla said, clearly attempting to steer the conversation to safer ground.", "\"Indeed,\" Rahman agreed. \"Though some nations seem more interested in military posturing than genuine dialogue.\"", "The barb was obvious, but Tariq refused to take the bait. \"In my experience, Minister, true security comes from strength tempered by wisdom. One without the other leads to either vulnerability or aggression.\"", "Rahman's smile tightened. \"Philosophical words from a naval officer. Perhaps you missed your calling.\"", "\"I'm exactly where I'm meant to be,\" Tariq replied evenly.", "Layla intervened before the tension could escalate further. \"Minister, I should speak with the Kuwaiti ambassador as you suggested. If you'll excuse me, gentlemen.\"", "She departed with a meaningful look at Tariq that he couldn't quite interpret. Warning? Regret? Something else entirely?", "Left alone with Rahman, Tariq prepared for more veiled hostility, but the minister surprised him.", "\"She never forgot you, you know,\" Rahman said quietly, watching Layla's retreating figure. \"Even after all these years.\"", "Tariq remained silent, unsure how to respond.", "\"It's why her father is so determined to see our engagement finalized before the summit.\" Rahman turned back to Tariq, his expression calculating. \"Politics and the heart rarely align, Commander. Remember that before you do anything... impulsive.\"", "With that cryptic warning, Rahman followed in Layla's wake, leaving Tariq alone with his thoughts.", "He was about to leave when he noticed a familiar face across the room—a face that shouldn't have been there. The man who would be reporting to the *Al-Zafar* tomorrow as Lieutenant Faisal Hakim was conversing intently with an elderly man in traditional Gulf attire.", "Tariq moved closer, careful to remain inconspicuous. The elderly man turned slightly, and Tariq caught a glimpse of his profile—aquiline nose, piercing eyes, a neatly trimmed white beard.", "Sheikh Mansour Al-Qadim. The Immortal. The man responsible for his mother's death.", "Tariq's hand instinctively moved to where his service weapon would normally be, but of course, he was unarmed at a diplomatic function. It was probably for the best—assassinating a man in a room full of international dignitaries would hardly serve justice, no matter how deserved.", "Instead, he watched as Mansour handed something to the false Lieutenant Hakim—a small object that disappeared quickly into the impostor's pocket. Then they parted ways, with Mansour exiting through a side door while Hakim remained in the main hall.", "Tariq debated following Mansour but decided against it. The Sheikh would undoubtedly have security, and confronting him now would jeopardize the chance to uncover whatever plot was unfolding. Instead, he kept his eyes on the impostor, who was now making his way toward the exit.", "As Tariq moved to follow, a hand caught his arm. He turned to find Layla standing there, her expression urgent.", "\"Don't,\" she said softly. \"Whatever you're thinking of doing, don't.\"", "\"You don't know what I'm thinking,\" Tariq replied, though her perception unsettled him.", "\"I know that look in your eyes.\" Her grip on his arm tightened. \"It's the same look you had when you were about to challenge that racist professor at university. You're about to do something dangerous.\"", "Despite the situation, Tariq felt a flicker of warmth at the memory and the fact that she remembered it so clearly. \"Some things are worth the risk.\"", "\"Not if they get you killed.\" She glanced around to ensure they weren't being overheard. \"There are forces at work here beyond what you understand, Tariq.\"", "\"Then help me understand them.\"", "Layla hesitated, conflict evident in her eyes. \"I can't. Not here, not now.\"", "\"Then when? Where?\"", "She released his arm and stepped back. \"The old lighthouse. Tomorrow at sunset. Come alone.\"", "Before he could respond, she was gone, disappearing into the crowd with practiced ease.", "Tariq turned back to locate the impostor, but he too had vanished. With a sense of frustration and mounting concern, Tariq decided it was time to return to his ship. Tomorrow promised to be even more complicated than today.", "---", "Dawn broke over Mina Al-Salam harbor as Tariq stood on the deck of the *Al-Zafar*, watching the approaching launch that carried their new \"crew member.\" Beside him, Samira Khalil maintained a professional demeanor, though Tariq could sense her tension.", "\"Remember,\" he said quietly, \"we treat him as if we suspect nothing. Let him think his cover is intact.\"", "Samira nodded. \"I've arranged for his quarters to be next to mine. The walls are thin, and I've placed monitoring devices in strategic locations.\"", "\"Good. And the communications log?\"", "\"Modified as you suggested. If he attempts to access our patrol schedules or communication protocols, he'll find the false information we've prepared.\"", "The launch pulled alongside, and a moment later, the man calling himself Lieutenant Faisal Hakim climbed aboard. In person, he looked even more unremarkable than in his photographs—average height, average build, with the kind of face that could blend into any crowd. The perfect disguise for a spy.", "\"Lieutenant Hakim reporting for duty, sir,\" he said, saluting crisply.", "Tariq returned the salute. \"Welcome aboard the *Al-Zafar*, Lieutenant. I'm Commander Nassar, and this is Intelligence Officer Khalil. She'll show you to your quarters and brief you on your duties.\"", "\"Thank you, sir. I'm eager to get started.\"", "\"I'm sure you are,\" Tariq replied, keeping his tone neutral. \"We sail with the afternoon tide. Be ready.\"", "As Samira led the impostor below decks, Tariq remained on deck, his mind working through the implications of what he had witnessed the previous night. Sheikh Mansour was clearly involved in whatever plot was unfolding, and now the false Hakim was aboard his ship. But to what end?", "And then there was Layla's cryptic warning and invitation. The old lighthouse had been their meeting place during university breaks, when they would return to their respective countries and steal moments together away from the watchful eyes of their families. That she had chosen it for their meeting suggested both a desire for secrecy and perhaps a deliberate invocation of their shared past.", "Tariq's executive officer approached, interrupting his thoughts. \"Sir, we've received new orders from Naval Command. We're to proceed to the maritime border and intercept a suspicious vessel believed to be smuggling weapons to rebel groups in the region.\"", "\"Timing of the intercept?\"", "\"Tonight, sir. Approximately 2100 hours.\"", "Sunset would be around 1830 hours. If Tariq met Layla at the lighthouse as planned, he would barely have time to return to the ship before the mission.", "\"Prepare the ship for departure,\" he ordered. \"I'll be ashore until 1900 hours on personal business. You have command until my return.\"", "\"Yes, sir.\"", "As his officer moved away to carry out the orders, Tariq made a decision. He would meet Layla as planned, but he would also inform Samira to keep a close eye on the impostor during his absence. Whatever game was being played, he was determined not to be merely a pawn in it.", "---", "The old lighthouse stood on a rocky promontory north of the city, its white stone tower gleaming in the golden light of the setting sun. Once a vital navigational aid, it had been rendered obsolete by modern technology and now stood as a historical monument, visited occasionally by tourists during daylight hours but largely deserted in the evenings.", "Tariq approached on foot, having left his vehicle at a distance to avoid drawing attention. The path was familiar, though he hadn't walked it in over a decade. Each step stirred memories of stolen moments with Layla—their passionate discussions about politics and literature, their dreams of somehow bridging the divide between their nations, their first kiss beneath the shadow of the lighthouse tower.", "He reached the base of the structure just as the sun touched the horizon. The door was unlocked, as it had always been in the past. Inside, a spiral staircase led up to the lantern room at the top. Tariq began to climb, his footsteps echoing in the enclosed space.", "The lantern room offered a panoramic view of the coastline and the sea beyond. Layla was already there, silhouetted against the fiery sky, her back to him as she gazed out at the water.", "\"You came,\" she said without turning.", "\"Did you doubt I would?\"", "Now she turned to face him, and Tariq was struck by how the fading light softened her features, making her look more like the young woman he had fallen in love with all those years ago.", "\"No,\" she admitted. \"Despite everything, I knew you would come.\"", "Tariq moved further into the room but maintained a cautious distance. \"You said there were forces at work beyond my understanding. I'm here to understand them.\"", "Layla took a deep breath. \"What do you know about Sheikh Mansour Al-Qadim?\"", "\"I know he's responsible for my mother's death,\" Tariq replied, his voice hardening. \"I know he's called 'the Immortal' because he's survived multiple assassination attempts. And I know he was meeting with an impostor who is now aboard my ship, posing as a naval intelligence officer.\"", "Surprise flickered across Layla's face. \"You know about the impostor?\"", "\"We discovered the deception before he even boarded. What I don't know is why he's there or what Mansour's ultimate goal is.\"", "Layla moved to the small bench that circled the lantern room and sat down. \"Sheikh Mansour is not what he appears to be. The man you saw last night was not Mansour.\"", "\"What do you mean? I saw him clearly.\"", "\"You saw a man who has been impersonating Mansour for the past twenty years.\" She looked up at Tariq, her expression grave. \"The real Sheikh Mansour Al-Qadim died during the border wars. The man who took his place is a former intelligence operative named Fareed Tahan.\"", "Tariq frowned, trying to process this information. \"If that's true, why would someone impersonate Mansour for two decades? What would be the purpose?\"", "\"Power. Influence. The real Mansour had connections throughout the Gulf and beyond. By assuming his identity, Tahan gained access to those networks.\" Layla's voice lowered. \"And he's been using them to manipulate regional politics ever since, playing nations against each other to maintain instability that benefits his true employers.\"", "\"Which are?\"", "\"A consortium of arms dealers and private military contractors. War is profitable, Tariq. Peace is not—at least not for them.\"", "The implications were staggering. \"And your father? Is he involved with this consortium?\"", "Layla's expression darkened. \"My father is a proud man who believes he's serving Al-Jawhar's best interests. Tahan has been whispering in his ear for years, convincing him that Madinat Al-Noor poses an existential threat to our nation.\"", "\"And the insult to my family? Was that Tahan's doing as well?\"", "\"No,\" Layla admitted. \"That was my father's pride and temper. Your father's advocacy for peace threatened his narrative about Madinat Al-Noor's aggression.\"", "Tariq turned away, looking out at the darkening sea. \"Why are you telling me all this now?\"", "\"Because Tahan is planning something at the security summit—something that could plunge our entire region into war.\" She stood and moved closer to him. \"The impostor on your ship is part of it. He's there to ensure that your patrol misses a weapons shipment tonight—weapons that will be used in an attack during the summit, which will be blamed on Madinat Al-Noor.\"", "Tariq checked his watch. It was already 1845 hours. The intercept was scheduled for 2100. \"I need to get back to my ship.\"", "\"There's more you need to know,\" Layla said urgently. \"Minister Rahman is working with Tahan. Their plan involves my father as well, though he doesn't realize it. They intend to assassinate him at the summit and blame your government.\"", "\"And you? Where do you fit into all this?\"", "\"I discovered their plans by accident. Rahman doesn't know that I know.\" Her eyes met his, filled with determination. \"I've been gathering evidence, trying to find a way to expose them without triggering the very conflict they're trying to create.\"", "Tariq studied her face, searching for any sign of deception. \"Why should I believe you? This could be an elaborate trap.\"", "\"Because despite everything that's happened between our families, between our nations...\" She hesitated, then reached out to touch his cheek gently. \"I never stopped caring for you, Tariq. And I know you well enough to know you won't let innocent people die for someone else's greed.\"", "The touch of her hand sent a jolt through him, awakening feelings he had tried to bury for years. But duty called, more urgently than ever.", "\"I need to return to my ship,\" he said, stepping back. \"If what you're saying is true, then the impostor must be stopped before he can interfere with our mission.\"", "\"Be careful,\" Layla warned. \"Tahan's agents are highly trained and utterly ruthless. And there's something else you should know...\" She hesitated. \"The man posing as Lieutenant Hakim—his real name is Karim Nassar.\"", "Tariq froze. \"Nassar?\"", "\"He's your half-brother, Tariq. From before your father married your mother.\"", "The revelation hit Tariq like a physical blow. \"That's impossible. My father would have told me if I had a brother.\"", "\"Would he? If the child was born to a woman he knew before your mother? A woman from Al-Jawhar?\"", "The implications were staggering. If true, it meant that the blood of both nations ran in Tariq's veins—and in the veins of the impostor currently aboard his ship.", "\"I have to go,\" Tariq said, his mind reeling. \"Thank you for the warning.\"", "As he turned to leave, Layla caught his arm. \"Tariq... whatever happens, know that I'm trying to build a bridge between our nations, not burn one. Just as we once dreamed of doing.\"", "Their eyes met one last time, and in that moment, Tariq saw the same passion and idealism that had drawn him to her all those years ago. Then he pulled away and hurried down the spiral staircase, his thoughts in turmoil but his purpose clear.", "He had a ship to save, a mission to complete, and perhaps a brother to confront.", "---", "The *Al-Zafar* was already underway when Tariq returned, having departed on schedule at 1700 hours to reach the intercept point by 2100. A launch brought him alongside, and he climbed aboard to find his executive officer waiting.", "\"Status report,\" Tariq demanded as they moved toward the bridge.", "\"On course and on schedule, sir. All systems operational. Lieutenant Hakim has been assigned to the communications room as ordered.\"", "\"And Officer Khalil?\"", "\"Monitoring him as instructed, sir.\"", "\"Good. I need to speak with her immediately.\"", "In the privacy of his cabin, Tariq briefed Samira on what he had learned from Layla, watching her expression shift from skepticism to concern.", "\"A half-brother?\" she repeated. \"That's... unexpected.\"", "\"And potentially unverified,\" Tariq acknowledged. \"But whether he's related to me or not, he's here to ensure we miss the weapons shipment. We need to neutralize him without alerting him to our suspicions.\"", "Samira nodded. \"I've been watching him. He's been very interested in our communications protocols and has already attempted to access the patrol schedules—the false ones, as we planned.\"", "\"Has he attempted to communicate with anyone off-ship?\"", "\"Not yet, but I've set up alerts to notify me if he tries.\"", "Tariq moved to his desk and pulled up the ship's current position on his computer. \"We're still two hours from the intercept point. That gives us time to prepare.\"", "\"What's your plan, Commander?\"", "\"We feed him false information—tell him the intercept has been delayed due to a mechanical issue. Then we proceed as planned but with heightened security around the communications room and weapons locker.\"", "\"And if he makes a move?\"", "\"We'll be ready.\" Tariq's expression hardened. \"But I want him taken alive. If he is who Layla claims, I have questions for him.\"", "Samira hesitated. \"Sir, with all due respect... are you certain we can trust Diplomatic Envoy Aziz's information? She represents a nation that has been hostile to ours for years.\"", "\"I'm not certain of anything at this point,\" Tariq admitted. \"But her warning aligns with what we already suspected about the impostor. And if she's right about the weapons shipment and the planned attack at the summit, we can't afford to ignore her.\"", "\"Understood, sir.\" Samira moved toward the door. \"I'll implement the security measures immediately.\"", "After she left, Tariq remained at his desk, staring at the navigational display but seeing instead the face of the man who might be his half-brother. If it was true, what did that mean? Had his father known all along? Had his mother?", "And what of his mission to avenge her death? If Sheikh Mansour was actually an impostor named Fareed Tahan, did that change anything? The man had still poisoned his mother, regardless of his true identity.", "These questions would have to wait. For now, his duty was clear: intercept the weapons shipment and prevent whatever attack was being planned for the summit.", "Tariq rose and headed for the bridge. It was going to be a long night.", "---", "The communications room of the *Al-Zafar* was a compact space filled with sophisticated equipment that kept the ship connected to Naval Command and other vessels in the fleet. When Tariq entered, the false Lieutenant Hakim was seated at one of the consoles, ostensibly reviewing transmission protocols.", "\"Lieutenant,\" Tariq acknowledged with a nod. \"How are you finding your new posting?\"", "Hakim stood and saluted. \"Very interesting, sir. The *Al-Zafar* has more advanced communications systems than my previous assignment.\"", "\"Yes, we were upgraded last year.\" Tariq moved closer, studying the man who might be his half-brother. Now that he was looking for it, he could see a certain resemblance—something in the set of the jaw, perhaps, or the shape of the eyes. \"I understand you've been reviewing our patrol schedules.\"", "A flicker of something—surprise? concern?—crossed Hakim's face before his expression smoothed into professional neutrality. \"Yes, sir. I wanted to familiarize myself with our operational patterns.\"", "\"Commendable initiative.\" Tariq gestured to the main communications console. \"Unfortunately, we've encountered a minor mechanical issue with the port engine. Engineering estimates it will take approximately three hours to resolve, which will delay our scheduled intercept.\"", "\"I see, sir.\" Hakim's response was measured, but Tariq noticed his hand tighten slightly on the edge of the console. \"Should I inform Naval Command of the delay?\"", "\"That won't be necessary. I've already updated them.\" Tariq turned as if to leave, then paused. \"By the way, Lieutenant, I understand you were born in Al-Jawhar.\"", "Hakim's expression remained carefully neutral. \"Yes, sir. My mother was from there, though I was raised in Madinat Al-Noor after her death.\"", "\"Interesting. My father spent some time in Al-Jawhar before he met my mother. He speaks fondly of the people there, despite the current political tensions.\"", "\"It's a beautiful country,\" Hakim replied. \"Though I have few memories of it.\"", "Tariq nodded. \"Carry on, Lieutenant. Report any unusual communications immediately.\"", "\"Yes, sir.\"", "As Tariq left the communications room, he signaled subtly to the security officer positioned nearby—one of the few crew members he and Samira had briefed on the situation. The officer acknowledged with an equally subtle nod. Hakim would not be left unobserved.", "On the bridge, Samira was waiting with an update. \"The target vessel has been identified,\" she reported quietly. \"A cargo ship registered in Panama but flying a Liberian flag. Satellite imagery shows it's carrying significantly more than the agricultural equipment listed on its manifest.\"", "\"Weapons?\"", "\"Almost certainly. And based on its current course and speed, we'll intercept it in approximately ninety minutes—assuming our 'mechanical issue' doesn't actually materialize.\"", "Tariq checked the time: 1930 hours. \"Has Hakim attempted to communicate with anyone?\"", "\"Not yet. But he did try to access the weapons locker fifteen minutes ago. The duty officer turned him away, citing protocol that requires your authorization for anyone not on the security roster.\"", "\"He'll make his move soon,\" Tariq predicted. \"He needs to warn the cargo ship that we're still on course to intercept.\"", "\"Or disable our ability to intercept,\" Samira added grimly. \"We should consider the possibility that he might attempt to sabotage the ship.\"", "Tariq nodded. \"Double the security on all critical systems. And have a team ready to apprehend him when he makes his move.\"", "The next hour passed in tense anticipation. Tariq divided his attention between the approaching intercept and monitoring Hakim's movements through the ship. The impostor remained in the communications room, apparently focused on his assigned duties, but Tariq didn't believe the facade for a moment.", "At 2030 hours, with the cargo ship now visible on the horizon, the trap was sprung—but not in the way Tariq had anticipated.", "The ship's lights flickered, then went out completely. Emergency lighting activated a moment later, casting the bridge in an eerie red glow.", "\"Report!\" Tariq demanded.", "\"Power failure in the main electrical system,\" his executive officer replied. \"Engineering reports it appears to be sabotage.\"", "Before Tariq could respond, the ship's alarm system blared to life. \"Security breach in the weapons locker,\" announced the automated system. \"Security breach in the weapons locker.\"", "\"He's making his move,\" Samira said, already drawing her sidearm. \"And he's not alone.\"", "Tariq's mind raced. If Hakim had accomplices aboard, it meant the infiltration was more extensive than they had realized. \"Lock down the bridge. Executive Officer, you have command. Maintain course for the intercept. Officer Khalil, with me.\"", "As they hurried from the bridge, Tariq drew his own weapon. \"We need to secure the weapons locker first, then find Hakim.\"", "They had just reached the main corridor when the lights flickered again, then stabilized. \"Engineering must have bypassed the sabotaged systems,\" Samira observed.", "A burst of gunfire echoed from somewhere below decks, followed by shouts and the sound of running feet.", "\"This way,\" Tariq ordered, leading them toward the weapons locker. They rounded a corner to find two of his crew members down, wounded but alive. A third was returning fire against two men in naval uniforms—uniforms that matched their own, but faces Tariq didn't recognize.", "\"More infiltrators,\" Samira muttered, taking cover behind a bulkhead. \"How many do you think there are?\"", "\"Too many,\" Tariq replied grimly. He signaled to the defending crew member, then fired a covering burst that allowed the man to retreat to their position.", "\"Petty Officer Chen,\" the man identified himself, breathing hard. \"They came out of nowhere, sir. At least four of them, maybe more.\"", "\"Where's Lieutenant Hakim?\"", "\"He was with them, sir. They're trying to reach the missile control room.\"", "Tariq's blood ran cold. The *Al-Zafar* was equipped with anti-ship missiles capable of sinking a vessel the size of the cargo ship with a single hit. If Hakim and his team reached the missile control room, they could destroy the evidence before it could be seized.", "\"We need to get to missile control before they do,\" Tariq decided. \"Chen, get these wounded to the infirmary, then inform the bridge of the situation.\"", "\"Yes, sir.\"", "Tariq and Samira moved forward cautiously, using the ship's layout to their advantage. As naval intelligence, Samira was an expert marksman, and Tariq had always maintained his combat skills despite his command position. Together, they made a formidable team.", "They encountered another infiltrator at the junction leading to the missile control room. Samira took him down with a precise shot to the shoulder, incapacitating but not killing him.", "\"That's one,\" she said as they secured the unconscious man. \"How many more to go?\"", "\"At least three, including Hakim,\" Tariq replied, checking the corridor ahead. \"And we're running out of time. The cargo ship will be in range in less than fifteen minutes.\"", "They pressed on, the sounds of conflict elsewhere in the ship suggesting that the crew was engaging other infiltrators. Tariq felt a surge of pride in his people—they were responding to the crisis with the discipline and courage he had come to expect from them.", "The missile control room was located two decks below the bridge, protected by a reinforced door that required both a key card and a numeric code to access. As they approached, they could see that the door was still secured.", "\"We beat them here,\" Samira said with relief.", "\"Or they're approaching from another direction,\" Tariq cautioned. He used his commander's key card and entered his code. The door slid open to reveal the compact but sophisticated missile control center—and Lieutenant Hakim, already inside, working at the launch console.", "Tariq raised his weapon. \"Step away from the console, Lieutenant. Or should I call you Karim?\"", "Hakim—Karim—looked up, his expression shifting from surprise to a strange, sad smile. \"Hello, brother. I wondered if you knew.\"", "\"I only recently found out,\" Tariq replied, keeping his weapon trained on the man. \"Though I'm still not convinced it's true.\"", "\"It's true,\" Karim said, his hands still on the console. \"Same father, different mothers. Mine died when I was young—killed during a border skirmish that your father's unit was involved in.\"", "\"So this is about revenge?\"", "\"It's about justice. Balance.\" Karim's fingers continued to move over the controls. \"Your father took my mother from me. Now I'm going to take something from him—his precious son's reputation and career.\"", "\"By helping smuggle weapons that will be used to kill innocent people?\" Tariq took a step closer. \"That's not justice. That's terrorism.\"", "\"It's war,\" Karim corrected. \"A war that's been brewing for decades. I'm just making sure the right side wins.\"", "\"And which side is that? The arms dealers? The mercenaries? The people who profit from death and suffering?\"", "Something flickered in Karim's eyes—doubt, perhaps. \"You don't understand the bigger picture.\"", "\"I understand enough,\" Tariq replied. \"I understand that you're being used by Fareed Tahan—the man pretending to be Sheikh Mansour. He doesn't care about Al-Jawhar or Madinat Al-Noor. He cares about creating conflict that lines his pockets.\"", "Karim's hands stilled on the console. \"How do you know about Tahan?\"", "\"I have my sources. Just as you have yours.\" Tariq lowered his weapon slightly. \"It's not too late to stop this, Karim. Whatever grievance you have against our father—against me—this isn't the way to address it.\"", "For a moment, it seemed as though Tariq's words were having an effect. Then Karim's expression hardened again. \"It's the only way. The missiles are already armed. In thirty seconds, they'll launch automatically, destroying the cargo ship and any evidence it carries.\"", "\"And killing everyone aboard,\" Samira added, her weapon still trained on Karim. \"Including innocent crew members who probably don't even know what they're transporting.\"", "\"Collateral damage,\" Karim said, but his voice lacked conviction.", "Tariq made a decision. He holstered his weapon and stepped forward, hands open. \"If you truly believe in what you're doing, then look me in the eye when you do it. Don't hide behind automated systems.\"", "Karim hesitated, clearly surprised by Tariq's approach. \"Stay back.\"", "\"No.\" Tariq continued forward until he stood directly across the console from his half-brother. \"I want you to see me. I want you to remember my face when those innocent people die. Because their blood will be on your hands, not mine.\"", "The missile control room fell silent except for the soft beeping of the countdown timer. Twenty seconds. Fifteen.", "\"Our father isn't perfect,\" Tariq said quietly. \"He's made mistakes. Perhaps one of those mistakes was not acknowledging you, not being there for you. But this—\" he gestured to the missile console \"—this won't change the past. It will only destroy the future.\"", "Ten seconds. Five.", "Karim's hand hovered over the abort button. His eyes, so similar to Tariq's own, were filled with conflict.", "\"Make the right choice,\" Tariq urged. \"Not for me. Not for our father. For yourself.\"", "Three seconds. Two.", "Karim slammed his hand down on the abort button. The countdown froze, then reset. The missile system powered down with a series of declining tones.", "\"I never wanted to kill anyone,\" Karim said, his voice barely audible. \"I just wanted... recognition. Acknowledgment.\"", "\"I know,\" Tariq replied, feeling a strange mixture of relief and sorrow. \"And you'll have your day in court to tell your story. But first, we have a weapons shipment to intercept and a conspiracy to expose.\"", "As Samira moved to secure Karim, Tariq contacted the bridge. \"Executive Officer, the missile control room is secure. Proceed with the intercept as planned. And inform Naval Command that we have evidence of a plot against the security summit—evidence they're going to want to see immediately.\"", "The cargo ship was seized without further incident, its holds found to contain enough weapons and explosives to arm a small army. The remaining infiltrators aboard the *Al-Zafar* were captured or surrendered when they realized their plan had failed.", "And as dawn broke over the Gulf of Aden, Tariq stood on the deck of his ship, watching the sunrise and contemplating the strange turns his life had taken. He had set out to avenge his mother and clear his family's name. Instead, he had discovered a half-brother, uncovered a regional conspiracy, and perhaps—just perhaps—taken the first step toward healing the rift between two nations.", "There was still much to be done. Fareed Tahan remained at large. General Aziz was still unaware of the plot against him. And the security summit was only days away.", "But for the first time in years, Tariq felt something he had almost forgotten: hope. Hope that justice could be served without compromising his duty. Hope that the cycle of vengeance and retaliation could be broken.", "And hope that somewhere in the future, there might be a place for him and Layla to rebuild what they had once dreamed of creating together.", "As the sun climbed higher in the sky, Tariq turned and headed back to the bridge. There was work to be done, and he was exactly where he needed to be to do it."];
+            const storyContainer = document.getElementById("storyContainer");
+            const pagination = document.getElementById("paginationControls");
+            const pageIndicator = document.getElementById("pageIndicator");
+            const pageSizeSelect = document.getElementById("pageSizeSelect");
+            const pageOptions = document.getElementById("pageOptions");
+
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const firstBtn = document.getElementById("firstBtn");
+            const lastBtn = document.getElementById("lastBtn");
+
+            let currentPage = 0;
+            let pageSize = 4;
+
+            function getAutoPageSize() {
+                return Math.max(2, Math.floor(window.innerHeight / 250));
+            }
+
+            function renderPage(page) {
+                const totalPages = Math.ceil(paragraphs.length / pageSize);
+                const start = page * pageSize;
+                const end = start + pageSize;
+                storyContainer.innerHTML = paragraphs.slice(start, end).map(p => `<p>${p}</p>`).join('');
+                pageIndicator.textContent = `Page ${page + 1} of ${totalPages}`;
+                prevBtn.style.display = page > 0 ? "inline-block" : "none";
+                firstBtn.style.display = page > 0 ? "inline-block" : "none";
+                nextBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+                lastBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+            }
+
+            function switchToPagedView() {
+                const mode = document.querySelector('input[name="pageMode"]:checked').value;
+                pageSize = (mode === 'auto') ? getAutoPageSize() : parseInt(pageSizeSelect.value);
+                currentPage = 0;
+                pagination.style.display = 'block';
+                renderPage(currentPage);
+            }
+
+            function switchToFullView() {
+                pagination.style.display = 'none';
+                storyContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+            }
+
+            function nextPage() { const totalPages = Math.ceil(paragraphs.length / pageSize); if ((currentPage + 1) < totalPages) { currentPage++; renderPage(currentPage); } }
+            function prevPage() { if (currentPage > 0) { currentPage--; renderPage(currentPage); } }
+            function firstPage() { currentPage = 0; renderPage(currentPage); }
+            function lastPage() { currentPage = Math.ceil(paragraphs.length / pageSize) - 1; renderPage(currentPage); }
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+
+            function exportToPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const pageHeight = doc.internal.pageSize.height;
+                const margin = 15;
+                let y = margin;
+            
+                // Title
+                doc.setFontSize(18);
+                doc.setFont("times", "bold");
+                doc.text(document.title, doc.internal.pageSize.width / 2, y, { align: "center" });
+                y += 15;
+            
+                // Content
+                doc.setFontSize(12);
+                doc.setFont("times", "normal");
+            
+                paragraphs.forEach(p => {
+                    const lines = doc.splitTextToSize(p, 180);
+                    const blockHeight = lines.length * 8;
+            
+                    if (y + blockHeight > pageHeight - margin) {
+                        doc.addPage();
+                        y = margin;
+                    }
+            
+                    doc.text(lines, margin, y);
+                    y += blockHeight; // space between paragraphs
+                });
+            
+                const safeTitle = document.title.replace(/[^a-z0-9]/gi, "_").toLowerCase();
+                doc.save(`${safeTitle}.pdf`);
+            }
+
+
+            document.querySelectorAll('input[name="viewMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    if (e.target.value === 'full') {
+                        pageOptions.style.display = 'none';
+                        switchToFullView();
+                    } else {
+                        pageOptions.style.display = 'block';
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            document.querySelectorAll('input[name="pageMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    const isManual = e.target.value === 'manual';
+                    pageSizeSelect.disabled = !isManual;
+                    if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            pageSizeSelect.addEventListener('change', () => {
+                if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                    switchToPagedView();
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                const btn = document.getElementById("backToTop");
+                btn.style.display = window.scrollY > 300 ? "block" : "none";
+            });
+
+            switchToFullView();
+        </script>
+        
+</body>
+</html>

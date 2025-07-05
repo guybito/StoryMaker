@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Crossroads of Conscience</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+            :root {
+                --bg-color: #fdf6e3;
+                --text-color: #2e2e2e;
+                --btn-color: #333;
+                --btn-hover: #555;
+            }
+
+            body.dark-mode {
+                --bg-color: #1e1e1e;
+                --text-color: #f0f0f0;
+                --btn-color: #ddd;
+                --btn-hover: #fff;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Merriweather', serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                max-width: 800px;
+                margin: auto;
+                padding: 50px 30px;
+                line-height: 2;
+                font-size: 1.15em;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin-bottom: 50px;
+                border-bottom: 3px double #ccc;
+                padding-bottom: 20px;
+                letter-spacing: 2px;
+            }
+
+            p {
+                text-align: justify;
+                margin-bottom: 1.8em;
+            }
+
+            p::first-letter {
+                font-size: 130%;
+                font-weight: bold;
+            }
+
+            #storyContainer {
+                min-height: 600px;
+                position: relative;
+            }
+
+            #paginationControls {
+                text-align: center;
+                margin-top: 30px;
+                min-height: 60px;
+                position: sticky;
+                bottom: 20px;
+                background-color: var(--bg-color);
+                padding: 10px;
+                border-top: 1px solid #aaa;
+            }
+
+            select, label, button {
+                font-size: 1em;
+                margin: 6px 10px;
+            }
+
+            button, select {
+                padding: 6px 14px;
+                border: none;
+                border-radius: 6px;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                transition: background-color 0.3s, color 0.3s;
+                cursor: pointer;
+            }
+
+            button:hover, select:hover {
+                background-color: var(--btn-hover);
+            }
+
+            label {
+                margin: 0 8px;
+                cursor: pointer;
+            }
+
+            input[type="radio"] {
+                margin-right: 4px;
+            }
+
+            #backToTop {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                padding: 10px 15px;
+                font-size: 1em;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                display: none;
+            }
+
+            #controlsTop > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            #controlsTop {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        </style>
+        
+</head>
+<body>
+<h1>Crossroads of Conscience</h1>
+
+            <!-- Info Modal Trigger -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button onclick="document.getElementById('infoModal').style.display='block'">ℹ️ Info</button>
+            </div>
+            
+            <!-- Info Modal -->
+            <div id="infoModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:90%; max-width:600px; border-radius:10px; font-family:'Merriweather', serif;">
+                <span onclick="document.getElementById('infoModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2>Story Info</h2>
+                <p><strong>📅 Creation Date:</strong> 05-07-2025 13:38</p>
+                <p><strong>🧠 Algorithm:</strong> Plotto</p>
+                <p><strong>📝 Word Count:</strong> 5153</p>
+                <p><strong>📄 Review:</strong> <button onclick="document.getElementById('reviewModal').style.display='block'">View Review</button></p>
+              </div>
+            </div>
+            <!-- Review Modal -->
+            <div id="reviewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:5% auto; padding:30px; border:1px solid #888; width:90%; max-width:800px; border-radius:10px; font-family:'Merriweather', serif; max-height:85%; overflow-y:auto;">
+                <span onclick="document.getElementById('reviewModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2 style="margin-top:0;">📘 Story Review</h2>
+                <p><strong>📘 Story Title:</strong> Crossroads of Conscience_improved_improved</p>
+<hr>
+<p>📄 Claude Evaluation Report</p>
+<hr>
+<h2>Literary Analysis of "Crossroads of Conscience"</h2>
+<h3>Character (Category Weight = 0.30)</h3>
+<p>1. <strong>Is the main character clearly identifiable?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- Dr. Jason Mercer is clearly established as the protagonist from the opening paragraph, with his background, situation, and motivations thoroughly developed throughout the narrative.</p>
+<p>2. <strong>Does the character have a clear backstory?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Jason's backstory is well-developed, including his medical career, marriage to Hannah, their expected child, and the false accusations that led to his current predicament.</p>
+<p>3. <strong>Does the character have a clear goal or "desire"?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Jason's goal is explicitly stated:</strong> to clear his name of false charges and return to his pregnant wife, with concrete actions taken throughout the story to achieve this.</p>
+<p>4. <strong>Does the character have a clear inner weakness or vulnerability?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Jason shows vulnerability in his concern for Hannah, his guilt about abandoning her, and his professional ethics that prevent him from leaving Mason to die.</p>
+<p>5. <strong>Does the character undergo a transformation?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Jason transforms from a desperate fugitive focused on self-preservation to someone willing to sacrifice his freedom to save another's life, though this ethical core was present from the beginning.</p>
+<p>6. <strong>Do supporting characters contribute to the main character's journey?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Each supporting character significantly impacts Jason's journey:</strong> Mason becomes both obstacle and salvation, Hannah works tirelessly to clear his name, and Keller serves as the antagonist.</p>
+<p>7. <strong>Do supporting characters fulfill archetypal roles?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Characters fulfill clear archetypal roles:</strong> Hannah as the loyal supporter, Mason as the hunter-turned-ally, Keller as the corrupt antagonist, and Patricia as the helper.</p>
+<p>8. <strong>Are supporting characters diverse and distinct?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The supporting characters have distinct personalities, motivations, and functions in the story, though their psychological depth varies.</p>
+<p>9. <strong>Is the number of characters appropriate?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The story maintains a focused cast of characters appropriate to the narrative, with each serving a clear purpose without overcrowding.</p>
+<p>10. <strong>Are characters developed across three layers?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- Characters are developed physically (Jason's exhaustion, Hannah's pregnancy), psychologically (ethical dilemmas, motivations), and sociologically (professional roles, relationships).</p>
+<h3>Conflict (Category Weight = 0.30)</h3>
+<p>11. <strong>Is the central conflict strong enough to drive the story?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.35</p>
+<p><strong>- Weighted Score:</strong> 0.42</p>
+<p>- The central conflict—Jason's fight to clear his name while facing the moral dilemma of helping his pursuer—creates compelling tension that drives the narrative forward.</p>
+<p>12. <strong>Does the conflict touch upon universal human conditions?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- The story explores universal themes of justice, ethical responsibility, self-preservation versus duty, and standing by one's principles in the face of adversity.</p>
+<p>13. <strong>Are the stakes clear from the beginning?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- The stakes are established early:</strong> Jason's freedom, professional reputation, relationship with his wife, and ability to be present for his child's birth.</p>
+<p>14. <strong>Is the conflict directly related to what we know about the character?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The conflict directly relates to Jason's profession as a doctor, his ethical principles, and his commitment to his family.</p>
+<p>15. <strong>Does the conflict escalate as the story approaches its climax?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Tension escalates through the SUV breakdown, Mason's worsening condition, the desperate blood transfusion, and the race against time for rescue.</p>
+<p>16. <strong>Is the source of conflict consistent throughout?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- The core conflict remains consistent:</strong> Jason's struggle to clear his name while maintaining his ethical principles, with Keller as the consistent antagonist.</p>
+<p>17. <strong>Do the subplots also include conflict?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p><strong>- Subplots contain their own conflicts:</strong> Hannah's investigation against Keller, Mason's internal conflict about his duty versus Jason's innocence.</p>
+<p>18. <strong>Is there both external and internal conflict?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.06</p>
+<p>- The story balances external conflicts (survival in the desert, evading capture) with internal conflicts (ethical dilemmas, guilt about leaving Hannah).</p>
+<h3>Craft (Category Weight = 0.25)</h3>
+<p>19. <strong>Is the story written in clear, modern English?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.20</p>
+<p>- The prose is clear, accessible, and contemporary, with natural dialogue and effective narrative flow.</p>
+<p>20. <strong>Are spelling and grammar correct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The text demonstrates strong technical proficiency with proper grammar, spelling, and punctuation throughout.</p>
+<p>21. <strong>Is the writing clear, concise, and descriptive?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- The writing is generally clear and descriptive, though some passages could be more concise without losing impact.</p>
+<p>22. <strong>Is there vivid description of characters, scenes, and settings?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- The desert setting is effectively rendered with sensory details, though some scenes could benefit from more vivid imagery and atmospheric description.</p>
+<p>23. <strong>Is there no unnecessary or inappropriate detail?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- Most details serve the narrative, though some expository passages could be trimmed for greater impact.</p>
+<p>24. <strong>Is everything described visually demonstrable?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- Most scenes are visually concrete, though some internal states and medical conditions rely more on telling than showing.</p>
+<h3>Logic (Category Weight = 0.15)</h3>
+<p>25. <strong>Are there no plot holes?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The plot is generally sound, though some elements (like the timing of the helicopter rescue) could be more thoroughly explained.</p>
+<p>26. <strong>Are there no unclear points?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Most narrative elements are clear, though some medical procedures and legal processes could be more precisely detailed.</p>
+<p>27. <strong>Have all questions raised been answered?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story resolves its central questions about Jason's innocence, Mason's fate, and Keller's accountability.</p>
+<p>28. <strong>Is the story consistent and free of continuity errors?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The narrative maintains consistent characterization, timeline, and plot development throughout.</p>
+<p>29. <strong>Are there no contradictions with previously stated information?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story avoids contradicting established facts about characters, situations, or the timeline of events.</p>
+<p>30. <strong>Is the logic sound and free from illogical elements?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- Most plot developments follow logically, though some elements (like the effectiveness of the improvised blood transfusion) stretch medical plausibility.</p>
+<h3>Overall Weighted Score: 3.6350</h3>
+<h3>Summary Report</h3>
+<p>"Crossroads of Conscience" is a well-crafted thriller with strong character development and compelling ethical dilemmas. The story excels in establishing clear stakes and maintaining consistent conflict while exploring themes of professional ethics, justice, and personal sacrifice. The protagonist's journey is convincingly portrayed, with his moral choices driving both plot and character development. While the narrative is generally sound, some aspects of the medical procedures and rescue timing could benefit from greater realism and detail.</p>
+<h3>Suggestions for Improvement:</h3>
+<p><strong>* <strong>Enhance setting descriptions</strong>:</strong> While the desert setting is established, more sensory details would create a more immersive experience and heighten the sense of danger and isolation.</p>
+<p><strong>* <strong>Deepen secondary character development</strong>:</strong> Characters like Keller would benefit from more nuanced motivations beyond simple villainy to create a more complex antagonist.</p>
+<p><strong>* <strong>Increase medical accuracy</strong>:</strong> Some medical procedures, particularly the improvised blood transfusion, should be portrayed with greater technical accuracy to maintain credibility.</p>
+<p><strong>* <strong>Tighten pacing in middle sections</strong>:</strong> Some expository passages could be condensed to maintain tension throughout the narrative.</p>
+<p><strong>* <strong>Clarify rescue logistics</strong>:</strong> The timing and logistics of the helicopter rescue could be more thoroughly explained to strengthen plot credibility.</p>
+              </div>
+            </div>
+        
+
+        <div id="controlsTop">
+            <div>
+                <label><input type="radio" name="viewMode" value="full" checked> Continuous Reading</label>
+                <label><input type="radio" name="viewMode" value="paged"> Paginated View</label>
+            </div>
+
+            <div id="pageOptions" style="display: none;">
+                <label><input type="radio" name="pageMode" value="auto" checked> Auto Paragraphs</label>
+                <label><input type="radio" name="pageMode" value="manual"> Manual</label>
+                <select id="pageSizeSelect" disabled>
+        <option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+                </select>
+            </div>
+
+            <div>
+                <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+
+        </div>
+
+        <div id="storyContainer"></div>
+
+        <div id="paginationControls" style="display: none;">
+            <button id="firstBtn" onclick="firstPage()">⏮ First</button>
+            <button id="prevBtn" onclick="prevPage()">◀ Previous</button>
+            <span id="pageIndicator">Page 1 of X</span>
+            <button id="nextBtn" onclick="nextPage()">Next ▶</button>
+            <button id="lastBtn" onclick="lastPage()">Last ⏭</button>
+        </div>
+
+        <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆ Back to Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script>
+            const paragraphs = ["Dr. Jason Mercer pressed his back against the sun-baked boulder, his breath coming in ragged gasps. The relentless Arizona sun beat down on his sweat-soaked shirt as he peered cautiously around the edge of his temporary shelter. The vast desert stretched before him, a shimmering sea of sand and scrub brush that offered little in the way of refuge. Six days on the run had left him dehydrated, exhausted, and increasingly desperate.", "He took a small sip from his nearly empty canteen, rationing what little water remained. The irony wasn't lost on him—a doctor, trained to save lives, now reduced to a fugitive fleeing across the desert. His medical bag, still clutched tightly in his left hand, contained the evidence that could either condemn or vindicate him.", "Jason checked his watch—2:17 PM. The hottest part of the day was upon him, and movement now would be foolish. He needed to rest until dusk, then continue his journey toward the Mexican border. If he could make it across, he might have a chance to clear his name. The charges against him—medical malpractice resulting in death—were false, fabricated by the hospital administrator to cover up his own negligence in maintaining proper equipment.", "As Jason settled against the rock, his thoughts drifted to Hannah, his wife of eight years. The memory of their last conversation twisted like a knife in his chest. Her voice had been tight with fear when he'd called to tell her he was running.", "\"They'll never believe you, Jason,\" she had said. \"Not with the evidence they claim to have. You need to turn yourself in.\"", "\"I can't,\" he had replied. \"Not until I can prove what really happened. Trust me, Hannah. Please.\"", "The silence that followed had been deafening. Then, softly: \"I always have.\"", "Jason closed his eyes, the guilt washing over him anew. Hannah had stood by him through medical school, through the long residency hours, through the stress of establishing his practice. Now, when she needed him most—six months pregnant with their first child—he had abandoned her to clear his name.", "A sound snapped him back to alertness—the distant rumble of an engine. Jason peered around the boulder again, squinting against the harsh sunlight. A cloud of dust rose from the desert floor about half a mile away, marking the approach of a vehicle along the barely visible dirt track.", "\"Damn it,\" he muttered, gathering his meager belongings. They had found him sooner than expected.", "The vehicle was a police SUV, its white and blue markings visible even at this distance. Jason knew he should run, find another hiding place, but exhaustion weighed him down. And where would he go? The desert offered little cover, and in his weakened state, he wouldn't make it far on foot.", "As the SUV drew closer, Jason made out a single figure behind the wheel. One officer. Maybe he could reason with them, explain his situation. Or maybe this was his chance to surrender on his own terms, to stop running and face the charges against him.", "The vehicle slowed as it approached the area where Jason had left tracks. Then, unexpectedly, it veered off the dirt road and began moving erratically. Jason watched, puzzled, as the SUV lurched forward, then stopped, then started again, finally coming to a halt about two hundred yards from his position.", "The driver's door opened, and a man in a sheriff's uniform stumbled out. He took a few unsteady steps, then fell to his knees. Even from this distance, Jason could see something was wrong. The officer was disoriented, his movements uncoordinated.", "Professional instinct kicked in. Jason hesitated only briefly before emerging from his hiding place and approaching the fallen officer. As he drew closer, he recognized the man—Deputy Mason Wells, the same officer who had been pursuing him since his escape from custody.", "Mason was on all fours now, his head hanging down. He didn't seem to notice Jason's approach until he was just a few feet away.", "\"Stay back!\" Mason shouted, fumbling for his sidearm but missing the holster entirely. \"I can't... I can't see you clearly, but I know you're there!\"", "Jason raised his hands instinctively. \"Deputy Wells, I'm Dr. Mercer. You need medical attention.\"", "Mason's face was alarmingly red, his eyes unfocused and squinting painfully. \"Mercer? The fugitive?\" He attempted to stand but swayed dangerously. \"You're... under arrest.\"", "\"You're suffering from heat exhaustion and possibly sunblindness,\" Jason said, taking another cautious step forward. \"Your corneas are likely inflamed from UV exposure. How long have you been out here without proper eye protection?\"", "Mason didn't answer directly. \"Been tracking you... three days. Radio's dead. GPS... malfunctioned.\" He coughed dryly. \"Water's gone since... yesterday.\"", "Jason assessed the situation quickly. Mason was severely dehydrated and suffering from photokeratitis. Without treatment, his condition would deteriorate rapidly. The desert heat could kill him within hours.", "The choice before Jason was stark: help Mason and almost certainly be arrested, or leave him to die and continue his escape. Freedom was just a day's journey away. By the time anyone found Mason, Jason could be across the border.", "But as he looked at the suffering deputy, Jason knew he couldn't walk away. Whatever he was accused of, whatever he was running from, he was still a doctor. He had taken an oath.", "\"I'm going to help you,\" Jason said firmly. \"But I need you to trust me.\"", "Mason tried to focus on Jason's face. \"Why would you... help me? I've been... hunting you.\"", "\"Because right now, you're not a deputy and I'm not a fugitive,\" Jason replied, kneeling beside him. \"You're a patient, and I'm a doctor.\"", "He helped Mason to his feet and guided him back to the SUV, settling him in the passenger seat. The vehicle's air conditioning was a blessing, and Jason turned the vents toward Mason before rummaging through his medical bag.", "\"I need to examine your eyes,\" Jason said, pulling out a small penlight. \"This might be uncomfortable.\"", "Mason flinched as Jason gently pulled back his eyelids. The corneas were inflamed, and Mason's pupils reacted sluggishly to the light.", "\"You have sunblindness,\" Jason confirmed. \"It's temporary, but serious. You need to keep your eyes closed and protected.\" He fashioned a makeshift eye covering from a clean handkerchief. \"More importantly, you're severely dehydrated. When did you last urinate?\"", "\"Yesterday... morning,\" Mason admitted weakly.", "Jason nodded grimly. \"That's what I thought.\" He reached for his canteen and held it to Mason's lips. \"Drink this. Slowly.\"", "\"That's... your water.\"", "\"I'll find more,\" Jason said, though he wasn't sure how. \"Drink.\"", "As Mason sipped the precious water, Jason checked the SUV's supplies. The deputy had been woefully unprepared for desert pursuit—minimal water, no proper sun protection, insufficient emergency supplies. The radio was indeed dead, and the GPS unit showed only static.", "\"We need to get you to a hospital,\" Jason said, sliding into the driver's seat. \"The nearest town is about sixty miles north.\"", "Mason's hand suddenly gripped Jason's arm. \"You're still... under arrest, Mercer. Can't let you... drive away.\"", "Jason sighed. \"Deputy Wells, you're in no condition to arrest anyone. You can barely stand, and you certainly can't see. If I leave you here, you'll die.\"", "\"My duty—\"", "\"Your duty right now is to stay alive,\" Jason interrupted. \"I'm going to drive us both to the nearest hospital. Once you're stable, you can arrest me if you want. But right now, I need you to trust me.\"", "Mason was silent for a long moment, his covered eyes making his expression unreadable. Finally, he nodded weakly. \"Don't have... much choice.\"", "Jason started the engine and carefully turned the SUV around. As they began the journey north, he glanced at Mason, who had slumped against the door, his breathing shallow but steady.", "\"Why'd you run?\" Mason asked suddenly, his voice barely audible over the engine. \"If you're innocent... why run?\"", "Jason gripped the steering wheel tighter. It was a fair question—one he'd asked himself repeatedly over the past six days.", "\"Because the system already decided I was guilty,\" he answered finally. \"The hospital administrator, Richard Keller, falsified records to show I used faulty equipment despite knowing about the defect. The patient died on my table because the anesthesia machine malfunctioned, not because of anything I did. But Keller needed a scapegoat.\"", "\"Evidence?\" Mason asked.", "\"In my bag,\" Jason said. \"Maintenance logs that Keller thought he'd destroyed, showing the machine was flagged for repair three times but never fixed. And a recording of Keller admitting he knew about the problem but postponed repairs to save money.\"", "Mason was quiet for a moment. \"Why not... take it to the police?\"", "Jason laughed bitterly. \"Keller's brother-in-law is the police chief. When I was arrested, my belongings were 'lost' before processing. The evidence would have disappeared permanently if I hadn't managed to grab my bag during transport.\"", "The SUV hit a rut in the road, jostling them both. Mason groaned in pain.", "\"Try to rest,\" Jason advised. \"We've got a long drive ahead.\"", "---", "In a sleek corner office at Desert Plains Memorial Hospital, Richard Keller stared at his computer screen, his manicured fingers drumming nervously on the mahogany desk. The hospital board meeting was in thirty minutes, and he still hadn't figured out how to explain the budget discrepancies that would inevitably come up.", "He pulled up the maintenance department's budget spreadsheet, scanning the numbers for the third time. The money he'd diverted from equipment repairs to his pet cardiac wing project—the one that would bear his name on a shiny plaque—was becoming harder to hide.", "His phone buzzed. The screen displayed \"Chief Donovan\"—his brother-in-law.", "\"Tell me you've found him,\" Keller answered without preamble.", "\"Nothing yet,\" Chief Donovan replied. \"But we've got roadblocks on every major route to the border. He can't have gotten far on foot in this heat.\"", "\"He has the maintenance logs, Jim,\" Keller hissed, lowering his voice despite being alone in his office. \"And the recording from the staff meeting. If those get out—\"", "\"They won't,\" Donovan cut in. \"Even if he still has them, who's going to believe a fugitive doctor over the respected administrator of the largest hospital in three counties? The narrative is already set—Mercer made a fatal error and ran from responsibility.\"", "Keller loosened his tie, suddenly feeling the air conditioning wasn't working well enough. \"What about Deputy Wells? Any word?\"", "\"He missed his check-in last night. Probably still tracking Mercer in those back desert roads. Cell reception is spotty out there.\"", "\"Keep me posted,\" Keller said, ending the call.", "He swiveled his chair to face the window, looking out at the hospital campus he'd built over the last decade. Everything he'd worked for—the reputation, the power, the future political aspirations—all of it threatened because one self-righteous doctor couldn't accept that sometimes corners needed to be cut.", "The anesthesia machine should have been replaced, yes. He'd known that. But the new cardiac wing would save more lives in the long run than one outdated machine might risk. It was simple mathematics. Unfortunate that a patient had died, but in healthcare, calculated risks were necessary.", "Now he just needed Mercer to disappear—preferably permanently—in the vast Arizona desert.", "---", "Hannah Mercer sat in her home office, surrounded by stacks of medical journals, maintenance manuals, and hospital policy documents. Her back ached from sitting too long, and the baby kicked restlessly inside her. Six months pregnant, and instead of preparing a nursery, she was building a case to save her husband.", "She rubbed her swollen belly absently as she reviewed her notes from the interview with the hospital's former maintenance supervisor. The man had been reluctant to talk at first, but once Hannah mentioned the specific anesthesia machine model, his demeanor had changed.", "\"That machine should've been replaced two years ago,\" he'd told her. \"I flagged it three times. Keller kept denying the request, saying we could get another year out of it. When I pushed back, I found myself reassigned to the satellite clinic in Willow Creek.\"", "Hannah's phone rang. Patricia Reeves, the attorney she'd hired to represent Jason.", "\"I've got something,\" Patricia said without preamble. \"A whistleblower from the maintenance department. He has copies of the work orders for that anesthesia machine—all marked 'urgent' and all denied by Keller personally.\"", "Hannah's heart raced. \"That corroborates what Jason had in his medical bag. Can we get this to the state medical board?\"", "\"Already working on it,\" Patricia confirmed. \"But Hannah, there's more. This technician claims Keller has been systematically diverting maintenance funds to other projects for years. The DA's office will be very interested.\"", "\"What about Jason? Any news?\"", "Patricia's voice softened. \"Nothing yet. But with this new evidence, we're building a strong case for his innocence.\"", "After ending the call, Hannah moved to the window, looking out at the desert landscape. Somewhere out there was her husband, running for his life and his future. She placed both hands on her belly, feeling their child move.", "\"Your daddy's coming home,\" she whispered. \"I promise.\"", "Her phone rang again. This time, it was Deputy Wells's captain.", "\"Mrs. Mercer? Captain Rodriguez here. Deputy Wells missed his check-in last night. He was tracking your husband in the western sector.\"", "Hannah's mind raced. \"Is he in trouble?\"", "\"We don't know yet. His last report mentioned mechanical issues with his vehicle's radio. Standard procedure is to wait 48 hours before declaring him missing.\"", "Hannah thought quickly. \"Captain, my husband is a doctor. If your deputy is in trouble out there, Jason would help him—even knowing it might mean his own arrest.\"", "There was a pause on the line. \"Mrs. Mercer, with all due respect, your husband is a fugitive.\"", "\"He's a doctor first,\" Hannah insisted. \"He took an oath. If your deputy is injured or sick, Jason would treat him. They might be together.\"", "\"That's... an interesting theory.\"", "\"Check Deputy Wells's last known coordinates,\" Hannah pressed. \"If you find them both, I'm certain my husband will be caring for your deputy, not running from him.\"", "After a moment's hesitation, the captain agreed to consider her suggestion. Hannah hung up, her hand resting on her belly again. It wasn't much, but it was something—a chance that someone might look in the right place.", "\"Hold on, Jason,\" she whispered. \"Just hold on.\"", "---", "As Jason and Mason traveled north, the desert landscape gradually changed, scrub brush giving way to scattered Joshua trees. The sun began its descent toward the horizon, painting the sky in brilliant oranges and reds. Under different circumstances, Jason might have found it beautiful.", "Mason drifted in and out of consciousness, occasionally mumbling incoherently. Jason kept checking his pulse and respiration, growing increasingly concerned. The deputy's condition was deteriorating faster than expected.", "About twenty miles into their journey, the SUV's engine began to sputter. Jason watched in dismay as the temperature gauge climbed into the red zone.", "\"No, no, no,\" he muttered, pulling over as the engine coughed and died. Steam billowed from under the hood, confirming his fears—the radiator was overheated, possibly damaged.", "Jason got out and lifted the hood, jumping back as a cloud of steam escaped. When it cleared, he could see the problem—a crack in the radiator hose had allowed most of the coolant to leak out. Without proper tools and a replacement hose, the vehicle was going nowhere.", "He returned to the passenger side and checked on Mason. The deputy's skin was hot and dry to the touch—a dangerous sign. Without fluids and medical attention soon, he would suffer kidney failure and possibly death.", "Jason scanned their surroundings. The desert stretched endlessly in all directions, with no signs of civilization. The sun was setting, which meant temperatures would drop rapidly. They couldn't stay with the vehicle overnight—it offered little protection from the cold desert night—but traveling on foot in Mason's condition was equally dangerous.", "As Jason weighed their options, he noticed something in the distance—a small structure, barely visible against the darkening sky. It might be an abandoned building, perhaps an old mining shack. It was their best hope.", "\"Mason,\" Jason said, gently shaking the deputy. \"We need to move. The car's dead, but I think I see shelter nearby.\"", "Mason stirred but didn't fully wake. Jason gathered his medical bag and the few supplies from the SUV, then carefully helped Mason out of the vehicle. Supporting most of the deputy's weight, Jason began the slow trek toward the distant structure.", "The walk was grueling. Mason could barely stay on his feet, and Jason, already exhausted from his days on the run, struggled under the additional burden. The desert floor was treacherous, scattered with rocks and holes that threatened to trip them with every step.", "By the time they reached the structure—indeed an old prospector's cabin—darkness had fallen completely. The temperature had dropped dramatically, and both men were shivering.", "The cabin was small and dilapidated, with a sagging roof and boarded-up windows, but it offered shelter from the elements. Jason helped Mason inside and settled him on the dusty wooden floor.", "\"Stay with me, Deputy,\" Jason said, checking Mason's pulse again. It was rapid and weak. \"I need to find water.\"", "A quick search of the cabin revealed little of use—some broken furniture, old mining tools, and a rusty woodstove. But behind the cabin, Jason discovered a hand pump well. He worked the handle frantically, praying it wasn't dry. After several minutes of pumping, water finally sputtered from the spout—brackish and metallic-tasting, but wet.", "Jason filled his canteen and hurried back to Mason. He lifted the deputy's head and helped him drink small sips of the water.", "\"Not too fast,\" Jason cautioned. \"Your body needs time to absorb it.\"", "As Mason drank, Jason assessed their situation. They were stranded in the desert with limited supplies, no communication, and a critically ill patient. The nearest town was still forty miles away—an impossible distance on foot in their condition.", "\"We'll rest here tonight,\" Jason decided aloud. \"In the morning, I'll try to find help.\"", "Mason's hand suddenly gripped Jason's wrist with surprising strength. \"Why... didn't you leave me?\" he asked, his voice hoarse. \"Could've been... free.\"", "Jason was silent for a moment. \"I couldn't live with myself if I had,\" he finally answered. \"Whatever I'm accused of, I'm not a murderer.\"", "\"Your wife,\" Mason said unexpectedly. \"Hannah. She believes... you're innocent.\"", "Jason stared at him in surprise. \"You've spoken to Hannah?\"", "Mason nodded weakly. \"Interviewed her... after your escape. She's... fighting for you. Hired a lawyer. Trying to... get evidence.\"", "A wave of emotion washed over Jason—relief, love, and a renewed sense of determination. Hannah hadn't given up on him. She was still fighting.", "\"She's pregnant,\" Jason said softly. \"Our first child. Due in three months.\"", "\"She told me,\" Mason replied. \"Said you'd... never abandon your family... unless you had no choice.\"", "Jason swallowed hard. \"She's right. Everything I've done—running, hiding—it's all been to clear my name. To be there for them.\"", "Mason was quiet for a long moment. \"Maybe... I've been chasing the wrong man.\"", "Before Jason could respond, Mason's body suddenly went rigid, his back arching as a seizure took hold. Jason quickly turned him onto his side, ensuring his airway remained clear as the convulsions wracked his body.", "The seizure lasted nearly a minute before Mason went limp. His breathing was shallow, his pulse erratic. Severe dehydration had progressed to hypovolemic shock—his organs were beginning to fail.", "Jason knew with grim certainty that without immediate medical intervention, Mason would die before morning. The water alone wasn't enough; he needed intravenous fluids and proper medical care.", "Opening his medical bag, Jason took inventory of his limited supplies. He had a basic first aid kit, some prescription medications, a stethoscope, and a few other tools—nothing that could address Mason's critical condition.", "Or was there? Jason's gaze fell on the IV catheter and tubing he kept for emergencies. He had no IV fluids, but he did have the means to create a makeshift IV line. And he had himself—a universal donor with type O-negative blood.", "The procedure would be risky, performed in unsanitary conditions with improvised equipment. But it was Mason's only chance.", "Jason worked quickly, sterilizing his equipment as best he could with alcohol wipes. He inserted the IV catheter into Mason's arm, then prepared a second catheter for himself. Using tubing from his kit, he created a direct line between them—a primitive but potentially life-saving blood transfusion.", "As his blood began flowing into Mason's veins, Jason monitored both their vital signs carefully. He couldn't give too much without risking his own health, but Mason needed enough to stabilize until help could arrive.", "\"Hang in there, Deputy,\" Jason murmured. \"Help will come.\"", "But as the hours passed and Jason grew lightheaded from blood loss, he began to wonder if he had made a fatal mistake. They were stranded in the desert, miles from civilization, with no way to call for help. By trying to save Mason, had he doomed them both?", "---", "Captain Rodriguez stood in the search and rescue operations center, studying the map where Deputy Wells's last known coordinates were marked with a red pin. The search helicopter had already covered most of the primary grid without success.", "\"Sir,\" a young officer approached with a tablet. \"Mrs. Mercer sent over Deputy Wells's patrol patterns from the last three days. She got them from his partner.\"", "Rodriguez raised an eyebrow. \"How did she get access to those?\"", "The officer shrugged. \"She's persuasive, sir. And she's right—Wells was methodically searching these quadrants.\" He traced a pattern on the map. \"Based on his previous movements and the terrain, she suggests we focus here.\" He circled an area about forty miles west of their current search zone.", "\"That's way off our grid,\" Rodriguez objected.", "\"Yes, sir, but she's also sent satellite imagery showing what might be vehicle tracks leading to this area, and there's an old mining claim with a cabin that's not on our maps.\"", "Rodriguez studied the new information. It was a long shot, but they were running out of options. Wells had been missing for nearly 36 hours now.", "\"And she really thinks her husband and Wells are together?\"", "\"She's convinced of it, sir. Says if Wells found her husband and then got into trouble, Dr. Mercer would have stayed to help him.\"", "Rodriguez considered this. It seemed far-fetched that a fugitive would risk his freedom to help the very officer hunting him. But if Mercer truly was innocent, as his wife claimed...", "\"Redirect the helicopter to these coordinates,\" he decided. \"And have medical personnel on standby, just in case.\"", "As the officer hurried to relay the orders, Rodriguez found himself hoping the pregnant woman's intuition was right. Because if it wasn't, they might be losing one of his best deputies to the merciless desert.", "---", "Just as despair threatened to overwhelm him, Jason heard a sound that seemed impossible—the distant thrum of helicopter blades.", "At first, he thought it was a hallucination brought on by blood loss. But the sound grew louder, more distinct. A searchlight swept across the desert floor outside the cabin window.", "With the last of his strength, Jason disconnected the IV line and staggered to the door. The night sky was illuminated by the powerful beam of a search helicopter hovering less than a hundred yards away.", "Jason stumbled outside, waving his arms frantically. The searchlight found him, pinning him in its brilliant beam. The helicopter descended slowly, kicking up a cloud of dust as it landed.", "Two figures emerged from the aircraft, approaching cautiously with flashlights. As they drew closer, Jason recognized the uniform of state police officers.", "\"Dr. Mercer?\" one called out. \"Dr. Jason Mercer?\"", "Jason nodded weakly. \"In the cabin,\" he managed to say. \"Deputy Wells... needs immediate medical attention.\"", "The officers exchanged glances, then one rushed toward the cabin while the other supported Jason.", "\"Your wife reported you both missing,\" the officer explained. \"Said you might be together. We've been searching for two days.\"", "\"Hannah?\" Jason asked, his voice barely audible over the idling helicopter. \"She knew?\"", "\"She insisted Deputy Wells would have found you,\" the officer confirmed. \"And that you would have helped him if he was in trouble. She directed us to search this area based on his patrol patterns. She was pretty adamant about it.\"", "Jason felt a surge of gratitude and love for his wife. Even in his absence, she had understood him, believed in him.", "The second officer emerged from the cabin, supporting a semi-conscious Mason. \"He's alive, but barely,\" he reported. \"We need to evacuate immediately.\"", "Within minutes, they were airborne, racing toward the nearest hospital. A paramedic on board administered emergency treatment to both men, stabilizing them for the journey.", "As the helicopter sped through the night sky, Jason drifted in and out of consciousness. In his lucid moments, he worried about what awaited him—arrest, trial, possible conviction. But he had done the right thing. Whatever happened now, he could face it knowing he had stayed true to his oath as a doctor and his principles as a man.", "---", "The hospital room was quiet except for the steady beep of monitoring equipment. Jason lay in the bed, an IV in his arm replenishing the fluids and blood he had lost. According to the doctors, he had been severely dehydrated and suffering from moderate blood loss, but would make a full recovery.", "The door opened, and Hannah entered, her pregnant belly preceding her. Her face, tired but beautiful, lit up when she saw him awake.", "\"Jason,\" she breathed, hurrying to his bedside as quickly as her condition allowed. She took his hand in both of hers, tears welling in her eyes. \"I knew you were alive. I knew it.\"", "Jason squeezed her hand weakly. \"Hannah. How did you know where to find us?\"", "She smiled through her tears. \"I didn't, not exactly. But I knew Deputy Wells was tracking you, and when he missed his check-in, I convinced his captain that you might be together. I studied Wells's patrol patterns and found satellite images showing tracks near that old mining cabin.\"", "\"You believed in me,\" Jason said softly. \"Even after I ran.\"", "Hannah's expression grew serious. \"I've always believed in you, Jason. That's why I've been working so hard to clear your name.\"", "\"Mason mentioned you hired a lawyer?\"", "She nodded. \"Patricia Reeves. She's brilliant, and she's been building your case. But more importantly, she found a whistleblower at the hospital—a maintenance worker who confirmed everything you said about the equipment and Keller's cover-up.\"", "\"So there's a chance?\"", "\"More than a chance,\" came a new voice from the doorway.", "Jason looked up to see Mason Wells in a wheelchair, pushed by a nurse. The deputy looked pale and weak, his eyes still protected by dark glasses, but very much alive.", "\"Deputy Wells,\" Jason acknowledged, uncertain of what to expect.", "Mason directed the nurse to wheel him closer to the bed. \"Dr. Mercer,\" he said formally. \"I've given my statement to the state police. I've told them everything—how you saved my life at the risk of your own freedom, how you performed an emergency blood transfusion that kept me alive until help arrived.\"", "He paused, removing his dark glasses to reveal eyes that were still red and irritated but clearly improving. \"I've also recommended that all charges against you be dropped pending a full investigation into Richard Keller and his administration.\"", "Jason stared at him in disbelief. \"You believe me?\"", "\"I believe the evidence,\" Mason replied. \"And I believe a guilty man doesn't risk his freedom to save the life of the officer hunting him.\" He extended his hand. \"Thank you, Dr. Mercer. I owe you my life.\"", "Jason took his hand, emotion tightening his throat. \"You would have done the same.\"", "\"I'd like to think so,\" Mason said with a small smile. \"But I'm not sure I would have had your courage.\"", "The nurse indicated it was time for Mason to return to his room. As he was wheeled away, he called back, \"Your wife is quite the advocate, Dr. Mercer. You're a lucky man.\"", "When they were alone again, Jason pulled Hannah closer, resting his hand on her rounded belly. \"I'm so sorry I left you,\" he whispered. \"I thought I was protecting you and the baby, but I was wrong.\"", "Hannah shook her head. \"You did what you thought was right. And in the end, you chose to save a life rather than save yourself. That's the man I married.\" She placed her hand over his. \"That's the father I want for our child.\"", "Jason felt the baby kick against his palm, a powerful reminder of what he had almost lost—and what he had fought so hard to protect.", "\"What happens now?\" he asked.", "\"Now,\" Hannah said, \"we go home. The state police have taken over the investigation. Keller was arrested this morning on charges of criminal negligence and evidence tampering. They found financial records showing he diverted maintenance funds to the cardiac wing project that was going to bear his name.\"", "\"His reputation meant more to him than patient safety,\" Jason said quietly.", "\"It gets worse,\" Hannah continued. \"The whistleblower revealed this wasn't the first time. There were other incidents that Keller covered up—equipment failures, safety violations. The medical board is reviewing every case now.\"", "Jason closed his eyes, overwhelmed by relief and gratitude. The nightmare was ending. He would be there for the birth of his child. He would practice medicine again.", "\"I love you,\" he told Hannah, pulling her gently down for a kiss. \"I couldn't have made it through this without you.\"", "\"We're a team,\" she reminded him. \"Always have been, always will be.\"", "As Hannah settled into the chair beside his bed, still holding his hand, Jason reflected on the strange journey that had brought him here. He had fled to save himself, only to find redemption in risking everything to save another. In the vast, unforgiving desert, at the crossroads of obligation and survival, he had made the choice that defined not just his freedom, but his humanity.", "Mason Wells had come to arrest him but had instead become the unlikely catalyst for his vindication. And Hannah, his constant star, had never wavered in her belief in him.", "Outside the hospital window, the desert stretched to the horizon, beautiful and terrible in its vastness. It had nearly claimed two lives, but it had also stripped away pretense and revealed the truth—not just about Jason's innocence, but about the core of who he was as a person.", "As he drifted toward sleep, Jason felt at peace for the first time in weeks. Whatever challenges lay ahead, he would face them with Hannah by his side, secure in the knowledge that when tested by the harshest of circumstances, he had chosen compassion over self-preservation. And in that choice, he had found his way home."];
+            const storyContainer = document.getElementById("storyContainer");
+            const pagination = document.getElementById("paginationControls");
+            const pageIndicator = document.getElementById("pageIndicator");
+            const pageSizeSelect = document.getElementById("pageSizeSelect");
+            const pageOptions = document.getElementById("pageOptions");
+
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const firstBtn = document.getElementById("firstBtn");
+            const lastBtn = document.getElementById("lastBtn");
+
+            let currentPage = 0;
+            let pageSize = 4;
+
+            function getAutoPageSize() {
+                return Math.max(2, Math.floor(window.innerHeight / 250));
+            }
+
+            function renderPage(page) {
+                const totalPages = Math.ceil(paragraphs.length / pageSize);
+                const start = page * pageSize;
+                const end = start + pageSize;
+                storyContainer.innerHTML = paragraphs.slice(start, end).map(p => `<p>${p}</p>`).join('');
+                pageIndicator.textContent = `Page ${page + 1} of ${totalPages}`;
+                prevBtn.style.display = page > 0 ? "inline-block" : "none";
+                firstBtn.style.display = page > 0 ? "inline-block" : "none";
+                nextBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+                lastBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+            }
+
+            function switchToPagedView() {
+                const mode = document.querySelector('input[name="pageMode"]:checked').value;
+                pageSize = (mode === 'auto') ? getAutoPageSize() : parseInt(pageSizeSelect.value);
+                currentPage = 0;
+                pagination.style.display = 'block';
+                renderPage(currentPage);
+            }
+
+            function switchToFullView() {
+                pagination.style.display = 'none';
+                storyContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+            }
+
+            function nextPage() { const totalPages = Math.ceil(paragraphs.length / pageSize); if ((currentPage + 1) < totalPages) { currentPage++; renderPage(currentPage); } }
+            function prevPage() { if (currentPage > 0) { currentPage--; renderPage(currentPage); } }
+            function firstPage() { currentPage = 0; renderPage(currentPage); }
+            function lastPage() { currentPage = Math.ceil(paragraphs.length / pageSize) - 1; renderPage(currentPage); }
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+
+            function exportToPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const pageHeight = doc.internal.pageSize.height;
+                const margin = 15;
+                let y = margin;
+            
+                // Title
+                doc.setFontSize(18);
+                doc.setFont("times", "bold");
+                doc.text(document.title, doc.internal.pageSize.width / 2, y, { align: "center" });
+                y += 15;
+            
+                // Content
+                doc.setFontSize(12);
+                doc.setFont("times", "normal");
+            
+                paragraphs.forEach(p => {
+                    const lines = doc.splitTextToSize(p, 180);
+                    const blockHeight = lines.length * 8;
+            
+                    if (y + blockHeight > pageHeight - margin) {
+                        doc.addPage();
+                        y = margin;
+                    }
+            
+                    doc.text(lines, margin, y);
+                    y += blockHeight; // space between paragraphs
+                });
+            
+                const safeTitle = document.title.replace(/[^a-z0-9]/gi, "_").toLowerCase();
+                doc.save(`${safeTitle}.pdf`);
+            }
+
+
+            document.querySelectorAll('input[name="viewMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    if (e.target.value === 'full') {
+                        pageOptions.style.display = 'none';
+                        switchToFullView();
+                    } else {
+                        pageOptions.style.display = 'block';
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            document.querySelectorAll('input[name="pageMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    const isManual = e.target.value === 'manual';
+                    pageSizeSelect.disabled = !isManual;
+                    if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            pageSizeSelect.addEventListener('change', () => {
+                if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                    switchToPagedView();
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                const btn = document.getElementById("backToTop");
+                btn.style.display = window.scrollY > 300 ? "block" : "none";
+            });
+
+            switchToFullView();
+        </script>
+        
+</body>
+</html>

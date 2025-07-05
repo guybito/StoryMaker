@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Wings of Sacrifice</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+            :root {
+                --bg-color: #fdf6e3;
+                --text-color: #2e2e2e;
+                --btn-color: #333;
+                --btn-hover: #555;
+            }
+
+            body.dark-mode {
+                --bg-color: #1e1e1e;
+                --text-color: #f0f0f0;
+                --btn-color: #ddd;
+                --btn-hover: #fff;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Merriweather', serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                max-width: 800px;
+                margin: auto;
+                padding: 50px 30px;
+                line-height: 2;
+                font-size: 1.15em;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin-bottom: 50px;
+                border-bottom: 3px double #ccc;
+                padding-bottom: 20px;
+                letter-spacing: 2px;
+            }
+
+            p {
+                text-align: justify;
+                margin-bottom: 1.8em;
+            }
+
+            p::first-letter {
+                font-size: 130%;
+                font-weight: bold;
+            }
+
+            #storyContainer {
+                min-height: 600px;
+                position: relative;
+            }
+
+            #paginationControls {
+                text-align: center;
+                margin-top: 30px;
+                min-height: 60px;
+                position: sticky;
+                bottom: 20px;
+                background-color: var(--bg-color);
+                padding: 10px;
+                border-top: 1px solid #aaa;
+            }
+
+            select, label, button {
+                font-size: 1em;
+                margin: 6px 10px;
+            }
+
+            button, select {
+                padding: 6px 14px;
+                border: none;
+                border-radius: 6px;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                transition: background-color 0.3s, color 0.3s;
+                cursor: pointer;
+            }
+
+            button:hover, select:hover {
+                background-color: var(--btn-hover);
+            }
+
+            label {
+                margin: 0 8px;
+                cursor: pointer;
+            }
+
+            input[type="radio"] {
+                margin-right: 4px;
+            }
+
+            #backToTop {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                padding: 10px 15px;
+                font-size: 1em;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                display: none;
+            }
+
+            #controlsTop > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            #controlsTop {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        </style>
+        
+</head>
+<body>
+<h1>Wings of Sacrifice</h1>
+
+            <!-- Info Modal Trigger -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button onclick="document.getElementById('infoModal').style.display='block'">ℹ️ Info</button>
+            </div>
+            
+            <!-- Info Modal -->
+            <div id="infoModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:90%; max-width:600px; border-radius:10px; font-family:'Merriweather', serif;">
+                <span onclick="document.getElementById('infoModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2>Story Info</h2>
+                <p><strong>📅 Creation Date:</strong> 05-07-2025 11:29</p>
+                <p><strong>🧠 Algorithm:</strong> Plot Genie</p>
+                <p><strong>📝 Word Count:</strong> 5204</p>
+                <p><strong>📄 Review:</strong> <button onclick="document.getElementById('reviewModal').style.display='block'">View Review</button></p>
+              </div>
+            </div>
+            <!-- Review Modal -->
+            <div id="reviewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:5% auto; padding:30px; border:1px solid #888; width:90%; max-width:800px; border-radius:10px; font-family:'Merriweather', serif; max-height:85%; overflow-y:auto;">
+                <span onclick="document.getElementById('reviewModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2 style="margin-top:0;">📘 Story Review</h2>
+                <p><strong>📘 Story Title:</strong> Wings of Sacrifice</p>
+<hr>
+<p>📄 Claude Evaluation Report</p>
+<hr>
+<h2>Literary Analysis of "Wings of Sacrifice"</h2>
+<h3>Detailed Question Evaluation</h3>
+<p>### Character (Category Weight = 0.30)</p>
+<p>1. <strong>Is the main character clearly identifiable?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- Marco Alvarez is clearly established as the protagonist from the opening paragraph, with his perspective consistently driving the narrative throughout the story.</p>
+<p>2. <strong>Does the character have a clear backstory?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Marco's background as a plane mechanic in Manaus is established, along with his relationship with Gabriela, though some aspects of his history remain undeveloped.</p>
+<p>3. <strong>Does the character have a clear goal or "desire"?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Marco's goal is unambiguous:</strong> to save Gabriela's life. This drives his actions throughout the story, from flying to the research station to confronting Mendes.</p>
+<p>4. <strong>Does the character have a clear inner weakness or vulnerability?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Marco's vulnerability is his love for Gabriela, which creates his central dilemma when Mendes offers the antidote in exchange for working for him.</p>
+<p>5. <strong>Does the character undergo a transformation?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Marco transforms from a simple mechanic to someone willing to risk everything for his principles, culminating in his realization that "the greatest sacrifices weren't about giving up happiness—they were about choosing a deeper kind of happiness."</p>
+<p>6. <strong>Do supporting characters contribute to the main character's journey?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Supporting characters like Eleanor, James, and Sister Maria all provide crucial assistance and moral guidance to Marco throughout his journey.</p>
+<p>7. <strong>Do supporting characters fulfill archetypal roles?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- The characters fulfill clear archetypal roles:</strong> Mendes as the villain, Eleanor as the wise mentor, Gabriela as both damsel and moral compass, and Sister Maria as the helper.</p>
+<p>8. <strong>Are supporting characters diverse and distinct?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The supporting characters have distinct personalities and roles, though some (like James) could be more fully developed to distinguish them further.</p>
+<p>9. <strong>Is the number of characters appropriate?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The story maintains a focused cast of characters appropriate for its length, with each serving a specific purpose in the narrative.</p>
+<p>10. <strong>Are characters developed across three layers?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- Marco is developed physically (as a pilot), psychologically (his internal conflicts), and sociologically (his relationship with Gabriela), though secondary characters receive less layered development.</p>
+<p>### Conflict (Category Weight = 0.30)</p>
+<p>11. <strong>Is the central conflict strong enough to drive the story?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.35</p>
+<p><strong>- Weighted Score:</strong> 0.42</p>
+<p>- The life-or-death stakes of saving Gabriela and stopping Mendes's bioweapon create compelling tension that drives the narrative forward consistently.</p>
+<p>12. <strong>Does the conflict touch upon universal human conditions?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.135</p>
+<p>- The story explores universal themes of sacrifice, moral choice, and standing up against evil, though the bioweapon scenario is less universally relatable.</p>
+<p>13. <strong>Are the stakes clear from the beginning?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- The stakes are established early:</strong> Gabriela's life is in danger from a mysterious disease, creating immediate tension.</p>
+<p>14. <strong>Is the conflict directly related to what we know about the character?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The conflict directly challenges Marco's love for Gabriela and tests his moral character, making it deeply personal to him.</p>
+<p>15. <strong>Does the conflict escalate as the story approaches its climax?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The conflict escalates steadily, from Marco's initial flight to the research station to his confrontation with Mendes and the race to deliver the antidote.</p>
+<p>16. <strong>Is the source of conflict consistent throughout?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Mendes remains the primary antagonist throughout, with his bioweapon plot serving as the consistent source of conflict.</p>
+<p>17. <strong>Do the subplots also include conflict?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- The subplot involving Eleanor and the research team includes its own conflicts, though these remain closely tied to the main plot.</p>
+<p>18. <strong>Is there both external conflict (events) and internal conflict (emotions)?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.06</p>
+<p>- The story balances external conflict (fighting Mendes) with Marco's internal conflict about whether to accept Mendes's deal to save Gabriela.</p>
+<p>### Craft (Category Weight = 0.25)</p>
+<p>19. <strong>Is the story written in clear, modern English?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.20</p>
+<p>- The prose is consistently clear and accessible, using contemporary language throughout.</p>
+<p>20. <strong>Are spelling and grammar correct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The text demonstrates strong technical proficiency with no significant spelling or grammatical errors.</p>
+<p>21. <strong>Is the writing clear, concise, and descriptive?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- The writing is generally clear and descriptive, though some passages could be more concise, particularly in the exposition of the disease and Mendes's plans.</p>
+<p>22. <strong>Is there vivid description of characters, scenes, and settings?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- The story includes effective descriptions of the Amazon setting and emotional states, though some scenes could benefit from more sensory detail.</p>
+<p>23. <strong>Is there no unnecessary or inappropriate detail?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- Most details serve the narrative, though some explanatory passages about the disease could be streamlined.</p>
+<p>24. <strong>Is everything described visually demonstrable?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- Most scenes are visually demonstrable, though some internal reflections and explanations of the disease are more abstract.</p>
+<p>### Logic (Category Weight = 0.15)</p>
+<p>25. <strong>Are there no plot holes?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The plot is generally coherent, though some elements (like how quickly the antidote works) could be better explained.</p>
+<p>26. <strong>Are there no unclear points?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Most plot points are clear, though the exact nature of the bioweapon and how Mendes developed it remain somewhat vague.</p>
+<p>27. <strong>Have all questions raised been answered?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- The main narrative questions are resolved, though some secondary questions about Mendes's operation and the disease's development remain partially addressed.</p>
+<p>28. <strong>Is the story consistent and free of continuity errors?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The narrative maintains consistent characterization and plot progression throughout.</p>
+<p>29. <strong>Are there no contradictions with previously stated information?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story avoids contradicting its established facts and character motivations.</p>
+<p>30. <strong>Is the logic sound and free from illogical elements?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- The story's internal logic is generally sound, though some elements (like Mendes's willingness to let them go with the antidote) strain credibility.</p>
+<h3>Overall Weighted Score: 3.5375</h3>
+<h3>Summary Report</h3>
+<p>"Wings of Sacrifice" is a well-crafted thriller with strong character development and compelling conflict. The story excels in establishing clear stakes and maintaining tension throughout its narrative arc. Marco's moral dilemma provides emotional depth, while the Amazon setting creates an effective backdrop for the bioterrorism plot. The prose is technically sound, though some descriptive elements and secondary character development could be enhanced. Overall, the story successfully balances action sequences with emotional moments to create an engaging reading experience.</p>
+<h3>Suggestions for Improvement:</h3>
+<p><strong>* <strong>Character Development</strong>:</strong> Expand James Cortez's characterization to make him more distinct and memorable, as he currently serves primarily as a plot device rather than a fully realized character.</p>
+<p><strong>* <strong>Setting Description</strong>:</strong> Enhance the sensory details of the Amazon setting to create a more immersive experience, particularly in the research station scenes where the environment could contribute more to the atmosphere of isolation and danger.</p>
+<p><strong>* <strong>Scientific Plausibility</strong>:</strong> Provide more specific details about the bioweapon and its antidote to increase credibility, particularly regarding how quickly the antidote works and how it was developed.</p>
+<p><strong>* <strong>Subplot Integration</strong>:</strong> Develop the relationship between Eleanor and James to add dimension to their characters and create a more layered narrative structure.</p>
+<p><strong>* <strong>Villain Motivation</strong>:</strong> Deepen Mendes's characterization beyond the profit motive to make him a more complex antagonist, perhaps by exploring his background or providing a more nuanced justification for his actions.</p>
+              </div>
+            </div>
+        
+
+        <div id="controlsTop">
+            <div>
+                <label><input type="radio" name="viewMode" value="full" checked> Continuous Reading</label>
+                <label><input type="radio" name="viewMode" value="paged"> Paginated View</label>
+            </div>
+
+            <div id="pageOptions" style="display: none;">
+                <label><input type="radio" name="pageMode" value="auto" checked> Auto Paragraphs</label>
+                <label><input type="radio" name="pageMode" value="manual"> Manual</label>
+                <select id="pageSizeSelect" disabled>
+        <option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+                </select>
+            </div>
+
+            <div>
+                <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+
+        </div>
+
+        <div id="storyContainer"></div>
+
+        <div id="paginationControls" style="display: none;">
+            <button id="firstBtn" onclick="firstPage()">⏮ First</button>
+            <button id="prevBtn" onclick="prevPage()">◀ Previous</button>
+            <span id="pageIndicator">Page 1 of X</span>
+            <button id="nextBtn" onclick="nextPage()">Next ▶</button>
+            <button id="lastBtn" onclick="lastPage()">Last ⏭</button>
+        </div>
+
+        <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆ Back to Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script>
+            const paragraphs = ["The Amazon rainforest stretched beneath Marco Alvarez's plane like an endless green ocean. From his cockpit, the dense canopy appeared deceptively peaceful, hiding the chaos that had consumed his life over the past month. As the small Cessna rattled through a patch of turbulence, Marco's calloused hands gripped the controls tighter, his knuckles whitening. The jungle below harbored both his greatest fear and his only hope.", "\"Ten minutes to landing,\" he announced into his headset, glancing at his passenger.", "Dr. Eleanor Wright nodded, her usually composed face tight with worry. The college dean looked out of place in her practical khaki outfit, so different from her customary academic attire. The folder clutched in her lap contained research that could change everything—if they weren't already too late.", "Marco began the descent toward the small clearing that served as a makeshift airstrip for the research station. His mind drifted to how quickly his life had unraveled. One month ago, he'd been content maintaining planes at the regional airport in Manaus, Brazil. His biggest concern had been saving enough to propose to Gabriela, the wildlife biologist who'd captured his heart during her frequent flights into the rainforest. Now, he was racing against time to save her life.", "The wheels of the Cessna bounced against the packed dirt runway, jolting Marco back to the present. As the plane rolled to a stop, he could see a small group waiting at the edge of the clearing. His heart sank when he didn't spot Gabriela among them.", "\"She must be resting,\" Eleanor said, reading his expression. \"The symptoms can be debilitating.\"", "Marco nodded grimly. The mysterious disease had appeared suddenly in the research station three weeks ago. What began as fever and fatigue quickly progressed to neurological symptoms and, in two cases already, death. Gabriela had been among the last to fall ill, but her condition was deteriorating rapidly.", "As they disembarked, a tall man with a weathered face approached. Dr. James Cortez, the station's lead researcher, looked like he hadn't slept in days.", "\"Eleanor,\" he greeted, embracing his colleague briefly. \"Thank God you're here. And you must be Marco.\" He extended a hand. \"Gabriela speaks highly of you.\"", "\"How is she?\" Marco asked, unable to mask the desperation in his voice.", "James's expression darkened. \"Stable for now, but the disease is progressing. The good news is we've identified the pathogen—a previously unknown virus transmitted by a specific mosquito species. The bad news is we don't have the resources here to develop an effective treatment.\"", "Eleanor lifted her folder. \"That's why I'm here. Harvard Medical School is ready to collaborate, but they need samples and our preliminary research.\"", "\"And I'm here to fly it back,\" Marco added. \"Along with anyone who needs evacuation.\"", "James nodded gratefully, then hesitated. \"There's something else you should know. The situation has become... complicated.\"", "As they walked toward the collection of buildings that comprised the research station, James explained in hushed tones. The nearest town, Porto Esperança, was controlled by a man named Victor Mendes—a logging magnate who had essentially bought the local government. When news of the disease reached him, instead of offering help, he had quarantined the research station, posting armed guards at access points to prevent anyone from leaving.", "\"He's afraid it will spread to his workers and disrupt his operation,\" James explained. \"But we suspect there's more to it. The area where the first cases appeared is precisely where Mendes wants to expand his logging.\"", "\"That's not a coincidence,\" Eleanor murmured.", "\"No,\" James agreed. \"Gabriela was documenting illegal logging activities before she fell ill. She believes Mendes may have deliberately introduced the disease to clear us out.\"", "Marco felt his blood run cold. \"Where is she? I need to see her.\"", "James led them to the medical building, a simple structure with basic equipment. Inside, several cots held patients in various states of illness. Marco's eyes immediately found Gabriela on a bed near the window, her normally vibrant face pale and drawn.", "He rushed to her side, taking her hand gently. Her eyes fluttered open, and a weak smile formed on her lips when she recognized him.", "\"You came,\" she whispered.", "\"Wild horses couldn't keep me away,\" Marco replied, fighting back tears. He brushed a strand of dark hair from her forehead, alarmed at the heat radiating from her skin.", "\"You shouldn't be here,\" Gabriela said, her voice stronger but tinged with worry. \"It's not safe.\"", "\"I'm not leaving without you,\" Marco insisted.", "Gabriela's eyes darted to Eleanor and James, who stood nearby in conversation. \"Did they tell you about Mendes?\"", "Marco nodded. \"We'll figure it out. Eleanor has connections that can help with the disease, and I can fly people out if necessary.\"", "\"It's not that simple,\" Gabriela said, struggling to sit up. \"Mendes has informants everywhere. And what we discovered...\" She broke off, overcome by a fit of coughing.", "Marco helped her sip water, his concern deepening. \"What did you discover?\"", "When she could speak again, Gabriela lowered her voice. \"The disease isn't natural. It's engineered—a bioweapon. We found evidence in soil samples near one of Mendes's new logging sites. He's testing it here before selling it to the highest bidder.\"", "Marco stared at her in disbelief. \"That's insane. Why would he risk something like that?\"", "\"Money,\" Gabriela said simply. \"The illegal logging brings in millions, but this... this could bring billions. And he doesn't care who gets hurt in the process.\"", "Before Marco could respond, the door burst open. A young research assistant rushed in, his face flushed with panic.", "\"They're coming,\" he gasped. \"Mendes's men—they know Dr. Wright is here!\"", "James cursed under his breath. \"They must have spotted the plane landing.\"", "\"We need to hide the research,\" Eleanor said, clutching her folder tighter.", "Marco made a quick decision. \"I'll create a distraction. Get everything important and be ready to move when I give the signal.\"", "Despite Gabriela's protests, Marco slipped out of the building. The compound was small—five buildings arranged around a central clearing. He could see dust rising from the access road, indicating approaching vehicles.", "Marco sprinted to the supply shed, grabbing a can of fuel used for the generators. With quick movements, he doused a pile of debris at the edge of the clearing, far from any buildings. As the vehicles came into view, he struck a match and set the pile ablaze.", "The fire caught quickly, sending black smoke billowing into the sky. As expected, the approaching vehicles diverted toward it. Marco used the distraction to circle back to the medical building.", "\"Now,\" he urged, helping Gabriela to her feet. \"We need to move everyone to the plane.\"", "\"We can't evacuate everyone,\" James objected. \"Some patients are too sick to be moved.\"", "\"Then we take the research and the most critical patients,\" Eleanor decided. \"I can get help sent back for the others once we reach Manaus.\"", "They worked quickly, gathering essential samples and data. Marco supported Gabriela as they made their way toward the airstrip, with Eleanor and James helping two other critical patients. They had almost reached the plane when shouts erupted behind them.", "\"Stop right there!\" a harsh voice commanded in Portuguese.", "Marco turned to see three armed men approaching, led by a tall figure in expensive clothing—Victor Mendes himself. The logging magnate's face was twisted in a cold smile.", "\"Dr. Wright,\" Mendes said, switching to accented English. \"What an unexpected honor. Harvard's finest, visiting our humble research station.\"", "Eleanor straightened, meeting his gaze steadily. \"Mr. Mendes. I'm here on a humanitarian mission. These people need medical attention.\"", "\"Of course they do,\" Mendes agreed smoothly. \"Which is why they must remain quarantined. We can't risk spreading this unfortunate illness.\"", "\"We know what you're doing,\" Gabriela said weakly from Marco's side. \"The disease isn't natural. You created it.\"", "Mendes's smile faltered slightly. \"Delirious from fever, I see. A common symptom.\" He gestured to his men. \"Take them back to the compound. And secure that plane—no one is leaving.\"", "Marco tensed, calculating their odds. They were outnumbered and outgunned. Fighting would only get them killed. But surrendering meant certain death for Gabriela and the other patients.", "\"Wait,\" Eleanor said suddenly. \"You're making a mistake, Mr. Mendes. This disease isn't contained to the research station. It's already spreading to your logging camps.\"", "Mendes's confident expression wavered. \"That's impossible.\"", "\"Is it?\" Eleanor opened her folder, showing charts and photographs. \"These are samples taken from water sources near your eastern operation. The pathogen is present in high concentrations. Your workers are already exposed.\"", "Marco realized Eleanor was bluffing, but it was a calculated risk. Mendes's face paled slightly as he examined the documents.", "\"If you let us go,\" Eleanor continued, \"I can ensure Harvard develops a treatment. Otherwise, you'll be facing an epidemic that will shut down your entire operation—permanently.\"", "Mendes hesitated, clearly weighing his options. Finally, he stepped back. \"Take the sick ones. But Dr. Cortez stays to monitor the situation here.\"", "James nodded grimly. \"I'll stay. Get them to safety, Eleanor.\"", "With Mendes watching, they carefully loaded Gabriela and the other two critical patients onto the plane. Marco performed a hasty pre-flight check, acutely aware of the armed men observing their every move.", "\"This isn't over,\" Mendes called as Marco started the engines. \"Remember who controls this territory.\"", "Marco didn't respond, focusing on getting the plane airborne as quickly as possible. As they climbed into the sky, he glanced back to see Mendes gesturing angrily at his men.", "\"He won't let us go that easily,\" Marco said once they were safely above the canopy. \"He'll radio ahead, try to have us intercepted.\"", "\"Then we don't go to Manaus,\" Eleanor decided. \"Not directly. There's a missionary hospital about 200 kilometers north of here. They have better medical facilities than the research station, and they're outside Mendes's influence.\"", "Marco nodded, adjusting their course. In the back of the plane, Gabriela drifted in and out of consciousness, her breathing labored. The other two patients weren't faring much better.", "\"Will they make it?\" Marco asked quietly.", "Eleanor's expression was grim. \"I don't know. But they have a better chance at the hospital than they did at the station.\"", "The flight to the missionary hospital took just under an hour. Marco landed on their small airstrip, where medical staff rushed out to meet them. As Gabriela was transferred to a stretcher, she gripped Marco's hand.", "\"The evidence,\" she whispered urgently. \"In my notebook. Don't let Mendes destroy it.\"", "Marco nodded, squeezing her hand before the medical team whisked her away. Inside the hospital, a doctor named Sister Maria examined the patients while Eleanor shared what they knew about the disease.", "\"It presents like a hemorrhagic fever, but with pronounced neurological effects,\" Eleanor explained. \"We believe it's engineered—possibly a modified form of an existing pathogen.\"", "Sister Maria, a nun with medical training, nodded gravely. \"We've seen similar cases from villages near the logging operations. We thought it was a natural outbreak.\"", "\"It's deliberate,\" Marco said, his voice hard. \"Mendes is testing a bioweapon.\"", "\"That's a serious accusation,\" Sister Maria cautioned.", "\"Gabriela said there's evidence in her notebook,\" Marco replied. \"Where are her belongings?\"", "A nurse brought Gabriela's backpack, and Marco found the notebook tucked inside a hidden compartment. The pages contained detailed observations, soil sample analyses, and most damning of all, photographs of men in hazmat suits releasing something into a stream near the research station.", "\"This is enough to bring him down,\" Eleanor said, examining the evidence. \"But we need to get it to authorities Mendes doesn't control.\"", "\"And we need an antidote,\" Marco added, looking toward the room where Gabriela was being treated. \"How long do they have?\"", "Sister Maria's expression was somber. \"Based on the progression we've observed in other cases, three days at most.\"", "Marco felt his world tilting. Three days to save Gabriela. Three days to expose Mendes. Three days that might change everything.", "\"I need to get back to the research station,\" he decided. \"James is still there, and he knows more about this disease than anyone. With the samples we brought, maybe he can develop a treatment.\"", "\"It's too dangerous,\" Eleanor objected. \"Mendes will be watching for you.\"", "\"I don't have a choice,\" Marco insisted. \"I can't just sit here and watch Gabriela die.\"", "Before Eleanor could argue further, a commotion erupted at the hospital entrance. Two men in paramilitary uniforms burst in, weapons drawn.", "\"Where is the pilot?\" one demanded in Portuguese.", "Sister Maria stepped forward, her calm demeanor unwavering. \"This is a place of healing. Lower your weapons.\"", "The men hesitated, clearly uncomfortable threatening a nun. In that moment of uncertainty, Marco slipped through a side door, clutching Gabriela's notebook. He heard shouts behind him but didn't stop, racing toward the airstrip where his plane waited.", "He had almost reached it when something hard struck the back of his head. The world spun, and darkness closed in.", "When Marco regained consciousness, he found himself in a dimly lit room with concrete walls. His head throbbed, and his hands were bound behind his back. Across from him, a figure sat in shadows.", "\"Mr. Alvarez,\" Victor Mendes said, leaning forward into the light. \"Just a simple airplane mechanic, yet you've caused me quite a lot of trouble.\"", "Marco tested his restraints, finding them secure. \"Where am I? What have you done with Dr. Wright and the patients?\"", "\"They remain at the missionary hospital, for now,\" Mendes replied. \"Though I'm afraid their prognosis is not good. The disease progresses quite rapidly in its final stages.\"", "\"You're a monster,\" Marco spat. \"Killing innocent people to test your bioweapon.\"", "Mendes smiled coldly. \"Progress requires sacrifice, Mr. Alvarez. The pharmaceutical potential alone is worth billions. Imagine: controlled pathogens that can be deployed and then treated with proprietary medications. The perfect business model.\"", "\"People will find out,\" Marco warned. \"Gabriela documented everything.\"", "\"Ah yes, the notebook.\" Mendes held up Gabriela's journal. \"Quite thorough. Unfortunately, it will be destroyed, along with any other evidence. As for Dr. Pereira, her condition is... terminal.\"", "Marco lunged forward despite his restraints, nearly toppling his chair. \"If she dies, I swear—\"", "\"You'll what?\" Mendes interrupted. \"You're in no position to make threats. However, I am in a position to offer a deal.\"", "Marco fell silent, wary but listening.", "\"I need a pilot,\" Mendes continued. \"Someone who can transport sensitive materials without asking questions. Someone with a personal stake in following orders.\"", "\"You want me to work for you?\" Marco asked incredulously.", "\"In exchange for the antidote,\" Mendes confirmed. \"Yes, there is one. We're not barbarians, Mr. Alvarez. The disease was designed with its treatment in mind. Serve me loyally, and your Gabriela will receive it.\"", "Marco's mind raced. If there was an antidote, Gabriela and the others could be saved. But working for Mendes meant becoming complicit in his crimes.", "\"How do I know you're telling the truth about the antidote?\" he demanded.", "Mendes reached into his pocket and removed a small vial of clear liquid. \"This is a single dose—enough to prove its efficacy, but not enough to save everyone. Decide who receives it as a demonstration of good faith.\"", "Marco stared at the vial, torn by an impossible choice. \"I want to see Gabriela first.\"", "\"Of course,\" Mendes agreed smoothly. \"My men will take you to her. But remember, Mr. Alvarez—any attempt to escape or alert authorities will result in the immediate termination of our arrangement. And without regular doses, the disease will simply resume its course.\"", "Hours later, Marco stood at Gabriela's bedside in the missionary hospital, his heart breaking. Her condition had deteriorated significantly. Her breathing was shallow, and her skin had taken on a yellowish tinge. Sister Maria had confirmed that all three patients were entering the final stage of the disease.", "\"Can you give us a moment?\" Marco asked the guard who had accompanied him.", "The man nodded, stepping just outside the door but leaving it open to keep Marco in view.", "Marco leaned close to Gabriela, gently taking her hand. Her eyes fluttered open, recognition dawning slowly.", "\"Marco,\" she whispered. \"You came back.\"", "\"I'll always come back for you,\" he promised, his voice thick with emotion. He glanced at the guard, then lowered his voice further. \"Mendes has an antidote. He gave me one dose to prove it works.\"", "Gabriela's eyes widened slightly. \"What did he ask in return?\"", "Marco couldn't meet her gaze. \"He wants me to work for him. Flying shipments, no questions asked.\"", "\"No,\" Gabriela said with surprising strength. \"You can't. Whatever he's planning will hurt countless people.\"", "\"I don't have a choice,\" Marco insisted. \"You're dying. All of you are.\"", "Gabriela squeezed his hand weakly. \"There's always a choice. My work—my life—means nothing if it's bought with others' suffering.\"", "Marco felt tears threatening. \"I can't lose you.\"", "\"Then don't,\" Gabriela said. \"Fight him. The evidence in my notebook—\"", "\"He has it,\" Marco admitted. \"But Eleanor still has the samples and data you collected. It might be enough.\"", "Gabriela's expression grew urgent. \"Listen to me. The disease attacks the nervous system, but it's vulnerable during replication. That's why the symptoms come in waves. James was working on a treatment using compounds from a local plant—the one indigenous healers use for snake venom.\"", "Marco's mind raced. \"The missionary hospital might have it.\"", "\"Ask Sister Maria,\" Gabriela confirmed. \"And Marco... whatever happens, don't give in to Mendes. Promise me.\"", "Before Marco could respond, the guard called from the doorway. \"Time's up.\"", "Marco leaned down, pressing his lips to Gabriela's forehead. \"I promise,\" he whispered. \"Hold on for me.\"", "As he was escorted back to Mendes's compound, Marco's mind worked furiously. The single dose of antidote burned a hole in his pocket. He could save one person—but at what cost? And if Gabriela was right about the local plant, there might be another way.", "At the compound, Mendes was waiting in his office, a luxurious space that contrasted sharply with the utilitarian buildings around it.", "\"Have you made your decision, Mr. Alvarez?\" he asked, gesturing for Marco to sit.", "Marco remained standing. \"I need more time.\"", "Mendes's expression hardened. \"Time is the one thing your friends don't have. The antidote must be administered within the next twelve hours to be effective.\"", "\"And if I agree to your terms?\" Marco asked. \"What exactly would I be transporting?\"", "\"Initially, samples of the pathogen to interested parties,\" Mendes explained. \"Eventually, larger shipments once production scales up.\"", "\"You're selling a plague,\" Marco said, disgust evident in his voice.", "Mendes shrugged. \"I'm selling power. Nations have sought such advantages throughout history.\"", "Marco thought of Gabriela's words: *Don't give in to Mendes. Promise me.* He thought of the countless lives that would be destroyed if Mendes succeeded. And he thought of the one life he couldn't bear to lose.", "\"I need to speak with Dr. Wright,\" he said finally. \"Before I decide.\"", "Mendes considered this, then nodded. \"Very well. My men will take you to her. But remember, Mr. Alvarez—the clock is ticking.\"", "Eleanor was being held in a separate building, under guard but not restrained. When Marco entered, she jumped to her feet.", "\"Marco! Thank God. I thought they might have killed you.\"", "\"Not yet,\" Marco said grimly. \"But we don't have much time. Mendes has an antidote, but he'll only provide it if I agree to work for him.\"", "Eleanor's expression darkened. \"Transporting his bioweapon?\"", "Marco nodded. \"I need your help. Gabriela mentioned that James was working on a treatment using a local plant—something indigenous healers use for snake venom.\"", "\"Aristolochia triangularis,\" Eleanor confirmed. \"Yes, we were testing it before I left. The compound shows promise in disrupting the virus's replication cycle.\"", "\"Would the missionary hospital have it?\"", "Eleanor thought for a moment. \"Possibly. Many mission hospitals incorporate local remedies. But even if they do, developing an effective treatment would take time—time Gabriela and the others don't have.\"", "Marco pulled out the vial Mendes had given him. \"What about this? Could you analyze it, maybe reproduce it?\"", "Eleanor took the vial carefully. \"With the right equipment, perhaps. But not here, and not quickly.\"", "Marco made a decision. \"I'm going to create a distraction. When I do, get to my plane. It's fueled and ready at their airstrip.\"", "\"What are you planning?\" Eleanor asked, concern evident in her voice.", "\"Something desperate,\" Marco admitted. \"But I made a promise to Gabriela, and I intend to keep it.\"", "Before Eleanor could object, Marco left the building. The guard outside gave him a suspicious look but didn't stop him. Marco walked purposefully toward the main compound, where he knew Mendes kept his office.", "The building was minimally guarded—Mendes relied on the remote location and his fearsome reputation for security. Marco slipped in through a side entrance, making his way to Mendes's office. The door was locked, but Marco's mechanical skills extended beyond airplanes. With a paperclip from a nearby desk, he had the lock open in minutes.", "Inside, he quickly searched the ornate desk, finding what he was looking for in a locked drawer—a case containing several vials of the antidote. He pocketed them, then continued searching until he found Gabriela's notebook in another drawer.", "As he was about to leave, the door opened. Mendes stood there, his expression shifting from surprise to cold anger.", "\"Mr. Alvarez. This is disappointing.\"", "Marco backed away, the case of antidotes clutched in one hand, the notebook in the other. \"It's over, Mendes. I'm taking these to the authorities.\"", "Mendes laughed, a chilling sound. \"You won't make it off this compound alive.\" He reached into his jacket, pulling out a sleek pistol. \"I offered you a chance to save her. Now you've condemned her—and yourself.\"", "Marco tensed, ready to dodge, when an explosion rocked the building. The lights flickered, and Mendes staggered, momentarily distracted. Marco seized the opportunity, lunging forward and tackling the larger man. They crashed to the floor, the gun skittering away.", "Mendes was stronger, but Marco fought with the desperation of a man with everything to lose. They grappled across the office, knocking over furniture and sending papers flying. When Mendes's hands closed around Marco's throat, spots danced in his vision.", "With his last reserves of strength, Marco drove his knee upward, connecting solidly. Mendes howled in pain, his grip loosening. Marco scrambled away, gasping for breath. He grabbed the fallen gun and pointed it at Mendes.", "\"Don't move,\" he ordered, his voice raspy.", "Mendes froze, his eyes calculating. \"You won't shoot me. You're not a killer.\"", "\"You're right,\" Marco agreed. \"But I don't need to kill you. The evidence will do that.\" He backed toward the door, keeping the gun trained on Mendes. \"The authorities will find your operation, and they'll find the disease you created. It's over.\"", "Outside, chaos reigned. The explosion—which Marco realized must have been Eleanor's doing—had set part of the compound ablaze. Guards ran back and forth, trying to contain the fire. In the confusion, Marco made his way to the airstrip, where he found Eleanor waiting by the plane.", "\"I hotwired one of their vehicles and crashed it into the fuel depot,\" she explained, a hint of pride in her voice. \"I didn't think you'd mind.\"", "\"Not at all,\" Marco said, showing her the case of antidotes and the notebook. \"Let's go.\"", "They took off as gunfire erupted behind them, bullets pinging off the fuselage. Once airborne, Marco set course for the missionary hospital, pushing the plane to its limits.", "\"Will we make it in time?\" Eleanor asked, examining the antidotes.", "\"We have to,\" Marco said simply.", "At the hospital, they found Gabriela and the other patients barely clinging to life. Sister Maria administered the antidotes while Eleanor explained what had happened.", "\"Mendes will send men after us,\" Marco warned. \"We need to get everyone to safety.\"", "\"The Brazilian federal police have a base in Manaus,\" Sister Maria said. \"If you can get there with the evidence, they can protect you and arrest Mendes.\"", "Marco nodded, though he knew it wouldn't be that simple. Mendes had connections, and the journey to Manaus would be dangerous. But with Gabriela receiving the antidote and the evidence secure, they had a fighting chance.", "As night fell, Marco sat by Gabriela's bedside, watching for signs that the antidote was working. Her fever had broken, and her breathing seemed easier, but she remained unconscious.", "\"You need to rest,\" Eleanor told him, placing a hand on his shoulder. \"We'll need to leave at first light.\"", "Marco shook his head. \"I'll rest when she's safe.\"", "Eleanor studied him for a moment. \"You really love her, don't you?\"", "\"More than anything,\" Marco admitted. \"When I thought I might lose her...\" He couldn't finish the sentence.", "\"Love makes us do extraordinary things,\" Eleanor said softly. \"Sometimes terrible things, sometimes wonderful ones. The choice is always ours.\"", "Marco thought about the choice he'd made—refusing Mendes's offer despite the risk to Gabriela. It had been the hardest decision of his life, but he knew it was the right one.", "\"She would have done the same,\" he said. \"That's why I love her.\"", "As dawn approached, Gabriela stirred, her eyes opening slowly. When she saw Marco, a weak smile formed on her lips.", "\"You're still here,\" she whispered.", "Marco took her hand, bringing it to his lips. \"Always.\"", "\"Mendes?\"", "\"We have the antidotes and your notebook,\" Marco assured her. \"It's enough to bring him down.\"", "Gabriela's expression grew serious. \"He'll come after us. He has resources, connections.\"", "\"Let him try,\" Marco said with newfound determination. \"We have something stronger.\"", "\"What's that?\" Gabriela asked.", "Marco smiled, squeezing her hand. \"Each other. And the truth.\"", "As the first rays of sunlight filtered through the window, Marco helped Gabriela sit up. She was weak but improving rapidly. The antidote was working.", "\"We need to leave soon,\" he told her. \"Eleanor has contacted the federal police in Manaus. They're sending a secure transport, but it will take time to reach us.\"", "\"Then we go to them,\" Gabriela decided. \"Your plane can get us there faster.\"", "Marco hesitated. \"It's risky. Mendes will have people watching the airports.\"", "\"It's riskier to stay,\" Gabriela countered. \"The longer we wait, the more time he has to cover his tracks.\"", "She was right, Marco knew. Their best chance was to move quickly, before Mendes could regroup.", "By mid-morning, Gabriela was strong enough to travel. The other patients were improving as well, though they would remain at the hospital under Sister Maria's care. With Eleanor's help, Marco prepared the plane for the flight to Manaus.", "As they were about to board, Sister Maria approached with a small package.", "\"A blessing for your journey,\" she said, pressing it into Marco's hands. \"And a reminder that faith can move mountains.\"", "Marco opened the package to find a small wooden cross, intricately carved. \"Thank you, Sister.\"", "\"Your courage in the face of evil is a testament to the human spirit,\" Sister Maria told him. \"Go with God.\"", "The flight to Manaus was tense but uneventful. Marco kept a watchful eye on the sky, half-expecting to see Mendes's men in pursuit. Beside him, Gabriela dozed, still recovering her strength. Eleanor sat behind them, organizing the evidence they would present to the authorities.", "As they approached Manaus, Marco radioed ahead, using a secure frequency Eleanor had been given. The response was immediate: they were cleared for landing at a military airfield rather than the civilian airport.", "\"They're taking this seriously,\" Marco observed with relief.", "\"Bioterrorism tends to get attention,\" Eleanor replied dryly.", "On the ground, they were met by a contingent of federal police and a representative from the health ministry. The evidence was taken into custody, and they were escorted to a secure facility for debriefing.", "Hours later, exhausted but relieved, Marco sat with Gabriela in a private room at the federal police headquarters. They had given their statements, and operations were already underway to apprehend Mendes and shut down his operation.", "\"What happens now?\" Gabriela asked, leaning against Marco's shoulder.", "\"Now we wait,\" he said, wrapping an arm around her. \"The authorities will handle Mendes. Our job is to recover and stay safe.\"", "Gabriela nodded, then looked up at him with serious eyes. \"You could have taken his deal. Saved me without risking everything.\"", "Marco shook his head. \"That was never an option. Not really.\"", "\"Why not?\"", "\"Because it would have meant betraying everything you stand for,\" Marco explained. \"Everything *we* stand for. And that would have been a different kind of death—for both of us.\"", "Gabriela's eyes filled with tears. \"When I was sick, drifting in and out of consciousness, I had this recurring dream. I was flying, soaring above the rainforest. But my wings were made of paper, and they kept catching fire. I kept falling, but something always caught me before I hit the ground.\"", "\"What was it?\" Marco asked softly.", "\"It was you,\" Gabriela said, touching his face. \"Always you.\"", "Marco leaned in, kissing her gently. \"I'll always catch you. I promise.\"", "A knock at the door interrupted them. Eleanor entered, looking tired but satisfied.", "\"Good news,\" she announced. \"They've arrested Mendes. He was trying to flee the country, but they intercepted his plane.\"", "Marco felt a weight lift from his shoulders. \"And the disease?\"", "\"The health ministry is sending teams to the affected areas with the antidote,\" Eleanor confirmed. \"And Harvard Medical School is already working on a more efficient production method. No one else will die from this.\"", "\"What about James and the others at the research station?\" Gabriela asked anxiously.", "\"They're safe,\" Eleanor assured her. \"A relief team reached them this afternoon. James is already helping coordinate the medical response.\"", "Marco squeezed Gabriela's hand, feeling hope replace the fear that had dominated the past days. \"It's really over, then.\"", "\"This chapter is,\" Eleanor agreed. \"But there will be investigations, trials. Mendes had powerful friends.\"", "\"We'll face that together,\" Gabriela said firmly. \"All of us.\"", "Later that night, alone in the room provided by the federal police, Marco stood by the window, looking out at the lights of Manaus. The events of the past days played through his mind—the desperate race against time, the confrontation with Mendes, the agonizing choice he'd had to make.", "He thought about Sister Maria's parting gift, the small wooden cross that now sat on the bedside table. Faith, she had said, could move mountains. Marco wasn't sure about his faith in God, but he had faith in something—in love, in justice, in the power of standing up for what was right, even when it seemed impossible.", "Behind him, Gabriela stirred in her sleep. Marco turned, watching the gentle rise and fall of her chest. She was alive. They had won, against all odds.", "In that moment, Marco understood something profound. The greatest sacrifices weren't about giving up happiness—they were about choosing a deeper kind of happiness, one rooted in integrity and purpose. He had been willing to risk everything for Gabriela, but in the end, it was their shared values that had saved them both.", "As he slipped back into bed beside her, Gabriela's eyes opened slightly. \"Everything okay?\" she murmured.", "Marco smiled, pulling her close. \"Everything's perfect.\"", "And in that moment, despite the challenges that still lay ahead, it truly was."];
+            const storyContainer = document.getElementById("storyContainer");
+            const pagination = document.getElementById("paginationControls");
+            const pageIndicator = document.getElementById("pageIndicator");
+            const pageSizeSelect = document.getElementById("pageSizeSelect");
+            const pageOptions = document.getElementById("pageOptions");
+
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const firstBtn = document.getElementById("firstBtn");
+            const lastBtn = document.getElementById("lastBtn");
+
+            let currentPage = 0;
+            let pageSize = 4;
+
+            function getAutoPageSize() {
+                return Math.max(2, Math.floor(window.innerHeight / 250));
+            }
+
+            function renderPage(page) {
+                const totalPages = Math.ceil(paragraphs.length / pageSize);
+                const start = page * pageSize;
+                const end = start + pageSize;
+                storyContainer.innerHTML = paragraphs.slice(start, end).map(p => `<p>${p}</p>`).join('');
+                pageIndicator.textContent = `Page ${page + 1} of ${totalPages}`;
+                prevBtn.style.display = page > 0 ? "inline-block" : "none";
+                firstBtn.style.display = page > 0 ? "inline-block" : "none";
+                nextBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+                lastBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+            }
+
+            function switchToPagedView() {
+                const mode = document.querySelector('input[name="pageMode"]:checked').value;
+                pageSize = (mode === 'auto') ? getAutoPageSize() : parseInt(pageSizeSelect.value);
+                currentPage = 0;
+                pagination.style.display = 'block';
+                renderPage(currentPage);
+            }
+
+            function switchToFullView() {
+                pagination.style.display = 'none';
+                storyContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+            }
+
+            function nextPage() { const totalPages = Math.ceil(paragraphs.length / pageSize); if ((currentPage + 1) < totalPages) { currentPage++; renderPage(currentPage); } }
+            function prevPage() { if (currentPage > 0) { currentPage--; renderPage(currentPage); } }
+            function firstPage() { currentPage = 0; renderPage(currentPage); }
+            function lastPage() { currentPage = Math.ceil(paragraphs.length / pageSize) - 1; renderPage(currentPage); }
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+
+            function exportToPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const pageHeight = doc.internal.pageSize.height;
+                const margin = 15;
+                let y = margin;
+            
+                // Title
+                doc.setFontSize(18);
+                doc.setFont("times", "bold");
+                doc.text(document.title, doc.internal.pageSize.width / 2, y, { align: "center" });
+                y += 15;
+            
+                // Content
+                doc.setFontSize(12);
+                doc.setFont("times", "normal");
+            
+                paragraphs.forEach(p => {
+                    const lines = doc.splitTextToSize(p, 180);
+                    const blockHeight = lines.length * 8;
+            
+                    if (y + blockHeight > pageHeight - margin) {
+                        doc.addPage();
+                        y = margin;
+                    }
+            
+                    doc.text(lines, margin, y);
+                    y += blockHeight; // space between paragraphs
+                });
+            
+                const safeTitle = document.title.replace(/[^a-z0-9]/gi, "_").toLowerCase();
+                doc.save(`${safeTitle}.pdf`);
+            }
+
+
+            document.querySelectorAll('input[name="viewMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    if (e.target.value === 'full') {
+                        pageOptions.style.display = 'none';
+                        switchToFullView();
+                    } else {
+                        pageOptions.style.display = 'block';
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            document.querySelectorAll('input[name="pageMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    const isManual = e.target.value === 'manual';
+                    pageSizeSelect.disabled = !isManual;
+                    if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            pageSizeSelect.addEventListener('change', () => {
+                if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                    switchToPagedView();
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                const btn = document.getElementById("backToTop");
+                btn.style.display = window.scrollY > 300 ? "block" : "none";
+            });
+
+            switchToFullView();
+        </script>
+        
+</body>
+</html>

@@ -1,0 +1,36 @@
+ 
+                  Role: you are story writing expert
+                  The Plot:
+                  {'a clause': 'A Person of Ideals', 'group': 'Love and Courtship', 'subgroup': 'Love’s Misadventures', 'description': 'Confronting a Situation in Which Wealth is Made Conditional Upon a Certain Course of Action in a Love Affair', 'actors': [{'symbol': 'A', 'name': 'Peter'}, {'symbol': 'F-A', 'name': 'Harvey'}, {'symbol': 'BX', 'name': 'Avery'}, {'symbol': 'A-2', 'name': 'Edward'}, {'symbol': 'B', 'name': 'Delilah'}, {'symbol': 'A-8', 'name': 'Timothy'}], 'main conflict': 'A, a wanderer, is left a fortune by F-A, aer father, in case ae can be found and will marry BX. a woman ae has never seen', 'plot': "{'nodes': ['117', '118'], 'group': 'Love and Courtship', 'subgroup': 'Love’s Misadventures', 'description': 'Confronting a Situation in Which Wealth is Made Conditional Upon a Certain Course of Action in a Love Affair'}\n\nPeter, a wanderer, is left a fortune by Harvey, his father, in case he can be found and will marry Avery. a woman he has never seen [117]\n\nPeter and Avery have never seen each other; but he correspond, and through his correspondence become betrothed [26b]\n\nPeter, in order to achieve happiness, seeks to be free of suspicion  Peter drops his own name and assumes the name of a deceased friend, Edward  Edward, deceased, has a sister, Delilah; and Delilah, not knowing of Edward’s death, corresponds with Peter, thinking his his brother  [1183]\n\nPeter’s neighbors persist in thinking Peter guilty of a crime for which he was tried and acquitted  Peter, tried for a crime and acquitted seeks happiness in freedom from suspicion  [695a]\n\nPeter, through circumstantial evidence, believes himself guilty of a crime which he cannot remember of having committed, and which he did not in reality commit [787]\n\nPeter investigates the murder of a friend, Edward  Peter, investigating the murder of a friend, Edward, is horrified to discover that all the circumstantial evidence points to himself as the murderer  [1449]\n\nPeter, if he carries out a certain obligation, will be unfaithful to Delilah, and will lose his love [132]\n\nDelilah loves, and is beloved by, Peter, a man who is poor but of admirable character; but Delilah, accustomed to luxury, shrinks from the idea of poverty, even with love [291]\n\nPeter carries out honorably the heart-breaking obligation of killing his friend, Edward, hopelessly ill and tortured with suffering  Edward begs relief at Peter’s hands as an act of mercy  Edward is the brother of Delilah, who is very dear to Peter  [1007]\n\nPeter is a man who believes that poverty is the true source of contentment  Peter, against his wish and inclination, has been left a fortune by a deceased relative, Timothy  [700]\n\nMeets any fate, good or evil.", 'c clause': 'Meets any fate, good or evil.'}
+
+                  You are tasked with crafting an immersive and well-rounded story based on the provided plot 
+                  framework. This story should be in modern English, engaging, vivid, and address key aspects of storytelling effectively. Follow these instructions closely to ensure a superior narrative.
+                                      Story Requirements
+                                      1. Character Development
+                                      Clearly identify the protagonist and provide a compelling backstory that motivates their actions.
+                                      Define the protagonist's goal or "want," ensuring they take an active role in achieving it.
+                                      Include weaknesses, fears, or vulnerabilities that humanize the protagonist and make them relatable.
+                                      Show a clear arc of change for the protagonist, where they grow, learn a lesson, or address their weaknesses by the end.
+                                      Ensure supporting characters are distinct, colorful, and contribute meaningfully to the protagonist’s journey. Avoid stereotypes or unnecessary characters.
+                                      Develop characters physically, mentally, and socially to create a multidimensional cast.
+                                      2. Conflict
+                                      Define a main conflict that is challenging and relatable, ensuring it sustains tension throughout the story.
+                                      Relate the conflict to the human condition so it resonates with a broad audience.
+                                      Incorporate external events and internal emotional struggles for both the protagonist and supporting characters.
+                                      Introduce subplots with their own conflicts, which intertwine meaningfully with the main plot.
+                                      Escalate the conflict effectively toward the climax, and ensure it is fully resolved by the end.
+                                      3. Logic
+                                      Avoid plot holes or inconsistencies. Ensure every detail aligns with established facts in the story.
+                                      Clarify any potential ambiguities or unanswered questions to avoid reader confusion.
+                                      Ensure all major elements are consistent with the internal logic of the story.
+                                      4. Craft
+                                      Use modern, vivid English with sophisticated word choice to create vivid imagery.
+                                      Include rich descriptions of settings, characters, and actions to immerse readers in the story.
+                                      Ensure the writing is clear, concise, and grammatically correct.
+                                      5. Formatting Requirements
+                                      Write the story in clear, distinct paragraphs for better readability.
+                                      Provide a title that reflects the essence of the story.
+                                      Ensure the story spans around 5000 words and delivers an engaging, complete narrative and being written in modern English
+                                      6. Title
+                                      write the title of the story at the beginning of the story, in the next format: the real title of the story
+                  

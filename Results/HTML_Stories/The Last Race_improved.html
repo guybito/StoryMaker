@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>The Last Race</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+            :root {
+                --bg-color: #fdf6e3;
+                --text-color: #2e2e2e;
+                --btn-color: #333;
+                --btn-hover: #555;
+            }
+
+            body.dark-mode {
+                --bg-color: #1e1e1e;
+                --text-color: #f0f0f0;
+                --btn-color: #ddd;
+                --btn-hover: #fff;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Merriweather', serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                max-width: 800px;
+                margin: auto;
+                padding: 50px 30px;
+                line-height: 2;
+                font-size: 1.15em;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin-bottom: 50px;
+                border-bottom: 3px double #ccc;
+                padding-bottom: 20px;
+                letter-spacing: 2px;
+            }
+
+            p {
+                text-align: justify;
+                margin-bottom: 1.8em;
+            }
+
+            p::first-letter {
+                font-size: 130%;
+                font-weight: bold;
+            }
+
+            #storyContainer {
+                min-height: 600px;
+                position: relative;
+            }
+
+            #paginationControls {
+                text-align: center;
+                margin-top: 30px;
+                min-height: 60px;
+                position: sticky;
+                bottom: 20px;
+                background-color: var(--bg-color);
+                padding: 10px;
+                border-top: 1px solid #aaa;
+            }
+
+            select, label, button {
+                font-size: 1em;
+                margin: 6px 10px;
+            }
+
+            button, select {
+                padding: 6px 14px;
+                border: none;
+                border-radius: 6px;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                transition: background-color 0.3s, color 0.3s;
+                cursor: pointer;
+            }
+
+            button:hover, select:hover {
+                background-color: var(--btn-hover);
+            }
+
+            label {
+                margin: 0 8px;
+                cursor: pointer;
+            }
+
+            input[type="radio"] {
+                margin-right: 4px;
+            }
+
+            #backToTop {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                padding: 10px 15px;
+                font-size: 1em;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                display: none;
+            }
+
+            #controlsTop > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            #controlsTop {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        </style>
+        
+</head>
+<body>
+<h1>The Last Race</h1>
+
+            <!-- Info Modal Trigger -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button onclick="document.getElementById('infoModal').style.display='block'">ℹ️ Info</button>
+            </div>
+            
+            <!-- Info Modal -->
+            <div id="infoModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:90%; max-width:600px; border-radius:10px; font-family:'Merriweather', serif;">
+                <span onclick="document.getElementById('infoModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2>Story Info</h2>
+                <p><strong>📅 Creation Date:</strong> 05-07-2025 10:58</p>
+                <p><strong>🧠 Algorithm:</strong> Plot Genie</p>
+                <p><strong>📝 Word Count:</strong> 4475</p>
+                <p><strong>📄 Review:</strong> <button onclick="document.getElementById('reviewModal').style.display='block'">View Review</button></p>
+              </div>
+            </div>
+            <!-- Review Modal -->
+            <div id="reviewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:5% auto; padding:30px; border:1px solid #888; width:90%; max-width:800px; border-radius:10px; font-family:'Merriweather', serif; max-height:85%; overflow-y:auto;">
+                <span onclick="document.getElementById('reviewModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2 style="margin-top:0;">📘 Story Review</h2>
+                <p><strong>📘 Story Title:</strong> The Last Race_improved_improved</p>
+<hr>
+<p>📄 Claude Evaluation Report</p>
+<hr>
+<h2>Literary Analysis of "The Last Race"</h2>
+<h3>Character (Category Weight = 0.30)</h3>
+<p>1. <strong>Is the main character clearly identifiable?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- Marco Alvarez is clearly established as the protagonist from the opening paragraph, with detailed background, motivations, and a complete character arc throughout the story.</p>
+<p>2. <strong>Does the character have a clear backstory?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Marco's history as a race car driver, his career-ending crash fifteen years ago, and his current life as a taxi driver are thoroughly established, providing rich context for his current situation.</p>
+<p>3. <strong>Does the character have a clear goal or "desire"?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Marco's desire to reconnect with racing while helping Eliza is evident, though his goals evolve throughout the story from passive observation to potentially returning to the racing world.</p>
+<p>4. <strong>Does the character have a clear inner weakness or vulnerability?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Marco's fear of returning to racing, his survivor's guilt regarding Tony's death, and his resentment toward Blackwell create a complex inner vulnerability that drives much of his character arc.</p>
+<p>5. <strong>Does the character undergo a transformation?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Marco experiences a significant transformation, from a man trapped in the past to someone willing to explore new possibilities, culminating in his decision to contact Blackwell's team.</p>
+<p>6. <strong>Do supporting characters contribute to the main character's journey?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Eliza, Blackwell, and Victoria all significantly challenge Marco and contribute to his growth, with each character pushing him toward confronting his past and considering his future.</p>
+<p>7. <strong>Do supporting characters fulfill archetypal roles?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- The supporting cast effectively fills archetypal roles:</strong> Eliza as ally/mirror character, Blackwell as antagonist/redeemed rival, and Victoria as a catalyst who forces confrontation.</p>
+<p>8. <strong>Are supporting characters diverse and distinct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Each supporting character has a distinct personality, background, and motivation:</strong> Eliza's struggle with her dance career, Blackwell's pride and eventual confession, and Victoria's controlling but concerned nature.</p>
+<p>9. <strong>Is the number of characters appropriate?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The story maintains a focused cast of four significant characters (Marco, Eliza, Blackwell, Victoria), allowing for depth without overcrowding the narrative.</p>
+<p>10. <strong>Are characters developed across three layers?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- Characters are well-developed physically (Marco's limp, Eliza's athletic build) and psychologically (Marco's trauma, Eliza's rebellion), though sociological aspects are somewhat less developed.</p>
+<h3>Conflict (Category Weight = 0.30)</h3>
+<p>11. <strong>Is the central conflict strong enough to drive the story?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.35</p>
+<p><strong>- Weighted Score:</strong> 0.42</p>
+<p>- The dual conflicts of Marco confronting his racing past and Eliza determining her future create compelling tension that drives the narrative forward consistently.</p>
+<p>12. <strong>Does the conflict touch upon universal human conditions?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- The story explores universal themes of regret, second chances, forgiveness, and finding purpose after loss that resonate broadly with human experience.</p>
+<p>13. <strong>Are the stakes clear from the beginning?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The emotional stakes for Marco and Eliza are established early, though they deepen and become more concrete as the story progresses.</p>
+<p>14. <strong>Is the conflict directly related to what we know about the character?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- The conflicts arise directly from the characters' established backgrounds and personalities:</strong> Marco's racing history and Eliza's struggle with her mother's expectations.</p>
+<p>15. <strong>Does the conflict escalate as the story approaches its climax?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Tension builds effectively toward Blackwell's crash and confession, with each scene adding new layers of complication and emotional intensity.</p>
+<p>16. <strong>Is the source of conflict consistent throughout?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- The core conflicts remain consistent while evolving naturally:</strong> Marco's relationship with his racing past and Eliza's struggle with her athletic identity.</p>
+<p>17. <strong>Do the subplots also include conflict?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.06</p>
+<p>- The subplot of Eliza's relationship with her mother contains significant conflict that parallels and enhances the main storyline.</p>
+<p>18. <strong>Is there both external and internal conflict?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.06</p>
+<p>- The story balances external conflicts (Blackwell's crash, Victoria's intervention) with internal struggles (Marco's guilt, Eliza's identity crisis).</p>
+<h3>Craft (Category Weight = 0.25)</h3>
+<p>19. <strong>Is the story written in clear, modern English?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.20</p>
+<p>- The prose is consistently clear, contemporary, and accessible while maintaining a sophisticated literary quality.</p>
+<p>20. <strong>Are spelling and grammar correct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The text demonstrates excellent technical proficiency with no noticeable spelling or grammatical errors.</p>
+<p>21. <strong>Is the writing clear, concise, and descriptive?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The writing balances concise storytelling with rich descriptive elements, particularly in racing scenes and character interactions.</p>
+<p>22. <strong>Is there vivid description of characters, scenes, and settings?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- The story provides strong visual imagery of the racetrack and crash scenes, though some settings (like Eliza's apartment) receive less detailed treatment.</p>
+<p>23. <strong>Is there no unnecessary or inappropriate detail?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- Most details serve the narrative effectively, though some conversations could be tightened for greater impact.</p>
+<p>24. <strong>Is everything described visually demonstrable?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.20</p>
+<p>- The story prioritizes visual, action-oriented descriptions that could be effectively translated to visual media.</p>
+<h3>Logic (Category Weight = 0.15)</h3>
+<p>25. <strong>Are there no plot holes?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The plot is generally consistent, though Blackwell's immediate job suggestion after a serious crash stretches credibility somewhat.</p>
+<p>26. <strong>Are there no unclear points?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Most narrative elements are clear, though the exact nature of Eliza's injury and Victoria's knowledge of Marco's past could be more explicitly established.</p>
+<p>27. <strong>Have all questions raised been answered?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story resolves its central questions about Marco's past with Blackwell and provides clear direction for both protagonists' futures.</p>
+<p>28. <strong>Is the story consistent and free of continuity errors?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The narrative maintains consistent characterization and timeline throughout without noticeable continuity issues.</p>
+<p>29. <strong>Are there no contradictions with previously stated information?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story avoids contradicting established facts about characters or events.</p>
+<p>30. <strong>Is the logic sound and free from illogical elements?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- Most plot developments follow logically, though security allowing Marco onto the track after a crash and Blackwell's extended conversation while seriously injured require some suspension of disbelief.</p>
+<h3>Overall Weighted Score: 3.7675</h3>
+<h3>Summary Report</h3>
+<p>"The Last Race" is an emotionally resonant story with exceptionally strong character development and thematic depth. The parallel journeys of Marco and Eliza create a compelling narrative structure that explores themes of regret, second chances, and finding new purpose after loss. The story excels particularly in its character work, with well-defined protagonists whose internal conflicts drive the plot forward naturally. The racing scenes are vividly rendered, and the climactic crash sequence effectively brings the narrative's tensions to a head. While there are minor logical inconsistencies, they don't significantly detract from the story's emotional impact and thematic coherence.</p>
+<h3>Suggestions for Improvement:</h3>
+<p><strong>* <strong>Strengthen logical consistency:</strong> </strong> The scene where Marco approaches Blackwell's crash site could be made more plausible by establishing his former status in the racing world that would give him special access, or by having him initially blocked but then recognized by officials.</p>
+<p><strong>* <strong>Deepen the sociological layer:</strong> </strong> While the characters' psychological and physical traits are well-developed, their broader social contexts could be further explored to add dimension, particularly regarding how Marco's Latino identity might have affected his racing career.</p>
+<p><strong>* <strong>Clarify Eliza's injury:</strong> </strong> The exact nature and cause of Eliza's injury remains somewhat vague; providing more specific details would strengthen the parallel between her situation and Marco's.</p>
+<p><strong>* <strong>Balance exposition:</strong> </strong> Some of the backstory, particularly regarding Marco's crash, is delivered through direct exposition rather than being revealed through action or dialogue, which could be adjusted for a more dynamic narrative flow.</p>
+              </div>
+            </div>
+        
+
+        <div id="controlsTop">
+            <div>
+                <label><input type="radio" name="viewMode" value="full" checked> Continuous Reading</label>
+                <label><input type="radio" name="viewMode" value="paged"> Paginated View</label>
+            </div>
+
+            <div id="pageOptions" style="display: none;">
+                <label><input type="radio" name="pageMode" value="auto" checked> Auto Paragraphs</label>
+                <label><input type="radio" name="pageMode" value="manual"> Manual</label>
+                <select id="pageSizeSelect" disabled>
+        <option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+                </select>
+            </div>
+
+            <div>
+                <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+
+        </div>
+
+        <div id="storyContainer"></div>
+
+        <div id="paginationControls" style="display: none;">
+            <button id="firstBtn" onclick="firstPage()">⏮ First</button>
+            <button id="prevBtn" onclick="prevPage()">◀ Previous</button>
+            <span id="pageIndicator">Page 1 of X</span>
+            <button id="nextBtn" onclick="nextPage()">Next ▶</button>
+            <button id="lastBtn" onclick="lastPage()">Last ⏭</button>
+        </div>
+
+        <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆ Back to Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script>
+            const paragraphs = ["The morning sun cast long shadows across the worn asphalt of Riverside Raceway as Marco Alvarez guided his yellow taxi through the entrance gates. The security guard recognized him with a nod—Marco had been coming here every Sunday for the past three months. He parked in his usual spot near the maintenance shed, away from the growing crowd of racing enthusiasts.", "Marco checked his watch: 7:15 AM. Forty-five minutes before his passenger would arrive. Leaning back in his seat, he closed his eyes and listened to the distant sounds of engines being tuned in the pit area. The familiar symphony of mechanical preparation had once filled him with excitement. Now it only reminded him of everything he'd lost.", "At forty-two, Marco's weathered face told the story of a man who had seen both triumph and tragedy. His once-promising career as a race car driver had ended fifteen years ago in a crash that left him with a permanent limp and recurring nightmares. Now, he drove a taxi in downtown Riverside, ferrying tourists and businesspeople through congested streets—the closest he could get to what had once made him feel truly alive.", "A knock on the window startled him from his thoughts. Eliza Chen stood outside, her athletic frame silhouetted against the morning light.", "\"Morning, Marco,\" she said as he rolled down the window. \"Ready for another Sunday ritual?\"", "Marco nodded, gesturing for her to get in. \"How were the legs this morning?\"", "\"Stiff,\" Eliza admitted as she slid into the passenger seat. \"But I got in five miles before sunrise. The doctor says I should be taking it easier, but...\"", "\"But you don't know how,\" Marco finished for her, understanding in his voice.", "Their unlikely friendship had begun three months ago when Marco had picked Eliza up from physical therapy. She'd been referred to the same rehabilitation center where Marco had once undergone treatment after his racing accident. Recognizing the familiar frustration in her eyes—the look of an athlete being told to slow down—he'd shared his own story during the ride. When she'd mentioned wanting to maintain some form of training despite her stress fractures, Marco had suggested the raceway's empty morning track. Their Sunday ritual was born.", "As they drove toward the track, Marco glanced at Eliza. \"Your mother called me again yesterday.\"", "Eliza's jaw tightened. \"What did she want this time?\"", "\"The same thing. She wanted to know if I was still bringing you here. She offered me double my usual fare to 'accidentally' drive you somewhere else today.\"", "\"And?\"", "\"And I told her what I always tell her—that I work for you, not for her.\"", "Eliza smiled, though it didn't reach her eyes. \"Thank you.\"", "Victoria Chen, Eliza's mother and the owner of one of the most prestigious dance studios in Southern California, had been calling Marco regularly since discovering their arrangement. Victoria had trained Eliza from childhood to be a professional dancer, pushing her through injuries and exhaustion until Eliza had finally rebelled in her twenties, walking away from dance to pursue endurance sports instead.", "\"She's just worried about you,\" Marco said, though he didn't sound convinced.", "\"She's worried about her investment,\" Eliza corrected him. \"Twenty-five years of training, down the drain because her daughter preferred running marathons to performing pirouettes for rich patrons.\"", "They fell silent as Marco parked near the track entrance. The morning air was cool, but the cloudless sky promised another scorching California day. Marco grabbed his thermos of coffee and followed Eliza toward the track, his limp more pronounced after sitting in the car.", "\"You're moving slower today,\" Eliza observed as they approached the starting line.", "Marco shrugged. \"Bad night. The dreams came back.\"", "Eliza nodded, understanding without needing details. They had spent enough Sundays together to develop the kind of friendship where silences were comfortable and personal demons acknowledged without judgment. She knew about the crash that had ended his racing career—the one that had killed his co-driver and best friend, Tony.", "\"How many laps today?\" Marco asked, changing the subject.", "\"Eight,\" Eliza said, stretching her calves. \"Two miles. Doctor says that's my limit for now.\"", "Marco raised an eyebrow. \"And how many will you actually do?\"", "Eliza grinned. \"Probably twelve.\"", "As Eliza began her first lap, Marco settled on a bench near the starting line. From here, he could watch her complete each circuit while also keeping an eye on the pit area, where crews were preparing for the day's amateur races. His gaze lingered on a particular garage at the far end, where a sleek black car was being serviced by a team in matching uniforms.", "Raymond Blackwell had been Marco's main rival during his racing days. While Marco had driven for smaller, independent teams, Blackwell had enjoyed the backing of his family's automotive empire. Their rivalry had been intense but professional—until the crash. Blackwell had been driving the car that had clipped Marco's rear bumper, sending him into the wall at 160 miles per hour. The investigation had cleared Blackwell of intentional wrongdoing, ruling it a racing incident. But Marco had always suspected there was more to the story.", "Now, fifteen years later, Blackwell was still racing in amateur circuits while also managing his family's racing division. He had everything Marco had lost: a career, respect in the racing community, and most importantly, peace of mind.", "Eliza completed her first lap, waving as she passed. Marco forced a smile and waved back, pushing thoughts of Blackwell aside. This wasn't about him today. It was about helping Eliza reclaim her own sense of purpose, one painful lap at a time.", "By her sixth lap, Eliza was showing signs of fatigue. Her stride had shortened, and Marco could see her favoring her right leg. He stood up, ready to intervene, when he noticed a woman in an expensive pantsuit approaching from the parking area.", "\"Mother,\" Eliza said coldly as she completed her lap and found Victoria waiting beside Marco. \"What a surprise.\"", "Victoria ignored the sarcasm. \"This has gone on long enough, Eliza. You're destroying yourself, and for what? To prove some point?\"", "\"I'm healing,\" Eliza insisted. \"My way.\"", "\"By running on a hard track surface against medical advice?\" Victoria gestured toward Eliza's legs. \"You're limping already. At this rate, you'll never dance again, let alone run your precious marathons.\"", "Marco stepped back, uncomfortable in the middle of their family drama, but Victoria turned to him before he could retreat.", "\"And you,\" she said, her voice sharp with accusation. \"You enable this self-destruction. What kind of person brings an injured athlete to a track?\"", "\"The kind who respects her choices,\" Marco replied quietly. \"Eliza is an adult. She knows her limits.\"", "\"Clearly, she doesn't,\" Victoria snapped. \"And neither do you. Did you tell her about your own career? How it ended because you pushed beyond your limits?\"", "Marco stiffened. \"That's different.\"", "\"Is it?\" Victoria turned back to her daughter. \"Eliza, this man lost everything because he couldn't accept his limitations. Is that really the example you want to follow?\"", "Eliza looked between them, confusion evident on her face. \"What is she talking about, Marco?\"", "Before Marco could respond, a voice called out from behind them. \"Well, well. Marco Alvarez at a racetrack. Never thought I'd see the day.\"", "Raymond Blackwell approached with the confident stride of a man accustomed to commanding attention. At fifty, he remained fit and imposing, his silver-streaked hair adding to his distinguished appearance.", "\"Blackwell,\" Marco acknowledged, his voice tight.", "\"Still hanging around the tracks, I see,\" Blackwell said, his smile not reaching his eyes. \"Though I heard you're driving a different kind of vehicle these days. Yellow, with a meter?\"", "Marco felt heat rise to his face but forced himself to remain calm. \"At least I'm still driving. Some of us have to work for a living.\"", "Blackwell's smile faltered slightly. \"Some of us know when to adapt to changing circumstances. Speaking of which, I'm racing in the veterans' circuit today. You should stick around, see how it's done properly.\"", "The implication hung in the air between them: unlike Marco, Blackwell had survived his racing career intact. Before Marco could respond, Eliza stepped forward.", "\"We were in the middle of something,\" she said coolly. \"If you don't mind.\"", "Blackwell looked Eliza up and down, taking in her athletic build and determined expression. \"Of course. Didn't mean to interrupt a family dispute.\"", "\"We're not family,\" Eliza clarified.", "\"No?\" Blackwell looked between Marco and Victoria with raised eyebrows. \"My mistake. Enjoy your morning.\" He nodded to Victoria, who had been watching the exchange with interest, before walking back toward the pit area.", "\"Who was that?\" Victoria demanded once Blackwell was out of earshot.", "\"Nobody important,\" Marco muttered, though his clenched fists suggested otherwise.", "Eliza, however, was not so easily distracted. \"You still haven't answered my question. What did my mother mean about your career ending because you pushed beyond your limits?\"", "Marco sighed, running a hand through his thinning hair. \"It's complicated, Eliza.\"", "\"I have time,\" she insisted.", "Victoria checked her watch. \"I don't. Eliza, I came here to tell you that the studio has received an offer from the National Dance Company. They're looking for a choreographer for their new contemporary program, and they specifically asked for you.\"", "Eliza's expression shifted from annoyance to surprise. \"Me? Why would they ask for me?\"", "\"Because despite your best efforts to sabotage your reputation, people still remember your talent,\" Victoria said. \"This could be your way back—a chance to stay in dance without the physical demands of performing. But you need to be in New York next week for an interview.\"", "\"Next week?\" Eliza shook her head. \"I can't just drop everything and fly across the country.\"", "\"What 'everything'?\" Victoria gestured around the empty track. \"Your physical therapy sessions with a taxi driver? Your apartment where you live alone with your marathon medals? What exactly would you be leaving behind?\"", "The words struck with precision, and Marco could see them land. Eliza's face flushed, not with anger but with the recognition of truth.", "\"I need to finish my laps,\" Eliza said finally, turning away from her mother.", "\"The company needs an answer by Wednesday,\" Victoria called after her. \"Don't throw away another opportunity because of your pride.\"", "As Eliza resumed her running, noticeably slower now, Victoria turned to Marco. \"She listens to you, for whatever reason. Talk some sense into her.\"", "Marco watched Eliza's labored progress around the track. \"Maybe she's right to be cautious. Going back to dance, even as a choreographer—it might not be what she needs.\"", "\"And what would you know about what my daughter needs?\" Victoria's voice was cold. \"You're a taxi driver who couldn't let go of his own past. Is that what you want for Eliza? To end up like you?\"", "The words stung, but Marco couldn't deny their truth. He had spent fifteen years dwelling on what he'd lost, driving a taxi to stay close to the only thing he'd ever been good at.", "\"Just think about it,\" Victoria said, softening slightly. \"She respects you. Use that influence wisely.\" With that, she turned and walked back toward the parking lot, leaving Marco alone with his thoughts.", "By the time Eliza completed her tenth lap—two more than prescribed but fewer than she'd planned—the sun was high in the sky, and the stands were beginning to fill with spectators for the day's races. She collapsed onto the bench beside Marco, her breathing labored.", "\"Your mother's right about one thing,\" Marco said, handing her a bottle of water. \"You're pushing too hard today.\"", "Eliza took a long drink before responding. \"Says the man who won't tell me why his racing career really ended.\"", "Marco looked out at the track, where officials were making final preparations for the first race. \"It's not a secret. I crashed. My co-driver died. I survived with a bum leg and enough metal in my hip to set off airport security scanners.\"", "\"But that's not why you quit,\" Eliza pressed. \"My mother said you pushed beyond your limits. What did she mean?\"", "Marco was silent for a long moment. \"After the crash, the doctors told me I could probably race again after physical therapy. Not at the same level, maybe, but I could have stayed in the sport—coaching, testing, even some competitive driving in lower circuits. But I couldn't face it. Every time I got behind the wheel of a race car, I'd see Tony's face in those last seconds before impact.\"", "\"So you quit because of trauma, not because you pushed too hard,\" Eliza said.", "Marco shook his head. \"I quit because I was afraid. And then I spent the next fifteen years regretting it, wondering what might have been if I'd found the courage to get back in a race car.\" He turned to look at her directly. \"Your mother's right about the other thing too. You should consider that choreography position.\"", "Eliza's expression hardened. \"So you're taking her side now?\"", "\"I'm not taking sides. I'm saying that sometimes we need to adapt when life throws us a curve. You can't run marathons anymore—at least not for a while. But you can still be connected to movement, to dance. On your terms, not your mother's.\"", "\"And what about you?\" Eliza challenged. \"When are you going to adapt? Or are you planning to drive that taxi until you retire?\"", "Before Marco could respond, the announcer's voice boomed over the loudspeakers, introducing the drivers for the first race—the Veterans' Circuit, featuring \"local legend Raymond Blackwell in car number seven.\"", "Marco's gaze was drawn to the starting grid, where Blackwell was settling into his car, waving to the cheering crowd. Something twisted in Marco's chest—a familiar mix of envy and resentment that he'd carried for fifteen years.", "\"That's him, isn't it?\" Eliza asked, following Marco's gaze. \"The man from earlier. He was involved in your crash somehow.\"", "Marco nodded slowly. \"He clipped my rear bumper on turn three. Sent me into the wall at 160 miles per hour. The investigation ruled it a racing incident—no malicious intent. But I always wondered...\"", "The engines roared to life, drowning out further conversation. Marco watched as the cars completed their formation lap, with Blackwell's black vehicle in pole position. Despite everything, he couldn't deny the familiar surge of excitement as the race began, the cars accelerating away from the starting line in a cacophony of sound and color.", "\"We should go,\" Marco said, standing abruptly. \"The crowds will make it difficult to get out of the parking lot once the racing starts in earnest.\"", "Eliza remained seated, her eyes on the track. \"I want to watch for a bit. Unless you have another fare waiting?\"", "Marco hesitated, then sat back down. \"No other fares today.\"", "They watched in silence as the cars completed the first few laps. Blackwell maintained his lead, his driving as smooth and controlled as Marco remembered. Despite his resentment, Marco couldn't help but admire the technical skill on display.", "\"He's good,\" Eliza observed.", "\"He always was,\" Marco acknowledged. \"That's what made losing to him so frustrating.\"", "As the race progressed, Marco found himself increasingly absorbed in the tactical battle unfolding on the track. Blackwell was being challenged by a younger driver in a red car, the two of them exchanging the lead several times as they navigated the circuit's challenging corners.", "\"The kid in the red car is pushing too hard,\" Marco commented as they completed the tenth lap. \"He'll burn out his tires before the end.\"", "By the fifteenth lap, Marco's prediction was proving accurate. The red car was losing ground, its movements becoming less precise as the tires degraded. Blackwell, meanwhile, maintained his consistent pace, gradually extending his lead over the field.", "\"He's going to win,\" Marco said, a note of resignation in his voice.", "As they watched, something unexpected happened. On turn three—the same turn where Marco's career had ended fifteen years earlier—Blackwell's car suddenly veered wide, nearly clipping the wall. He recovered quickly, but the mistake cost him time and allowed the second-place driver to close the gap.", "\"That's not like him,\" Marco said, leaning forward with renewed interest. \"Blackwell never makes unforced errors.\"", "Over the next few laps, Blackwell's driving became increasingly erratic. He was still fast, still in the lead, but his usual precision was missing. The announcers noted the change, speculating about mechanical issues or tire problems.", "\"Something's wrong,\" Marco said, standing up for a better view. \"His line through the corners is all over the place.\"", "As if to confirm his assessment, Blackwell's car swerved dramatically on the next lap, this time actually brushing against the wall before straightening out. The crowd gasped collectively, and officials began waving yellow caution flags.", "\"He should pit,\" Marco muttered. \"Whatever's wrong, he needs to get it checked.\"", "But Blackwell continued, ignoring the caution flags. His car was visibly damaged now, with the right rear quarter panel crumpled from the contact with the wall. Still, he maintained his lead, though the gap was shrinking with each lap.", "\"He's being reckless,\" Eliza observed. \"Why wouldn't he pit?\"", "\"Pride,\" Marco said simply. \"He won't give up a win, even if it means risking everything.\"", "The words hung in the air between them, laden with unintended significance. Wasn't that exactly what Eliza was doing with her running? What Marco had done with his own career before the crash?", "As they watched, Blackwell's car approached turn three again, now moving noticeably slower due to the damage. But instead of taking the conservative line, he accelerated hard into the corner—too hard. The car's damaged rear end lost traction, sending it into a spin. Blackwell fought the wheel, trying to regain control, but the car slid sideways across the track and slammed hard into the inside wall.", "The impact was violent, the car crumpling around the driver's compartment as it rebounded back onto the track. Other drivers swerved to avoid the wreckage as safety vehicles rushed onto the circuit. The crowd fell silent, the only sound the wail of sirens as medical personnel converged on the scene.", "Marco stood frozen, the scene before him overlapping with memories of his own crash fifteen years earlier. The same turn, the same wall, the same sickening sound of metal impacting concrete at high speed.", "\"Marco?\" Eliza's voice seemed to come from far away. \"Marco, are you okay?\"", "He blinked, forcing himself back to the present. \"I... I need to see if he's alright.\"", "Before Eliza could respond, Marco was moving, limping rapidly toward the crash site. Security personnel tried to stop him at the track entrance, but something in his expression made them step aside.", "By the time Marco reached the wreckage, paramedics were already working to extract Blackwell from the mangled car. The scene was chaotic—officials shouting orders, medical equipment being rushed in, the acrid smell of burnt rubber and hot metal hanging in the air.", "Marco hung back, suddenly uncertain why he had come. What could he possibly do here? He was about to turn away when one of the paramedics called out.", "\"He's conscious! We need to stabilize him before extraction.\"", "Marco moved closer, peering through the gathered emergency workers. Blackwell was indeed conscious, his face bloody but his eyes open. Those eyes found Marco in the crowd, widening in recognition.", "\"Alvarez?\" Blackwell's voice was weak but clear. \"What the hell are you doing here?\"", "The paramedics glanced at Marco questioningly, but he ignored them, stepping closer to the wreckage. \"I saw the crash. Wanted to make sure you were okay.\"", "Blackwell coughed, a wet sound that suggested internal injuries. \"Didn't think you'd care, after... everything.\"", "\"Neither did I,\" Marco admitted.", "The paramedics continued working around them, cutting away sections of the car to create an extraction path. Blackwell winced as the movement jostled his injuries.", "\"Stupid mistake,\" he muttered. \"Got dizzy on the straight. Should have pitted.\"", "\"Yes, you should have,\" Marco agreed. \"But I understand why you didn't.\"", "Blackwell's eyes found his again, something like understanding passing between them. \"The crash—your crash. I never told anyone, but... I was having vision problems that day too. Didn't want to forfeit the points, so I raced anyway. When I clipped you, I was trying to blink away a blur.\"", "The confession hung in the air between them. After fifteen years of suspicion and resentment, the truth was both simpler and more complex than Marco had imagined. Not malice, but pride—the same pride that had just put Blackwell into the wall.", "\"Why are you telling me this now?\" Marco asked.", "Blackwell attempted a shrug, then grimaced in pain. \"Seems like the right time. Lying here, I keep seeing your co-driver's face. Tony. Good guy. Never deserved what happened.\"", "\"No, he didn't,\" Marco agreed, his throat tight.", "\"I told the board you were driving recklessly because I couldn't face what I'd done,\" Blackwell continued. \"Easier to blame you than admit I should never have been on the track that day. I'm sorry, Alvarez. For everything.\"", "Before Marco could respond, the paramedics moved in to complete the extraction. \"We need to move him now,\" one of them said firmly, guiding Marco away from the car.", "As they lifted Blackwell onto a stretcher, he called out to Marco one last time. \"Hey, Alvarez! My team could use someone who understands racing from the inside. When I get out of here—if you're interested—come see me.\"", "And then he was gone, whisked away in a flurry of medical efficiency, leaving Marco standing alone beside the ruined race car. He remained there for several minutes, processing what had just happened. Fifteen years of anger and resentment, resolved in a few moments of unexpected honesty from a man who might not survive the day.", "When Marco finally made his way back to the stands, he found Eliza waiting anxiously. \"Is he okay?\" she asked as he approached.", "\"I don't know,\" Marco admitted. \"It looked bad, but he was conscious and talking.\"", "\"What did he say to you? You were there for a while.\"", "Marco sank onto the bench, suddenly exhausted. \"He confessed something I've suspected for fifteen years—that he was partially responsible for my crash. Not out of malice, but because of his own recklessness.\"", "\"And?\" Eliza studied his face.", "\"And he apologized. Fifteen years too late, but still...\" Marco shook his head, still processing the encounter. \"He also mentioned something about his team needing someone who understands racing from the inside.\"", "Eliza's eyebrows shot up. \"A job offer?\"", "\"Not exactly. More of a possibility.\" Marco looked out at the track, where crews were still clearing the wreckage. \"Crazy, right?\"", "\"Is it?\" Eliza studied his face. \"You still love racing. It's obvious every time we come here.\"", "\"Loving something doesn't mean you should do it,\" Marco countered. \"Especially when it nearly killed you once.\"", "\"No,\" Eliza agreed. \"But sometimes the thing that hurt you is also the thing that can heal you.\" She gestured toward the track. \"I didn't start running marathons just to spite my mother. I did it because movement is the only thing that makes me feel alive. Dance was her vision for me. Running was mine. But they both came from the same place—the joy of pushing my body to its limits.\"", "Marco considered her words. \"And now that you can't run marathons anymore?\"", "\"Now I need to find a new way to channel that same joy,\" Eliza said. \"Maybe choreography is that way. Maybe it isn't. But I won't know unless I try.\"", "They sat in companionable silence for a while, watching as track officials cleared the wreckage and prepared to resume the racing program. The crowd had thinned somewhat after Blackwell's crash, but many spectators remained, their appetite for speed and danger undiminished.", "\"I should get you home,\" Marco said eventually. \"You've pushed your legs enough for one day.\"", "Eliza nodded, wincing slightly as she stood. \"I overdid it, didn't I?\"", "\"Probably,\" Marco agreed. \"But I understand why.\"", "As they made their way back to the taxi, Eliza leaned on Marco's arm for support, both of them limping slightly—a matched pair of wounded athletes supporting each other across the parking lot.", "\"So what will you do?\" Eliza asked as they reached the car. \"About Blackwell's suggestion?\"", "Marco opened the passenger door for her before responding. \"I don't know. Part of me thinks it's crazy to even consider it. But another part...\"", "\"Another part has been waiting fifteen years for a second chance,\" Eliza finished for him.", "Marco nodded as he slid into the driver's seat. \"What about you? Will you call the National Dance Company?\"", "Eliza buckled her seatbelt, her expression thoughtful. \"I think I will. Not because my mother wants me to, but because... because maybe it's time to stop running away from my past.\"", "As Marco started the engine, he glanced in the rearview mirror at the raceway behind them. For fifteen years, he had been trapped in a holding pattern, driving a taxi to stay close to the only thing he'd ever loved while simultaneously avoiding the pain associated with it. Blackwell's crash—and his unexpected confession—had shattered that stasis, forcing Marco to confront the possibility of a different future.", "\"Next Sunday,\" he said as they approached Eliza's apartment building, \"let's try something different.\"", "\"Different how?\" Eliza asked.", "\"Instead of the track, let's go to the dance studio. Your mother's or another one—your choice. You can show me what choreography actually looks like.\"", "Eliza considered this for a moment. \"Only if you'll do something different too.\"", "\"Like what?\"", "\"Like calling Blackwell's team. Not to accept anything—not yet. But to explore the possibility.\"", "Marco nodded slowly. \"Deal.\"", "As Eliza paid the fare and prepared to exit the taxi, she paused with her hand on the door. \"You know, for a taxi driver and a marathon runner with busted legs, we're not doing too badly.\"", "Marco laughed—a genuine laugh that surprised him with its ease. \"No, I suppose we're not. See you next Sunday?\"", "\"Next Sunday,\" Eliza confirmed. \"For a new kind of race.\"", "As Marco watched her make her way slowly but determinedly toward her building, he felt a sense of anticipation that had been absent from his life for too long. The past would always be there—the crash, the loss, the years of regret. But perhaps it was finally time to shift his focus from what lay behind to what might lie ahead.", "He pulled away from the curb, merging back into traffic. In his mind, he could hear the roar of engines, feel the vibration of a race car responding to his touch. Not memories this time, but possibilities—the future calling to him like the checkered flag at the end of a long, difficult race.", "The last race, perhaps, was the one against himself. And for the first time in fifteen years, Marco felt ready to run it."];
+            const storyContainer = document.getElementById("storyContainer");
+            const pagination = document.getElementById("paginationControls");
+            const pageIndicator = document.getElementById("pageIndicator");
+            const pageSizeSelect = document.getElementById("pageSizeSelect");
+            const pageOptions = document.getElementById("pageOptions");
+
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const firstBtn = document.getElementById("firstBtn");
+            const lastBtn = document.getElementById("lastBtn");
+
+            let currentPage = 0;
+            let pageSize = 4;
+
+            function getAutoPageSize() {
+                return Math.max(2, Math.floor(window.innerHeight / 250));
+            }
+
+            function renderPage(page) {
+                const totalPages = Math.ceil(paragraphs.length / pageSize);
+                const start = page * pageSize;
+                const end = start + pageSize;
+                storyContainer.innerHTML = paragraphs.slice(start, end).map(p => `<p>${p}</p>`).join('');
+                pageIndicator.textContent = `Page ${page + 1} of ${totalPages}`;
+                prevBtn.style.display = page > 0 ? "inline-block" : "none";
+                firstBtn.style.display = page > 0 ? "inline-block" : "none";
+                nextBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+                lastBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+            }
+
+            function switchToPagedView() {
+                const mode = document.querySelector('input[name="pageMode"]:checked').value;
+                pageSize = (mode === 'auto') ? getAutoPageSize() : parseInt(pageSizeSelect.value);
+                currentPage = 0;
+                pagination.style.display = 'block';
+                renderPage(currentPage);
+            }
+
+            function switchToFullView() {
+                pagination.style.display = 'none';
+                storyContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+            }
+
+            function nextPage() { const totalPages = Math.ceil(paragraphs.length / pageSize); if ((currentPage + 1) < totalPages) { currentPage++; renderPage(currentPage); } }
+            function prevPage() { if (currentPage > 0) { currentPage--; renderPage(currentPage); } }
+            function firstPage() { currentPage = 0; renderPage(currentPage); }
+            function lastPage() { currentPage = Math.ceil(paragraphs.length / pageSize) - 1; renderPage(currentPage); }
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+
+            function exportToPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const pageHeight = doc.internal.pageSize.height;
+                const margin = 15;
+                let y = margin;
+            
+                // Title
+                doc.setFontSize(18);
+                doc.setFont("times", "bold");
+                doc.text(document.title, doc.internal.pageSize.width / 2, y, { align: "center" });
+                y += 15;
+            
+                // Content
+                doc.setFontSize(12);
+                doc.setFont("times", "normal");
+            
+                paragraphs.forEach(p => {
+                    const lines = doc.splitTextToSize(p, 180);
+                    const blockHeight = lines.length * 8;
+            
+                    if (y + blockHeight > pageHeight - margin) {
+                        doc.addPage();
+                        y = margin;
+                    }
+            
+                    doc.text(lines, margin, y);
+                    y += blockHeight; // space between paragraphs
+                });
+            
+                const safeTitle = document.title.replace(/[^a-z0-9]/gi, "_").toLowerCase();
+                doc.save(`${safeTitle}.pdf`);
+            }
+
+
+            document.querySelectorAll('input[name="viewMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    if (e.target.value === 'full') {
+                        pageOptions.style.display = 'none';
+                        switchToFullView();
+                    } else {
+                        pageOptions.style.display = 'block';
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            document.querySelectorAll('input[name="pageMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    const isManual = e.target.value === 'manual';
+                    pageSizeSelect.disabled = !isManual;
+                    if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            pageSizeSelect.addEventListener('change', () => {
+                if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                    switchToPagedView();
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                const btn = document.getElementById("backToTop");
+                btn.style.display = window.scrollY > 300 ? "block" : "none";
+            });
+
+            switchToFullView();
+        </script>
+        
+</body>
+</html>

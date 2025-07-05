@@ -1,0 +1,36 @@
+ 
+                  Role: you are story writing expert
+                  The Plot:
+                  {'a clause': 'A Person of Ideals', 'group': 'Love and Courtship', 'subgroup': 'Love’s Misadventures', 'description': 'Suffering an Estrangement Due to Mistaken Judgment', 'actors': [{'symbol': 'A', 'name': 'Martin'}, {'symbol': 'B', 'name': 'Anna'}, {'symbol': 'A-3', 'name': 'Jordan'}], 'main conflict': 'A believes that aer sweetheart, B, is dead; and B, at a distance, learns of this mistaken belief on A’s part', 'plot': "{'nodes': ['105'], 'group': 'Love and Courtship', 'subgroup': 'Love’s Misadventures', 'description': 'Suffering an Estrangement Due to Mistaken Judgment'}\n\nMartin believes that his sweetheart, Anna, is dead; and Anna, at a distance, learns of this mistaken belief on Martin’s part [105]\n\nAnna, husband of Martin, leaves home suddenly on important business while Martin is absent  Anna, leaving home suddenly during the absence of his husband, Martin, writes a line to Martin explaining his departure, but the wind whisks the note out of an open window and away. Anna’s absence is accounted a mysterious disappearance  [585a]\n\nMartin believes that his husband, Anna, is in love with Jordan [553]\n\nMartin dearly loves his husband, Anna; and his love, which he does not possess, is necessary to his happiness [547]\n\nMartin and Anna, married and devotedly in love with each other, are hasty and intolerant  Martin and Anna quarrel  Martin and Anna, devotedly in love with each other, through failure to understand each other’s ideals Martin is a selfish person, constantly looking out for “Number One”  Martin, selfish and miserly, finds that his methods are mistaken and that he is making no progress towards happiness Martin is wealthy and avaricious, and happy only when adding to his riches  Martin, wealthy and avaricious, loses all by grasping for trifling gains Anna is a selfish, hard-hearted, worldly-minded woman who seeks to live for himself alone. he wonders why he is not happy and contentedB believes that the practice of the religious virtues is the crying need of the world, and seeks by his own life to exemplify his convictions Martin is so much older than Anna that, after his marriage, the discrepancy in his ages Martin is older and more experienced than Anna and seeks to advise his wisely and help his avoid making mistakes  Anna resents the superior attitude assumed by Martin  [369]\n\nAnna offers to marry Martin and, as his husband, help his to rebuild his wasted life [367a]\n\nAnna disguises himself and meets Martin, the man he loves, as an Unknown  Anna seeks to discover whether Martin really loves his  [82a]\n\nAnna is in love with Martin, but Martin avoids women, believing him all tempters of Satan [250]\n\nAnna, knowing that his sweetheart, Martin, believes his to have perished in a tragic accident discovers by secret enterprise Anna disguises himself and meets Martin, the man he loves, as an Unknown  Anna seeks to discover whether Martin really loves his Anna disguises himself as a boy, in order to be near Martin, whom he secretly adores that Martin has remained true to his Martin has recently lost his husband, Anna  Martin finds his memories of his deceased husband, Anna, an inspiration and a sustaining power  [357]\n\nAchieves a complete and permanent character transformation", 'c clause': 'Achieves a complete and permanent character transformation'}
+
+                  You are tasked with crafting an immersive and well-rounded story based on the provided plot 
+                  framework. This story should be in modern English, engaging, vivid, and address key aspects of storytelling effectively. Follow these instructions closely to ensure a superior narrative.
+                                      Story Requirements
+                                      1. Character Development
+                                      Clearly identify the protagonist and provide a compelling backstory that motivates their actions.
+                                      Define the protagonist's goal or "want," ensuring they take an active role in achieving it.
+                                      Include weaknesses, fears, or vulnerabilities that humanize the protagonist and make them relatable.
+                                      Show a clear arc of change for the protagonist, where they grow, learn a lesson, or address their weaknesses by the end.
+                                      Ensure supporting characters are distinct, colorful, and contribute meaningfully to the protagonist’s journey. Avoid stereotypes or unnecessary characters.
+                                      Develop characters physically, mentally, and socially to create a multidimensional cast.
+                                      2. Conflict
+                                      Define a main conflict that is challenging and relatable, ensuring it sustains tension throughout the story.
+                                      Relate the conflict to the human condition so it resonates with a broad audience.
+                                      Incorporate external events and internal emotional struggles for both the protagonist and supporting characters.
+                                      Introduce subplots with their own conflicts, which intertwine meaningfully with the main plot.
+                                      Escalate the conflict effectively toward the climax, and ensure it is fully resolved by the end.
+                                      3. Logic
+                                      Avoid plot holes or inconsistencies. Ensure every detail aligns with established facts in the story.
+                                      Clarify any potential ambiguities or unanswered questions to avoid reader confusion.
+                                      Ensure all major elements are consistent with the internal logic of the story.
+                                      4. Craft
+                                      Use modern, vivid English with sophisticated word choice to create vivid imagery.
+                                      Include rich descriptions of settings, characters, and actions to immerse readers in the story.
+                                      Ensure the writing is clear, concise, and grammatically correct.
+                                      5. Formatting Requirements
+                                      Write the story in clear, distinct paragraphs for better readability.
+                                      Provide a title that reflects the essence of the story.
+                                      Ensure the story spans around 5000 words and delivers an engaging, complete narrative and being written in modern English
+                                      6. Title
+                                      write the title of the story at the beginning of the story, in the next format: the real title of the story
+                  

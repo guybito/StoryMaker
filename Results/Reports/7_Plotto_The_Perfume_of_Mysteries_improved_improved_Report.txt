@@ -1,0 +1,6 @@
+📘 Story Title: The Perfume of Mysteries_improved_improved
+------------------------------------------------------------
+📄 Claude Evaluation Report
+------------------------------------------------------------
+
+An error occurred while sending prompt to Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}}

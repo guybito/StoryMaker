@@ -1,26 +1,667 @@
---- Processing File: 1_PlotGenie_Redemption's_Embrace_Report.txt ---
-Total Weighted Score for all questions (excluding overall line): 3.0875
+--- Processing File: 10_PlotGenie_Wings_of_Sacrifice_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.5375
 
 Weighted Scores by Category:
-  Character: 0.9900
-  Conflict: 0.9600
+  Character: 1.0650
+  Conflict: 1.1400
   Craft: 0.8375
-  Logic: 0.3000
+  Logic: 0.4950
 
-Sum of all category totals: 3.0875
+Sum of all category totals: 3.5375
 Verification: The sum of category totals matches the total weighted score for all questions.
 ----------------------------------------
 
---- Processing File: 1_Plotto_The_Vanishing_Act_Report.txt ---
-Total Weighted Score for all questions (excluding overall line): 3.0200
+--- Processing File: 10_PlotGenie_Wings_of_Sacrifice_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.3950
 
 Weighted Scores by Category:
-  Character: 0.9600
-  Conflict: 0.8550
+  Character: 1.0500
+  Conflict: 1.1100
   Craft: 0.8375
-  Logic: 0.3675
+  Logic: 0.3975
 
-Sum of all category totals: 3.0200
+Sum of all category totals: 3.3950
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 11_PlotGenie_Shadows_of_the_Immortal_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.4850
+
+Weighted Scores by Category:
+  Character: 1.0950
+  Conflict: 1.0800
+  Craft: 0.8375
+  Logic: 0.4725
+
+Sum of all category totals: 3.4850
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 11_PlotGenie_Shadows_of_the_Immortal_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6075
+
+Weighted Scores by Category:
+  Character: 1.1100
+  Conflict: 1.1250
+  Craft: 0.9000
+  Logic: 0.4725
+
+Sum of all category totals: 3.6075
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 12_PlotGenie_Ashes_of_Redemption_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.5825
+
+Weighted Scores by Category:
+  Character: 1.0950
+  Conflict: 1.1550
+  Craft: 0.8375
+  Logic: 0.4950
+
+Sum of all category totals: 3.5825
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 12_PlotGenie_Ashes_of_Redemption_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.9175
+
+Weighted Scores by Category:
+  Character: 1.2000
+  Conflict: 1.2000
+  Craft: 1.0000
+  Logic: 0.5175
+
+Sum of all category totals: 3.9175
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 13_PlotGenie_Airwaves_of_Redemption_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.8000
+
+Weighted Scores by Category:
+  Character: 1.1850
+  Conflict: 1.1850
+  Craft: 0.9125
+  Logic: 0.5175
+
+Sum of all category totals: 3.8000
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 13_PlotGenie_Airwaves_of_Redemption_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6875
+
+Weighted Scores by Category:
+  Character: 1.1850
+  Conflict: 1.1700
+  Craft: 0.8375
+  Logic: 0.4950
+
+Sum of all category totals: 3.6875
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 14_PlotGenie_Echoes_in_the_Canebrake_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6650
+
+Weighted Scores by Category:
+  Character: 1.0950
+  Conflict: 1.2000
+  Craft: 0.8750
+  Logic: 0.4950
+
+Sum of all category totals: 3.6650
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 14_PlotGenie_Echoes_in_the_Canebrake_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6575
+
+Weighted Scores by Category:
+  Character: 1.1550
+  Conflict: 1.1700
+  Craft: 0.8375
+  Logic: 0.4950
+
+Sum of all category totals: 3.6575
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 15_PlotGenie_The_Ancient_Tide_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.7025
+
+Weighted Scores by Category:
+  Character: 1.1550
+  Conflict: 1.1550
+  Craft: 0.8750
+  Logic: 0.5175
+
+Sum of all category totals: 3.7025
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 15_PlotGenie_The_Ancient_Tide_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.7825
+
+Weighted Scores by Category:
+  Character: 1.1550
+  Conflict: 1.1850
+  Craft: 0.9250
+  Logic: 0.5175
+
+Sum of all category totals: 3.7825
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 16_PlotGenie_The_Balancing_Act_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.5825
+
+Weighted Scores by Category:
+  Character: 1.0650
+  Conflict: 1.1250
+  Craft: 0.8750
+  Logic: 0.5175
+
+Sum of all category totals: 3.5825
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 16_PlotGenie_The_Balancing_Act_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.5300
+
+Weighted Scores by Category:
+  Character: 1.0650
+  Conflict: 1.0950
+  Craft: 0.8750
+  Logic: 0.4950
+
+Sum of all category totals: 3.5300
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 18_PlotGenie_Wings_of_Rebellion_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.8225
+
+Weighted Scores by Category:
+  Character: 1.1850
+  Conflict: 1.1700
+  Craft: 0.9500
+  Logic: 0.5175
+
+Sum of all category totals: 3.8225
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 18_PlotGenie_Wings_of_Rebellion_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.7175
+
+Weighted Scores by Category:
+  Character: 1.1550
+  Conflict: 1.1700
+  Craft: 0.8750
+  Logic: 0.5175
+
+Sum of all category totals: 3.7175
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 19_PlotGenie_The_Unlikely_Hero_of_Serengeti_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.4925
+
+Weighted Scores by Category:
+  Character: 1.0950
+  Conflict: 1.1100
+  Craft: 0.8375
+  Logic: 0.4500
+
+Sum of all category totals: 3.4925
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 19_PlotGenie_The_Unlikely_Hero_of_Serengeti_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6425
+
+Weighted Scores by Category:
+  Character: 1.1550
+  Conflict: 1.1550
+  Craft: 0.8375
+  Logic: 0.4950
+
+Sum of all category totals: 3.6425
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 1_PlotGenie_Shadows_on_the_Bowery_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.8300
+
+Weighted Scores by Category:
+  Character: 1.2000
+  Conflict: 1.2000
+  Craft: 0.9125
+  Logic: 0.5175
+
+Sum of all category totals: 3.8300
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 1_PlotGenie_Shadows_on_the_Bowery_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.9025
+
+Weighted Scores by Category:
+  Character: 1.1850
+  Conflict: 1.2000
+  Craft: 1.0000
+  Logic: 0.5175
+
+Sum of all category totals: 3.9025
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 1_Plotto_A_Subtle_Revelation_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.5675
+
+Weighted Scores by Category:
+  Character: 1.0950
+  Conflict: 1.1400
+  Craft: 0.8375
+  Logic: 0.4950
+
+Sum of all category totals: 3.5675
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 1_Plotto_A_Subtle_Revelation_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.5075
+
+Weighted Scores by Category:
+  Character: 1.0650
+  Conflict: 1.1100
+  Craft: 0.8375
+  Logic: 0.4950
+
+Sum of all category totals: 3.5075
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 20_PlotGenie_Ripples_of_Redemption_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6425
+
+Weighted Scores by Category:
+  Character: 1.0650
+  Conflict: 1.1850
+  Craft: 0.8750
+  Logic: 0.5175
+
+Sum of all category totals: 3.6425
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 20_PlotGenie_Ripples_of_Redemption_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.5225
+
+Weighted Scores by Category:
+  Character: 1.0950
+  Conflict: 1.1850
+  Craft: 0.8375
+  Logic: 0.4050
+
+Sum of all category totals: 3.5225
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 2_PlotGenie_Depths_of_Suspicion_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6550
+
+Weighted Scores by Category:
+  Character: 1.1250
+  Conflict: 1.1100
+  Craft: 0.9250
+  Logic: 0.4950
+
+Sum of all category totals: 3.6550
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 2_PlotGenie_Depths_of_Suspicion_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6625
+
+Weighted Scores by Category:
+  Character: 1.0950
+  Conflict: 1.1100
+  Craft: 0.9625
+  Logic: 0.4950
+
+Sum of all category totals: 3.6625
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 2_Plotto_The_Whisper_of_Absence_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6275
+
+Weighted Scores by Category:
+  Character: 1.1400
+  Conflict: 1.1550
+  Craft: 0.8375
+  Logic: 0.4950
+
+Sum of all category totals: 3.6275
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 2_Plotto_The_Whisper_of_Absence_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.7400
+
+Weighted Scores by Category:
+  Character: 1.1250
+  Conflict: 1.1850
+  Craft: 0.9125
+  Logic: 0.5175
+
+Sum of all category totals: 3.7400
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 3_PlotGenie_The_Missionary's_Daughter_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.7025
+
+Weighted Scores by Category:
+  Character: 1.1850
+  Conflict: 1.1850
+  Craft: 0.8375
+  Logic: 0.4950
+
+Sum of all category totals: 3.7025
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 3_PlotGenie_The_Missionary's_Daughter_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.7012
+
+Weighted Scores by Category:
+  Character: 1.1625
+  Conflict: 1.1550
+  Craft: 0.9000
+  Logic: 0.4837
+
+Sum of all category totals: 3.7012
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 3_Plotto_The_Foundling's_Legacy_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.7175
+
+Weighted Scores by Category:
+  Character: 1.1550
+  Conflict: 1.1550
+  Craft: 0.9125
+  Logic: 0.4950
+
+Sum of all category totals: 3.7175
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 3_Plotto_The_Foundling's_Legacy_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.8950
+
+Weighted Scores by Category:
+  Character: 1.2000
+  Conflict: 1.2000
+  Craft: 1.0000
+  Logic: 0.4950
+
+Sum of all category totals: 3.8950
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 4_PlotGenie_Galloping_Against_Fate_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6425
+
+Weighted Scores by Category:
+  Character: 1.1550
+  Conflict: 1.1550
+  Craft: 0.8375
+  Logic: 0.4950
+
+Sum of all category totals: 3.6425
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 4_PlotGenie_Galloping_Against_Fate_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6725
+
+Weighted Scores by Category:
+  Character: 1.1550
+  Conflict: 1.1850
+  Craft: 0.8375
+  Logic: 0.4950
+
+Sum of all category totals: 3.6725
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 4_Plotto_The_Poison_of_Ideals_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.7700
+
+Weighted Scores by Category:
+  Character: 1.1700
+  Conflict: 1.1700
+  Craft: 0.9125
+  Logic: 0.5175
+
+Sum of all category totals: 3.7700
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 4_Plotto_The_Poison_of_Ideals_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6650
+
+Weighted Scores by Category:
+  Character: 1.1550
+  Conflict: 1.1550
+  Craft: 0.8375
+  Logic: 0.5175
+
+Sum of all category totals: 3.6650
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 5_PlotGenie_Whispers_in_the_Cypress_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6625
+
+Weighted Scores by Category:
+  Character: 1.1250
+  Conflict: 1.1400
+  Craft: 0.9250
+  Logic: 0.4725
+
+Sum of all category totals: 3.6625
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 5_PlotGenie_Whispers_in_the_Cypress_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.5675
+
+Weighted Scores by Category:
+  Character: 1.0950
+  Conflict: 1.1250
+  Craft: 0.8750
+  Logic: 0.4725
+
+Sum of all category totals: 3.5675
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 5_Plotto_Crossroads_of_Conscience_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.8200
+
+Weighted Scores by Category:
+  Character: 1.1550
+  Conflict: 1.1850
+  Craft: 0.9625
+  Logic: 0.5175
+
+Sum of all category totals: 3.8200
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 5_Plotto_Crossroads_of_Conscience_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6350
+
+Weighted Scores by Category:
+  Character: 1.0950
+  Conflict: 1.1850
+  Craft: 0.8375
+  Logic: 0.5175
+
+Sum of all category totals: 3.6350
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 6_PlotGenie_The_Last_Race_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.8200
+
+Weighted Scores by Category:
+  Character: 1.1700
+  Conflict: 1.1700
+  Craft: 0.9625
+  Logic: 0.5175
+
+Sum of all category totals: 3.8200
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 6_PlotGenie_The_Last_Race_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.7675
+
+Weighted Scores by Category:
+  Character: 1.1550
+  Conflict: 1.1700
+  Craft: 0.9250
+  Logic: 0.5175
+
+Sum of all category totals: 3.7675
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 6_Plotto_The_Price_of_Inheritance_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.5075
+
+Weighted Scores by Category:
+  Character: 1.0650
+  Conflict: 1.1100
+  Craft: 0.8375
+  Logic: 0.4950
+
+Sum of all category totals: 3.5075
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 6_Plotto_The_Price_of_Inheritance_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6637
+
+Weighted Scores by Category:
+  Character: 1.1325
+  Conflict: 1.1475
+  Craft: 0.9000
+  Logic: 0.4837
+
+Sum of all category totals: 3.6638
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 7_PlotGenie_Tides_of_Deception_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6325
+
+Weighted Scores by Category:
+  Character: 1.0650
+  Conflict: 1.1100
+  Craft: 0.9625
+  Logic: 0.4950
+
+Sum of all category totals: 3.6325
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 7_PlotGenie_Tides_of_Deception_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.7225
+
+Weighted Scores by Category:
+  Character: 1.1250
+  Conflict: 1.1550
+  Craft: 0.9250
+  Logic: 0.5175
+
+Sum of all category totals: 3.7225
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 7_Plotto_The_Perfume_of_Mysteries_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6500
+
+Weighted Scores by Category:
+  Character: 1.1250
+  Conflict: 1.1550
+  Craft: 0.8750
+  Logic: 0.4950
+
+Sum of all category totals: 3.6500
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 7_Plotto_The_Perfume_of_Mysteries_improved_improved_Report.txt ---
+No valid 'Weighted Score' data found in '7_Plotto_The_Perfume_of_Mysteries_improved_improved_Report.txt' or an error occurred.
+----------------------------------------
+
+--- Processing File: 8_PlotGenie_Dissonant_Harmony_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6500
+
+Weighted Scores by Category:
+  Character: 1.1250
+  Conflict: 1.1550
+  Craft: 0.8750
+  Logic: 0.4950
+
+Sum of all category totals: 3.6500
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 8_PlotGenie_Dissonant_Harmony_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6350
+
+Weighted Scores by Category:
+  Character: 1.1250
+  Conflict: 1.1550
+  Craft: 0.8375
+  Logic: 0.5175
+
+Sum of all category totals: 3.6350
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 9_PlotGenie_Frequencies_of_the_Soul_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6275
+
+Weighted Scores by Category:
+  Character: 1.1400
+  Conflict: 1.0800
+  Craft: 0.9125
+  Logic: 0.4950
+
+Sum of all category totals: 3.6275
+Verification: The sum of category totals matches the total weighted score for all questions.
+----------------------------------------
+
+--- Processing File: 9_PlotGenie_Frequencies_of_the_Soul_improved_improved_Report.txt ---
+Total Weighted Score for all questions (excluding overall line): 3.6050
+
+Weighted Scores by Category:
+  Character: 1.1250
+  Conflict: 1.1100
+  Craft: 0.8750
+  Logic: 0.4950
+
+Sum of all category totals: 3.6050
 Verification: The sum of category totals matches the total weighted score for all questions.
 ----------------------------------------
 

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Dissonant Harmony</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+            :root {
+                --bg-color: #fdf6e3;
+                --text-color: #2e2e2e;
+                --btn-color: #333;
+                --btn-hover: #555;
+            }
+
+            body.dark-mode {
+                --bg-color: #1e1e1e;
+                --text-color: #f0f0f0;
+                --btn-color: #ddd;
+                --btn-hover: #fff;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Merriweather', serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                max-width: 800px;
+                margin: auto;
+                padding: 50px 30px;
+                line-height: 2;
+                font-size: 1.15em;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin-bottom: 50px;
+                border-bottom: 3px double #ccc;
+                padding-bottom: 20px;
+                letter-spacing: 2px;
+            }
+
+            p {
+                text-align: justify;
+                margin-bottom: 1.8em;
+            }
+
+            p::first-letter {
+                font-size: 130%;
+                font-weight: bold;
+            }
+
+            #storyContainer {
+                min-height: 600px;
+                position: relative;
+            }
+
+            #paginationControls {
+                text-align: center;
+                margin-top: 30px;
+                min-height: 60px;
+                position: sticky;
+                bottom: 20px;
+                background-color: var(--bg-color);
+                padding: 10px;
+                border-top: 1px solid #aaa;
+            }
+
+            select, label, button {
+                font-size: 1em;
+                margin: 6px 10px;
+            }
+
+            button, select {
+                padding: 6px 14px;
+                border: none;
+                border-radius: 6px;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                transition: background-color 0.3s, color 0.3s;
+                cursor: pointer;
+            }
+
+            button:hover, select:hover {
+                background-color: var(--btn-hover);
+            }
+
+            label {
+                margin: 0 8px;
+                cursor: pointer;
+            }
+
+            input[type="radio"] {
+                margin-right: 4px;
+            }
+
+            #backToTop {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                padding: 10px 15px;
+                font-size: 1em;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                display: none;
+            }
+
+            #controlsTop > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            #controlsTop {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        </style>
+        
+</head>
+<body>
+<h1>Dissonant Harmony</h1>
+
+            <!-- Info Modal Trigger -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button onclick="document.getElementById('infoModal').style.display='block'">ℹ️ Info</button>
+            </div>
+            
+            <!-- Info Modal -->
+            <div id="infoModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:90%; max-width:600px; border-radius:10px; font-family:'Merriweather', serif;">
+                <span onclick="document.getElementById('infoModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2>Story Info</h2>
+                <p><strong>📅 Creation Date:</strong> 05-07-2025 11:07</p>
+                <p><strong>🧠 Algorithm:</strong> Plot Genie</p>
+                <p><strong>📝 Word Count:</strong> 5330</p>
+                <p><strong>📄 Review:</strong> <button onclick="document.getElementById('reviewModal').style.display='block'">View Review</button></p>
+              </div>
+            </div>
+            <!-- Review Modal -->
+            <div id="reviewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:5% auto; padding:30px; border:1px solid #888; width:90%; max-width:800px; border-radius:10px; font-family:'Merriweather', serif; max-height:85%; overflow-y:auto;">
+                <span onclick="document.getElementById('reviewModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2 style="margin-top:0;">📘 Story Review</h2>
+                <p><strong>📘 Story Title:</strong> Dissonant Harmony</p>
+<hr>
+<p>📄 Claude Evaluation Report</p>
+<hr>
+<h2>Literary Analysis of "Dissonant Harmony"</h2>
+<h3>Character (Category Weight = 0.30)</h3>
+<p>1. <strong>Is the main character clearly identifiable?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- Thomas Harrington is clearly established as the protagonist from the opening paragraph, with detailed descriptions of his life, personality, and circumstances as a pianist in Millfield.</p>
+<p>2. <strong>Does the character have a clear backstory?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Thomas's backstory is well-developed, including his parents' death in a car accident, losing their house to debt, and his musical training from his mother Eleanor, providing context for his current situation.</p>
+<p>3. <strong>Does the character have a clear goal or "desire"?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Thomas initially desires stability and peace, which evolves into wanting to save the town from the dam disaster, though his initial desires could be more clearly defined.</p>
+<p>4. <strong>Does the character have a clear inner weakness or vulnerability?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Thomas's conflict avoidance and fear of disrupting his precarious financial stability are well-established vulnerabilities that create meaningful internal conflict.</p>
+<p>5. <strong>Does the character undergo a transformation?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Thomas transforms from a passive observer to an active participant in community affairs, finding "a voice that extended beyond his music" and embracing a leadership role.</p>
+<p>6. <strong>Do supporting characters contribute to the main character's journey?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Oliver Reed serves as a catalyst for Thomas's transformation, while Mayor Blackwood provides antagonism that forces Thomas to choose between comfort and doing what's right.</p>
+<p>7. <strong>Do supporting characters fulfill archetypal roles?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- The characters fulfill clear archetypal roles:</strong> Oliver as the provocateur ally, Mayor Blackwood as the corrupt antagonist, and Dr. Chen as a supportive community leader.</p>
+<p>8. <strong>Are supporting characters diverse and distinct?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Characters have distinct personalities and roles (Oliver's confrontational nature versus Thomas's reserve), though some secondary characters like Dr. Chen could be more fully developed.</p>
+<p>9. <strong>Is the number of characters appropriate?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The story maintains an appropriate number of characters, focusing on Thomas, Oliver, and Mayor Blackwood while introducing others like Sophia and Dr. Chen as needed without overcrowding.</p>
+<p>10. <strong>Are characters developed across three layers?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- Thomas is well-developed physically (pianist with practiced precision), psychologically (conflict-averse), and sociologically (position in town), though supporting characters have less three-dimensional development.</p>
+<h3>Conflict (Category Weight = 0.30)</h3>
+<p>11. <strong>Is the central conflict strong enough to drive the story?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.35</p>
+<p><strong>- Weighted Score:</strong> 0.42</p>
+<p>- The failing dam and corrupt council create high-stakes conflict that drives the narrative forward, with both external danger and moral dilemmas for Thomas.</p>
+<p>12. <strong>Does the conflict touch upon universal human conditions?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- The story addresses universal themes of moral courage versus self-preservation, community responsibility, and finding one's voice against corruption.</p>
+<p>13. <strong>Are the stakes clear from the beginning?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The stakes become clear when Oliver reveals the dam situation, though they could be foreshadowed earlier in the narrative.</p>
+<p>14. <strong>Is the conflict directly related to what we know about the character?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The conflict directly challenges Thomas's conflict-averse nature and desire for stability, creating meaningful character-driven tension.</p>
+<p>15. <strong>Does the conflict escalate as the story approaches its climax?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The conflict escalates effectively through the loss of evidence, the river rescue, the mayor's threats, and culminates in the confrontation at the town meeting.</p>
+<p>16. <strong>Is the source of conflict consistent throughout?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The central conflict remains consistent—exposing the truth about the dam and corrupt officials—while complications naturally arise from this core issue.</p>
+<p>17. <strong>Do the subplots also include conflict?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- Subplots like Sophia's lost locket and the river rescue contain their own conflicts that tie back to the main narrative and Thomas's character development.</p>
+<p>18. <strong>Is there both external conflict and internal conflict?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.06</p>
+<p>- The story balances external conflict (the failing dam, corrupt officials) with Thomas's internal conflict between self-preservation and moral responsibility.</p>
+<h3>Craft (Category Weight = 0.25)</h3>
+<p>19. <strong>Is the story written in clear, modern English?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.20</p>
+<p>- The prose is clear, accessible, and uses contemporary language while maintaining a literary quality appropriate for the story.</p>
+<p>20. <strong>Are spelling and grammar correct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The text demonstrates excellent command of grammar, syntax, and spelling with no noticeable errors.</p>
+<p>21. <strong>Is the writing clear, concise, and descriptive?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- The writing is generally clear and descriptive, though some passages could be more concise, particularly in the middle sections of the story.</p>
+<p>22. <strong>Is there vivid description of characters and settings?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The story contains vivid descriptions, particularly of Thomas's apartment with "the piano gleamed under the soft light" and Oliver's "cluttered apartment" reflecting his "chaotic mind."</p>
+<p>23. <strong>Is there no unnecessary or inappropriate detail?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- Most details serve the narrative, though some scenes (like the extended river rescue sequence) could be tightened for better pacing.</p>
+<p>24. <strong>Is everything described visually demonstrable?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- Most elements are visually demonstrable, though some internal states and musical experiences rely on telling rather than showing.</p>
+<h3>Logic (Category Weight = 0.15)</h3>
+<p>25. <strong>Are there no plot holes?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The plot is generally sound, though the resolution relies somewhat heavily on convenient timing and Oliver's backup plan.</p>
+<p>26. <strong>Are there no unclear points?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Most plot points are clear, though the hallucination of Thomas's mother during the river rescue feels somewhat disconnected from the main narrative.</p>
+<p>27. <strong>Have all questions raised been answered?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- Major questions are resolved, though some elements (like the specific consequences for Thomas's career) remain somewhat open-ended.</p>
+<p>28. <strong>Is the story consistent and free of continuity errors?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The narrative maintains consistency throughout with no noticeable continuity errors in character behavior or plot progression.</p>
+<p>29. <strong>Are there no contradictions with previously stated information?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story avoids contradicting established information, maintaining internal logic about characters and situations.</p>
+<p>30. <strong>Is the logic sound and free from illogical elements?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- The story's logic is generally sound, though some elements (like the town's quick turn against the mayor) might benefit from more development.</p>
+<h3>Overall Weighted Score: 3.6500</h3>
+<h3>Analysis Report</h3>
+<p>"Dissonant Harmony" is a well-crafted story with strong character development and compelling conflict. Thomas Harrington's transformation from a passive observer to an active community leader forms the emotional core of the narrative, while the failing dam creates urgent external stakes. The prose is polished and descriptive, effectively establishing both character and setting. The story successfully balances personal growth with broader themes of community responsibility and moral courage, though some plot elements could be tightened for improved pacing and impact.</p>
+<h3>Suggestions for Improvement:</h3>
+<p>* The river rescue scene, while dramatic, could be streamlined to maintain narrative momentum and more clearly connect Thomas's hallucination of his mother to his character development.</p>
+<p>* Consider introducing the stakes of the dam situation earlier to create tension from the beginning rather than waiting for Oliver's revelation.</p>
+<p>* Develop some supporting characters more fully, particularly Dr. Chen, who plays a significant role in the resolution but appears somewhat abruptly.</p>
+<p>* The town's quick acceptance of Thomas and Oliver's claims could be made more credible with additional groundwork showing growing community suspicions.</p>
+<p>* The resolution feels somewhat accelerated—consider expanding on the aftermath to show more of how Thomas adapts to his new community role.</p>
+              </div>
+            </div>
+        
+
+        <div id="controlsTop">
+            <div>
+                <label><input type="radio" name="viewMode" value="full" checked> Continuous Reading</label>
+                <label><input type="radio" name="viewMode" value="paged"> Paginated View</label>
+            </div>
+
+            <div id="pageOptions" style="display: none;">
+                <label><input type="radio" name="pageMode" value="auto" checked> Auto Paragraphs</label>
+                <label><input type="radio" name="pageMode" value="manual"> Manual</label>
+                <select id="pageSizeSelect" disabled>
+        <option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+                </select>
+            </div>
+
+            <div>
+                <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+
+        </div>
+
+        <div id="storyContainer"></div>
+
+        <div id="paginationControls" style="display: none;">
+            <button id="firstBtn" onclick="firstPage()">⏮ First</button>
+            <button id="prevBtn" onclick="prevPage()">◀ Previous</button>
+            <span id="pageIndicator">Page 1 of X</span>
+            <button id="nextBtn" onclick="nextPage()">Next ▶</button>
+            <button id="lastBtn" onclick="lastPage()">Last ⏭</button>
+        </div>
+
+        <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆ Back to Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script>
+            const paragraphs = ["In the small town of Millfield, where the streets were narrow and the gossip wide, lived Thomas Harrington, a pianist whose fingers could coax melodies that made even the most stoic townspeople weep. At thirty-two, Thomas had the kind of talent that should have taken him far beyond the confines of their provincial town, but life had a way of anchoring dreams to reality with chains of circumstance.", "Thomas's apartment above the old bookstore on Main Street was modest but meticulously kept. The centerpiece was a baby grand piano—a Steinway that had belonged to his mother, Eleanor. It was the one extravagance in a life otherwise defined by careful frugality. The piano gleamed under the soft light that filtered through lace curtains, its polished surface reflecting the room like a dark mirror.", "Every morning, Thomas would wake before dawn, make a cup of strong black coffee, and sit at the piano. His practice sessions were sacred, a ritual that had sustained him through the darkest periods of his life. The death of his parents in a car accident when he was twenty-three. The subsequent struggle to keep their house, which he eventually lost to mounting debts. The gradual realization that his dreams of performing in grand concert halls might remain just that—dreams.", "But Thomas had found a way to make peace with his circumstances. He taught piano to the children of Millfield, charging modest fees that barely covered his expenses. In the evenings, he played at The Ivory Keys, the town's only upscale restaurant, where his classical renditions provided a soundtrack to anniversary dinners and business meetings.", "It was at The Ivory Keys that Thomas had met Oliver Reed, the town's most controversial figure. Oliver was a writer whose satirical column in the Millfield Gazette spared no one—not the mayor with his thinning hair and thickening waistline, not the town council with their self-serving policies, and certainly not the wealthy families whose influence shaped Millfield's social hierarchy.", "Oliver was everything Thomas was not: loud, confrontational, and unapologetically ambitious. His wire-rimmed glasses and perpetually disheveled appearance belied a sharp intellect and an even sharper tongue. Where Thomas observed the world quietly from behind his piano, Oliver dissected it publicly with his pen.", "Their friendship had begun unexpectedly one rainy Tuesday evening when the restaurant was nearly empty. Thomas had been playing Chopin's Nocturne in E-flat major, his fingers moving with practiced precision over the keys, when he noticed Oliver watching him intently from a corner table.", "\"You play like a man who's trying to speak to ghosts,\" Oliver had said when Thomas took a break. \"It's beautiful, but there's something haunting about it.\"", "Thomas had been taken aback by the observation—not because it was intrusive, but because it was accurate. He had indeed been thinking of his mother, who had taught him to play, and whose absence still felt like a physical ache even after all these years.", "That conversation had marked the beginning of an unlikely friendship. Thomas, the reserved pianist who avoided conflict, and Oliver, the satirist who seemed to thrive on it. They were an odd pair, but there was a complementary quality to their differences. Thomas found in Oliver a voice for the injustices he observed but never spoke against, while Oliver found in Thomas a reminder of the beauty that still existed in their flawed world.", "Now, as Thomas finished his morning practice with a flourish of Debussy, his phone buzzed with a text from Oliver: \"Emergency meeting. My place. Noon. Bring coffee.\"", "Thomas smiled at the message. Oliver's \"emergencies\" were rarely life-threatening, but they were always interesting. He closed the piano lid gently, got dressed in his usual attire of dark jeans and a button-down shirt, and headed out into the crisp autumn air.", "Oliver lived in a cluttered apartment above the hardware store, a space that reflected its owner's chaotic mind. Books were stacked precariously on every surface, newspaper clippings covered one entire wall, and his desk was a battlefield of coffee-stained drafts and red-inked edits.", "\"You're late,\" Oliver said when Thomas knocked on the door, despite the fact that it was exactly noon.", "\"I brought coffee,\" Thomas replied, holding up a paper bag from Millfield's only decent café.", "Oliver's stern expression softened. \"Then all is forgiven. Come in, come in. We have a situation.\"", "Thomas followed him into the apartment, carefully navigating around a tower of books that looked ready to topple. \"What kind of situation?\"", "Oliver took the coffee and gestured toward his wall of clippings. \"Have you been following the news about the dam?\"", "Thomas nodded. The Millfield Dam, built in the 1950s, had been a source of concern for years. Recent heavy rains had raised questions about its structural integrity, but the town council had repeatedly assured residents that all was well.", "\"Well, I've got a source at the engineering firm they hired to inspect it,\" Oliver continued, his voice dropping to a conspiratorial whisper despite the fact that they were alone. \"The dam is failing, Thomas. Not 'might fail someday' but 'is actively failing right now.' And the council is covering it up because they've been embezzling the maintenance funds for years.\"", "Thomas felt a chill run down his spine. The dam was upstream from Millfield. If it failed, the resulting flood would devastate the town. \"Are you sure?\"", "Oliver handed him a folder. Inside were technical reports, photographs showing cracks in the concrete structure, and emails between council members discussing how to \"manage the situation\" without \"causing panic.\"", "\"My God,\" Thomas whispered, flipping through the documents. \"This is... this is criminal.\"", "\"Exactly,\" Oliver said, his eyes gleaming with the righteous indignation that fueled his best writing. \"And we're going to expose them.\"", "Thomas looked up sharply. \"We?\"", "\"Yes, we. I need your help, Thomas. I can write the exposé, but I need someone the town trusts to help spread the word. You know everyone through your piano lessons and your gig at The Ivory Keys. People listen to you.\"", "Thomas felt a familiar knot of anxiety tighten in his stomach. He wasn't a confrontational person. He preferred to stay out of the spotlight, to observe rather than participate. But the images of the cracking dam kept flashing in his mind, along with visions of Millfield underwater.", "\"What exactly do you want me to do?\" he asked cautiously.", "Oliver's plan was ambitious. He would publish his findings in the Gazette, but they both knew that wouldn't be enough. The council would deny everything, discredit Oliver (who already had a reputation as a troublemaker), and continue their cover-up. They needed to gather public support, to create enough pressure that the council would be forced to act.", "\"We need to organize a town meeting,\" Oliver explained. \"Independent of the council. Get people together, show them the evidence, and demand action. But to do that, we need a venue, and we need people to actually show up.\"", "Thomas understood immediately. \"You want to use The Ivory Keys.\"", "\"It's perfect. It's central, it's large enough, and the owner likes you. Plus, you can use your connections to make sure the right people are there.\"", "It was a solid plan, but Thomas hesitated. Getting involved meant potentially making enemies of the most powerful people in town—people who could make his already precarious financial situation even worse.", "\"I don't know, Oliver. I'm barely making ends meet as it is. If the council decides to make an example of me...\"", "Oliver's expression softened. \"I know I'm asking a lot. But this isn't just about exposing corruption anymore. This is about preventing a catastrophe. People could die, Thomas.\"", "The weight of the situation settled on Thomas's shoulders. He thought of his students—children who lived in the path of potential destruction. He thought of Mrs. Abernathy, the elderly woman who lived downstairs and who always left cookies outside his door when he played Bach, her favorite composer. He thought of all the faces he saw daily at The Ivory Keys, people whose lives would be devastated—or ended—by a flood.", "\"Alright,\" he said finally. \"I'm in.\"", "Oliver clapped him on the shoulder, his face breaking into a rare genuine smile. \"I knew I could count on you. Now, let's get to work.\"", "The next few days were a flurry of activity. Thomas spoke quietly to trusted patrons at The Ivory Keys, secured the venue for a \"community gathering\" without specifying the true purpose, and compiled a list of influential townspeople who needed to be present. Oliver worked tirelessly on his article, gathering more evidence and crafting an irrefutable case against the council.", "But their efforts didn't go unnoticed. Mayor Richard Blackwood, a corpulent man with small, shrewd eyes, began to take an interest in Thomas's activities. He showed up at The Ivory Keys one evening, sitting prominently at a table near the piano.", "\"Mr. Harrington,\" he said during Thomas's break, his voice oily with false warmth. \"I've been hearing some concerning rumors about you and that troublemaker Reed.\"", "Thomas felt his heart rate quicken, but he kept his expression neutral. \"Oh? What kind of rumors?\"", "\"That you're planning some sort of... gathering. To discuss the dam.\" The mayor leaned forward, his aftershave overwhelming in the small space between them. \"I'd hate to see a talented young man like yourself get mixed up in Reed's paranoid conspiracies. It could be bad for your career.\"", "The threat was thinly veiled, but Thomas felt a surprising surge of anger rather than fear. \"Thank you for your concern, Mayor Blackwood. But I assure you, I'm quite capable of making my own decisions.\"", "The mayor's smile tightened. \"Of course. Just remember, this town values harmony. Those who disrupt it rarely find themselves welcome for long.\"", "After the mayor left, Thomas called Oliver immediately. \"They know.\"", "\"Of course they know,\" Oliver replied, sounding more excited than concerned. \"This just proves we're on the right track. Did he threaten you?\"", "\"More or less.\"", "\"Perfect! That's admission of guilt if I ever heard it. Don't worry, Thomas. We're doing the right thing.\"", "But Thomas wasn't so sure anymore. That night, he couldn't sleep. He sat at his piano in the darkness, playing softly, trying to find comfort in the familiar melodies. The mayor's words echoed in his mind, along with the stark reality of his financial situation.", "Thomas had been poor before—after his parents died and he lost their house—and he had no desire to return to that state. His current life was modest but stable. He could pay his rent, buy groceries, and even set aside a small amount each month. If he lost his position at The Ivory Keys or if parents pulled their children from his lessons, that stability would crumble.", "But then he thought of the dam, of the water that would rush through Millfield if it failed. He thought of the lives that would be lost because a few greedy men had decided their bank accounts were more important than public safety.", "By morning, his resolve had hardened. He would help Oliver, regardless of the personal cost.", "The day of the town meeting arrived with an unexpected complication. As Thomas was preparing to leave for The Ivory Keys, where they would set up for the evening gathering, he received a frantic call from Sophia Martinez, one of his piano students.", "Sophia was seventeen, brilliantly talented, and bound for Juilliard the following year—if she could secure a scholarship. Thomas had been helping her prepare for her audition, convinced that her natural ability combined with her dedication would impress even the most discerning judges.", "\"Mr. Harrington,\" she sobbed into the phone. \"It's gone. My grandmother's locket. The one I was going to wear for my audition. For luck.\"", "Thomas knew the locket well. Sophia had shown it to him once—a delicate gold piece with an intricate design, containing a tiny photograph of her grandmother as a young woman. Her grandmother had been a pianist too, though her dreams of a professional career had been cut short by marriage and children. The locket was a symbol of the legacy Sophia was carrying forward.", "\"When did you last have it?\" Thomas asked, checking his watch. He was supposed to meet Oliver in an hour.", "\"Yesterday, at practice. I think... I think I might have left it at your apartment.\"", "Thomas glanced around his living room, but he knew he hadn't seen any locket. Still, Sophia sounded devastated, and her audition was in just three days.", "\"I'll look for it,\" he promised. \"Come over and we can search together.\"", "He called Oliver next, explaining the situation.", "\"You're kidding me,\" Oliver groaned. \"Today of all days?\"", "\"I know, I know. But this is important to her, and I can't just ignore it. I'll be there as soon as I can.\"", "Oliver sighed dramatically. \"Fine. But don't be too late. People will start arriving at seven, and we need to be ready.\"", "Sophia arrived twenty minutes later, her eyes red from crying. Together, they searched Thomas's apartment thoroughly, checking under the piano, between cushions, and in every corner where a small locket might have fallen.", "\"I was sitting here,\" Sophia said, pointing to the chair beside the piano. \"And I took it off to practice because it was distracting me.\"", "Thomas got down on his hands and knees, running his fingers along the baseboard. Nothing. He checked under the piano again, using his phone's flashlight to illuminate the dark space.", "And there, caught in a small gap between the floorboards, was a glint of gold.", "\"Found it!\" he exclaimed, carefully extracting the locket.", "Sophia's face lit up with relief and joy. \"Oh, thank you, Mr. Harrington! Thank you so much!\"", "The genuine gratitude in her voice reminded Thomas why he had chosen to teach music in the first place—for moments like this, when he could make a real difference in someone's life, however small.", "But as he glanced at his watch, he realized with a sinking feeling that it was already six-thirty. He would barely make it to The Ivory Keys in time, and he still needed to change and gather the materials Oliver had prepared.", "\"Sophia, I hate to rush you, but I have an important meeting tonight.\"", "She nodded, already heading for the door. \"Of course. Thank you again. This means everything to me.\"", "As soon as she left, Thomas changed quickly into a more formal outfit—dark slacks and a blue button-down that Oliver insisted made him look \"trustworthy.\" He gathered the folders of evidence, his notes for the brief speech he was supposed to give, and rushed out the door.", "The autumn evening was unexpectedly cold, with a biting wind that cut through his light jacket. Thomas hurried down Main Street, his mind racing with all the things that needed to be done before the meeting began. He was so preoccupied that he almost didn't notice the commotion by the river that ran through the center of town.", "A small crowd had gathered on the bridge, pointing and shouting. Thomas slowed, then stopped, his curiosity overcoming his urgency. He approached the group, trying to see what had captured their attention.", "In the water below, someone was struggling. The river, swollen from recent rains, was moving swiftly, and whoever had fallen in was being carried downstream, their arms flailing desperately.", "Without thinking, Thomas dropped his folders and ran to the riverbank. He could see now that it was a woman, her gray hair plastered to her head as she fought against the current. Something about her seemed familiar, but from this distance, with the fading light, he couldn't be sure.", "\"Someone call 911!\" he shouted, already kicking off his shoes. He wasn't a strong swimmer, but he couldn't just stand by and watch someone drown.", "He waded into the freezing water, gasping as it soaked through his clothes. The current was stronger than he had anticipated, tugging at his legs, trying to pull him off balance. But he pressed forward, his eyes fixed on the struggling figure.", "As he got closer, recognition dawned with shocking clarity. It was Mrs. Eleanor Harrington—his mother.", "But that was impossible. His mother had died nine years ago in a car accident alongside his father. Thomas had identified their bodies at the morgue, had arranged their funeral, had mourned them every day since.", "Yet here she was, her face—so achingly familiar—contorted with fear as she fought for her life.", "Thomas faltered, his mind reeling. Was he hallucinating? Had the stress of the past few days finally broken something in his psyche?", "\"Help!\" the woman cried, and her voice was his mother's voice, the voice that had guided him through his first piano lessons, that had sung him to sleep as a child.", "He pushed forward again, fighting through his confusion. Real or not, he couldn't let her drown. He reached her just as her strength seemed to give out, her head slipping beneath the surface. Thomas grabbed her arm, pulling her up, supporting her weight against his chest.", "\"I've got you,\" he gasped, struggling to keep them both afloat. \"I've got you.\"", "The woman looked at him, water streaming down her face, and for a moment, Thomas was certain it was his mother. But then her features seemed to shift, to become less distinct, and doubt crept in. Was it really her? Or was his mind playing the cruelest of tricks?", "With tremendous effort, Thomas began to make his way back to shore, fighting the current every step of the way. His limbs were growing numb from the cold, and the woman was a dead weight in his arms, apparently having lost consciousness.", "Finally, his feet found purchase on the riverbed, and he staggered onto the bank, laying the woman gently on the ground. A crowd had gathered, someone had brought blankets, and in the distance, Thomas could hear the wail of an ambulance siren.", "He knelt beside the woman, brushing wet hair from her face, and in the clearer light of the riverbank, he saw that she was not his mother after all. She was a stranger, an elderly woman he had never seen before.", "The realization brought a complex mix of emotions—relief that he wasn't losing his mind, disappointment that the impossible reunion hadn't been real, and concern for the unconscious woman before him.", "Paramedics arrived, taking over with professional efficiency. They wrapped the woman in thermal blankets, checked her vitals, and loaded her into the ambulance. One of them turned to Thomas.", "\"You saved her life,\" he said simply. \"Not many would have jumped in like that.\"", "Thomas nodded numbly, accepting a blanket from a bystander. He was soaked to the skin, shivering violently, and suddenly remembered with a jolt of panic why he had been rushing in the first place.", "The town meeting. Oliver. The dam.", "He looked around frantically for the folders he had dropped, but they were nowhere to be seen. Either someone had picked them up, or they had blown away in the wind. Either way, they were gone, along with all the evidence they had so carefully compiled.", "Thomas checked his phone, which had miraculously survived its dunking in a waterproof pocket, and saw that it was already seven-fifteen. The meeting would be starting, and he was nowhere to be found, with no materials and soaking wet clothes.", "He called Oliver, who answered on the first ring.", "\"Where the hell are you?\" Oliver demanded without preamble.", "\"I... there was an emergency. A woman fell into the river. I had to help.\"", "\"What? Are you okay?\"", "\"I'm fine, but I lost all our materials, and I'm soaked. I can't come to the meeting like this.\"", "There was a long pause on the other end of the line. \"Go home, get changed, and get here as soon as you can. I'll stall.\"", "Thomas hurried home, his wet clothes chafing uncomfortably against his skin. His mind was a whirlwind of conflicting thoughts and emotions. The woman in the river. The hallucination of his mother. The lost evidence. The meeting that was already underway without him.", "As he approached his apartment building, a sleek black car pulled up alongside him. The window rolled down to reveal Mayor Blackwood's smug face.", "\"Mr. Harrington. I heard about your heroic rescue. The town is very grateful.\"", "Thomas stopped, instantly wary. \"Thank you.\"", "\"I also heard you lost some important documents.\" The mayor held up a familiar folder, slightly damp but intact. \"Someone turned these in to my office. Fascinating reading.\"", "Thomas felt a cold that had nothing to do with his wet clothes. \"Those are mine.\"", "\"Are they? They seem to contain some very serious allegations about me and the town council. Allegations that could be considered... defamatory.\"", "\"They're not allegations. They're facts.\"", "The mayor's smile didn't reach his eyes. \"Facts need context, Mr. Harrington. For instance, the fact that you're struggling financially. The fact that your position at The Ivory Keys could easily be filled by someone else. The fact that parents might not want their children taught by someone who spreads malicious rumors.\"", "Thomas stood his ground, though his heart was racing. \"Are you threatening me?\"", "\"I'm offering you a choice. Walk away from this dam nonsense, and your life continues as normal. Persist, and, well...\" The mayor shrugged eloquently. \"Millfield can be a difficult place for those who don't fit in.\"", "Thomas thought of Oliver, waiting at The Ivory Keys. Of the people gathering to hear the truth. Of the dam, weakening with every passing day.", "\"Keep the folder,\" he said finally. \"We have copies.\"", "It was a bluff—their only copies had been in that folder—but the flicker of uncertainty in the mayor's eyes was worth it.", "\"You're making a mistake,\" Blackwood warned.", "\"No,\" Thomas replied with a conviction that surprised even himself. \"For once, I'm doing exactly what I should be doing.\"", "The mayor's face hardened. \"We'll see about that.\" The window rolled up, and the car pulled away smoothly.", "Thomas hurried inside, changed into dry clothes, and headed straight for The Ivory Keys. His mind was racing, trying to figure out how to salvage the situation. Without the evidence, their claims would seem baseless. It would be their word against the council's, and in Millfield, that was a battle they were likely to lose.", "When he arrived at the restaurant, it was packed. Oliver had managed to draw a crowd—nearly every influential person in town was there, along with dozens of ordinary citizens. They were all listening to Oliver, who was in his element, his voice rising and falling dramatically as he laid out their case.", "Thomas slipped in quietly, making his way to the front. Oliver spotted him and nodded slightly, continuing without missing a beat.", "\"And so, ladies and gentlemen, we find ourselves at a crossroads. Do we trust the word of a council that has repeatedly lied to us? Or do we demand action before it's too late?\"", "There was a murmur through the crowd, a mix of agreement and skepticism. Thomas could see the mayor had arrived as well, standing at the back with several council members, all wearing expressions of barely contained fury.", "Oliver gestured for Thomas to join him. \"And now, my friend Thomas Harrington will share what he's discovered about the dam's condition.\"", "Thomas stepped forward, his mind blank. The evidence was gone. He had nothing concrete to offer these people, nothing but his word and his reputation.", "But as he looked out at the sea of faces—some familiar, some not—he realized that might be enough. These were people who had heard him play for years, who had trusted him with their children's musical education, who had shared their special occasions with him at The Ivory Keys.", "\"Thank you all for coming,\" he began, his voice steadier than he felt. \"As many of you know, I'm not one for public speaking or controversy. I prefer to let my music do the talking. But some things are too important to remain silent about.\"", "He told them everything—about the engineering reports, the emails between council members, the systematic embezzlement of funds meant for dam maintenance. He spoke clearly and directly, without Oliver's flair for drama but with a sincerity that seemed to resonate with the audience.", "\"I don't have the documents to show you,\" he admitted. \"They were lost earlier today when I helped rescue a woman from the river. But I've seen them. I've read them. And I can tell you with absolute certainty that the dam is failing.\"", "Mayor Blackwood stepped forward then, his face red with anger. \"This is outrageous! You have no proof of these wild accusations. You're spreading panic based on nothing but hearsay and the ravings of a known troublemaker.\" He pointed at Oliver.", "The crowd began to murmur again, this time with more doubt. Thomas could feel the momentum shifting away from them. Without evidence, it was just their word against the mayor's, and Blackwood had the weight of his office behind him.", "But then, unexpectedly, a voice called out from the back of the room. \"I believe them.\"", "All heads turned to see Dr. Sarah Chen, the town's most respected physician, standing up. \"I've treated three workers from the dam in the past month. All with injuries they were suspiciously vague about. All asking me to keep their visits unofficial.\"", "Another voice joined in—Mr. Jenkins, who owned the hardware store. \"The council ordered an unusual amount of concrete patching material last month. Said it was for the town square, but I never saw any work being done there.\"", "And then another, and another. People began sharing small observations, bits of information that, taken individually, meant little, but together formed a damning pattern. The council had been hiding the dam's deterioration for months, and the town had noticed, even if they hadn't connected the dots until now.", "Mayor Blackwood tried to regain control, his voice rising to a shout. \"This is a conspiracy! Reed has been poisoning your minds with his articles for years, and now he's enlisted Harrington to help spread his lies!\"", "But his protests were drowned out by the growing chorus of concerned citizens. The tide had turned decisively against him.", "In the midst of the chaos, Thomas noticed Oliver slipping away from the front of the room. He followed, finding his friend in the kitchen, hunched over his laptop with a triumphant grin.", "\"What are you doing?\" Thomas asked.", "Oliver looked up, his eyes gleaming. \"Setting the trap.\"", "\"What trap?\"", "\"I knew Blackwood would try to discredit us. I knew he'd show up here tonight to deny everything. And I knew he'd incriminate himself in the process.\" Oliver turned his laptop around to show a livestream of the meeting, which was being broadcast on the Millfield Gazette's website. \"Every word he's said has been recorded and is being watched by hundreds of people right now, including the state environmental protection agency and the governor's office.\"", "Thomas stared at the screen in disbelief. \"You planned this?\"", "\"Not all of it. I didn't plan on you losing the evidence, but I had a backup strategy. The people of this town trust you, Thomas. They believe you because you've never given them reason not to. All we needed was for you to speak your truth, and for Blackwood to reveal his character in response.\"", "As if on cue, they heard the mayor's voice rise to a new level of fury from the main room. \"This meeting is over! Anyone continuing to spread these lies will face legal consequences!\"", "Oliver chuckled. \"And there it is. The threat. The last resort of a man who knows he's been caught.\"", "They returned to find the mayor storming out, followed by the council members. The crowd remained, buzzing with conversation and a new sense of purpose. Dr. Chen had taken charge, organizing committees to contact state authorities, to research the legal options available to the town, to prepare emergency evacuation plans just in case.", "Thomas felt a strange mix of exhaustion and exhilaration. They had done it. They had exposed the truth and mobilized the town. The dam would be fixed, or the valley would be evacuated until it could be. Either way, lives would be saved.", "Oliver clapped him on the shoulder. \"We make a good team, you know. The quiet observer and the loud provocateur.\"", "Thomas smiled tiredly. \"I suppose we do.\"", "In the days that followed, the story exploded beyond Millfield. State investigators arrived, confirming everything Thomas and Oliver had claimed. The dam was indeed failing, and emergency repairs were ordered immediately. Mayor Blackwood and three council members were arrested on charges of embezzlement and criminal negligence.", "The town rallied together in a way Thomas had never seen before. Temporary housing was arranged for those living in the flood path. Fundraisers were organized to help those who would be displaced during the repairs. A new interim council was appointed, with Dr. Chen as acting mayor.", "Through it all, Thomas found himself thrust into a leadership role he had never sought or wanted. People looked to him for guidance, for reassurance, for the quiet strength he had shown on that pivotal night at The Ivory Keys.", "It was uncomfortable at first, this new visibility. Thomas had always preferred to remain in the background, to observe rather than participate. But he found, somewhat to his surprise, that he had a talent for bringing people together, for finding common ground, for turning discord into harmony.", "One month after the town meeting, Thomas sat at his piano, playing a piece he had composed himself—a melody that spoke of danger averted, of community found, of courage discovered in unlikely places. The Ivory Keys was packed, as it had been every night since the dam story broke. People came not just for dinner now, but to be part of something larger than themselves, to celebrate their town's narrow escape and its rebirth.", "Oliver sat at his usual table, working on a new article. He looked up as Thomas finished playing, raising his glass in a silent toast.", "Thomas nodded in acknowledgment, then began a new piece—Beethoven's \"Pathétique\" Sonata, with its dramatic shifts from darkness to light, from struggle to triumph. As his fingers moved across the keys, he thought of the woman he had pulled from the river, who had turned out to be a visitor from a neighboring town, now recovered and grateful.", "He thought of the moment when he had believed she was his mother, and realized that perhaps it hadn't been a hallucination after all, but rather his subconscious reminding him of what his mother had always taught him: that music was not just about beauty, but about truth. That the greatest gift of his talent was not the ability to play, but the ability to move people, to connect with them, to inspire them to action.", "The final chords of the sonata resonated through the room, and for a moment, there was perfect silence. Then applause erupted, warm and appreciative.", "Thomas stood and bowed slightly, his eyes meeting Oliver's across the room. The satirist raised his glass again, and this time, Thomas smiled fully in return.", "They had saved their town. They had turned discord into harmony. And in doing so, they had both found something they hadn't known they were looking for—Thomas, a voice that extended beyond his music, and Oliver, a cause worthy of his sharp wit and sharper pen.", "As Thomas sat down to play his next piece, he felt a sense of peace that had eluded him for years. Millfield was still a small town, and he was still just a pianist. But now he understood that sometimes, the most powerful music came not from grand concert halls, but from the courage to play one's part in the symphony of community, to add one's unique voice to the collective harmony of human connection.", "And that, he realized, was a song worth playing."];
+            const storyContainer = document.getElementById("storyContainer");
+            const pagination = document.getElementById("paginationControls");
+            const pageIndicator = document.getElementById("pageIndicator");
+            const pageSizeSelect = document.getElementById("pageSizeSelect");
+            const pageOptions = document.getElementById("pageOptions");
+
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const firstBtn = document.getElementById("firstBtn");
+            const lastBtn = document.getElementById("lastBtn");
+
+            let currentPage = 0;
+            let pageSize = 4;
+
+            function getAutoPageSize() {
+                return Math.max(2, Math.floor(window.innerHeight / 250));
+            }
+
+            function renderPage(page) {
+                const totalPages = Math.ceil(paragraphs.length / pageSize);
+                const start = page * pageSize;
+                const end = start + pageSize;
+                storyContainer.innerHTML = paragraphs.slice(start, end).map(p => `<p>${p}</p>`).join('');
+                pageIndicator.textContent = `Page ${page + 1} of ${totalPages}`;
+                prevBtn.style.display = page > 0 ? "inline-block" : "none";
+                firstBtn.style.display = page > 0 ? "inline-block" : "none";
+                nextBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+                lastBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+            }
+
+            function switchToPagedView() {
+                const mode = document.querySelector('input[name="pageMode"]:checked').value;
+                pageSize = (mode === 'auto') ? getAutoPageSize() : parseInt(pageSizeSelect.value);
+                currentPage = 0;
+                pagination.style.display = 'block';
+                renderPage(currentPage);
+            }
+
+            function switchToFullView() {
+                pagination.style.display = 'none';
+                storyContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+            }
+
+            function nextPage() { const totalPages = Math.ceil(paragraphs.length / pageSize); if ((currentPage + 1) < totalPages) { currentPage++; renderPage(currentPage); } }
+            function prevPage() { if (currentPage > 0) { currentPage--; renderPage(currentPage); } }
+            function firstPage() { currentPage = 0; renderPage(currentPage); }
+            function lastPage() { currentPage = Math.ceil(paragraphs.length / pageSize) - 1; renderPage(currentPage); }
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+
+            function exportToPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const pageHeight = doc.internal.pageSize.height;
+                const margin = 15;
+                let y = margin;
+            
+                // Title
+                doc.setFontSize(18);
+                doc.setFont("times", "bold");
+                doc.text(document.title, doc.internal.pageSize.width / 2, y, { align: "center" });
+                y += 15;
+            
+                // Content
+                doc.setFontSize(12);
+                doc.setFont("times", "normal");
+            
+                paragraphs.forEach(p => {
+                    const lines = doc.splitTextToSize(p, 180);
+                    const blockHeight = lines.length * 8;
+            
+                    if (y + blockHeight > pageHeight - margin) {
+                        doc.addPage();
+                        y = margin;
+                    }
+            
+                    doc.text(lines, margin, y);
+                    y += blockHeight; // space between paragraphs
+                });
+            
+                const safeTitle = document.title.replace(/[^a-z0-9]/gi, "_").toLowerCase();
+                doc.save(`${safeTitle}.pdf`);
+            }
+
+
+            document.querySelectorAll('input[name="viewMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    if (e.target.value === 'full') {
+                        pageOptions.style.display = 'none';
+                        switchToFullView();
+                    } else {
+                        pageOptions.style.display = 'block';
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            document.querySelectorAll('input[name="pageMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    const isManual = e.target.value === 'manual';
+                    pageSizeSelect.disabled = !isManual;
+                    if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            pageSizeSelect.addEventListener('change', () => {
+                if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                    switchToPagedView();
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                const btn = document.getElementById("backToTop");
+                btn.style.display = window.scrollY > 300 ? "block" : "none";
+            });
+
+            switchToFullView();
+        </script>
+        
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Story</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+            :root {
+                --bg-color: #fdf6e3;
+                --text-color: #2e2e2e;
+                --btn-color: #333;
+                --btn-hover: #555;
+            }
+
+            body.dark-mode {
+                --bg-color: #1e1e1e;
+                --text-color: #f0f0f0;
+                --btn-color: #ddd;
+                --btn-hover: #fff;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Merriweather', serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                max-width: 800px;
+                margin: auto;
+                padding: 50px 30px;
+                line-height: 2;
+                font-size: 1.15em;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin-bottom: 50px;
+                border-bottom: 3px double #ccc;
+                padding-bottom: 20px;
+                letter-spacing: 2px;
+            }
+
+            p {
+                text-align: justify;
+                margin-bottom: 1.8em;
+            }
+
+            p::first-letter {
+                font-size: 130%;
+                font-weight: bold;
+            }
+
+            #storyContainer {
+                min-height: 600px;
+                position: relative;
+            }
+
+            #paginationControls {
+                text-align: center;
+                margin-top: 30px;
+                min-height: 60px;
+                position: sticky;
+                bottom: 20px;
+                background-color: var(--bg-color);
+                padding: 10px;
+                border-top: 1px solid #aaa;
+            }
+
+            select, label, button {
+                font-size: 1em;
+                margin: 6px 10px;
+            }
+
+            button, select {
+                padding: 6px 14px;
+                border: none;
+                border-radius: 6px;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                transition: background-color 0.3s, color 0.3s;
+                cursor: pointer;
+            }
+
+            button:hover, select:hover {
+                background-color: var(--btn-hover);
+            }
+
+            label {
+                margin: 0 8px;
+                cursor: pointer;
+            }
+
+            input[type="radio"] {
+                margin-right: 4px;
+            }
+
+            #backToTop {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                padding: 10px 15px;
+                font-size: 1em;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                display: none;
+            }
+
+            #controlsTop > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            #controlsTop {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        </style>
+        
+</head>
+<body>
+<h1>Story</h1>
+
+            <!-- Info Modal Trigger -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button onclick="document.getElementById('infoModal').style.display='block'">ℹ️ Info</button>
+            </div>
+            
+            <!-- Info Modal -->
+            <div id="infoModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:90%; max-width:600px; border-radius:10px; font-family:'Merriweather', serif;">
+                <span onclick="document.getElementById('infoModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2>Story Info</h2>
+                <p><strong>📅 Creation Date:</strong> 05-07-2025 13:48</p>
+                <p><strong>🧠 Algorithm:</strong> Plotto</p>
+                <p><strong>📝 Word Count:</strong> 4849</p>
+                <p><strong>📄 Review:</strong> <button onclick="document.getElementById('reviewModal').style.display='block'">View Review</button></p>
+              </div>
+            </div>
+            <!-- Review Modal -->
+            <div id="reviewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:5% auto; padding:30px; border:1px solid #888; width:90%; max-width:800px; border-radius:10px; font-family:'Merriweather', serif; max-height:85%; overflow-y:auto;">
+                <span onclick="document.getElementById('reviewModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2 style="margin-top:0;">📘 Story Review</h2>
+                <p><strong>📘 Story Title:</strong> The Perfume of Mysteries</p>
+<hr>
+<p>📄 Claude Evaluation Report</p>
+<hr>
+<h2>Literary Analysis of "The Perfume of Mysteries"</h2>
+<h3>Character (Category Weight = 0.30)</h3>
+<p>1. <strong>Is the main character clearly identifiable?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- Keith Blackwood is clearly established as the protagonist from the opening paragraph, and the story follows his journey throughout.</p>
+<p>2. <strong>Does the character have a clear backstory?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Keith's backstory is established through details about his career as a composer, his discovery of synesthesia in his grandmother's attic as a teenager, and his three-year marriage to Sienna.</p>
+<p>3. <strong>Does the character have a clear goal or "desire"?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Keith's goal is explicitly stated:</strong> to win the Thornfield Medal from the International Society of Paranormal Research and validate his theories about translating scents into music.</p>
+<p>4. <strong>Does the character have a clear inner weakness or vulnerability?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Keith's obsession with his research at the expense of his relationships, particularly his marriage, is a significant vulnerability that drives conflict throughout the story.</p>
+<p>5. <strong>Does the character undergo a transformation?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Keith transforms from someone solely focused on academic validation to someone who recognizes "that the pursuit of knowledge was meaningless without someone to share it with," as evidenced by his reunion with Sienna.</p>
+<p>6. <strong>Do supporting characters contribute to the main character's journey?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Each supporting character serves a clear purpose:</strong> Sienna represents what Keith sacrifices, Professor Winters provides guidance, Caleb advances the plot, and Dr. Mercer validates Keith's theories.</p>
+<p>7. <strong>Do supporting characters fulfill archetypal roles?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Characters fulfill clear archetypal roles:</strong> Sienna as the abandoned partner, Professor Winters as the mentor, Caleb as the ally, and Dr. Mercer as the sage who confirms the hero's quest.</p>
+<p>8. <strong>Are supporting characters diverse and distinct?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p><strong>- The supporting characters have distinct personalities and roles:</strong> pragmatic Sienna contrasts with eccentric Dr. Mercer, while Professor Winters and Caleb have different approaches to Keith's research.</p>
+<p>9. <strong>Is the number of characters appropriate?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The story maintains a focused cast of characters (Keith, Sienna, Professor Winters, Caleb, Dr. Mercer) without introducing unnecessary additional characters.</p>
+<p>10. <strong>Are characters developed across three layers?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- Keith is developed physically (his appearance and actions), psychologically (his obsessions and doubts), and sociologically (his professional standing and marriage).</p>
+<h3>Conflict (Category Weight = 0.30)</h3>
+<p>11. <strong>Is the central conflict strong enough to drive the story?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.35</p>
+<p><strong>- Weighted Score:</strong> 0.42</p>
+<p>- The dual conflicts of Keith's quest to validate his theories and the deterioration of his marriage provide strong driving forces throughout the narrative.</p>
+<p>12. <strong>Does the conflict touch upon universal human conditions?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- The story explores universal themes of obsession, the cost of ambition, the search for validation, and the tension between personal passion and relationships.</p>
+<p>13. <strong>Are the stakes clear from the beginning?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The professional stakes (winning the medal) are clear early on, while the personal stakes (his marriage) become clearer as the story progresses.</p>
+<p>14. <strong>Is the conflict directly related to what we know about the character?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- The conflicts arise directly from Keith's established character traits:</strong> his obsession with his research and his prioritization of work over his marriage.</p>
+<p>15. <strong>Does the conflict escalate as the story approaches its climax?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Tension builds steadily with Sienna leaving, the box disintegrating, the mystery deepening, culminating in the experiment that validates Keith's theories.</p>
+<p>16. <strong>Is the source of conflict consistent throughout?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The central conflicts (Keith's quest for validation and his failing marriage) remain consistent throughout the narrative.</p>
+<p>17. <strong>Do the subplots also include conflict?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- The subplot involving the mysterious box and its origins contains elements of conflict, particularly the question of who took it from Dr. Mercer's safe.</p>
+<p>18. <strong>Is there both external conflict and internal conflict?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.06</p>
+<p>- The story balances external conflict (solving the mystery of the box) with internal conflict (Keith's doubts about sacrificing his marriage for his work).</p>
+<h3>Craft (Category Weight = 0.25)</h3>
+<p>19. <strong>Is the story written in clear, modern English?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.20</p>
+<p>- The prose is clear, fluid, and contemporary, with well-constructed sentences and accessible vocabulary.</p>
+<p>20. <strong>Are spelling and grammar correct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The text demonstrates excellent command of grammar, spelling, and punctuation throughout.</p>
+<p>21. <strong>Is the writing clear, concise, and descriptive?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The writing balances descriptive elements with narrative progression, providing necessary details without becoming verbose.</p>
+<p>22. <strong>Is there vivid description of characters, scenes, and settings?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- The story includes effective descriptions of settings (Keith's apartment, Dr. Mercer's home) and sensory experiences, though some scenes could be more vividly rendered.</p>
+<p>23. <strong>Is there no unnecessary or inappropriate detail?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- Most details serve the narrative, though some explanatory passages about Keith's theories could be more concise.</p>
+<p>24. <strong>Is everything described visually demonstrable?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- Most elements are visually demonstrable, though the sensory experiences during the climactic experiment necessarily involve non-visual elements.</p>
+<h3>Logic (Category Weight = 0.15)</h3>
+<p>25. <strong>Are there no plot holes?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The plot is generally consistent, though the question of who took the box from Dr. Mercer's safe is raised but never fully resolved.</p>
+<p>26. <strong>Are there no unclear points?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Most plot points are clear, though the exact nature of the "spiritual victory" Keith achieves could be more precisely defined.</p>
+<p>27. <strong>Have all questions raised been answered?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- Major questions about Keith's theories and his relationship with Sienna are resolved, though some secondary mysteries (like who took the box) remain open.</p>
+<p>28. <strong>Is the story consistent and free of continuity errors?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The narrative maintains consistency in its timeline, character motivations, and the rules of its paranormal elements.</p>
+<p>29. <strong>Are there no contradictions with previously stated information?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story avoids contradicting its established facts and maintains internal consistency throughout.</p>
+<p>30. <strong>Is the logic sound and free from illogical elements?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- Within its paranormal premise, the story maintains reasonable logic, though the coincidence of finding the box and meeting Caleb stretches credibility somewhat.</p>
+<h3>Overall Weighted Score: 3.6500</h3>
+<h3>Summary Report:</h3>
+<p>"The Perfume of Mysteries" is a well-crafted paranormal story that successfully balances external mystery with internal character development. The protagonist's journey from obsession to balanced perspective is convincingly portrayed, with strong character motivations and consistent conflict throughout. The story excels in its exploration of the tension between professional ambition and personal relationships, culminating in a satisfying resolution that honors both aspects of the protagonist's life. The writing is clear and effective, with only minor issues in plot resolution and some areas where visual description could be enhanced.</p>
+<h3>Suggestions for Improvement:</h3>
+<p><strong>* <strong>Resolve secondary mysteries:</strong> </strong> The question of who took the box from Dr. Mercer's safe is raised but never answered, creating an unresolved plot thread that could be addressed to strengthen narrative cohesion.</p>
+<p><strong>* <strong>Enhance visual descriptions:</strong> </strong> While the writing is generally strong, some key scenes (particularly the climactic experiment) could benefit from more vivid sensory descriptions to help readers fully immerse in these pivotal moments.</p>
+<p><strong>* <strong>Develop supporting characters further:</strong> </strong> Though functional to the plot, characters like Professor Winters and Caleb could be given more distinctive traits and deeper motivations to make them more memorable.</p>
+<p><strong>* <strong>Clarify the spiritual elements:</strong> </strong> The "spiritual victory" Keith achieves is somewhat abstractly described; making this more concrete would strengthen the thematic resolution.</p>
+<p><strong>* <strong>Reduce coincidental elements:</strong> </strong> The chance discovery of the box and subsequent connection to Caleb feels somewhat contrived; establishing more organic connections between these plot elements would strengthen the story's credibility.</p>
+              </div>
+            </div>
+        
+
+        <div id="controlsTop">
+            <div>
+                <label><input type="radio" name="viewMode" value="full" checked> Continuous Reading</label>
+                <label><input type="radio" name="viewMode" value="paged"> Paginated View</label>
+            </div>
+
+            <div id="pageOptions" style="display: none;">
+                <label><input type="radio" name="pageMode" value="auto" checked> Auto Paragraphs</label>
+                <label><input type="radio" name="pageMode" value="manual"> Manual</label>
+                <select id="pageSizeSelect" disabled>
+        <option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+                </select>
+            </div>
+
+            <div>
+                <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+
+        </div>
+
+        <div id="storyContainer"></div>
+
+        <div id="paginationControls" style="display: none;">
+            <button id="firstBtn" onclick="firstPage()">⏮ First</button>
+            <button id="prevBtn" onclick="prevPage()">◀ Previous</button>
+            <span id="pageIndicator">Page 1 of X</span>
+            <button id="nextBtn" onclick="nextPage()">Next ▶</button>
+            <button id="lastBtn" onclick="lastPage()">Last ⏭</button>
+        </div>
+
+        <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆ Back to Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script>
+            const paragraphs = ["# The Perfume of Mysteries", "Keith Blackwood stood at the edge of his apartment's balcony, eyes closed, breathing in the night air of downtown Chicago. The city's symphony of sounds—distant sirens, the hum of traffic, fragments of conversation from the street below—washed over him. But Keith wasn't listening to any of that. He was listening for something else entirely.", "\"There,\" he whispered, opening his eyes. \"D minor with undertones of bergamot and jasmine.\"", "He hurried inside to his grand piano, its polished surface reflecting the dim light of his apartment. The walls were lined with bookshelves containing an eclectic collection: ancient grimoires next to modern physics textbooks, treatises on alchemy beside musical theory. Scattered throughout were crystal balls, tarot cards, and various artifacts collected during his travels.", "Keith's fingers danced across the keys, attempting to capture the essence of what he'd sensed outside. For years, he had been developing a theory that scents—particularly those of flowers—could be translated into musical compositions. Not just as inspiration, but as direct translations, a synesthetic language that bridged the gap between two sensory experiences.", "\"Almost,\" he muttered, adjusting a chord progression. \"But not quite.\"", "At thirty-four, Keith had established himself as a moderately successful composer for independent films and small theater productions. But his true passion—his obsession—lay in this unusual theory of sensory translation. He'd published articles in obscure journals, given talks at fringe conferences, and maintained a blog with a small but dedicated following of fellow enthusiasts of the occult and unexplained.", "His phone buzzed with a text from Sienna, his wife of three years.", "*Working late again. Don't wait up. Love you.*", "Keith sighed. Their marriage had been strained lately. Sienna, a pragmatic corporate attorney, had initially found his eccentricities charming. But as his obsession with the occult deepened, her patience had begun to wear thin. She couldn't understand why he devoted so much time to what she called his \"hobby\" instead of focusing on more lucrative composing opportunities.", "What Sienna didn't understand—what no one understood—was that Keith wasn't pursuing this theory for fame or fortune. He was after something far more significant: validation. Recognition from the International Society of Paranormal Research. The ISPR's Thornfield Medal was awarded annually to the most groundbreaking research in paranormal studies, and Keith had set his heart on winning it.", "The medal represented everything he'd been working toward since he was a teenager, when he'd first discovered an old book on synesthesia in his grandmother's attic. The recognition would prove that his life's work wasn't just the ramblings of an eccentric. It would legitimize the field he loved.", "There was just one problem: Keith had never actually conducted formal research. His knowledge came entirely from books, articles, and stories he'd read. He had theories—beautiful, complex theories—but no empirical evidence to support them.", "\"This year will be different,\" he promised himself, returning to the piano. \"This year, I'll find proof.\"", "---", "Three nights later, Keith found himself wandering the streets of Chicago's Old Town neighborhood well past midnight. He often took these nocturnal walks when stuck on a composition or theory, finding that the quiet streets and ambient city sounds helped clear his mind.", "As he passed a row of Victorian-era buildings, a flash of movement caught his eye. Something tumbled from an upper window of one of the buildings, landing on the sidewalk with a soft thud just a few feet ahead of him.", "Keith approached cautiously. In the dim glow of the streetlight, he saw a small wooden box, intricately carved with symbols he didn't recognize. It was about the size of a paperback book, with no visible latch or opening mechanism.", "He glanced up at the window it had fallen from. The building was dark, with no sign of movement or life. After a moment's hesitation, Keith picked up the box. It was surprisingly heavy for its size, and warm to the touch, as if it had been sitting near a fire.", "\"Hello?\" he called up to the window. \"Did you drop this?\"", "No response came. Keith turned the box over in his hands, examining the carvings more closely. They resembled musical notation in some ways, but with elements that reminded him of alchemical symbols. Something about the box resonated with him, like a familiar melody he couldn't quite place.", "He should have left it there, or perhaps taken it to the police. Instead, Keith slipped the mysterious object into his coat pocket and continued his walk, now with a quickened pace and a mind racing with possibilities.", "---", "\"You brought home a random box that fell out of a window?\" Sienna's voice was a mixture of disbelief and exasperation. She stood in their kitchen the next morning, coffee mug in hand, staring at the object Keith had placed on their dining table.", "\"It's not random,\" Keith insisted. \"Look at these carvings. They're similar to some ancient musical notations I've been researching. This could be important.\"", "Sienna sighed, setting down her mug. \"Keith, this is exactly what I'm talking about. You're always chasing these... fantasies. Meanwhile, Marcus called yesterday about scoring that new documentary series. It could be steady work for months, but you didn't even call him back.\"", "\"I'll call him today,\" Keith promised, though they both knew his attention was already elsewhere. \"But Sienna, don't you see? This box could be connected to my research. It could be the evidence I need for the Thornfield Medal submission.\"", "\"The medal,\" Sienna repeated flatly. \"Right.\" She checked her watch. \"I have to get to the office. We have that dinner with my partners tonight, remember? Seven o'clock, Le Bernardin. Please don't be late.\"", "After she left, Keith spent hours examining the box, trying every method he could think of to open it. He photographed it from every angle, researched the symbols online, and even tried playing musical notes that corresponded to the patterns carved into its surface.", "Nothing worked.", "By late afternoon, frustrated and no closer to understanding the box's secrets, Keith decided to seek help. He called Professor Eleanor Winters, a former music theory instructor who had shown interest in his research in the past.", "\"Bring it by,\" she said after he described his find. \"I'm curious to see these symbols you're talking about.\"", "---", "Professor Winters' office at the university was a cluttered space filled with musical instruments from around the world, stacks of sheet music, and books on every conceivable aspect of music theory and history. At seventy-two, she remained one of the most respected ethnomusicologists in the country, though her interest in the more esoteric aspects of music had always made her something of an outsider in academic circles.", "\"Fascinating,\" she murmured, examining the box through her reading glasses. \"These symbols do bear resemblance to some ancient musical notations, but there's something else here too. See these curves? They remind me of wave patterns, like those used to represent sound or scent molecules.\"", "Keith leaned forward eagerly. \"That's exactly what I thought! It's like a bridge between music and scent, just like my theory suggests.\"", "Professor Winters gave him a measured look. \"Keith, your theory about translating scents into music is intriguing, but it remains just that—a theory. Without empirical evidence or a reproducible methodology, it won't be taken seriously by the scientific community.\"", "\"That's why this box is so important,\" Keith insisted. \"It could be the key to proving my theory.\"", "The professor sighed. \"Even if that were true, you still need to open it first.\" She handed the box back to him. \"There's someone you might want to talk to. Caleb Roth, a former student of mine. He specializes in ancient instruments and musical artifacts. If anyone can help you make sense of this, it's him.\"", "Keith took down Caleb's contact information, thanked the professor, and left, completely forgetting about his dinner plans with Sienna.", "---", "By the time Keith remembered the dinner, it was nearly nine o'clock. He had six missed calls from Sienna and a text that simply read: *Don't bother coming now. We'll talk at home.*", "Guilt washed over him, but it was quickly displaced by excitement when his phone rang with an unknown number.", "\"Is this Keith Blackwood?\" a male voice asked when he answered.", "\"Yes, who's this?\"", "\"Caleb Roth. Eleanor Winters gave me your number. She said you have something that might interest me.\"", "Keith's heart raced. \"Yes, I found this box with unusual carvings. Professor Winters thought you might be able to help me understand it.\"", "\"Can you meet me tomorrow? I'm only in Chicago for a few days.\"", "They arranged to meet at a café near the university the following afternoon. Keith hung up, momentarily elated before remembering the situation with Sienna. He tried calling her, but the call went straight to voicemail.", "When he arrived home, the apartment was dark. He found Sienna in bed, her back to the door.", "\"Sienna, I'm so sorry,\" he began.", "\"Save it, Keith.\" Her voice was cold. \"This isn't just about tonight. It's about every night. Every weekend. Every conversation that somehow turns into a lecture about your theories or your medal or whatever new obsession you've found.\"", "\"It's not an obsession,\" Keith protested weakly. \"It's my work.\"", "Sienna sat up, turning to face him. In the dim light from the hallway, he could see the hurt in her eyes. \"No, your work is composing music. This... this is something else. Something that's taking you away from everything else in your life. Including me.\"", "\"That's not fair,\" Keith said. \"My research is important.\"", "\"More important than our marriage?\" Sienna asked quietly.", "Keith didn't answer, couldn't answer. The truth was, in that moment, with the mysterious box burning a hole in his pocket, he wasn't sure.", "Sienna nodded slowly, as if his silence had confirmed something she'd long suspected. \"I'm going to stay at my sister's for a few days. I think we both need some space to figure out what we want.\"", "She packed a small bag while Keith stood helplessly in the doorway, torn between the desire to fix things with his wife and the pull of the mystery he'd stumbled upon.", "After Sienna left, Keith placed the box on his bedside table and lay awake for hours, staring at it in the darkness. Eventually, exhaustion overtook him, and he fell into a troubled sleep.", "---", "Keith dreamed of music—complex, beautiful compositions that translated the scent of every flower in existence. In his dream, he stood before the International Society of Paranormal Research, accepting the Thornfield Medal to thunderous applause. Sienna was there, proud and loving, finally understanding the importance of his work.", "He awoke with a start, sunlight streaming through the windows. His first thought was of Sienna, and a pang of regret shot through him. His second thought was of the box.", "Keith turned to the bedside table and froze. Where the solid wooden box had been, there was now only a small pile of fine, ash-like powder.", "\"No,\" he whispered, reaching out to touch the powder. It was cool and fine, like crushed chalk. \"No, no, no!\"", "The box had somehow disintegrated overnight, taking with it any hope of understanding its secrets or using it as evidence for his research. Keith felt a wave of despair wash over him. Without the box, his meeting with Caleb Roth seemed pointless, but he decided to go anyway, if only to report what had happened.", "---", "The café was busy when Keith arrived, clutching a small container of the powder that was all that remained of the mysterious box. He spotted a man who matched the description Caleb had given—mid-thirties, with dark-rimmed glasses and a tweed jacket that seemed at odds with the warm spring day.", "\"Caleb Roth?\" Keith asked, approaching the table.", "The man looked up from his laptop and nodded. \"You must be Keith. Please, sit down.\" He gestured to the chair across from him. \"Eleanor speaks highly of your theories, though she mentioned you lack formal training.\"", "Keith bristled slightly at this but sat down. \"I've been researching independently for years. My focus is on the relationship between scent and sound, particularly how floral scents can be translated into musical compositions.\"", "\"An interesting concept,\" Caleb said, his tone neutral. \"Eleanor mentioned you found some sort of artifact?\"", "Keith's expression fell. \"I did, but something strange happened.\" He placed the container on the table and explained about the box's mysterious disintegration.", "Caleb listened intently, then opened the container and examined the powder. \"May I?\" he asked, taking a small amount between his fingers and bringing it to his nose.", "\"What is it?\" Keith asked anxiously.", "\"I'm not entirely sure,\" Caleb admitted. \"But based on your description of the symbols, I have a theory.\" He reached into his messenger bag and pulled out a folded piece of parchment. \"Does this look familiar?\"", "Keith gasped. The parchment contained drawings of symbols identical to those that had been carved into the box. \"Where did you get this?\"", "\"It was part of a collection I acquired from an estate sale last year,\" Caleb explained. \"It appears to be half of a larger document. The text refers to something called 'The Harmony of Essences'—a method for capturing and preserving scents through musical vibrations.\"", "Keith's heart raced. \"That's exactly what my research is about! But I've never found historical evidence of anyone successfully implementing such a method.\"", "\"According to this document, someone did,\" Caleb said. \"But the instructions are incomplete. It mentions a 'vessel of translation'—possibly your box—and a 'key of harmonics' needed to activate it. Without both halves of the document, it's impossible to understand the complete process.\"", "Keith stared at the parchment, his mind racing. \"You said this is half of a document. Where's the other half?\"", "Caleb shook his head. \"That's what I've been trying to determine. The collection included notes suggesting the document was deliberately split, with the second half hidden somewhere for safekeeping. I've been tracking it for months.\"", "\"And now the box is gone,\" Keith said dejectedly.", "\"Perhaps not gone,\" Caleb suggested. \"Transformed. The document mentions a 'dissolution phase' where the vessel releases its essence. This powder might be exactly what's supposed to happen.\"", "Hope flickered in Keith's chest. \"So what do we do now?\"", "\"We need to find the other half of the document,\" Caleb said decisively. \"And I think I know where to start looking.\"", "---", "Over the next three days, Keith and Caleb delved deep into their search for the missing half of the document. Caleb's research had led him to believe it might be in the possession of a reclusive collector in Chicago—possibly the same person from whose window the box had fallen.", "Meanwhile, Keith's relationship with Sienna deteriorated further. She returned briefly to collect more of her things, and their conversation quickly devolved into an argument.", "\"I found your grant application,\" she said, her voice tight with anger. \"You're planning to take a sabbatical? Move to Vienna for six months? Were you even going to discuss this with me?\"", "\"I was waiting for the right time,\" Keith defended weakly. \"It's a prestigious opportunity, Sienna. The Vienna Academy has one of the best acoustical research facilities in the world.\"", "\"And what about my career? My life here?\" Sienna demanded. \"Did that factor into your plans at all?\"", "The truth was, it hadn't. Keith had been so consumed by his research that he'd made the decision unilaterally, assuming Sienna would understand once he explained the importance of the opportunity.", "\"I think we need more than just a few days apart,\" Sienna said finally. \"I'm filing for divorce, Keith.\"", "The words hit him like a physical blow. \"Sienna, please—\"", "\"No,\" she cut him off. \"I've tried, Keith. For years, I've tried to be supportive, to understand your passion. But you're not just passionate—you're obsessed. And your obsession doesn't leave room for anything else, including me.\"", "She placed her wedding ring on the coffee table. \"I'll have my lawyer contact you.\"", "After she left, Keith sat in stunned silence, the reality of what had just happened slowly sinking in. His marriage was over. The life he had built with Sienna was crumbling, and for what? A theory that no one took seriously? A mysterious box that had turned to dust? A medal he would likely never win?", "For the first time, doubt crept into Keith's mind. Had he been chasing a fantasy all this time? Had he sacrificed real happiness for an illusion?", "His phone buzzed with a text from Caleb: *Found something. Meet me at the address below. Bring the powder.*", "Keith stared at the message, torn between the pull of the mystery and the wreckage of his personal life. After a long moment, he picked up the container of powder and headed for the door. He needed answers, now more than ever.", "---", "The address led Keith to an old brownstone in a quiet neighborhood. Caleb was waiting outside, looking excited.", "\"This is the building,\" he said as Keith approached. \"The one the box fell from. I tracked down the owner—a Dr. Elias Mercer. He's a former musicologist who's been researching sensory translation for decades.\"", "\"Why didn't you tell me this before?\" Keith asked, surprised.", "\"I wasn't certain until today,\" Caleb explained. \"I found references to his work in some obscure academic journals. He disappeared from academic circles fifteen years ago, but his theories align perfectly with yours.\"", "They approached the door, and Caleb rang the bell. After a long moment, the door opened to reveal an elderly man with wild white hair and piercing blue eyes.", "\"Dr. Mercer?\" Caleb inquired.", "The man studied them suspiciously. \"Who's asking?\"", "\"My name is Caleb Roth. This is Keith Blackwood. We're researching the relationship between scent and sound, specifically something called 'The Harmony of Essences.'\"", "Dr. Mercer's eyes widened slightly. \"Where did you hear that term?\"", "Caleb produced the parchment. \"I have half of a document describing the process. And Keith found a box that we believe is connected.\"", "\"A box?\" Dr. Mercer's gaze shifted to Keith. \"What happened to it?\"", "Keith held up the container. \"It... disintegrated into this powder.\"", "A slow smile spread across Dr. Mercer's face. \"Then it worked. Come in, both of you. We have much to discuss.\"", "---", "Dr. Mercer's home was a testament to his obsession. Every surface was covered with musical instruments, bottles of perfume, and scientific equipment. Charts mapping scent molecules hung beside musical scores, and a complex apparatus that looked like a cross between a pipe organ and a chemistry set dominated one corner of the living room.", "\"I've spent my life studying the relationship between scent and sound,\" Dr. Mercer explained as he examined the powder and the parchment. \"Like you, Mr. Blackwood, I believed that floral scents could be translated into musical compositions. But I discovered something far more significant—music can be used to capture and preserve scents in their purest form.\"", "\"That's exactly what I've been theorizing!\" Keith exclaimed.", "\"Theory is one thing. Implementation is another,\" Dr. Mercer said. \"I developed a method, but I needed a specific vessel—a box carved from the wood of a tree that had grown over the grave of a composer. The resonance of such wood is unique, capable of holding the vibrational patterns necessary for the transformation.\"", "\"The box I found,\" Keith realized.", "Dr. Mercer nodded. \"I spent years creating it, infusing it with the essence of a rare orchid that blooms once a century. But I feared others might misuse my discovery, so I split the instructions and hid the box.\"", "\"Then why did it fall from your window?\" Keith asked.", "Dr. Mercer looked confused. \"It didn't. The box has been in my safe for years.\"", "Caleb and Keith exchanged glances. \"Then what was the box I found?\" Keith asked.", "\"Show me exactly where you found it,\" Dr. Mercer demanded.", "---", "The three men stood on the sidewalk outside the brownstone, Keith pointing to the spot where the box had fallen.", "\"It came from that window,\" he said, indicating a second-floor window of Dr. Mercer's home.", "\"That's my laboratory,\" Dr. Mercer said, his brow furrowed. \"The box was in my safe, across the room from that window.\"", "They returned to the house, and Dr. Mercer led them to his laboratory. The room was similar to the living room, filled with equipment and research materials. A large safe stood against one wall, opposite the window Keith had indicated.", "Dr. Mercer opened the safe, revealing an empty space where the box should have been.", "\"Someone took it,\" he whispered. \"But who? And why drop it outside?\"", "\"Perhaps they were interrupted,\" Caleb suggested. \"Heard someone coming and panicked.\"", "Dr. Mercer shook his head. \"The safe wasn't forced. Only two people had the combination—myself and my former research assistant, Vivian.\"", "\"Could she have taken it?\" Keith asked.", "\"Impossible. Vivian died three years ago.\" Dr. Mercer's voice caught. \"She was more than my assistant. She was my partner in every sense. After she passed, I lost the will to continue our work.\"", "A heavy silence fell over the room as the implications sank in. If Vivian was dead and Dr. Mercer hadn't opened the safe, who had taken the box?", "\"The powder,\" Keith remembered suddenly. \"You said the box worked. What did you mean?\"", "Dr. Mercer's expression shifted from confusion to excitement. \"The dissolution phase is just the beginning. The powder contains the captured essence in its purest form. With the right musical sequence, it can be released—the scent and sound experienced simultaneously in perfect harmony.\"", "\"And you know this sequence?\" Caleb asked.", "\"Half of it,\" Dr. Mercer said. \"The other half is in the missing portion of the document.\"", "Caleb unfolded his parchment. \"This half contains a musical notation unlike any I've seen. It seems incomplete.\"", "Dr. Mercer examined it closely. \"Yes, this is it. But you're right, it's only half the composition.\" He moved to a desk and unlocked a drawer, withdrawing a similar piece of parchment. \"This is the other half. Together, they form the key to activating the essence.\"", "Keith stared at the two halves of the document, now side by side. \"So if we play this composition...\"", "\"The essence will be released,\" Dr. Mercer confirmed. \"A perfect translation of scent into sound and back again—proof that the sensory boundaries we perceive are merely limitations of our understanding, not of reality itself.\"", "---", "They worked through the night, deciphering the complete musical notation and preparing Dr. Mercer's equipment for the experiment. The composition was complex, requiring precise timing and intonation.", "As dawn broke, they were ready. Dr. Mercer placed the powder in a special receptacle connected to his apparatus.", "\"This is a momentous occasion,\" he said solemnly. \"The culmination of decades of research. Are you ready?\"", "Keith nodded, taking his position at the modified piano that was integrated into the apparatus. Caleb stood by with recording equipment, documenting every aspect of the experiment.", "Keith began to play the composition, his fingers moving across the keys with practiced precision. The music was unlike anything he had ever played—haunting, complex, with harmonies that seemed to exist at the edge of human perception.", "As the composition progressed, something extraordinary happened. The powder in the receptacle began to glow with a soft, pulsating light. A subtle vibration filled the room, and then, as Keith played the final chord, the air was suddenly filled with the most exquisite fragrance—a scent so pure and perfect that it brought tears to his eyes.", "But it wasn't just a scent. Somehow, impossibly, the fragrance itself seemed to produce music—the same composition Keith had just played, but richer, more complete, as if the scent was the true form of the music and what he had played was merely a shadow of it.", "The three men stood in awe as the phenomenon continued for several minutes before gradually fading, leaving behind a profound silence.", "\"It worked,\" Dr. Mercer whispered, his voice thick with emotion. \"After all these years, it actually worked.\"", "Keith felt a strange sense of peace wash over him. In that moment, all his doubts, all his questions about the choices he had made, seemed to fall away. He had experienced something transcendent, something that validated not just his theories but his entire approach to understanding the world.", "\"This changes everything,\" Caleb said, reviewing the recordings. \"The implications for science, for art—\"", "\"For human perception itself,\" Dr. Mercer added. \"We've proven that the boundaries between our senses are permeable, that there exists a unified sensory experience beyond our conventional understanding.\"", "Keith thought of Sienna, of the life he had sacrificed in pursuit of this moment. Was it worth it? He wasn't sure. But he knew that what he had just experienced was real, was important, and would change the course of his life forever.", "---", "In the weeks that followed, Keith, Caleb, and Dr. Mercer worked tirelessly to document their findings and prepare them for publication. They reproduced the experiment multiple times, each with the same extraordinary results.", "Keith's submission to the International Society of Paranormal Research included comprehensive documentation of their work, including recordings, chemical analyses of the powder before and after activation, and testimonials from independent observers they had invited to witness later experiments.", "Three months later, Keith stood on a stage in Vienna, accepting the Thornfield Medal for his contribution to paranormal research. The audience, composed of scientists, artists, and researchers from around the world, gave him a standing ovation.", "\"This award doesn't belong to me alone,\" Keith said in his acceptance speech. \"It belongs to Dr. Elias Mercer, whose lifelong dedication made this discovery possible. To Caleb Roth, whose expertise and persistence helped unlock the mystery. And to all those who dare to explore the boundaries of human perception, who refuse to accept that what we know is all there is to know.\"", "He didn't mention Sienna, but she was in his thoughts. Their divorce had been finalized a month earlier. The last time they spoke, she had congratulated him on his research breakthrough, her voice carrying a hint of the warmth they had once shared.", "\"I'm happy for you, Keith,\" she had said. \"You found what you were looking for.\"", "Had he? The question lingered as he left the stage, medal in hand. The recognition he had sought for so long was his, but at what cost?", "---", "A year later, Keith sat in a small café in Paris, watching people pass by on the boulevard. His life had changed dramatically since the discovery. He had accepted a position at the Vienna Academy, leading a research team exploring the applications of sensory translation. His work was respected, his theories validated.", "Yet something was missing.", "A waiter brought him a cup of coffee and a small envelope. \"This was left for you, monsieur.\"", "Keith opened the envelope to find a single sheet of paper with a musical notation written on it—a simple melody, beautiful in its clarity. There was no signature, no explanation.", "Intrigued, Keith hummed the melody softly to himself. As the notes filled the air, a familiar scent seemed to materialize around him—jasmine and bergamot, the perfume Sienna had always worn.", "His heart raced as he scanned the café and the street beyond. And then he saw her, standing across the boulevard, watching him with a small smile.", "Keith rose from his table, the melody and its accompanying scent still lingering in the air between them. As he crossed the street toward Sienna, he realized that his greatest discovery hadn't been about the translation of scent into sound. It had been about the connection between people—a connection that transcended the physical senses, that couldn't be captured in a box or described in a research paper.", "It was a spiritual understanding, a recognition that the most profound mysteries weren't those that could be solved, but those that could be experienced. And in that moment, as Sienna took his hand, Keith knew he had achieved something far more valuable than academic recognition or professional success.", "He had achieved a spiritual victory—an understanding that the pursuit of knowledge was meaningless without someone to share it with, that the boundaries between people were just as permeable as those between the senses, if only we had the courage to cross them.", "\"I've missed you,\" he said simply.", "Sienna's smile deepened. \"I've been following your work. It's extraordinary, Keith. You were right all along.\"", "\"Not about everything,\" he admitted. \"I lost sight of what was truly important.\"", "As they walked together along the boulevard, Keith realized that his journey had come full circle. The mysterious box that had fallen at his feet that night had led him not just to scientific discovery, but to a deeper understanding of himself and what he truly valued.", "The perfume of mysteries that had guided his life had finally revealed its most important secret: that some mysteries aren't meant to be solved, but to be embraced, shared, and cherished. And in that understanding lay the true harmony of essences—not just between scent and sound, but between heart and mind, between one soul and another."];
+            const storyContainer = document.getElementById("storyContainer");
+            const pagination = document.getElementById("paginationControls");
+            const pageIndicator = document.getElementById("pageIndicator");
+            const pageSizeSelect = document.getElementById("pageSizeSelect");
+            const pageOptions = document.getElementById("pageOptions");
+
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const firstBtn = document.getElementById("firstBtn");
+            const lastBtn = document.getElementById("lastBtn");
+
+            let currentPage = 0;
+            let pageSize = 4;
+
+            function getAutoPageSize() {
+                return Math.max(2, Math.floor(window.innerHeight / 250));
+            }
+
+            function renderPage(page) {
+                const totalPages = Math.ceil(paragraphs.length / pageSize);
+                const start = page * pageSize;
+                const end = start + pageSize;
+                storyContainer.innerHTML = paragraphs.slice(start, end).map(p => `<p>${p}</p>`).join('');
+                pageIndicator.textContent = `Page ${page + 1} of ${totalPages}`;
+                prevBtn.style.display = page > 0 ? "inline-block" : "none";
+                firstBtn.style.display = page > 0 ? "inline-block" : "none";
+                nextBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+                lastBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+            }
+
+            function switchToPagedView() {
+                const mode = document.querySelector('input[name="pageMode"]:checked').value;
+                pageSize = (mode === 'auto') ? getAutoPageSize() : parseInt(pageSizeSelect.value);
+                currentPage = 0;
+                pagination.style.display = 'block';
+                renderPage(currentPage);
+            }
+
+            function switchToFullView() {
+                pagination.style.display = 'none';
+                storyContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+            }
+
+            function nextPage() { const totalPages = Math.ceil(paragraphs.length / pageSize); if ((currentPage + 1) < totalPages) { currentPage++; renderPage(currentPage); } }
+            function prevPage() { if (currentPage > 0) { currentPage--; renderPage(currentPage); } }
+            function firstPage() { currentPage = 0; renderPage(currentPage); }
+            function lastPage() { currentPage = Math.ceil(paragraphs.length / pageSize) - 1; renderPage(currentPage); }
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+
+            function exportToPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const pageHeight = doc.internal.pageSize.height;
+                const margin = 15;
+                let y = margin;
+            
+                // Title
+                doc.setFontSize(18);
+                doc.setFont("times", "bold");
+                doc.text(document.title, doc.internal.pageSize.width / 2, y, { align: "center" });
+                y += 15;
+            
+                // Content
+                doc.setFontSize(12);
+                doc.setFont("times", "normal");
+            
+                paragraphs.forEach(p => {
+                    const lines = doc.splitTextToSize(p, 180);
+                    const blockHeight = lines.length * 8;
+            
+                    if (y + blockHeight > pageHeight - margin) {
+                        doc.addPage();
+                        y = margin;
+                    }
+            
+                    doc.text(lines, margin, y);
+                    y += blockHeight; // space between paragraphs
+                });
+            
+                const safeTitle = document.title.replace(/[^a-z0-9]/gi, "_").toLowerCase();
+                doc.save(`${safeTitle}.pdf`);
+            }
+
+
+            document.querySelectorAll('input[name="viewMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    if (e.target.value === 'full') {
+                        pageOptions.style.display = 'none';
+                        switchToFullView();
+                    } else {
+                        pageOptions.style.display = 'block';
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            document.querySelectorAll('input[name="pageMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    const isManual = e.target.value === 'manual';
+                    pageSizeSelect.disabled = !isManual;
+                    if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            pageSizeSelect.addEventListener('change', () => {
+                if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                    switchToPagedView();
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                const btn = document.getElementById("backToTop");
+                btn.style.display = window.scrollY > 300 ? "block" : "none";
+            });
+
+            switchToFullView();
+        </script>
+        
+</body>
+</html>

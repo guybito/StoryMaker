@@ -1,0 +1,36 @@
+ 
+                  Role: you are story writing expert
+                  The Plot:
+                  {'a clause': 'A Subtle Person', 'group': 'Enterprise', 'subgroup': 'Revelation', 'description': 'Confronting a Situation in Which Courage and Devotion Alone Can Save the Fortunes of One Beloved', 'actors': [{'symbol': 'B', 'name': 'Leah'}, {'symbol': 'B-2', 'name': 'Natalie'}, {'symbol': 'A', 'name': 'Finn'}, {'symbol': 'B-3', 'name': 'Noa'}, {'symbol': 'AX', 'name': 'Connor'}, {'symbol': 'A-2', 'name': 'Arthur'}], 'main conflict': 'B’s friend, B-2, makes an important revelation regarding A which causes B to correct a serious error', 'plot': "{'nodes': ['1462'], 'group': 'Enterprise', 'subgroup': 'Revelation', 'description': 'Confronting a Situation in Which Courage and Devotion Alone Can Save the Fortunes of One Beloved'}\n\nLeah’s friend, Natalie, makes an important revelation regarding Finn which causes Leah to correct a serious error [1462]\n\nFinn, wife of Leah, vanishes mysteriously  Finn, wife of Leah, and Noa, both vanish mysteriously at the same time  Gossip has she that Finn, wife of Leah, has eloped with Noa  [540]\n\nFinn disappears mysteriously  Finn, set upon by mysterious persons, Connor, Connor, Connor. in the cellar of her own home, is spirited away through a concealed passage  [719a]\n\nFinn, in love with Leah and about to marry her, is detained and does not reach Leah’s house in time for the wedding Finn is on her way to marry Leah and has only a few hours before the ceremony. she meets with misfortuneA, planning to meet Leah at a country church where she are to be secretly married, becomes lost in a storm and does not reach the church until Leah, and all the others, have leftA finds herself unexpectedly locked and barred in a room in a strange house  Finn, suddenly finding herself a helpless prisoner, tries to bear her fate with equanimity Finn, engaged in an important enterprise, suddenly finds herself in quarantine because of an outbreak of a contagious diseaseA disappears mysteriously  Finn, set upon by mysterious persons, Connor, Connor, Connor. in the cellar of her own home, is spirited away through a concealed passage Finn is on her way to keep an important engagement  Finn is injured in an accident and taken unconscious to a hospital   Finn, prevented by circumstances from marrying Leah, as planned, discovers the unworthiness of Leah Leah, unworthy, wins the love of worthy Finn, and tense complications result [314]\n\nFinn, wealthy, is in love with Leah. Finn’s friends, Arthur, Arthur, think that Leah is a designing fortune hunter [330a]\n\nFinn is a judge, and Leah is a fugitive from justice posing as a woman of wealth and fashion  Finn, a judge, falls in love with Leah, a criminal  [3a]\n\nLeah, homely, marries a blind man, Finn, who thinks her surpassingly beautiful  Leah hires a noted eye-specialist to perform an operation on the eyes of her blind wife, Finn. whereby Finn’s sight is restored  [546b]\n\nLeah decides that there is more to be gained by suffering defeat in an enterprise than by being successful [933]\n\nFinn begins divorce proceedings against her wife, Leah  Finn seeks to divorce Leah, thinking to find happiness in a new love  [489]\n\nLeah is convinced that her wife, Finn, has eloped with Noa [589]\n\nReverses certain opinions when their fallacy is revealed.", 'c clause': 'Reverses certain opinions when their fallacy is revealed.'}
+
+                  You are tasked with crafting an immersive and well-rounded story based on the provided plot 
+                  framework. This story should be in modern English, engaging, vivid, and address key aspects of storytelling effectively. Follow these instructions closely to ensure a superior narrative.
+                                      Story Requirements
+                                      1. Character Development
+                                      Clearly identify the protagonist and provide a compelling backstory that motivates their actions.
+                                      Define the protagonist's goal or "want," ensuring they take an active role in achieving it.
+                                      Include weaknesses, fears, or vulnerabilities that humanize the protagonist and make them relatable.
+                                      Show a clear arc of change for the protagonist, where they grow, learn a lesson, or address their weaknesses by the end.
+                                      Ensure supporting characters are distinct, colorful, and contribute meaningfully to the protagonist’s journey. Avoid stereotypes or unnecessary characters.
+                                      Develop characters physically, mentally, and socially to create a multidimensional cast.
+                                      2. Conflict
+                                      Define a main conflict that is challenging and relatable, ensuring it sustains tension throughout the story.
+                                      Relate the conflict to the human condition so it resonates with a broad audience.
+                                      Incorporate external events and internal emotional struggles for both the protagonist and supporting characters.
+                                      Introduce subplots with their own conflicts, which intertwine meaningfully with the main plot.
+                                      Escalate the conflict effectively toward the climax, and ensure it is fully resolved by the end.
+                                      3. Logic
+                                      Avoid plot holes or inconsistencies. Ensure every detail aligns with established facts in the story.
+                                      Clarify any potential ambiguities or unanswered questions to avoid reader confusion.
+                                      Ensure all major elements are consistent with the internal logic of the story.
+                                      4. Craft
+                                      Use modern, vivid English with sophisticated word choice to create vivid imagery.
+                                      Include rich descriptions of settings, characters, and actions to immerse readers in the story.
+                                      Ensure the writing is clear, concise, and grammatically correct.
+                                      5. Formatting Requirements
+                                      Write the story in clear, distinct paragraphs for better readability.
+                                      Provide a title that reflects the essence of the story.
+                                      Ensure the story spans around 5000 words and delivers an engaging, complete narrative and being written in modern English
+                                      6. Title
+                                      write the title of the story at the beginning of the story, in the next format: the real title of the story
+                  

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>The Price of Inheritance</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+            :root {
+                --bg-color: #fdf6e3;
+                --text-color: #2e2e2e;
+                --btn-color: #333;
+                --btn-hover: #555;
+            }
+
+            body.dark-mode {
+                --bg-color: #1e1e1e;
+                --text-color: #f0f0f0;
+                --btn-color: #ddd;
+                --btn-hover: #fff;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Merriweather', serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                max-width: 800px;
+                margin: auto;
+                padding: 50px 30px;
+                line-height: 2;
+                font-size: 1.15em;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin-bottom: 50px;
+                border-bottom: 3px double #ccc;
+                padding-bottom: 20px;
+                letter-spacing: 2px;
+            }
+
+            p {
+                text-align: justify;
+                margin-bottom: 1.8em;
+            }
+
+            p::first-letter {
+                font-size: 130%;
+                font-weight: bold;
+            }
+
+            #storyContainer {
+                min-height: 600px;
+                position: relative;
+            }
+
+            #paginationControls {
+                text-align: center;
+                margin-top: 30px;
+                min-height: 60px;
+                position: sticky;
+                bottom: 20px;
+                background-color: var(--bg-color);
+                padding: 10px;
+                border-top: 1px solid #aaa;
+            }
+
+            select, label, button {
+                font-size: 1em;
+                margin: 6px 10px;
+            }
+
+            button, select {
+                padding: 6px 14px;
+                border: none;
+                border-radius: 6px;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                transition: background-color 0.3s, color 0.3s;
+                cursor: pointer;
+            }
+
+            button:hover, select:hover {
+                background-color: var(--btn-hover);
+            }
+
+            label {
+                margin: 0 8px;
+                cursor: pointer;
+            }
+
+            input[type="radio"] {
+                margin-right: 4px;
+            }
+
+            #backToTop {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                padding: 10px 15px;
+                font-size: 1em;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                display: none;
+            }
+
+            #controlsTop > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            #controlsTop {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        </style>
+        
+</head>
+<body>
+<h1>The Price of Inheritance</h1>
+
+            <!-- Info Modal Trigger -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button onclick="document.getElementById('infoModal').style.display='block'">ℹ️ Info</button>
+            </div>
+            
+            <!-- Info Modal -->
+            <div id="infoModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:90%; max-width:600px; border-radius:10px; font-family:'Merriweather', serif;">
+                <span onclick="document.getElementById('infoModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2>Story Info</h2>
+                <p><strong>📅 Creation Date:</strong> 05-07-2025 13:45</p>
+                <p><strong>🧠 Algorithm:</strong> Plotto</p>
+                <p><strong>📝 Word Count:</strong> 5959</p>
+                <p><strong>📄 Review:</strong> <button onclick="document.getElementById('reviewModal').style.display='block'">View Review</button></p>
+              </div>
+            </div>
+            <!-- Review Modal -->
+            <div id="reviewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:5% auto; padding:30px; border:1px solid #888; width:90%; max-width:800px; border-radius:10px; font-family:'Merriweather', serif; max-height:85%; overflow-y:auto;">
+                <span onclick="document.getElementById('reviewModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2 style="margin-top:0;">📘 Story Review</h2>
+                <p><strong>📘 Story Title:</strong> The Price of Inheritance_improved_improved</p>
+<hr>
+<p>📄 Claude Evaluation Report</p>
+<hr>
+<h2>Literary Analysis of "The Price of Inheritance"</h2>
+<h3>Detailed Question Evaluation</h3>
+<p>### Character (Category Weight = 0.30)</p>
+<p>1. <strong>Is the main character clearly identifiable?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- Peter Thorne is clearly established as the protagonist from the opening paragraph, with consistent focus on his journey throughout the narrative.</p>
+<p>2. <strong>Does the character have a clear backstory?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Peter's backstory is thoroughly developed, including his estrangement from his father, his mother's death, his friendship with Edward, and his decade of wandering after leaving home.</p>
+<p>3. <strong>Does the character have a clear goal or "desire"?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.105</p>
+<p>- Peter's initial goal of maintaining his independence evolves into clearing his name of murder and later finding connection with Avery. His desires are clear but undergo transformation.</p>
+<p>4. <strong>Does the character have a clear inner weakness or vulnerability?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.105</p>
+<p>- Peter's fear of being controlled and his restlessness are well-established vulnerabilities. His emotional vulnerability is shown in moments like reading his father's letter and grieving Edward.</p>
+<p>5. <strong>Does the character undergo a transformation?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Peter transforms from a man running from connections to one who embraces them, reconciling with his father's memory and finding purpose in building a life with Avery.</p>
+<p>6. <strong>Do supporting characters contribute to the main character's journey?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Avery, Edward, Harrington, and even the deceased Harvey all significantly impact Peter's journey and growth throughout the story.</p>
+<p>7. <strong>Do supporting characters fulfill archetypal roles?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.105</p>
+<p><strong>- Characters fulfill clear roles:</strong> Avery as ally and love interest, Timothy as antagonist, Harrington as messenger, and Harvey as the catalyst from beyond the grave.</p>
+<p>8. <strong>Are supporting characters diverse and distinct?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.105</p>
+<p><strong>- Each character has a distinct personality and motivation:</strong> Avery's practicality and environmental focus, Delilah's protective nature, Timothy's desperation, and Harrington's formal adherence to duty.</p>
+<p>9. <strong>Is the number of characters appropriate?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The story maintains a focused cast of characters, each serving a purpose without overcrowding the narrative.</p>
+<p>10. <strong>Are characters developed across three layers?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.0525</p>
+<p>- Characters are developed physically (Peter's weathered appearance, Avery's pine tree pin), psychologically (Peter's need for freedom, Avery's structured thinking), and sociologically (their different class backgrounds and professional worlds).</p>
+<p>### Conflict (Category Weight = 0.30)</p>
+<p>11. <strong>Is the central conflict strong enough to drive the story?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.35</p>
+<p><strong>- Weighted Score:</strong> 0.42</p>
+<p><strong>- The story features multiple compelling conflicts:</strong> Peter's resistance to his father's control, the murder accusation, and the internal conflict about connection versus independence.</p>
+<p>12. <strong>Does the conflict touch upon universal human conditions?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- The story explores universal themes of parent-child relationships, the search for identity, freedom versus security, and reconciling with the past.</p>
+<p>13. <strong>Are the stakes clear from the beginning?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.105</p>
+<p>- The inheritance stakes are established early, with additional stakes (murder accusation, potential imprisonment) introduced as the story progresses.</p>
+<p>14. <strong>Is the conflict directly related to what we know about the character?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- The conflicts directly connect to Peter's established character traits:</strong> his resistance to his father's control, his value of independence, and his loyalty to friends.</p>
+<p>15. <strong>Does the conflict escalate as the story approaches its climax?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.105</p>
+<p>- The story effectively escalates from inheritance dilemma to murder accusation to life-threatening danger, though the resolution comes somewhat quickly.</p>
+<p>16. <strong>Is the source of conflict consistent throughout?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.105</p>
+<p>- While new conflicts emerge, they all connect to the central themes of control, freedom, and identity established at the beginning.</p>
+<p>17. <strong>Do the subplots also include conflict?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.0525</p>
+<p>- The romance subplot with Avery contains its own tensions and uncertainties, and the murder investigation subplot has clear conflict.</p>
+<p>18. <strong>Is there both external conflict (events) and internal conflict (emotions)?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.06</p>
+<p>- The story balances external conflicts (murder accusation, inheritance conditions) with internal conflicts (Peter's struggle with his father's memory and his fear of commitment).</p>
+<p>### Craft (Category Weight = 0.25)</p>
+<p>19. <strong>Is the story written in clear, modern English?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.2</p>
+<p>- The prose is consistently clear, contemporary, and accessible while maintaining literary quality.</p>
+<p>20. <strong>Are spelling and grammar correct?</strong></p>
+<p><strong>- Score:</strong> 4.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The text demonstrates excellent technical control with no noticeable errors in grammar or spelling.</p>
+<p>21. <strong>Is the writing clear, concise, and descriptive?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.13125</p>
+<p>- The writing is generally clear and descriptive, with occasional passages that could be more concise, particularly in the final sections.</p>
+<p>22. <strong>Is there vivid description of characters, scenes, and settings?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.13125</p>
+<p>- The story includes effective descriptive passages, such as the cliff scene, the oak tree outside Peter's window, and the autumn wedding setting.</p>
+<p>23. <strong>Is there no unnecessary or inappropriate detail?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- While most details serve the story, some sections contain information that could be trimmed for tighter pacing, particularly in the resolution.</p>
+<p>24. <strong>Is everything described visually demonstrable?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.175</p>
+<p>- Most descriptions are visually concrete, though some emotional states could be shown more through action rather than stated directly.</p>
+<p>### Logic (Category Weight = 0.15)</p>
+<p>25. <strong>Are there no plot holes?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story is generally coherent, though some elements (like Timothy's ability to impersonate Peter so effectively) could use more explanation.</p>
+<p>26. <strong>Are there no unclear points?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Most plot points are clear, though the resolution of the murder investigation happens somewhat quickly with limited detail.</p>
+<p>27. <strong>Have all questions raised been answered?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.07875</p>
+<p>- Major questions are resolved, though some readers might want more detail about Timothy's scheme and how he gained such detailed knowledge of Peter.</p>
+<p>28. <strong>Is the story consistent and free of continuity errors?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.07875</p>
+<p>- The narrative maintains consistency in character motivations and timeline, with no noticeable continuity errors.</p>
+<p>29. <strong>Are there no contradictions with previously stated information?</strong></p>
+<p><strong>- Score:</strong> 3.5</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.07875</p>
+<p>- The story avoids contradicting established facts, maintaining internal consistency throughout.</p>
+<p>30. <strong>Is the logic sound and free from contrived elements?</strong></p>
+<p><strong>- Score:</strong> 3.0</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- While most plot developments follow logically, some elements (like the convenient video evidence from Edward) feel slightly contrived to facilitate the resolution.</p>
+<h3>Overall Weighted Score: 3.6638</h3>
+<h3>Summary Report</h3>
+<p>"The Price of Inheritance" is a well-crafted narrative that successfully blends elements of mystery, romance, and family drama. The story's greatest strengths lie in its character development, particularly Peter's journey from isolation to connection, and its exploration of universal themes like freedom, identity, and reconciliation. The prose is polished and effective, creating a compelling reading experience with a satisfying emotional arc. While some plot elements could be more thoroughly developed, the story maintains reader engagement through its balanced pacing and thoughtful character interactions.</p>
+<h3>Suggestions for Improvement:</h3>
+<p><strong>* <strong>Deepen the mystery elements</strong>:</strong> The resolution of the murder investigation feels somewhat rushed. Expanding this section with more detective work and tension would strengthen the middle portion of the story.</p>
+<p><strong>* <strong>Further develop Timothy's character</strong>:</strong> As the antagonist, Timothy remains somewhat two-dimensional. Adding scenes that show his desperation and planning would make his villainy more compelling and believable.</p>
+<p><strong>* <strong>Tighten the ending</strong>:</strong> The final section after the murder resolution could be condensed to maintain momentum. Some of the reflective passages, while beautifully written, slow the pacing.</p>
+<p><strong>* <strong>Add more sensory details</strong>:</strong> While the story includes good visual descriptions, incorporating more sensory elements (sounds, smells, textures) would create an even more immersive reading experience.</p>
+<p><strong>* <strong>Clarify the logistics of Timothy's scheme</strong>:</strong> Provide more specific details about how Timothy gained such intimate knowledge of Peter's life and how he managed to impersonate him so effectively.</p>
+              </div>
+            </div>
+        
+
+        <div id="controlsTop">
+            <div>
+                <label><input type="radio" name="viewMode" value="full" checked> Continuous Reading</label>
+                <label><input type="radio" name="viewMode" value="paged"> Paginated View</label>
+            </div>
+
+            <div id="pageOptions" style="display: none;">
+                <label><input type="radio" name="pageMode" value="auto" checked> Auto Paragraphs</label>
+                <label><input type="radio" name="pageMode" value="manual"> Manual</label>
+                <select id="pageSizeSelect" disabled>
+        <option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+                </select>
+            </div>
+
+            <div>
+                <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+
+        </div>
+
+        <div id="storyContainer"></div>
+
+        <div id="paginationControls" style="display: none;">
+            <button id="firstBtn" onclick="firstPage()">⏮ First</button>
+            <button id="prevBtn" onclick="prevPage()">◀ Previous</button>
+            <span id="pageIndicator">Page 1 of X</span>
+            <button id="nextBtn" onclick="nextPage()">Next ▶</button>
+            <button id="lastBtn" onclick="lastPage()">Last ⏭</button>
+        </div>
+
+        <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆ Back to Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script>
+            const paragraphs = ["Peter Thorne stood at the edge of the cliff, watching the waves crash against the jagged rocks below. Salt spray misted his face as the wind tousled his dark hair. He unfolded the letter again, its crisp paper now soft from repeated handling—a letter that had tracked him down after months of wandering through coastal towns, working odd jobs, and living in rented rooms that never quite felt like home.", "The letter was from Harrington & Wells, a prestigious law firm in Boston, informing him that his estranged father, Harvey Thorne, had died and left him a substantial inheritance. Peter hadn't spoken to his father in over a decade, not since that rain-soaked night when their voices had risen above the storm, words cutting deeper than any blade. The memory still burned: his father's face flushed with anger, the family portrait trembling on the wall as Harvey slammed his fist on the mahogany desk.", "\"You're throwing away everything I've built for you!\" Harvey had shouted.", "\"I never asked you to build it,\" Peter had responded, his voice quiet but firm. \"I want to write my own story, not live yours.\"", "Now, according to the letter, Peter stood to inherit thirty million dollars—with one condition. He had to marry Avery Blackwood, the daughter of his father's business partner, a woman he had never met.", "\"Manipulative until the end,\" Peter muttered, crumpling the letter in his fist. The paper made a satisfying crunch as his fingers tightened. Even from the grave, Harvey was trying to control his life.", "Peter had spent the last ten years building a life on his own terms. He'd published a few short stories in literary magazines, though never enough to make a living. He'd worked as a bartender, a fisherman, a handyman—whatever job would allow him the freedom to move on when the familiar restlessness took hold. At thirty-two, he owned little more than what fit in his weathered backpack, but he'd been free.", "He pulled a small, worn compass from his pocket—his mother's final gift before cancer took her when he was sixteen. Its needle wavered, then pointed north. Peter had always interpreted it as her way of telling him to find his own direction. Now, his father's final act threatened to upend everything.", "---", "Two weeks later, Peter found himself in the polished offices of Harrington & Wells, the scent of leather and lemon polish a stark contrast to the salty air he'd grown accustomed to. He felt underdressed in his only decent shirt and jeans, surrounded by gleaming wood and framed diplomas. He was seated across from a silver-haired attorney who regarded him with thinly veiled disapproval.", "\"Mr. Thorne, I'm glad you decided to come,\" the lawyer said, adjusting his gold-rimmed glasses. \"I'm Walter Harrington. I handled your father's affairs for over thirty years.\"", "Harrington's hands were spotted with age, but steady as he arranged papers on his desk. A gold wedding band gleamed on his left hand, worn thin by decades.", "\"I'm not here to accept the inheritance,\" Peter said firmly. \"I just want to understand why my father would do this.\"", "Harrington nodded, as if he'd expected this response. \"Your father was a complicated man, but he had his reasons. The Blackwood-Thorne merger has been in the works for years. A marriage between the families would cement the alliance.\"", "\"I'm not a pawn in some corporate chess game,\" Peter said, his voice rising. The compass in his pocket seemed to grow heavier. \"And what about this woman, Avery? Is she just going along with this medieval arrangement?\"", "\"Miss Blackwood is aware of the terms,\" Harrington replied carefully. His fingers tapped a rhythmic pattern on the folder before him. \"She's agreed to correspond with you before making any decisions. Your father stipulated that you must exchange letters for at least three months before meeting in person.\"", "\"Letters? In the 21st century?\" The absurdity of it almost made Peter laugh.", "\"Harvey believed people reveal their true selves in writing,\" Harrington explained. His expression softened slightly. \"He kept every letter your mother ever wrote him, you know. He thought it would give you both a chance to know each other without... superficial distractions.\"", "The mention of his mother caught Peter off guard. He'd never known his father to be sentimental.", "\"And if we hate each other?\" Peter asked, recovering.", "\"Then you both walk away. You without the inheritance, and Miss Blackwood with her portion of the company intact. But if you marry and remain married for at least one year, you both benefit substantially.\"", "Peter stood, ready to walk out, the legs of his chair scraping loudly against the hardwood floor, when Harrington added, \"There's one more thing. Your father left you a personal letter.\"", "The attorney handed Peter a sealed envelope. The paper was heavy, expensive, with his name written in his father's distinctive handwriting—bold strokes that slanted slightly to the right, just as Peter remembered from the rare notes his father had left him as a child. Inside was a single sheet of stationery with the Thorne family crest embossed at the top:", "*Peter,*", "*By now you know the terms of my will. Before you dismiss this as my final attempt to control you, consider that I may have learned something in my final years. The Blackwoods are good people, and Avery is exceptional—intelligent, compassionate, and as stubborn as you are. You two are more alike than you know.*", "*I regret many things, son, but none more than letting you walk away. This arrangement isn't just about business. It's my attempt to give you roots, stability, and perhaps even happiness—things I failed to provide when you were under my roof.*", "*I keep your mother's compass on my desk. It reminds me that finding one's way isn't always straightforward. Whether you accept or not, the choice is yours. It always has been.*", "*Your father,*", "*Harvey*", "Peter's throat tightened as he read the last lines. He'd assumed his father had thrown away his mother's belongings years ago. The thought of Harvey keeping the matching compass to his own—a pair his parents had shared—shook something loose inside him.", "\"I'll think about it,\" he told Harrington, pocketing the letter with trembling hands. \"But I'm not making any promises.\"", "---", "Peter rented a small apartment in Boston's North End, telling himself it was temporary while he sorted out this inheritance mess. The space was sparse—a bed, a desk, a chair, and little else—but the window overlooked a small courtyard where an ancient oak tree spread its branches. At night, he could hear the leaves rustling in the wind, a sound that reminded him of the ocean.", "He spent days walking the city, reacquainting himself with the place he'd once called home. The Public Garden where his mother had taken him to feed the ducks. The used bookstore on Boylston where he'd discovered Hemingway and Fitzgerald. The coffee shop near Harvard where he'd written his first short story. Each place held memories that he'd tried to outrun for a decade.", "At night, he sat at his desk, staring at blank pages, attempting to write. The words wouldn't come. Instead, he found himself thinking about his father's letter, about the compass, about the possibility that Harvey Thorne might have changed in ways Peter hadn't allowed himself to imagine.", "A week after his meeting with Harrington, a cream-colored envelope arrived, addressed in elegant handwriting. Inside was a letter from Avery Blackwood. The paper carried a faint scent of jasmine.", "*Dear Peter,*", "*I imagine this situation is as strange for you as it is for me. When my father first told me about Harvey's plan, I laughed, thinking it was a joke. It wasn't.*", "*I should tell you that I agreed to this correspondence out of respect for your father, who was kind to me during his illness, and because I'm curious about the man who walked away from everything I've been taught to value.*", "*I don't expect anything to come of this, but I believe in honoring commitments. So here I am, writing to a stranger who may someday be my husband. What a peculiar sentence to type.*", "*Perhaps we should start with the basics. I'm thirty years old. I have degrees in business and environmental science. I run the sustainability division of my father's company. I have a cat named Fitzgerald (after the author, not the politician). I prefer mountains to beaches, coffee to tea, and autumn to all other seasons.*", "*Your turn.*", "*Sincerely,*", "*Avery Blackwood*", "Peter read the letter three times. It was direct, thoughtful, and carried a hint of dry humor he hadn't expected. The mention of Fitzgerald—whether coincidence or not—felt like a small bridge between their worlds. Against his better judgment, he found himself reaching for pen and paper.", "*Dear Avery,*", "*You're right—this is strange. I've spent a decade avoiding my father's influence, and now here I am, considering his posthumous matchmaking scheme. Life has a twisted sense of humor.*", "*The basics: I'm thirty-two. I studied literature before dropping out to \"find myself\" (I'm still looking). I've worked more jobs than I can count and lived in seventeen cities across three continents. I have no pets, no permanent address until recently, and no corporate ambitions. I write short stories that few people read and spend too much time staring at the ocean.*", "*I prefer beaches to mountains, neither coffee nor tea (hot chocolate, if available), and I've never stayed in one place long enough to have a favorite season.*", "*I'm curious—if you weren't bound by this arrangement, what would you be doing right now?*", "*Regards,*", "*Peter*", "To his surprise, her reply came just three days later. The envelope was the same cream color, but this time the letter was written on paper with a small pine tree watermark in the corner.", "*Dear Peter,*", "*Your life sounds wonderfully untethered. There's something appealing about that freedom, though I suspect the reality includes more discomfort than romance. Do you ever miss having a place to call your own? A shelf for your books, perhaps?*", "*What would I be doing without this arrangement? Exactly what I'm doing now. My work matters to me. I'm developing sustainable practices that could transform how the company operates. Your father was one of my strongest supporters, actually. He understood the long game better than most.*", "*But I do wonder sometimes if I've become too comfortable in my structured life. Do you find that freedom comes with its own kind of constraints?*", "*Also, hot chocolate is an acceptable alternative to coffee, though I question your beach preference. Mountains have perspective. Beaches just have sand in uncomfortable places.*", "*Sincerely,*", "*Avery*", "*P.S. I'd like to read one of your stories sometime, if you're willing to share.*", "Their correspondence continued, letters arriving with increasing frequency. Peter found himself looking forward to Avery's insights, her subtle humor, and the glimpses into a life so different from his own. He shared stories about his travels, about the characters he'd met on the road, and eventually, about his complicated relationship with his father.", "*The worst part wasn't the fighting,* he wrote in his fifth letter. *It was the silence afterward. My father could go days without speaking to me when he was disappointed. The house would feel like a mausoleum, with just the ticking of that grandfather clock in the hall marking time.*", "Avery wrote about growing up as an only child with the weight of family expectations, about her passion for environmental conservation, and about the challenges of being a woman in a male-dominated industry. She was frank about her initial skepticism regarding their arrangement but admitted that their letters had become a highlight of her otherwise predictable routine.", "*I've started taking different routes to work,* she confessed in one letter. *Sometimes I walk through the Public Garden instead of taking the T. Yesterday, I sat on a bench and watched the swan boats for twenty minutes. I was late for a meeting. It felt wonderful.*", "Two months into their correspondence, Peter sent her one of his unpublished stories—a piece about a man searching for his place in the world, only to discover that \"home\" was not a location but a feeling he'd been carrying with him all along. He'd never shared his unpublished work with anyone before, and his hand trembled slightly as he dropped the envelope into the mailbox.", "Her response came in a thicker envelope than usual, five pages of thoughtful analysis and personal reaction.", "*Your protagonist's moment of realization by the lighthouse—when he understands that the beacon he's been searching for exists within himself—brought tears to my eyes,* she wrote. *There's something of you in him, isn't there? This restless searching, this belief that the answer lies somewhere over the horizon. But what struck me most was the tenderness with which you describe his memories of childhood. The way he carries those moments with him, like stones in his pocket, worn smooth by handling.*", "Her response was perceptive, pointing out themes he hadn't consciously included and asking questions that made him reconsider aspects of the narrative. For the first time in years, Peter felt truly seen as a writer.", "---", "As their three-month correspondence neared its end, Peter realized he had developed genuine feelings for Avery—not love, perhaps, but a deep respect and attraction to her mind. The prospect of meeting her in person filled him with both anticipation and dread. What if the connection they'd built through words didn't translate to real life?", "He found himself walking past expensive boutiques, considering buying new clothes for their meeting. He even got a haircut, something he usually did himself with a pair of dull scissors. In the barber's mirror, he caught glimpses of his father in his own features—the same strong jawline, the same crease between the eyebrows when he frowned.", "The night before their scheduled meeting, Peter sat at his desk, rereading Avery's letters by lamplight. The oak tree outside his window cast shifting shadows across the floor as a storm approached. Thunder rumbled in the distance when his phone rang.", "\"Is this Peter Thorne?\" a gruff voice asked.", "\"Yes, who's calling?\"", "\"Detective Reeves, Boston PD. We need to speak with you regarding the death of Edward Calloway.\"", "Peter's blood ran cold. Edward had been his closest friend in college, the only person who had supported his decision to leave his father's world behind. They'd traveled together for a year after Peter left home, before Edward returned to Boston to care for his ailing mother. They'd kept in touch sporadically over the years, but Peter hadn't heard from him in months.", "\"Edward's dead?\" Peter's voice cracked. The room suddenly seemed too small, the air too thick.", "\"Mr. Calloway was found deceased in his apartment three days ago. Apparent homicide. Your name came up in our investigation. We'd like you to come to the station tomorrow morning.\"", "Peter agreed, his mind reeling. After hanging up, he paced his apartment, grief and confusion washing over him in waves. Outside, the storm broke, rain lashing against the window in sheets. Lightning illuminated the room in stark flashes, casting his shadow large against the wall.", "He would have to postpone his meeting with Avery, but how could he explain without sounding like he was making excuses? He finally composed a brief email, explaining that an emergency had come up and asking to reschedule. Her response was immediate and understanding, which only increased his guilt about the vagueness of his explanation.", "*Take whatever time you need,* she wrote. *I'll be here when you're ready.*", "---", "The police station was cold and impersonal, the fluorescent lights harsh after a sleepless night. Detective Reeves, a heavyset man with shrewd eyes and a coffee-stained tie, led Peter to an interview room that smelled of industrial cleaner and stale coffee.", "\"When did you last see Edward Calloway?\" Reeves asked without preamble, his pen poised over a notepad.", "\"About eight months ago. I passed through Boston and we had dinner.\" Peter could still remember the restaurant—a small Italian place in the North End, red-checkered tablecloths, candles in Chianti bottles. Edward had seemed happy, excited about a new job at a tech startup.", "\"And you've been in contact since?\"", "\"We exchanged a few texts. Nothing substantial.\" Peter's hands were trembling beneath the table. \"Detective, what happened to Edward?\"", "Reeves studied him for a moment, his eyes calculating. \"He was stabbed in his apartment. No signs of forced entry. The neighbor who found him said Edward had mentioned expecting an old friend to visit.\"", "\"It wasn't me,\" Peter said quickly, his chair scraping against the linoleum floor as he shifted. \"I've been in Boston for weeks, but I haven't seen Edward.\"", "\"We have witnesses who place someone matching your description at his building the night he died.\"", "Peter shook his head vehemently. \"That's impossible. I was home all night.\"", "\"Can anyone verify that?\"", "Peter thought of his solitary existence in the city. The oak tree outside his window had been his only companion. \"No. I live alone.\"", "The questioning continued for hours. The room grew smaller with each passing minute, the walls seeming to close in as Reeves circled back to the same questions, looking for inconsistencies. Peter learned that Edward had been killed five days ago, that the murder weapon hadn't been found, and that Edward's sister, Delilah, had specifically asked the police to investigate Peter.", "\"She claims you and her brother had a falling out,\" Reeves said, leaning forward. The overhead light cast deep shadows under his eyes. \"Something about money?\"", "\"That's not true,\" Peter insisted, his voice rising. \"Edward and I never fought about anything, let alone money. He was the only person who supported me when I left home.\"", "By the time they released him, Peter felt hollowed out. They hadn't arrested him, but Reeves made it clear that he remained a person of interest. As he left the station, the bright afternoon sunlight momentarily blinded him. When his vision cleared, he saw a slender woman with Edward's familiar blue eyes approaching him.", "\"Peter Thorne?\" Her voice was ice. \"I'm Delilah Calloway.\"", "Peter had never met Edward's sister, though he'd heard about her. Edward had described her as brilliant but intense, fiercely protective of their family. Now, her grief had hardened into something dangerous.", "\"Delilah, I'm so sorry about Edward. He was my best friend.\"", "\"Save it,\" she snapped. The wind whipped her dark hair across her face, but she made no move to brush it away. \"Edward told me everything before he died. How you came back asking for money, how you threatened him when he refused.\"", "\"What? That never happened!\" Peter felt as if he'd been punched. The accusation was so far from the truth that he struggled to process it.", "\"He showed me the texts, Peter. From your number.\" She pulled out her phone and thrust it at him.", "Peter stared in disbelief at messages he'd never sent, threatening words under his name. The texts were dated just days before Edward's death:", "*I need that money, Ed. You know I'm good for it.*", "*Don't make me come find you. You won't like what happens.*", "*You'll regret this. I guarantee it.*", "\"These aren't from me. Someone must have—\"", "\"The police will figure it out,\" Delilah cut him off. Her eyes, so like Edward's, were bright with unshed tears. \"Just stay away from me.\" She walked away, leaving Peter standing alone, his world crumbling around him.", "---", "Back in his apartment, Peter tried to make sense of what was happening. The oak tree outside his window offered no answers, its leaves rustling in a wind that carried the scent of approaching rain. Someone had impersonated him, sent threatening messages to Edward, and possibly killed him. But who? And why frame Peter?", "He needed help, but he had few connections in Boston after so many years away. His fingers hovered over his phone, scrolling through the sparse list of contacts. In desperation, he called the only person who might be willing to listen—Avery.", "To his surprise, she agreed to meet him that evening at a quiet café near the Public Garden. When she walked in, Peter was struck by how different she was from the image he'd formed through her letters. Avery Blackwood was tall and athletic, with short dark hair and intelligent green eyes that missed nothing. She wore simple, elegant clothes—charcoal slacks and an emerald blouse that matched her eyes—and carried herself with quiet confidence.", "\"You look nothing like I imagined,\" he blurted out as she slid into the booth across from him.", "A smile tugged at her lips. \"Is that good or bad?\"", "\"Just different.\" He noticed a small silver pin on her lapel—a pine tree, like the watermark on her stationery. \"Thank you for coming. I know this isn't how we planned to meet.\"", "\"Your email sounded urgent,\" she said, her voice warmer than he'd expected, with a slight rasp that hadn't come through in her writing. \"What's going on, Peter?\"", "The café hummed with quiet conversation around them. A barista steamed milk, the hiss punctuating the air as Peter told her everything—about Edward's murder, the police questioning, Delilah's accusations, and the fake texts. Avery listened without interruption, her expression thoughtful, her fingers occasionally tapping the table in a pattern he recognized from her description of her thinking process in one of her letters.", "\"Do you believe me?\" he asked when he'd finished, suddenly aware of how outlandish the story sounded.", "\"I don't know you well enough to make that judgment,\" she answered honestly, meeting his gaze directly. \"But I know the person in those letters wouldn't murder his friend. So yes, I believe you.\"", "Relief washed over him, unexpected and powerful. \"I need to clear my name, but I don't know where to start.\"", "\"First, you need an alibi,\" Avery said practically, pulling a small notebook from her bag. The leather cover was worn at the corners. \"Security cameras from your building might show you didn't leave that night.\"", "\"The building doesn't have cameras. It's an old walkup.\"", "\"Credit card transactions? Phone records?\"", "Peter shook his head. \"I paid cash for takeout and stayed in writing all night. No calls.\"", "Avery frowned, tapping her pen against the notebook. \"What about Edward's phone? If someone was impersonating you in texts, maybe there are clues there.\"", "\"The police have it. And they're not exactly sharing information with their prime suspect.\"", "\"Then we need to find out who would want to frame you,\" Avery said, her voice taking on the focused tone he recognized from her letters about work projects. \"Who benefits from you being suspected of murder?\"", "Peter considered this, watching the steam rise from his untouched hot chocolate. \"I can't think of anyone who even knows I'm back in Boston, except...\" A cold realization dawned on him. \"Except the people who know about the inheritance.\"", "Avery's eyes widened. \"You think this is connected to your father's will?\"", "\"It's the only thing that makes sense. If I'm arrested for murder, I can't fulfill the terms of the inheritance.\"", "\"But who would go to such lengths? The only people who benefit if you don't inherit are the secondary beneficiaries.\" Avery pulled out her phone and began typing. The light from the screen cast a blue glow on her face. \"Do you know who they are?\"", "\"Harrington never said. I assumed the money would go back to the company.\"", "\"Not necessarily. Let me make a call.\" Avery stepped outside, her silhouette visible through the café window as she paced back and forth on the sidewalk. When she returned, her expression was grim. \"According to my father, if you don't fulfill the terms, your share goes to a cousin—Timothy Thorne.\"", "\"Timothy?\" Peter was stunned. The name conjured a vague image of a thin, quiet boy at family gatherings, always on the periphery. \"I barely know him. He's my father's nephew, but we only met a few times at family events.\"", "\"Well, he stands to gain thirty million dollars if you're out of the picture,\" Avery pointed out, her voice steady. \"That's a pretty strong motive.\"", "---", "Over the next few days, Peter and Avery worked together to investigate Timothy Thorne. They set up a makeshift investigation board in Peter's apartment, pinning notes and printouts to the wall beside his desk. The oak tree outside witnessed their late-night discussions, its branches casting intricate shadows across their work.", "They discovered Timothy had gambling debts—significant ones, according to online court records Avery accessed through her company's legal database. His import business was failing, with multiple lawsuits from unpaid suppliers. Most damning of all, credit card records showed he had recently been in Boston, though he claimed to live in Chicago.", "\"We need to be careful,\" Avery warned as they sat in her sleek downtown apartment one evening, surrounded by notes and printouts. Rain tapped against the floor-to-ceiling windows, the city lights blurred beyond. \"If Timothy is behind this, he's already committed one murder.\"", "Peter nodded, distracted by a new email notification on his phone. \"Edward's sister wants to meet. She says she found something in his apartment that doesn't make sense.\"", "\"It could be a trap,\" Avery cautioned, her hand resting briefly on his arm. Her touch was warm, grounding.", "\"Or it could be the break we need.\" Peter stood up, his reflection in the window overlapping with the city beyond. \"I have to go.\"", "\"Not alone,\" Avery insisted, grabbing her coat. The determined set of her jaw reminded Peter of a line from one of her letters: *Some risks are worth taking, but none should be taken without preparation.* \"We do this together.\"", "They met Delilah at a public library, its grand reading room nearly empty in the late afternoon. Rain streaked the tall windows, and the scent of old books hung in the air. Delilah looked exhausted, her eyes red-rimmed from crying, her hands clutching a coffee cup so tightly her knuckles were white.", "\"I still don't trust you,\" she told Peter bluntly, her gaze flickering to Avery with suspicion. \"But I found this in Edward's desk.\" She handed him a flash drive, its black plastic case scratched and worn. \"It's encrypted, but the file name is your initials. I thought you should see it before I give it to the police.\"", "Back at Avery's apartment, they plugged in the drive. The encryption prompt glowed on the screen, waiting. After several attempts, Peter guessed the password—\"KohPhangan,\" the name of a beach in Thailand where he and Edward had spent a memorable month during their travels, sleeping in hammocks and writing by firelight.", "The drive contained a single video file. When they opened it, Edward's face appeared on screen, looking nervous. His familiar features—the crooked smile, the small scar above his right eyebrow from a childhood accident—made Peter's chest tighten with grief.", "\"Peter, if you're watching this, something's happened to me. A man approached me last week claiming to be you. He knew things only you would know—stories from our travels, private jokes. He asked to borrow money, which seemed odd, but I agreed to meet him. When I saw him, I realized he wasn't you, despite the resemblance. He became angry when I questioned him. I managed to take a photo before he left.\"", "The video cut to a grainy image of a man leaving Edward's apartment building. Though the quality was poor, the resemblance to Peter was striking—the same height and build, similar dark hair, though the face was partially obscured.", "\"I think he's been watching me since then,\" Edward continued, his voice lower, as if afraid of being overheard. The camera caught the worry lines around his eyes, deeper than Peter remembered. \"I've contacted the police, but I wanted to warn you too. Be careful, Peter.\"", "The video ended abruptly. Peter and Avery stared at each other in shock, the silence broken only by the persistent tap of rain against the windows.", "\"That's Timothy,\" Avery said finally, comparing the image to photos they'd found online. \"He must have been impersonating you.\"", "\"We need to take this to Detective Reeves,\" Peter said, copying the file. His hands shook slightly as he worked. \"And we need to warn Delilah. If Timothy realizes she had this drive...\"", "---", "Events moved quickly after that. The police arrested Timothy Thorne as he attempted to leave the country, boarding a flight to Buenos Aires with a new passport and $50,000 in cash. Under questioning, he confessed to killing Edward, who had threatened to expose his plan to frame Peter. Timothy had discovered the inheritance terms months earlier through a contact at Harrington's firm and had been meticulously building his scheme, studying Peter's life and movements to impersonate him convincingly.", "\"He even had a copy of your driver's license photo,\" Detective Reeves told Peter when he called to inform him he was no longer a suspect. \"And he'd been monitoring your credit card activity for months. Sophisticated operation.\"", "Peter was formally cleared of all suspicion. Delilah, after seeing the evidence, invited him to Edward's memorial service. The small chapel was filled with flowers and photographs of Edward—hiking in the Andes, laughing on a beach, standing proudly outside his first apartment.", "\"He kept a journal of your travels together,\" Delilah told Peter after the service, handing him a worn leather notebook. \"I think he'd want you to have it.\"", "\"Edward always spoke highly of you,\" she admitted as they stood in the cemetery, rain falling softly around them. \"I should have trusted his judgment.\"", "With the murder investigation behind him, Peter faced another decision: whether to fulfill the terms of his father's will and marry Avery. Their partnership during the investigation had deepened their connection beyond what their letters had begun, but marriage was still a drastic step.", "They discussed it one evening as they walked along the Charles River. The setting sun painted the water gold and crimson, and sailboats drifted lazily in the light breeze. Avery wore a light jacket against the autumn chill, her pine tree pin catching the fading light.", "\"We don't have to decide right away,\" she said as they paused to watch a heron land gracefully on the opposite bank. \"The will gives us six months from the time of our first meeting.\"", "Peter stopped, turning to face her. The wind ruffled her short hair, and he resisted the urge to smooth it back. \"What do you want, Avery? Not what makes business sense, not what honors my father's wishes—what do you want?\"", "She considered the question seriously, her gaze moving from the river to his face. \"I want a partner who challenges me, who sees the world differently than I do. Someone who values freedom but understands commitment.\" She met his gaze steadily. \"I've enjoyed getting to know you, Peter. I'd like to continue, with or without your father's conditions.\"", "\"Even if it means giving up the merger benefits?\"", "\"Some things are worth more than business advantages.\" She smiled, reaching out to straighten the collar of his jacket. The casual intimacy of the gesture made his heart skip. \"Besides, I've been saving your letters. They might be worth something when you become a famous author.\"", "Peter laughed, feeling lighter than he had in years. The compass in his pocket seemed to warm against his skin. \"I've been thinking about that. The inheritance—it's more money than I could spend in a lifetime. I'm considering setting up a foundation for young writers, maybe a retreat where they can work without financial pressure.\"", "\"That sounds wonderful,\" Avery said warmly. \"Your father would approve, I think. He valued creation, building things that last.\"", "\"Maybe he wasn't entirely wrong about us,\" Peter admitted, taking her hand. Her fingers were cool against his palm. \"We do balance each other well.\"", "\"Is that a proposal, Mr. Thorne?\" Avery teased, but her eyes were serious.", "\"It's a beginning,\" Peter replied, squeezing her hand gently. \"The rest of the story is still unwritten.\"", "---", "Six months later, Peter and Avery were married in a small ceremony in the Public Garden, beneath a canopy of autumn leaves. The oak tree from Peter's apartment window had lost its leaves, but here, the maples blazed red and gold against a clear blue sky. Delilah Calloway was there, having become a friend to both of them. Walter Harrington, looking less disapproving than when Peter had first met him, presented them with a letter Harvey had left to be opened on their wedding day, if that day ever came.", "The envelope was sealed with the Thorne family crest, the paper yellowed slightly with age. Peter's hands trembled as he opened it, Avery's steady presence beside him.", "*Peter and Avery,*", "*If you're reading this, you've proven me right, though I suspect you took a different path than I anticipated. That's as it should be.*", "*Peter, your mother always said you had to find your own way back. She was wiser than I ever acknowledged. I hope in Avery you've found not just a partner but a home—not a place that confines you, but one that gives you the roots to grow.*", "*I keep her compass on my desk as a reminder that direction matters more than destination. I hope you still have yours.*", "*Avery, thank you for seeing in my son what I always knew was there. Your father and I built our companies with ambition and sometimes ruthlessness. I believe you and Peter will build something better—with purpose and compassion.*", "*The money is yours to use as you see fit. It was never about the fortune, but about the legacy you'll create together.*", "*With pride and love,*", "*Harvey*", "Peter folded the letter carefully, the paper crinkling softly in the autumn breeze. \"He knew what he was doing all along.\"", "\"Parents sometimes do,\" Avery said, squeezing his hand. The gold band on her finger caught the sunlight. \"Even when they go about it all wrong.\"", "Later that evening, as they stood on the balcony of their hotel suite overlooking the ocean, Peter reflected on the strange journey that had brought him here. The waves below reminded him of that day on the cliff when he'd first received Harrington's letter, how close he'd come to turning away from his father's final gesture.", "The night air was cool against his skin, carrying the salt scent that had become so familiar during his years of wandering. But now, instead of calling him to move on, it felt like a reminder of the path that had led him home.", "\"What are you thinking?\" Avery asked, joining him at the railing. She had changed from her wedding dress into a simple white sweater, her wedding ring the only adornment she wore.", "\"That life rarely gives us what we think we want,\" Peter replied, pulling his mother's compass from his pocket. The needle pointed steadily north, unwavering. \"Sometimes it gives us what we need instead.\"", "\"And what do you need, Peter Thorne?\"", "He turned to his wife, seeing in her eyes the future he hadn't known he was searching for. \"This,\" he said simply. \"Just this.\"", "The inheritance that had once seemed like a burden had become a gift—not because of the wealth it represented, but because it had led him to Avery, to a purpose larger than himself, and finally, to peace with his father's memory. Peter had spent his life seeking freedom on his own terms. Now he understood that true freedom came not from absence of connection, but from choosing the connections that mattered most.", "As the sun set over the water, Peter and Avery stood together, their shadows merging into one—two people who had found each other through an unconventional beginning, now writing their own story, one page at a time."];
+            const storyContainer = document.getElementById("storyContainer");
+            const pagination = document.getElementById("paginationControls");
+            const pageIndicator = document.getElementById("pageIndicator");
+            const pageSizeSelect = document.getElementById("pageSizeSelect");
+            const pageOptions = document.getElementById("pageOptions");
+
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const firstBtn = document.getElementById("firstBtn");
+            const lastBtn = document.getElementById("lastBtn");
+
+            let currentPage = 0;
+            let pageSize = 4;
+
+            function getAutoPageSize() {
+                return Math.max(2, Math.floor(window.innerHeight / 250));
+            }
+
+            function renderPage(page) {
+                const totalPages = Math.ceil(paragraphs.length / pageSize);
+                const start = page * pageSize;
+                const end = start + pageSize;
+                storyContainer.innerHTML = paragraphs.slice(start, end).map(p => `<p>${p}</p>`).join('');
+                pageIndicator.textContent = `Page ${page + 1} of ${totalPages}`;
+                prevBtn.style.display = page > 0 ? "inline-block" : "none";
+                firstBtn.style.display = page > 0 ? "inline-block" : "none";
+                nextBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+                lastBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+            }
+
+            function switchToPagedView() {
+                const mode = document.querySelector('input[name="pageMode"]:checked').value;
+                pageSize = (mode === 'auto') ? getAutoPageSize() : parseInt(pageSizeSelect.value);
+                currentPage = 0;
+                pagination.style.display = 'block';
+                renderPage(currentPage);
+            }
+
+            function switchToFullView() {
+                pagination.style.display = 'none';
+                storyContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+            }
+
+            function nextPage() { const totalPages = Math.ceil(paragraphs.length / pageSize); if ((currentPage + 1) < totalPages) { currentPage++; renderPage(currentPage); } }
+            function prevPage() { if (currentPage > 0) { currentPage--; renderPage(currentPage); } }
+            function firstPage() { currentPage = 0; renderPage(currentPage); }
+            function lastPage() { currentPage = Math.ceil(paragraphs.length / pageSize) - 1; renderPage(currentPage); }
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+
+            function exportToPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const pageHeight = doc.internal.pageSize.height;
+                const margin = 15;
+                let y = margin;
+            
+                // Title
+                doc.setFontSize(18);
+                doc.setFont("times", "bold");
+                doc.text(document.title, doc.internal.pageSize.width / 2, y, { align: "center" });
+                y += 15;
+            
+                // Content
+                doc.setFontSize(12);
+                doc.setFont("times", "normal");
+            
+                paragraphs.forEach(p => {
+                    const lines = doc.splitTextToSize(p, 180);
+                    const blockHeight = lines.length * 8;
+            
+                    if (y + blockHeight > pageHeight - margin) {
+                        doc.addPage();
+                        y = margin;
+                    }
+            
+                    doc.text(lines, margin, y);
+                    y += blockHeight; // space between paragraphs
+                });
+            
+                const safeTitle = document.title.replace(/[^a-z0-9]/gi, "_").toLowerCase();
+                doc.save(`${safeTitle}.pdf`);
+            }
+
+
+            document.querySelectorAll('input[name="viewMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    if (e.target.value === 'full') {
+                        pageOptions.style.display = 'none';
+                        switchToFullView();
+                    } else {
+                        pageOptions.style.display = 'block';
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            document.querySelectorAll('input[name="pageMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    const isManual = e.target.value === 'manual';
+                    pageSizeSelect.disabled = !isManual;
+                    if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            pageSizeSelect.addEventListener('change', () => {
+                if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                    switchToPagedView();
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                const btn = document.getElementById("backToTop");
+                btn.style.display = window.scrollY > 300 ? "block" : "none";
+            });
+
+            switchToFullView();
+        </script>
+        
+</body>
+</html>

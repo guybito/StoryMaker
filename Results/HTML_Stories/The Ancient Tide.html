@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>The Ancient Tide</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+            :root {
+                --bg-color: #fdf6e3;
+                --text-color: #2e2e2e;
+                --btn-color: #333;
+                --btn-hover: #555;
+            }
+
+            body.dark-mode {
+                --bg-color: #1e1e1e;
+                --text-color: #f0f0f0;
+                --btn-color: #ddd;
+                --btn-hover: #fff;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Merriweather', serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                max-width: 800px;
+                margin: auto;
+                padding: 50px 30px;
+                line-height: 2;
+                font-size: 1.15em;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin-bottom: 50px;
+                border-bottom: 3px double #ccc;
+                padding-bottom: 20px;
+                letter-spacing: 2px;
+            }
+
+            p {
+                text-align: justify;
+                margin-bottom: 1.8em;
+            }
+
+            p::first-letter {
+                font-size: 130%;
+                font-weight: bold;
+            }
+
+            #storyContainer {
+                min-height: 600px;
+                position: relative;
+            }
+
+            #paginationControls {
+                text-align: center;
+                margin-top: 30px;
+                min-height: 60px;
+                position: sticky;
+                bottom: 20px;
+                background-color: var(--bg-color);
+                padding: 10px;
+                border-top: 1px solid #aaa;
+            }
+
+            select, label, button {
+                font-size: 1em;
+                margin: 6px 10px;
+            }
+
+            button, select {
+                padding: 6px 14px;
+                border: none;
+                border-radius: 6px;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                transition: background-color 0.3s, color 0.3s;
+                cursor: pointer;
+            }
+
+            button:hover, select:hover {
+                background-color: var(--btn-hover);
+            }
+
+            label {
+                margin: 0 8px;
+                cursor: pointer;
+            }
+
+            input[type="radio"] {
+                margin-right: 4px;
+            }
+
+            #backToTop {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                padding: 10px 15px;
+                font-size: 1em;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                display: none;
+            }
+
+            #controlsTop > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            #controlsTop {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        </style>
+        
+</head>
+<body>
+<h1>The Ancient Tide</h1>
+
+            <!-- Info Modal Trigger -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button onclick="document.getElementById('infoModal').style.display='block'">ℹ️ Info</button>
+            </div>
+            
+            <!-- Info Modal -->
+            <div id="infoModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:90%; max-width:600px; border-radius:10px; font-family:'Merriweather', serif;">
+                <span onclick="document.getElementById('infoModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2>Story Info</h2>
+                <p><strong>📅 Creation Date:</strong> 05-07-2025 12:15</p>
+                <p><strong>🧠 Algorithm:</strong> Plot Genie</p>
+                <p><strong>📝 Word Count:</strong> 6475</p>
+                <p><strong>📄 Review:</strong> <button onclick="document.getElementById('reviewModal').style.display='block'">View Review</button></p>
+              </div>
+            </div>
+            <!-- Review Modal -->
+            <div id="reviewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:5% auto; padding:30px; border:1px solid #888; width:90%; max-width:800px; border-radius:10px; font-family:'Merriweather', serif; max-height:85%; overflow-y:auto;">
+                <span onclick="document.getElementById('reviewModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2 style="margin-top:0;">📘 Story Review</h2>
+                <p><strong>📘 Story Title:</strong> The Ancient Tide</p>
+<hr>
+<p>📄 Claude Evaluation Report</p>
+<hr>
+<h2>Literary Analysis of "The Ancient Tide"</h2>
+<h3>Character (Category Weight = 0.30)</h3>
+<p>1. <strong>Is the main character clearly identifiable?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- Oisín Kelly is clearly established as the protagonist from the beginning. The narrative focuses on his perspective, his actions drive the plot forward, and his character arc forms the emotional core of the story.</p>
+<p>2. <strong>Does the character have a clear backstory?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Oisín's backstory is well-developed, including his childhood speech impediment that led to his nickname "the Caveman," his lifelong interest in archaeology, and his position as an outsider in the village despite living there his entire life.</p>
+<p>3. <strong>Does the character have a clear goal or "desire"?</strong></p>
+<p><strong>- Score:</strong> 3</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Oisín's initial goal is less defined, but it evolves into helping Fiona find her missing brother and protecting the archaeological discovery. His deeper desire for connection and belonging emerges gradually.</p>
+<p>4. <strong>Does the character have a clear inner weakness or vulnerability?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Oisín's vulnerability is his social isolation and difficulty connecting with others. The story explicitly mentions his preference for "finding more companionship in the ancient artifacts he collected than in the company of his fellow villagers."</p>
+<p>5. <strong>Does the character undergo a transformation?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- Oisín transforms from a solitary figure to someone connected to the community. The final paragraphs explicitly describe this change:</strong> "no longer alone, no longer apart, but connected to a community and to a woman who saw in him not an oddity but a partner."</p>
+<p>6. <strong>Do supporting characters contribute to the main character's journey?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Fiona and Seamus draw Oisín out of his isolation. Liam serves as a foil highlighting Oisín's integrity. Moira Keane demonstrates that some villagers value Oisín despite his outsider status.</p>
+<p>7. <strong>Do supporting characters fulfill archetypal roles?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p><strong>- The characters fulfill clear archetypal roles:</strong> Fiona as the potential romantic partner, Seamus as the vulnerable ally, Liam as the antagonist driven by ambition, O'Donnell as the authority figure opposing change, and Moira as the wise elder.</p>
+<p>8. <strong>Are supporting characters diverse and distinct?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- Each supporting character has distinct traits, motivations, and speech patterns. Fiona is determined and protective, Seamus is intellectual and forgiving, Liam is ambitious and insecure, O'Donnell is conservative and controlling.</p>
+<p>9. <strong>Is the number of characters appropriate?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The story maintains a focused cast of characters appropriate for its length. Each character serves a specific purpose in the narrative without overcrowding the story.</p>
+<p>10. <strong>Are characters developed across three layers?</strong></p>
+<p><strong>- Score:</strong> 3</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- Characters are developed physically (Oisín's "imposing physique," Fiona's "red hair"), psychologically (Oisín's solitude, Liam's insecurity), and sociologically (village dynamics, academic rivalries), though some secondary characters could be more fully rounded.</p>
+<h3>Conflict (Category Weight = 0.30)</h3>
+<p>11. <strong>Is the central conflict strong enough to drive the story?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.35</p>
+<p><strong>- Weighted Score:</strong> 0.42</p>
+<p>- The central conflict—finding Seamus and resolving the dispute over the archaeological discovery—provides strong momentum throughout the narrative, with clear stakes for all involved.</p>
+<p>12. <strong>Does the conflict touch upon universal human conditions?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.18</p>
+<p>- The story explores universal themes of belonging, ambition, recognition, and the tension between tradition and progress. Liam's desperate need for recognition and Oisín's loneliness are relatable human conditions.</p>
+<p>13. <strong>Are the stakes clear from the beginning?</strong></p>
+<p><strong>- Score:</strong> 3</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The initial stakes (finding Seamus) are clear, though the full implications of the archaeological discovery and its importance to the characters emerge more gradually as the story progresses.</p>
+<p>14. <strong>Is the conflict directly related to what we know about the character?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The conflict directly connects to Oisín's archaeological interests and outsider status. His expertise and isolation make him uniquely positioned to help resolve the situation.</p>
+<p>15. <strong>Does the conflict escalate and intensify as the story approaches its climax?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The conflict escalates from a missing person case to a confrontation in the cave to a village-wide boycott, building tension until the climactic scene at the harbor.</p>
+<p>16. <strong>Is the source of the conflict consistent throughout?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.10</p>
+<p><strong>- Weighted Score:</strong> 0.12</p>
+<p>- The conflict consistently revolves around the archaeological discovery and its implications, with Liam's ambition and the village's resistance to change as persistent antagonistic forces.</p>
+<p>17. <strong>Do the subplots also include conflict?</strong></p>
+<p><strong>- Score:</strong> 3</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.045</p>
+<p>- The romantic subplot between Oisín and Fiona contains subtle conflict related to Oisín's isolation, though it could be more developed. The religious controversy provides additional tension.</p>
+<p>18. <strong>Is there both external conflict (events) and internal conflict (emotions)?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.05</p>
+<p><strong>- Weighted Score:</strong> 0.06</p>
+<p>- The story balances external conflicts (finding Seamus, confronting Liam, facing the village) with internal conflicts (Oisín's loneliness, Liam's insecurity, Fiona's worry for her brother).</p>
+<h3>Craft (Category Weight = 0.25)</h3>
+<p>19. <strong>Is the story written in clear, modern English?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.20</p>
+<p>- The prose is clear, fluid, and accessible while maintaining a literary quality appropriate for the setting and themes.</p>
+<p>20. <strong>Are spelling and grammar correct?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The text demonstrates excellent command of grammar, syntax, and spelling with no noticeable errors.</p>
+<p>21. <strong>Is the writing clear, concise, and descriptive?</strong></p>
+<p><strong>- Score:</strong> 3</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- The writing is generally clear and descriptive, though occasionally it becomes more expansive than concise, particularly in descriptive passages about the setting.</p>
+<p>22. <strong>Is there vivid description of characters, scenes, and settings?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The story excels at creating a vivid sense of place, from the "rugged Irish coastline" to the interior of the cave. Characters are physically described with memorable details like Oisín's "hands like shovels" and "wild mane of dark hair."</p>
+<p>23. <strong>Is there no unnecessary or inappropriate detail?</strong></p>
+<p><strong>- Score:</strong> 3</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.1125</p>
+<p>- Most details serve the story well, though some descriptive passages could be trimmed without losing essential elements of the narrative.</p>
+<p>24. <strong>Is everything described visually demonstrable?</strong></p>
+<p><strong>- Score:</strong> 3</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.15</p>
+<p>- The story generally focuses on observable actions and settings, though it occasionally delves into characters' thoughts and emotions that wouldn't be visually apparent.</p>
+<h3>Logic (Category Weight = 0.15)</h3>
+<p>25. <strong>Are there no plot holes?</strong></p>
+<p><strong>- Score:</strong> 3</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The plot is generally sound, though some elements raise questions, such as how Seamus initially accessed the cave given his disability and why Liam left him there overnight rather than immediately claiming the discovery.</p>
+<p>26. <strong>Are there no unclear points?</strong></p>
+<p><strong>- Score:</strong> 3</p>
+<p><strong>- Weight:</strong> 0.20</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- Most plot points are clearly explained, though some aspects of the archaeological significance could be more precisely detailed for readers unfamiliar with archaeology.</p>
+<p>27. <strong>Have all questions raised been answered?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story resolves its central questions about Seamus's disappearance, the archaeological discovery, and Oisín's isolation, providing a satisfying conclusion to all major plot threads.</p>
+<p>28. <strong>Is the story consistent and free of continuity errors?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The narrative maintains consistency in its timeline, character motivations, and setting details throughout.</p>
+<p>29. <strong>Are there no contradictions with previously stated information?</strong></p>
+<p><strong>- Score:</strong> 4</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.09</p>
+<p>- The story avoids contradicting itself, maintaining coherence in its presentation of characters, their backgrounds, and the unfolding events.</p>
+<p>30. <strong>Is the logic sound and free from illogical or contrived elements?</strong></p>
+<p><strong>- Score:</strong> 3</p>
+<p><strong>- Weight:</strong> 0.15</p>
+<p><strong>- Weighted Score:</strong> 0.0675</p>
+<p>- The story's logic is generally sound, though Liam's quick change of heart and the village's rapid acceptance of the discovery feel somewhat accelerated for narrative convenience.</p>
+<h3>Overall Weighted Score: 3.7025</h3>
+<h3>Summary Report:</h3>
+<p>"The Ancient Tide" is an accomplished short story that skillfully blends elements of mystery, archaeology, and human connection against the backdrop of a small Irish coastal village. The narrative excels in character development, particularly in its portrayal of Oisín Kelly's journey from isolation to community. The conflict is well-structured and escalates effectively, touching on universal themes of ambition, belonging, and the tension between tradition and progress. The prose is polished and evocative, creating a strong sense of place that anchors the story in its Irish coastal setting.</p>
+<h3>Suggestions for Improvement:</h3>
+<p><strong>* <strong>Character Development</strong>:</strong> While Oisín's character arc is well-executed, Fiona could benefit from more development beyond her role as Seamus's sister and Oisín's potential romantic interest. Giving her more agency or a personal stake in the archaeological discovery would strengthen her character.</p>
+<p><strong>* <strong>Pacing</strong>:</strong> The resolution feels somewhat rushed compared to the careful build-up. Liam's transformation from antagonist to collaborator and the village's acceptance of the discovery could be more gradually developed to increase believability.</p>
+<p><strong>* <strong>Subplot Integration</strong>:</strong> The romantic subplot between Oisín and Fiona, while present, remains somewhat underdeveloped. More moments of connection between them throughout the story would make their final scene together more impactful.</p>
+<p><strong>* <strong>Conflict Complexity</strong>:</strong> While the central conflict is strong, adding more complexity to the religious controversy—perhaps by showing more diverse opinions within the village—would create a richer portrayal of the community dynamics.</p>
+<p><strong>* <strong>Thematic Depth</strong>:</strong> The story touches on interesting themes about the continuity of human experience across millennia. This thematic element could be more explicitly connected to Oisín's personal journey to add philosophical depth to the narrative.</p>
+              </div>
+            </div>
+        
+
+        <div id="controlsTop">
+            <div>
+                <label><input type="radio" name="viewMode" value="full" checked> Continuous Reading</label>
+                <label><input type="radio" name="viewMode" value="paged"> Paginated View</label>
+            </div>
+
+            <div id="pageOptions" style="display: none;">
+                <label><input type="radio" name="pageMode" value="auto" checked> Auto Paragraphs</label>
+                <label><input type="radio" name="pageMode" value="manual"> Manual</label>
+                <select id="pageSizeSelect" disabled>
+        <option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+                </select>
+            </div>
+
+            <div>
+                <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+
+        </div>
+
+        <div id="storyContainer"></div>
+
+        <div id="paginationControls" style="display: none;">
+            <button id="firstBtn" onclick="firstPage()">⏮ First</button>
+            <button id="prevBtn" onclick="prevPage()">◀ Previous</button>
+            <span id="pageIndicator">Page 1 of X</span>
+            <button id="nextBtn" onclick="nextPage()">Next ▶</button>
+            <button id="lastBtn" onclick="lastPage()">Last ⏭</button>
+        </div>
+
+        <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆ Back to Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script>
+            const paragraphs = ["The village of Ballycove nestled against the rugged Irish coastline like a barnacle clinging to a rock. Its stone cottages, weathered by centuries of Atlantic gales, huddled together as if for warmth against the perpetual chill that swept in from the sea. Here, where the land met the wild waters, time moved differently—slower, more deliberately, measured by the eternal rhythm of the tides rather than the frantic pace of the modern world beyond the surrounding hills.", "In one such cottage, set slightly apart from the others and perched precariously close to the cliff edge, lived Oisín Kelly. The villagers called him \"the Caveman,\" a nickname that had stuck since childhood, though few remembered its origins. Some said it was because of his imposing physique—broad-shouldered and barrel-chested, with hands like shovels and a wild mane of dark hair that he rarely bothered to tame. Others claimed it stemmed from his peculiar fascination with the ancient past, particularly the prehistoric peoples who had once inhabited the caves that dotted the coastline.", "The truth, as Oisín knew it, was more complex. The name had begun as a schoolyard taunt, mocking his speech impediment that had made communication difficult in his early years. While he had eventually overcome the stutter through sheer determination, the nickname persisted, and over time, he had embraced it, finding a strange comfort in the identity it conferred.", "At forty-two, Oisín lived a life of relative solitude. He was a fisherman like most men in Ballycove, rising before dawn to take his boat, the *Selkie's Daughter*, out into the churning waters. He spoke little, observed much, and kept to himself, finding more companionship in the ancient artifacts he collected than in the company of his fellow villagers.", "This morning, as he prepared his boat for the day's work, his mind was elsewhere—specifically, on the small cottage adjacent to his own, where Fiona Byrne had taken up residence three months ago. Fiona, at thirty-eight, had returned to her ancestral village after twenty years away, bringing with her a wheelchair-bound brother and a cloud of mystery that had set the gossip mill of Ballycove spinning at full tilt.", "Seamus Byrne, Fiona's brother, had once been a promising footballer, destined for glory with one of Dublin's premier clubs. Now, at thirty-five, he was confined to a wheelchair, his once-powerful legs rendered useless by an accident that no one in the village knew the details of. The siblings had arrived without fanfare, settling into the old Byrne cottage that had stood empty since their parents' passing a decade earlier.", "Oisín had watched their arrival with the same quiet curiosity he applied to everything, observing from a distance as they established their new life. He had nodded politely when passing them on the narrow village streets but had made no overtures of friendship. That changed the day he found Seamus stranded on the beach, his wheelchair stuck in the wet sand as the tide threatened to come in.", "\"Bloody contraption,\" Seamus had muttered as Oisín approached. \"I told Fiona these wheels weren't made for beach excursions, but she's off gathering seaweed, and I wanted to see the water up close.\"", "Without a word, Oisín had lifted both man and chair with surprising gentleness, carrying them to firmer ground. That simple act of assistance had blossomed into an unexpected friendship. Seamus, despite his physical limitations, possessed a sharp wit and an insatiable curiosity about the ancient history of the area—a passion that aligned perfectly with Oisín's own interests.", "Over the weeks that followed, Oisín found himself spending evenings in the Byrne cottage, sharing his knowledge of local archaeology and listening to Seamus's stories of his life before the accident. Fiona would move quietly around them, preparing tea or tending to her brother's needs, her presence a gentle counterpoint to their animated discussions.", "It was during one such evening that Seamus had first mentioned the cave.", "\"There's a legend,\" he said, his eyes bright with excitement, \"about a cave along this coastline that contains artifacts from the earliest human settlements in Ireland. Not just the usual Neolithic tools, but something more significant—evidence of a civilization that predates all recorded history of this island.\"", "Oisín had nodded, familiar with the tale. \"The Cave of Danu,\" he said. \"Named after the ancient mother goddess. It's said to contain writings that could rewrite our understanding of prehistoric Ireland.\"", "\"You know of it?\" Seamus had leaned forward eagerly.", "\"Every child in Ballycove grows up hearing stories of it,\" Oisín replied. \"But it's just that—a story. Fishermen have searched the coastline for generations without finding any trace of such a cave.\"", "\"What if it's not just a story?\" Fiona had interjected, speaking up for the first time that evening. \"What if there's truth to it?\"", "Her question had lingered in Oisín's mind long after he'd returned to his own cottage that night. The Cave of Danu had been a childhood fascination for him, a mythical place that had fueled his early interest in archaeology. As an adult, he had dismissed it as folklore, but something in Fiona's tone had rekindled that old spark of wonder.", "Now, as he prepared his boat for the day's fishing, he found himself scanning the coastline with renewed interest, wondering if the ancient cave might indeed exist somewhere along the rugged shore.", "His contemplation was interrupted by the sight of Fiona making her way down the steep path to the harbor, her red hair whipping in the morning breeze. She moved with purpose, and as she drew closer, he could see the determination etched on her face.", "\"Oisín,\" she called, slightly breathless from her descent. \"I need to speak with you.\"", "He nodded, securing the last of his equipment before turning to face her fully. Up close, he could see the shadows beneath her eyes, evidence of a restless night.", "\"It's Seamus,\" she said without preamble. \"He's gone.\"", "Oisín frowned. \"Gone? What do you mean?\"", "\"He wasn't in his bed this morning. His wheelchair is still in the cottage, but he's nowhere to be found.\" Her voice trembled slightly. \"I've searched everywhere I could think of.\"", "\"That's not possible,\" Oisín said, his mind struggling to make sense of her words. \"He can't walk.\"", "Fiona's eyes flashed with a mixture of anger and fear. \"Don't you think I know that? Something's happened to him. Someone must have taken him.\"", "The implication hung in the air between them. Ballycove was a small, close-knit community where everyone knew everyone else's business. The idea that someone could abduct a disabled man without being noticed seemed far-fetched.", "\"Have you spoken to Garda Murphy?\" Oisín asked, referring to the village's sole police officer.", "Fiona nodded. \"He said he'd look into it, but I could tell he wasn't taking it seriously. He suggested Seamus might have 'gone for a swim.'\" The bitterness in her voice was palpable. \"As if my brother would drag himself to the water in the middle of the night.\"", "Oisín considered this. Garda Murphy was known more for his enthusiasm for pints at the local pub than for his investigative skills. If Seamus was truly missing under suspicious circumstances, they couldn't rely on official channels alone.", "\"I'll help you look for him,\" he said simply.", "Relief washed over Fiona's face. \"Thank you. I didn't know who else to turn to.\"", "As they made their way back up the path to the village, Oisín's mind raced with possibilities. Seamus was well-liked by those who knew him, but the siblings had kept largely to themselves since arriving in Ballycove. Who would want to harm a man already suffering from such misfortune?", "The answer, when it came, was unexpected. As they approached the village square, they saw a crowd gathered outside the small stone building that served as both the village hall and the office of Ballycove's mayor, Michael O'Donnell.", "O'Donnell, a portly man with a florid complexion, stood on the steps addressing the assembled villagers. His voice carried across the square, filled with righteous indignation.", "\"This sacrilege cannot be tolerated!\" he proclaimed. \"For generations, St. Brendan's Cave has been a sacred site for our community, a place of pilgrimage and prayer. The idea that someone would propose turning it into a tourist attraction, a museum for pagan artifacts, is an affront to our faith and our heritage!\"", "Oisín and Fiona exchanged glances. St. Brendan's Cave, located a mile up the coast, was indeed a site of local religious significance. Legend held that the saint had sheltered there during a storm in the 6th century, and a small shrine had been maintained inside it for hundreds of years.", "\"What's he talking about?\" Fiona whispered.", "Before Oisín could respond, O'Donnell continued, his voice rising in volume. \"And to think that this proposal comes from outsiders, people who have no understanding of our traditions, our beliefs! I have here a document, a so-called 'research proposal,' submitted to the County Heritage Office without the knowledge or consent of this community!\"", "He brandished a sheaf of papers, and Oisín felt Fiona stiffen beside him.", "\"That's Seamus's proposal,\" she breathed. \"He's been working on it for weeks. He wanted to explore the possibility that St. Brendan's Cave might actually be the legendary Cave of Danu, repurposed by early Christians. He found references in old manuscripts that suggested—\"", "She broke off as O'Donnell's next words rang out across the square. \"The author of this blasphemy, this Seamus Byrne, would have us believe that our sacred site is nothing more than a relic of pagan worship! He proposes archaeological excavations that would desecrate the shrine and undermine the very foundations of our faith!\"", "Murmurs rippled through the crowd. Ballycove was a deeply traditional community, and while younger residents might have been more open to such ideas, the older generation—who held most of the power in village affairs—were staunchly conservative in their religious views.", "\"Where is this Seamus Byrne?\" O'Donnell demanded, scanning the crowd. \"Let him come forward and defend his proposal if he dares!\"", "Fiona took a step forward, but Oisín caught her arm, holding her back. \"Wait,\" he murmured. \"Something's not right here.\"", "Indeed, as they watched, a figure emerged from the village hall to stand beside O'Donnell. It was Liam Fitzgerald, the mayor's nephew and a failed academic who had returned to Ballycove after being denied tenure at Trinity College Dublin. Liam had always harbored resentment toward those he perceived as intellectual rivals, and his ambition to make a name for himself in archaeological circles was well-known.", "\"My uncle speaks the truth,\" Liam announced. \"This proposal threatens not only our spiritual heritage but also the economic future of Ballycove. The pilgrims who visit St. Brendan's Cave bring valuable income to our village. If word spreads that we're allowing pagan excavations, that income will dry up.\"", "Oisín's eyes narrowed. Liam's concern seemed less about religious sanctity and more about protecting his own interests. As the self-appointed \"cultural officer\" of Ballycove, he charged fees for guided tours of local historical sites, including St. Brendan's Cave.", "\"This isn't about Seamus's proposal,\" Oisín said quietly to Fiona. \"This is about Liam feeling threatened. Your brother's research must have uncovered something significant.\"", "Fiona's face paled. \"You don't think they've done something to him, do you?\"", "Before Oisín could answer, O'Donnell's voice boomed out again. \"Until this matter is resolved, I am declaring a boycott of the Byrne household. No one in Ballycove is to have any dealings with them—no buying their goods, no selling to them, no speaking to them. They are to be shunned until this blasphemous proposal is withdrawn!\"", "A chill ran down Oisín's spine. Such boycotts had a dark history in rural Ireland, often leading to isolation so complete that the targeted individuals had no choice but to leave. For Fiona and Seamus, already vulnerable as newcomers, it could be devastating.", "\"We need to find your brother,\" he said grimly. \"And quickly.\"", "As the crowd began to disperse, Oisín led Fiona away from the square, taking a circuitous route back to her cottage to avoid being seen. Once inside, she collapsed into a chair, her face a mask of worry.", "\"This is madness,\" she said. \"Seamus never meant to offend anyone. His research was purely academic. He believed that understanding the true history of the cave would enhance its significance, not diminish it.\"", "Oisín nodded, his mind working rapidly. \"O'Donnell and Liam are using religious outrage to mask their real concerns. If Seamus is right, and St. Brendan's Cave is actually the Cave of Danu, it would become a site of national importance. The local council would lose control of it, and Liam would lose his monopoly on tours.\"", "\"But what does that have to do with Seamus disappearing?\" Fiona asked, her voice breaking.", "\"I don't know yet,\" Oisín admitted. \"But I intend to find out. Show me everything your brother was working on.\"", "Fiona led him to Seamus's small study, a room crammed with books, maps, and notes. On the desk lay an open notebook, the last entry dated the previous day.", "\"He was excited about something,\" Fiona said, picking up the notebook. \"He said he'd made a breakthrough, but he wanted to verify it before sharing the details, even with me.\"", "Oisín scanned the room, his eyes coming to rest on a detailed map of the coastline pinned to the wall. Several locations were marked with red X's, most of them crossed out. One, however, was circled repeatedly in heavy ink.", "\"That's not St. Brendan's Cave,\" he said, pointing to the circled location. \"That's about half a mile further up the coast. There's nothing there but sheer cliffs.\"", "\"That's what I thought,\" Fiona replied. \"But Seamus was convinced there was another cave entrance, one that had been deliberately concealed centuries ago. He found references to it in some old monastic records.\"", "Oisín studied the map more closely. The marked location corresponded to a particularly treacherous stretch of coastline, accessible only by boat or by a perilous climb down the cliffs. If there was indeed a hidden cave there, it would explain why it had remained undiscovered for so long.", "\"We need to check this out,\" he said. \"But first, let's see if we can find any other clues about what Seamus discovered.\"", "They spent the next hour combing through Seamus's notes and research materials. The picture that emerged was fascinating. Seamus had been meticulously building a case that the legendary Cave of Danu and St. Brendan's Cave were connected—not identical, as Liam had claimed in his inflammatory speech, but part of the same underground system. According to his theory, early Christian missionaries had deliberately sealed off the section containing pagan artifacts and redirected attention to the portion they consecrated to St. Brendan.", "\"If he's right,\" Oisín said, \"this would be an archaeological find of immense significance. It would provide evidence of continuous human habitation and religious practice in this area spanning thousands of years.\"", "\"And it would make Seamus's reputation,\" Fiona added softly. \"After the accident ended his sporting career, he poured everything into his academic work. This discovery would mean everything to him.\"", "Oisín nodded, understanding now the full stakes of the situation. For Seamus, this wasn't just an intellectual exercise—it was redemption, a chance to forge a new identity beyond that of the invalid former athlete.", "\"I think I know where he might have gone,\" Oisín said, tapping the circled location on the map. \"If he found evidence of the cave entrance, he might have tried to investigate it himself.\"", "\"But how?\" Fiona asked, her brow furrowed with concern. \"He can't walk, and that area is inaccessible even for the able-bodied.\"", "\"He might have had help,\" Oisín suggested. \"Is there anyone in the village he was particularly close to?\"", "Fiona shook her head. \"Not that I know of. We've kept mostly to ourselves since arriving.\"", "A thought occurred to Oisín. \"What about Liam Fitzgerald? As the local 'expert' on historical sites, Seamus might have approached him with his findings.\"", "\"And if Liam realized the implications...\" Fiona's voice trailed off, her expression darkening.", "\"He might have seen an opportunity to claim the discovery for himself,\" Oisín finished grimly. \"But he'd need to get Seamus out of the way first.\"", "The theory was disturbing but plausible. Liam's academic career had ended in failure, but a discovery of this magnitude could resurrect it—if he could take credit for it.", "\"We need to get to that cave,\" Oisín said decisively. \"But we'll have to be careful. If O'Donnell's boycott takes hold, we won't be able to count on help from anyone in the village.\"", "Fiona's eyes flashed with determination. \"I don't care about the boycott. I just want to find my brother.\"", "As they prepared to leave, a knock at the door froze them both. Exchanging wary glances, Oisín moved to answer it, positioning himself protectively in front of Fiona.", "To his surprise, the visitor was Moira Keane, the elderly postmistress of Ballycove. Despite her eighty years, Moira stood straight-backed and resolute on the doorstep.", "\"I've no time for pleasantries,\" she said briskly, pushing past Oisín into the cottage. \"That fool O'Donnell can call for boycotts all he likes, but I've delivered the mail in this village for sixty-three years, and I'll not stop now.\"", "She handed Fiona a small package. \"This came for your brother yesterday afternoon. I was going to bring it over then, but I got distracted by Mrs. Flaherty's endless complaints about her lumbago.\"", "Fiona took the package with trembling hands. \"Thank you, Mrs. Keane.\"", "The old woman nodded curtly. \"And you should know, not everyone in Ballycove is swayed by O'Donnell's bluster. There are those of us who remember when his grandfather tried the same tactics to prevent the building of the new school back in '52. Didn't work then, won't work now.\"", "With that, she turned and left as abruptly as she had arrived.", "Fiona quickly unwrapped the package to reveal a small, weathered leather pouch. Inside was what appeared to be a fragment of ancient pottery, along with a note written in a spidery hand: \"Analysis confirms: Pre-Neolithic, possibly 10,000 BCE. Found exactly where you predicted. Your theory holds water. Meet tonight at the usual place to discuss next steps. —P.\"", "\"P?\" Oisín questioned.", "\"Professor Patrick Doyle,\" Fiona explained. \"He was Seamus's mentor at university. They've stayed in touch, and Seamus has been sending him findings for analysis.\"", "Oisín examined the pottery shard with expert eyes. Even to his amateur assessment, it was clearly of extreme antiquity, with markings that resembled no known Celtic or pre-Celtic designs he was familiar with.", "\"This changes everything,\" he said. \"If this came from the location Seamus identified, it proves his theory. The Cave of Danu is real.\"", "\"And someone else knows it too,\" Fiona added, her voice tight with worry. \"This note mentions meeting 'at the usual place.' If Liam intercepted a similar message...\"", "\"He could have followed Seamus,\" Oisín concluded. \"We need to get to that cave now.\"", "The tide was coming in as they made their way to Oisín's boat. The sky had darkened with approaching rain, and the wind had picked up, whipping the sea into white-capped waves that crashed against the harbor wall.", "\"It's going to be rough going,\" Oisín warned as he helped Fiona into the *Selkie's Daughter*. \"The coastline there is treacherous even in calm weather.\"", "\"I don't care,\" Fiona replied, her jaw set with determination. \"If Seamus is there, we have to find him.\"", "Oisín nodded, starting the engine and guiding the boat out of the harbor. As they cleared the protective breakwater, the full force of the wind hit them, and the small vessel began to pitch and roll in the increasingly choppy seas.", "Fiona gripped the sides of the boat, her knuckles white but her expression resolute. Oisín admired her courage; many lifelong residents of Ballycove would have balked at venturing out in such conditions.", "They followed the coastline northward, the cliffs rising ever higher and more forbidding as they progressed. After about twenty minutes, they approached the area marked on Seamus's map. From the water, it appeared to be nothing but an unbroken wall of rock, pounded relentlessly by the surging waves.", "\"I don't see any cave entrance,\" Fiona shouted over the wind.", "\"It would be hidden,\" Oisín called back. \"Possibly only visible at certain tide levels. We'll have to get closer.\"", "He maneuvered the boat as near to the cliff face as he dared, fighting against the current that threatened to dash them against the rocks. As they drew closer, he scanned the cliff methodically, looking for any irregularity in the stone that might indicate an opening.", "\"There!\" Fiona suddenly pointed. \"Just above the waterline!\"", "Oisín followed her gesture and saw it—a dark shadow in the rock face that seemed to deepen as they watched. It was small, barely large enough for a person to squeeze through, and partially obscured by a natural outcropping that would make it virtually invisible from above.", "\"That has to be it,\" he agreed. \"But reaching it will be tricky.\"", "Indeed, the cave entrance was positioned in such a way that approaching it directly by boat would be extremely dangerous. The waves were crashing against the cliff with increasing force as the tide rose, creating a swirling maelstrom of water around the opening.", "\"We'll need to anchor a little way out and swim for it,\" Oisín decided. \"I have a rope in the storage locker. We can secure it to the boat and use it to guide us back.\"", "Fiona nodded, already shrugging off her heavy outer clothing. \"I was on the swimming team at university,\" she said in response to his questioning look. \"I can handle it.\"", "Oisín dropped anchor about fifty yards from the cliff, in slightly calmer water. He retrieved the rope, securing one end firmly to the boat before coiling the rest for them to take.", "\"Stay close to me,\" he instructed as they prepared to enter the water. \"The current is strong, and there could be underwater hazards we can't see.\"", "The cold hit them like a physical blow as they slipped over the side of the boat. The Atlantic in early autumn was unforgiving, its icy embrace immediately numbing exposed skin. Oisín led the way, powerful strokes carrying him through the churning water toward the cliff face, with Fiona following close behind.", "As they neared the cave entrance, the current grew stronger, threatening to sweep them past their target. Oisín reached out, managing to grasp a protruding rock beside the opening. He held on grimly as Fiona caught up, helping her navigate the final few yards to the entrance.", "With a final surge of effort, they pulled themselves into the cave, collapsing on a narrow stone ledge just inside the opening. The interior was dark and dripping with seawater, but mercifully sheltered from the wind that had made their journey so perilous.", "\"Are you all right?\" Oisín asked, concerned by Fiona's labored breathing.", "She nodded, pushing wet hair from her face. \"Just need a moment. It was rougher than I expected.\"", "As their eyes adjusted to the dimness, they could make out the contours of the cave. The entrance chamber was small, but a narrow passage led deeper into the cliff. From somewhere within came the faint glow of artificial light.", "\"Someone's here,\" Oisín whispered.", "They moved cautiously along the passage, which gradually widened and rose, taking them above the high-water mark. The light grew stronger, and soon they could hear voices echoing from ahead.", "\"You can't do this, Liam,\" came a voice that Fiona immediately recognized. \"This discovery belongs to the world, not to you alone.\"", "\"Seamus!\" she whispered, relief flooding her features.", "Oisín put a finger to his lips, indicating they should proceed with caution. They crept forward until they reached a bend in the passage, beyond which the cave opened into a larger chamber.", "Peering around the corner, they saw a scene that confirmed their worst fears. Seamus was there, propped against a rock wall, his legs splayed uselessly before him. His face was pale but determined as he confronted Liam Fitzgerald, who stood over him with a flashlight in one hand and what appeared to be an ancient stone tablet in the other.", "\"The world will know about the discovery,\" Liam was saying, his voice echoing in the chamber. \"They just won't know it was yours. By the time I present this at the International Archaeological Congress next month, you'll be long gone from Ballycove, driven out by the boycott my uncle has arranged.\"", "\"And what about the truth?\" Seamus demanded. \"The evidence in my notes, the correspondence with Professor Doyle?\"", "Liam laughed dismissively. \"Your notes had an unfortunate encounter with my fireplace last night. As for Doyle, he's an old man with a fading reputation. Who will believe him over me, especially when I have this?\" He held up the tablet triumphantly.", "From their hiding place, Oisín could see that the object was indeed extraordinary—a flat stone about the size of a dinner plate, covered in markings unlike any known ancient Irish script. Even from a distance, he could tell it was of immense archaeological significance.", "\"That tablet proves my theory,\" Seamus said bitterly. \"The markings match those found at pre-Celtic sites across Europe. It establishes a connection between the earliest inhabitants of Ireland and continental cultures thousands of years earlier than previously thought.\"", "\"Yes, and now it will prove my theory,\" Liam replied smugly. \"After all, I'm the one who found it.\"", "\"In a cave I identified,\" Seamus shot back. \"Using research I conducted.\"", "Liam's expression darkened. \"A technicality that history will forget. Now, I need to figure out how to get you back to the village without revealing this place. I can't have you leading others here before I've had a chance to document everything and establish my claim.\"", "\"You'll never get away with this,\" Seamus said. \"Fiona knows about my research. She'll realize what you've done.\"", "\"Your sister will be too busy dealing with the boycott to cause trouble,\" Liam sneered. \"Besides, who would believe the word of outsiders against a respected local historian like myself?\"", "Oisín had heard enough. He stepped into the chamber, Fiona close behind him. \"I would,\" he said firmly.", "Liam whirled around, nearly dropping the precious tablet in his surprise. \"Kelly! What are you doing here?\"", "\"Apparently, preventing the theft of a major archaeological discovery,\" Oisín replied, moving further into the chamber. \"Put the tablet down, Liam.\"", "\"Fiona!\" Seamus called out, relief evident in his voice. \"Thank God you're here.\"", "Liam's shock quickly gave way to calculation. He glanced between the newcomers and the passage that led back to the sea. \"This changes nothing,\" he said defiantly. \"It's still my word against yours. The three of you against me and my uncle, who controls this village.\"", "\"And what about the evidence?\" Oisín asked, nodding toward the tablet. \"That belongs in a museum, not in your personal collection.\"", "\"It belongs to whoever discovers it,\" Liam insisted. \"That's the law of archaeological finds.\"", "\"On private or public land, yes,\" Seamus interjected. \"But this cave is part of a protected coastline. Any finds here legally belong to the state.\"", "Liam's face contorted with anger. \"I've waited my entire career for a discovery like this! Do you know what it's like to be dismissed by your peers, to be denied the recognition you deserve? This is my chance to finally make my mark!\"", "There was a desperation in his voice that gave Oisín pause. Behind Liam's arrogance and ambition lay a profound insecurity, a fear of insignificance that had driven him to this extreme action.", "\"I understand wanting recognition,\" Oisín said, his tone softening slightly. \"But not at the expense of the truth. Not by stealing another man's work.\"", "\"What would you know about it?\" Liam spat. \"You're just a fisherman. A recluse. The village caveman who plays with old rocks and bones.\"", "The words were meant to wound, to remind Oisín of his outsider status in the village despite having lived there all his life. But they had the opposite effect, reinforcing his resolve.", "\"Yes, I am the Caveman,\" he acknowledged calmly. \"And this is a cave. Perhaps I understand more than you think.\"", "He took a step forward, his imposing figure seeming to fill the chamber. \"You have two choices, Liam. You can put down the tablet and we can discuss how to properly document this discovery, with full credit to Seamus for the research that led to it. Or you can try to leave with it, in which case I'll be forced to stop you.\"", "Liam clutched the tablet tighter, his eyes darting between Oisín and the passage. For a moment, it seemed he might make a run for it. Then, unexpectedly, his shoulders slumped.", "\"It's not fair,\" he said, his voice suddenly small. \"I've studied the history of this coastline my entire life. I've given tours of these caves, told the legends, kept the traditions alive. And he—\" he gestured dismissively at Seamus, \"—he comes here for a few months and makes the discovery of a lifetime.\"", "\"Life isn't fair, Liam,\" Seamus said quietly. \"Believe me, I know that better than most.\" He gestured to his useless legs. \"But we have choices in how we respond to that unfairness.\"", "A heavy silence fell over the cave, broken only by the distant sound of waves crashing against the cliff outside. Finally, Liam sighed deeply and carefully placed the tablet on a flat rock.", "\"You're right,\" he admitted, not looking at any of them. \"I was wrong. The discovery is Seamus's.\"", "The admission seemed to cost him physically; he seemed to shrink before their eyes, the weight of his thwarted ambition pressing him down.", "\"Actually,\" Seamus said after a moment, \"the discovery belongs to both of us.\"", "Liam looked up, confusion written across his face. \"What?\"", "\"Your local knowledge was invaluable,\" Seamus explained. \"The stories you've preserved, the tours you've given—they kept the legend of the Cave of Danu alive. Without that oral tradition, I would never have connected the historical references. We could publish the findings together.\"", "Oisín watched as Liam processed this unexpected offer, suspicion gradually giving way to cautious hope. \"You would do that? After what I tried to do?\"", "\"Academic rivalry is one thing,\" Seamus said with a wry smile. \"Attempted career theft is another. But I believe in second chances. And I believe this discovery is big enough for both our names.\"", "The tension in the chamber dissipated like morning mist under the sun. Liam moved away from the tablet, allowing Fiona to rush to her brother's side.", "\"How did you get here?\" she asked, kneeling beside him. \"And how were you planning to get back?\"", "Seamus grimaced. \"Liam brought me in his boat last night. He said he wanted to show me something related to my research. Once we were here and found the tablet, well...\" He gestured to his surroundings. \"He decided I should stay a while longer than planned.\"", "\"I was going to come back for him,\" Liam said defensively. \"After I'd figured out how to handle the situation.\"", "\"By starting a religious boycott against us?\" Fiona asked sharply.", "Liam had the grace to look ashamed. \"That was my uncle's idea. He's always been overzealous about protecting St. Brendan's Cave. When I told him about Seamus's theory that it might be connected to a pagan site, he saw it as blasphemy.\"", "\"And you encouraged that belief,\" Oisín observed.", "\"I did,\" Liam admitted. \"I'm not proud of it.\"", "Seamus cleared his throat. \"As fascinating as this confession is, I'd rather not spend another night in this cave. Could we perhaps discuss the logistics of getting me out of here?\"", "The practical challenge of extracting a man who couldn't walk from a sea cave accessible only by a treacherous swim momentarily silenced them all. Then Oisín spoke up.", "\"I have a better idea than swimming,\" he said. \"Liam, where did you leave your boat?\"", "\"In a small cove about a quarter mile north of here,\" Liam replied. \"There's a path down the cliff that's manageable if you know where to look.\"", "\"Then that's our way out,\" Oisín decided. \"Liam, you and I will carry Seamus. Fiona can bring the tablet.\"", "As they prepared to leave, Seamus insisted on documenting the chamber first, using Fiona's waterproof camera to photograph the tablet in situ and the surrounding cave walls, which bore faint traces of ancient paintings barely visible in the dim light.", "\"This is just the beginning,\" he said excitedly as Oisín and Liam carefully lifted him. \"The tablet mentions other chambers, deeper in the cliff. This could be the most extensive prehistoric site ever found in Ireland.\"", "The journey out of the cave was arduous. The passage narrowed in places, forcing them to maneuver Seamus carefully to avoid injuring him further. By the time they reached the small beach where Liam had left his boat, they were all exhausted.", "The return to Ballycove harbor was made in relative silence, each lost in their own thoughts about the day's events. As they approached the village, they could see a crowd gathered on the quayside.", "\"Word of the boycott has spread,\" Liam said grimly. \"My uncle works quickly.\"", "Indeed, as they drew closer, they could make out Michael O'Donnell's portly figure at the front of the assembly, his face set in stern disapproval. Beside him stood Garda Murphy, looking uncomfortable in his rarely-worn uniform.", "\"This could be unpleasant,\" Oisín murmured as they prepared to dock.", "To everyone's surprise, it was Liam who took charge of the situation. As soon as the boat was secured, he stepped forward to address his uncle and the gathered villagers.", "\"There will be no boycott,\" he announced firmly. \"I was wrong about Seamus Byrne's intentions, and so were you, Uncle. His research doesn't threaten St. Brendan's Cave; it enhances our understanding of it.\"", "O'Donnell spluttered in indignation. \"But you said—\"", "\"I know what I said,\" Liam cut him off. \"I was mistaken. Or rather, I deliberately misled you because of my own ambition.\" He turned to face the crowd more fully. \"The truth is, Seamus has made an archaeological discovery of immense significance—one that will put Ballycove on the map and bring scholars and tourists from around the world to our village.\"", "A murmur of interest ran through the assembled villagers. O'Donnell, sensing the shift in mood, attempted to regain control. \"What discovery? Where?\"", "Liam glanced at Seamus, who nodded permission. \"The legendary Cave of Danu,\" Liam announced. \"It's real, and we've found it. More importantly, we've found evidence that it's connected to St. Brendan's Cave, forming a continuous site of human habitation and worship spanning thousands of years.\"", "The revelation sent a ripple of excitement through the crowd. Even O'Donnell looked momentarily stunned.", "\"This doesn't diminish the religious significance of St. Brendan's Cave,\" Seamus added, his voice carrying clearly despite his seated position in the boat. \"If anything, it shows that this coastline has been recognized as a sacred place by generation after generation of people, from the earliest inhabitants of Ireland right through to the present day.\"", "O'Donnell's expression remained skeptical, but others in the crowd were nodding in agreement. Moira Keane, the elderly postmistress, pushed her way to the front.", "\"I've always said there was more to those caves than meets the eye,\" she declared. \"My grandmother used to tell stories about the old ones who lived there before St. Brendan ever set foot on Irish soil.\"", "Her endorsement seemed to sway many of the villagers. The atmosphere shifted from hostile to curious, with people beginning to ask questions about the discovery and its implications for Ballycove.", "In the days that followed, the village underwent a transformation. The threatened boycott was forgotten as excitement about the archaeological find spread. Seamus and Liam, their rivalry turned to cautious collaboration, began preparing a joint paper for submission to Ireland's premier archaeological journal.", "Fiona found herself suddenly welcome in the village, invited to tea by women who had previously eyed her with suspicion. Even O'Donnell, after initial resistance, came around when he realized the potential economic benefits of having a world-famous archaeological site in Ballycove.", "For Oisín, the change was more subtle but no less significant. His role in resolving the crisis had earned him a new respect among the villagers. No longer was he simply \"the Caveman,\" an eccentric loner to be tolerated but not truly included. Now, he was sought out for his knowledge of local history and his quiet wisdom.", "One evening, about a week after the discovery, he sat with Fiona on the small porch of his cottage, watching the sun set over the Atlantic. The air was crisp with approaching autumn, but neither seemed to mind the chill.", "\"Seamus tells me the university has offered him a position,\" Oisín said. \"Will you be leaving Ballycove?\"", "Fiona shook her head, her red hair catching the last rays of sunlight. \"No. Seamus can commute for lectures, but our home is here now. This is where his work is, where his purpose is.\" She paused, turning to look at Oisín directly. \"And I've found reasons to stay as well.\"", "The warmth in her eyes told him everything he needed to know. Slowly, giving her time to pull away if she wished, he reached out and took her hand in his.", "\"I'm glad,\" he said simply.", "As darkness fell over the village, bringing with it the first stars of evening, Oisín reflected on the strange turns life could take. The discovery of an ancient cave had not only changed the fate of Ballycove but had also altered the course of his own solitary existence.", "The Cave of Danu, hidden for millennia, had finally revealed its secrets, bringing to light not just artifacts of a forgotten past but also the complex truths of the present—that ambition could corrupt, that forgiveness could heal, and that even the most isolated hearts could find connection.", "In the village below, lights began to appear in windows, warm beacons against the gathering night. Among them was the glow from the Byrne cottage, where Seamus sat surrounded by his notes and findings, his academic future now as bright as the lamp that illuminated his work.", "And here, on this cliff edge where land met sea, where the modern world touched the ancient, Oisín Kelly—the Caveman of Ballycove—found himself no longer alone, no longer apart, but connected to a community and to a woman who saw in him not an oddity but a partner.", "The tide was turning, both in the waters below and in the lives above. And like the eternal rhythm of the sea, this change brought with it the promise of renewal, of discoveries yet to be made, and stories yet to be told."];
+            const storyContainer = document.getElementById("storyContainer");
+            const pagination = document.getElementById("paginationControls");
+            const pageIndicator = document.getElementById("pageIndicator");
+            const pageSizeSelect = document.getElementById("pageSizeSelect");
+            const pageOptions = document.getElementById("pageOptions");
+
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const firstBtn = document.getElementById("firstBtn");
+            const lastBtn = document.getElementById("lastBtn");
+
+            let currentPage = 0;
+            let pageSize = 4;
+
+            function getAutoPageSize() {
+                return Math.max(2, Math.floor(window.innerHeight / 250));
+            }
+
+            function renderPage(page) {
+                const totalPages = Math.ceil(paragraphs.length / pageSize);
+                const start = page * pageSize;
+                const end = start + pageSize;
+                storyContainer.innerHTML = paragraphs.slice(start, end).map(p => `<p>${p}</p>`).join('');
+                pageIndicator.textContent = `Page ${page + 1} of ${totalPages}`;
+                prevBtn.style.display = page > 0 ? "inline-block" : "none";
+                firstBtn.style.display = page > 0 ? "inline-block" : "none";
+                nextBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+                lastBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+            }
+
+            function switchToPagedView() {
+                const mode = document.querySelector('input[name="pageMode"]:checked').value;
+                pageSize = (mode === 'auto') ? getAutoPageSize() : parseInt(pageSizeSelect.value);
+                currentPage = 0;
+                pagination.style.display = 'block';
+                renderPage(currentPage);
+            }
+
+            function switchToFullView() {
+                pagination.style.display = 'none';
+                storyContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+            }
+
+            function nextPage() { const totalPages = Math.ceil(paragraphs.length / pageSize); if ((currentPage + 1) < totalPages) { currentPage++; renderPage(currentPage); } }
+            function prevPage() { if (currentPage > 0) { currentPage--; renderPage(currentPage); } }
+            function firstPage() { currentPage = 0; renderPage(currentPage); }
+            function lastPage() { currentPage = Math.ceil(paragraphs.length / pageSize) - 1; renderPage(currentPage); }
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+
+            function exportToPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const pageHeight = doc.internal.pageSize.height;
+                const margin = 15;
+                let y = margin;
+            
+                // Title
+                doc.setFontSize(18);
+                doc.setFont("times", "bold");
+                doc.text(document.title, doc.internal.pageSize.width / 2, y, { align: "center" });
+                y += 15;
+            
+                // Content
+                doc.setFontSize(12);
+                doc.setFont("times", "normal");
+            
+                paragraphs.forEach(p => {
+                    const lines = doc.splitTextToSize(p, 180);
+                    const blockHeight = lines.length * 8;
+            
+                    if (y + blockHeight > pageHeight - margin) {
+                        doc.addPage();
+                        y = margin;
+                    }
+            
+                    doc.text(lines, margin, y);
+                    y += blockHeight; // space between paragraphs
+                });
+            
+                const safeTitle = document.title.replace(/[^a-z0-9]/gi, "_").toLowerCase();
+                doc.save(`${safeTitle}.pdf`);
+            }
+
+
+            document.querySelectorAll('input[name="viewMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    if (e.target.value === 'full') {
+                        pageOptions.style.display = 'none';
+                        switchToFullView();
+                    } else {
+                        pageOptions.style.display = 'block';
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            document.querySelectorAll('input[name="pageMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    const isManual = e.target.value === 'manual';
+                    pageSizeSelect.disabled = !isManual;
+                    if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            pageSizeSelect.addEventListener('change', () => {
+                if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                    switchToPagedView();
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                const btn = document.getElementById("backToTop");
+                btn.style.display = window.scrollY > 300 ? "block" : "none";
+            });
+
+            switchToFullView();
+        </script>
+        
+</body>
+</html>

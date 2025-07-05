@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Tides of Deception</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+            :root {
+                --bg-color: #fdf6e3;
+                --text-color: #2e2e2e;
+                --btn-color: #333;
+                --btn-hover: #555;
+            }
+
+            body.dark-mode {
+                --bg-color: #1e1e1e;
+                --text-color: #f0f0f0;
+                --btn-color: #ddd;
+                --btn-hover: #fff;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Merriweather', serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                max-width: 800px;
+                margin: auto;
+                padding: 50px 30px;
+                line-height: 2;
+                font-size: 1.15em;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin-bottom: 50px;
+                border-bottom: 3px double #ccc;
+                padding-bottom: 20px;
+                letter-spacing: 2px;
+            }
+
+            p {
+                text-align: justify;
+                margin-bottom: 1.8em;
+            }
+
+            p::first-letter {
+                font-size: 130%;
+                font-weight: bold;
+            }
+
+            #storyContainer {
+                min-height: 600px;
+                position: relative;
+            }
+
+            #paginationControls {
+                text-align: center;
+                margin-top: 30px;
+                min-height: 60px;
+                position: sticky;
+                bottom: 20px;
+                background-color: var(--bg-color);
+                padding: 10px;
+                border-top: 1px solid #aaa;
+            }
+
+            select, label, button {
+                font-size: 1em;
+                margin: 6px 10px;
+            }
+
+            button, select {
+                padding: 6px 14px;
+                border: none;
+                border-radius: 6px;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                transition: background-color 0.3s, color 0.3s;
+                cursor: pointer;
+            }
+
+            button:hover, select:hover {
+                background-color: var(--btn-hover);
+            }
+
+            label {
+                margin: 0 8px;
+                cursor: pointer;
+            }
+
+            input[type="radio"] {
+                margin-right: 4px;
+            }
+
+            #backToTop {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                padding: 10px 15px;
+                font-size: 1em;
+                background-color: var(--btn-color);
+                color: var(--bg-color);
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                display: none;
+            }
+
+            #controlsTop > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            #controlsTop {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        </style>
+        
+</head>
+<body>
+<h1>Tides of Deception</h1>
+
+            <!-- Info Modal Trigger -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button onclick="document.getElementById('infoModal').style.display='block'">ℹ️ Info</button>
+            </div>
+            
+            <!-- Info Modal -->
+            <div id="infoModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:90%; max-width:600px; border-radius:10px; font-family:'Merriweather', serif;">
+                <span onclick="document.getElementById('infoModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2>Story Info</h2>
+                <p><strong>📅 Creation Date:</strong> 05-07-2025 11:01</p>
+                <p><strong>🧠 Algorithm:</strong> Plot Genie</p>
+                <p><strong>📝 Word Count:</strong> 3316</p>
+                <p><strong>📄 Review:</strong> <button onclick="document.getElementById('reviewModal').style.display='block'">View Review</button></p>
+              </div>
+            </div>
+            <!-- Review Modal -->
+            <div id="reviewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6);">
+              <div style="background-color:#fff; margin:5% auto; padding:30px; border:1px solid #888; width:90%; max-width:800px; border-radius:10px; font-family:'Merriweather', serif; max-height:85%; overflow-y:auto;">
+                <span onclick="document.getElementById('reviewModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                <h2 style="margin-top:0;">📘 Story Review</h2>
+                <p><strong>📘 Story Title:</strong> Tides of Deception</p>
+<hr>
+<p>📄 Claude Evaluation Report</p>
+<hr>
+<h2>Literary Analysis of "Tides of Deception"</h2>
+<h3>Character (Category Weight = 0.30)</h3>
+<p><strong>1. <strong>Question</strong>:</strong> Is the main character clearly identifiable?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Category</strong>:</strong> Character</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.18</p>
+<p><strong>- <strong>Explanation</strong>:</strong> Eliza Morgan is clearly established as the main character from the opening paragraph, with Julian serving as the secondary protagonist. The story consistently follows Eliza's perspective and journey throughout.</p>
+<p><strong>2. <strong>Question</strong>:</strong> Does the character have a clear backstory?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.10</p>
+<p><strong>- <strong>Category</strong>:</strong> Character</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.12</p>
+<p><strong>- <strong>Explanation</strong>:</strong> Eliza's backstory as a gymnast whose career was derailed by pneumonia is well-established. We learn about her competitive career, her recovery journey, and her relocation to Harborview for rehabilitation.</p>
+<p><strong>3. <strong>Question</strong>:</strong> Does the character have a clear goal or "desire"?</p>
+<p><strong>- <strong>Score</strong>:</strong> 3.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.10</p>
+<p><strong>- <strong>Category</strong>:</strong> Character</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.09</p>
+<p><strong>- <strong>Explanation</strong>:</strong> Eliza's initial goal of recovery is clear ("determined to regain her former abilities"), though her objectives shift as the mystery unfolds and she seeks to uncover Julian's true identity.</p>
+<p><strong>4. <strong>Question</strong>:</strong> Does the character have a clear inner weakness, fear, vulnerability, or internal need?</p>
+<p><strong>- <strong>Score</strong>:</strong> 3.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.10</p>
+<p><strong>- <strong>Category</strong>:</strong> Character</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.09</p>
+<p><strong>- <strong>Explanation</strong>:</strong> Eliza struggles with the loss of her identity as an athlete ("When you've defined yourself by one thing your entire life, losing it feels like losing your identity") and shows vulnerability in her developing feelings for Julian.</p>
+<p><strong>5. <strong>Question</strong>:</strong> Does the character undergo a transformation?</p>
+<p><strong>- <strong>Score</strong>:</strong> 3.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.10</p>
+<p><strong>- <strong>Category</strong>:</strong> Character</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.09</p>
+<p><strong>- <strong>Explanation</strong>:</strong> Eliza transforms from a recovering athlete to someone who discovers new strengths as "a writer, an investigator, and quite possibly a lifesaver," finding a new identity beyond gymnastics.</p>
+<p><strong>6. <strong>Question</strong>:</strong> Does each supporting character significantly contribute to the main character's journey?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.10</p>
+<p><strong>- <strong>Category</strong>:</strong> Character</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.12</p>
+<p><strong>- <strong>Explanation</strong>:</strong> Julian, Vivian, and James all significantly impact Eliza's journey. Julian inspires her writing career, Vivian provides crucial support during the crisis, and James creates the conflict that forces Eliza to discover her courage.</p>
+<p><strong>7. <strong>Question</strong>:</strong> Do the supporting characters fulfill typical or archetypal roles?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.10</p>
+<p><strong>- <strong>Category</strong>:</strong> Character</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.12</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The characters fulfill clear archetypal roles: Julian as the wounded hero with a secret, James as the villainous twin antagonist, and Vivian as the ally/helper who provides resources (her FBI brother) when needed.</p>
+<p><strong>8. <strong>Question</strong>:</strong> Are the supporting characters diverse, distinct from each other, and distinct from the main character?</p>
+<p><strong>- <strong>Score</strong>:</strong> 3.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.10</p>
+<p><strong>- <strong>Category</strong>:</strong> Character</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.09</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The supporting characters have distinct personalities and roles. Julian (British editor with a secret past), Vivian (intelligent physical therapist with FBI connections), and James (the villainous twin) are clearly differentiated.</p>
+<p><strong>9. <strong>Question</strong>:</strong> Is the number of characters appropriate for the narrative?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.10</p>
+<p><strong>- <strong>Category</strong>:</strong> Character</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.12</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The story maintains a focused cast of characters appropriate for its length. Each character serves a purpose without overcrowding the narrative.</p>
+<p><strong>10. <strong>Question</strong>:</strong> Are characters developed across the three layers?</p>
+<p><strong>- <strong>Score</strong>:</strong> 3.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.05</p>
+<p><strong>- <strong>Category</strong>:</strong> Character</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.045</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The main characters are developed physically (Eliza's athletic abilities, Julian's scars), psychologically (their internal struggles), and socially (their professional roles and relationships).</p>
+<h3>Conflict (Category Weight = 0.30)</h3>
+<p><strong>11. <strong>Question</strong>:</strong> Is the central conflict strong enough to drive the story?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.35</p>
+<p><strong>- <strong>Category</strong>:</strong> Conflict</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.42</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The story features multiple compelling conflicts: Eliza's recovery journey, the mystery of Julian's identity, and the life-threatening danger posed by James. These conflicts effectively drive the narrative forward.</p>
+<p><strong>12. <strong>Question</strong>:</strong> Does the conflict touch upon universal human conditions?</p>
+<p><strong>- <strong>Score</strong>:</strong> 3.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Category</strong>:</strong> Conflict</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.135</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The story explores universal themes of identity loss and reclamation, trust, deception, and reinvention after tragedy, making it relatable to a broad audience.</p>
+<p><strong>13. <strong>Question</strong>:</strong> Are the stakes clear from the beginning?</p>
+<p><strong>- <strong>Score</strong>:</strong> 3.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.10</p>
+<p><strong>- <strong>Category</strong>:</strong> Conflict</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.09</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The initial stakes of Eliza's recovery are clear, and the stakes escalate dramatically when her life is threatened after discovering Julian's secret.</p>
+<p><strong>14. <strong>Question</strong>:</strong> Is the conflict directly related to what we know about the character?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.10</p>
+<p><strong>- <strong>Category</strong>:</strong> Conflict</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.12</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The conflicts align perfectly with the characters' established traits. Eliza's athletic background enables her to physically confront James, while Julian's past directly creates the central mystery and danger.</p>
+<p><strong>15. <strong>Question</strong>:</strong> Does the conflict escalate and intensify as the story approaches its climax?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.10</p>
+<p><strong>- <strong>Category</strong>:</strong> Conflict</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.12</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The conflict escalates steadily from Eliza's suspicions to receiving threats, to the life-or-death confrontation with James at the lighthouse, creating a satisfying build to the climax.</p>
+<p><strong>16. <strong>Question</strong>:</strong> Is the source of the conflict consistent throughout?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.10</p>
+<p><strong>- <strong>Category</strong>:</strong> Conflict</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.12</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The conflict stems consistently from Julian's hidden identity and his brother's criminal actions, maintaining coherence throughout the narrative.</p>
+<p><strong>17. <strong>Question</strong>:</strong> Do the subplots also include conflict?</p>
+<p><strong>- <strong>Score</strong>:</strong> 3.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.05</p>
+<p><strong>- <strong>Category</strong>:</strong> Conflict</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.045</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The subplot of Eliza's recovery and career transition contains its own conflict, as does the developing romantic relationship between Eliza and Julian.</p>
+<p><strong>18. <strong>Question</strong>:</strong> Is there both external conflict and internal conflict?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.05</p>
+<p><strong>- <strong>Category</strong>:</strong> Conflict</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.30</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.06</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The story balances external conflict (physical danger from James) with internal conflict (Eliza's identity crisis, Julian's struggle with his scars and past).</p>
+<h3>Craft (Category Weight = 0.25)</h3>
+<p><strong>19. <strong>Question</strong>:</strong> Is the story written in clear, modern English?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.20</p>
+<p><strong>- <strong>Category</strong>:</strong> Craft</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.25</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.20</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The prose is consistently clear, fluid, and contemporary, with natural dialogue and accessible language throughout.</p>
+<p><strong>20. <strong>Question</strong>:</strong> Are spelling and grammar correct?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Category</strong>:</strong> Craft</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.25</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The text demonstrates excellent technical control with no noticeable spelling or grammatical errors.</p>
+<p><strong>21. <strong>Question</strong>:</strong> Is the writing clear, concise, and descriptive?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Category</strong>:</strong> Craft</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.25</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The writing balances descriptive elements with narrative momentum, providing vivid details without becoming verbose or slowing the pace.</p>
+<p><strong>22. <strong>Question</strong>:</strong> Is there a vivid and accurate description of the main characters, memorable scenes, and a clear geographical setting?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Category</strong>:</strong> Craft</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.25</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The coastal setting is richly evoked through sensory details ("salt-laden breeze," "crashing waves"), and scenes like the lighthouse confrontation are vividly rendered with atmospheric tension.</p>
+<p><strong>23. <strong>Question</strong>:</strong> Is there no unnecessary or inappropriate detail?</p>
+<p><strong>- <strong>Score</strong>:</strong> 3.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Category</strong>:</strong> Craft</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.25</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.1125</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The story generally avoids extraneous details, though some descriptive passages could be more economical without losing impact.</p>
+<p><strong>24. <strong>Question</strong>:</strong> Is everything described visually demonstrable?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.20</p>
+<p><strong>- <strong>Category</strong>:</strong> Craft</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.25</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.20</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The story effectively prioritizes visual, action-oriented descriptions over internal rumination, making scenes like the rescue and the lighthouse confrontation cinematically vivid.</p>
+<h3>Logic (Category Weight = 0.15)</h3>
+<p><strong>25. <strong>Question</strong>:</strong> Are there no plot holes?</p>
+<p><strong>- <strong>Score</strong>:</strong> 3.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.20</p>
+<p><strong>- <strong>Category</strong>:</strong> Logic</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.09</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The plot is generally sound, though some elements (like how James so quickly tracked Julian and Eliza) could benefit from further explanation.</p>
+<p><strong>26. <strong>Question</strong>:</strong> Are there no unclear points?</p>
+<p><strong>- <strong>Score</strong>:</strong> 3.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.20</p>
+<p><strong>- <strong>Category</strong>:</strong> Logic</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.09</p>
+<p><strong>- <strong>Explanation</strong>:</strong> Most plot points are clearly presented, though the exact nature of Julian's journalistic work and how he maintained his false identity professionally could be clarified.</p>
+<p><strong>27. <strong>Question</strong>:</strong> Have all questions raised been answered?</p>
+<p><strong>- <strong>Score</strong>:</strong> 3.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Category</strong>:</strong> Logic</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.0675</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The major questions about Julian's identity and James's crimes are resolved, though some minor threads (like the details of Julian's future plans) remain somewhat open-ended.</p>
+<p><strong>28. <strong>Question</strong>:</strong> Is the story consistent and free of continuity errors?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Category</strong>:</strong> Logic</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.09</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The narrative maintains strong continuity throughout, with character motivations and plot developments remaining consistent.</p>
+<p><strong>29. <strong>Question</strong>:</strong> Are there no contradictions with previously stated information?</p>
+<p><strong>- <strong>Score</strong>:</strong> 4.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Category</strong>:</strong> Logic</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.09</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The story avoids contradicting its established facts, maintaining internal consistency in its world-building and character development.</p>
+<p><strong>30. <strong>Question</strong>:</strong> Is the logic sound and free from illogical or contrived elements?</p>
+<p><strong>- <strong>Score</strong>:</strong> 3.0</p>
+<p><strong>- <strong>Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Category</strong>:</strong> Logic</p>
+<p><strong>- <strong>Category Weight</strong>:</strong> 0.15</p>
+<p><strong>- <strong>Weighted Score</strong>:</strong> 0.0675</p>
+<p><strong>- <strong>Explanation</strong>:</strong> The story's logic is generally sound, though the coincidence of Julian's twin brother appearing at exactly the right moment feels somewhat contrived.</p>
+<h3>Overall Weighted Score: 3.6325</h3>
+<h3>Summary Report:</h3>
+<p>"Tides of Deception" is a well-crafted romantic thriller that successfully blends elements of mystery, action, and character development. The story's greatest strengths lie in its clearly defined characters, escalating conflict, and polished prose. The coastal setting provides an atmospheric backdrop that enhances the narrative tension, while the twin-based identity plot creates compelling stakes. The protagonist's journey from athlete to investigator is convincingly portrayed, with her physical abilities logically integrated into the climactic confrontation.</p>
+<h3>Suggestions for Improvement:</h3>
+<p><strong>* <strong>Character Depth</strong>:</strong> While Eliza's external journey is well-developed, her internal emotional landscape could be explored more deeply. How does her growing attraction to Julian conflict with her suspicions about him? This additional layer would create more internal tension.</p>
+<p><strong>* <strong>Plot Mechanics</strong>:</strong> The story would benefit from more explanation of how James so quickly located Julian and Eliza, and how he was able to monitor her research at the library. These details would strengthen the plot's credibility.</p>
+<p><strong>* <strong>Backstory Integration</strong>:</strong> Julian's backstory, while interesting, is delivered primarily through exposition in the climactic scene. Consider weaving hints of his true history earlier in the narrative to create a more satisfying reveal.</p>
+<p><strong>* <strong>Secondary Character Development</strong>:</strong> Vivian serves an important plot function but remains somewhat underdeveloped as a character. Giving her more distinctive traits would enhance the supporting cast.</p>
+<p><strong>* <strong>Thematic Resonance</strong>:</strong> The parallel between Eliza's physical recovery and Julian's emotional healing could be emphasized more explicitly throughout to strengthen the story's thematic coherence.</p>
+              </div>
+            </div>
+        
+
+        <div id="controlsTop">
+            <div>
+                <label><input type="radio" name="viewMode" value="full" checked> Continuous Reading</label>
+                <label><input type="radio" name="viewMode" value="paged"> Paginated View</label>
+            </div>
+
+            <div id="pageOptions" style="display: none;">
+                <label><input type="radio" name="pageMode" value="auto" checked> Auto Paragraphs</label>
+                <label><input type="radio" name="pageMode" value="manual"> Manual</label>
+                <select id="pageSizeSelect" disabled>
+        <option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+                </select>
+            </div>
+
+            <div>
+                <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+
+        </div>
+
+        <div id="storyContainer"></div>
+
+        <div id="paginationControls" style="display: none;">
+            <button id="firstBtn" onclick="firstPage()">⏮ First</button>
+            <button id="prevBtn" onclick="prevPage()">◀ Previous</button>
+            <span id="pageIndicator">Page 1 of X</span>
+            <button id="nextBtn" onclick="nextPage()">Next ▶</button>
+            <button id="lastBtn" onclick="lastPage()">Last ⏭</button>
+        </div>
+
+        <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆ Back to Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script>
+            const paragraphs = ["The salt-laden breeze whipped through Eliza Morgan's auburn hair as she executed a perfect handstand on the weathered wooden pier. Her muscles trembled slightly—not from exertion, but from the lingering weakness of her recent illness. Six months ago, she had been at the peak of her gymnastics career, poised to compete in the national championships. Then pneumonia had struck, devastating her lungs and derailing her dreams.", "\"Three more seconds, Liz!\" called Julian Whitaker from behind his camera. The society editor for *Coastal Living* magazine had been documenting Eliza's recovery journey for a feature story titled \"Champions of Resilience.\" His British accent carried clearly over the sound of crashing waves.", "Eliza held the position, counting silently as her arms began to burn. One... two... three. She gracefully lowered herself to standing position, then turned to face Julian with a triumphant smile.", "\"Perfect,\" he said, lowering his camera. \"The lighting is magnificent. These shots will be the centerpiece of the article.\"", "Eliza glanced at the horizon, where dark clouds were gathering. \"We should wrap up soon. That storm's moving in faster than predicted.\"", "Julian nodded, his expression serious beneath his stylishly tousled dark hair. At thirty-two, he had established himself as one of the most respected society editors on the East Coast, known for finding the human stories behind the glamour. When he'd approached Eliza about documenting her recovery, she'd been skeptical. But over the past three months, his genuine interest in her journey had won her over.", "\"Just a few more shots by the lighthouse, if you're up for it,\" he suggested. \"The contrast between your strength and that enduring structure would be powerful.\"", "Eliza nodded, though her chest tightened slightly at the thought of more exertion. Her doctor had warned her not to push too hard, but she was determined to regain her former abilities. The seaside town of Harborview had become her sanctuary for recovery, away from the pressures of competitive gymnastics in Boston.", "As they walked along the pier toward the lighthouse, Eliza studied Julian's profile. His features were sharp and elegant, his eyes a penetrating blue that seemed to absorb everything around him. Over their months working together, she'd developed feelings that went beyond professional appreciation, though she'd been careful to keep them hidden.", "\"So tell me,\" she said, \"how did a sophisticated Londoner end up covering society events in a small coastal town in Massachusetts?\"", "Julian smiled enigmatically. \"Everyone has their secrets, Eliza. Let's just say I needed a change of scenery.\" He paused, then added, \"Much like you.\"", "Before she could press further, a cry rang out from the beach below. They rushed to the railing to see a small fishing boat capsized about fifty yards from shore. Two figures were struggling in the increasingly rough water.", "\"They'll never make it in this current,\" Julian muttered, already shrugging off his jacket.", "\"Julian, wait—\" Eliza began, but he was already racing down the pier steps toward the beach.", "Without hesitation, he dove into the churning waves. Eliza watched in horror as he swam powerfully toward the stranded fishermen. The wind had picked up dramatically, and the first fat raindrops began to fall as dark clouds swallowed the afternoon sun.", "Eliza fumbled for her phone, dialing emergency services with trembling fingers. As she reported the situation, she kept her eyes fixed on Julian's progress. He had reached the first victim, a teenage boy, and was guiding him toward shore. The second fisherman, an older man, clung to the overturned hull.", "By the time the coast guard arrived, Julian had managed to bring the boy to shallow water. Rescue personnel took over, retrieving the older man and checking both victims for injuries. Eliza rushed to Julian, who sat exhausted on the sand, his clothes plastered to his body.", "\"That was either incredibly brave or incredibly foolish,\" she said, draping his dry jacket around his shoulders.", "\"Perhaps a bit of both,\" he replied with a weak smile. \"I used to be a competitive swimmer. Old instincts die hard.\"", "The rain was falling steadily now, and thunder rumbled in the distance. A coast guard officer approached them.", "\"That was impressive work, sir,\" she said. \"The boy says you saved his life.\"", "Julian shrugged uncomfortably. \"Anyone would have done the same.\"", "\"Not everyone could have,\" the officer countered. \"We'd like to get a statement from you, if you don't mind.\"", "As Julian spoke with the officer, Eliza noticed something odd. The salt water had partially washed away something on his face—revealing a different skin tone beneath what appeared to be makeup. She blinked, wondering if she was seeing things in the strange storm light.", "---", "The next morning dawned clear and bright, as if the storm had never happened. Eliza sat in her rented cottage, scrolling through news reports of the rescue on her tablet. Julian's heroism had made the local headlines, though they'd used his name without a photograph.", "Her phone buzzed with a text from him: *Breakfast at the Lighthouse Café? Need to discuss next steps for the article.*", "She replied affirmatively and began preparing for the day, her mind still puzzling over what she'd glimpsed during the rescue. There had been something different about Julian's appearance—something he was concealing.", "The Lighthouse Café occupied the ground floor of a converted boathouse, its large windows offering panoramic views of the harbor. Julian was already seated at a corner table when she arrived, his laptop open before him.", "\"Good morning,\" he greeted her warmly. \"I've ordered coffee for both of us.\"", "\"Thanks,\" she said, studying his face. Today, his complexion appeared flawless, with no trace of the discrepancy she'd noticed yesterday. \"How are you feeling after your heroics?\"", "\"A bit sore, but none the worse for wear,\" he replied. \"The boy and his grandfather are doing well—just some minor scrapes and bruises.\"", "Their coffee arrived, and Julian turned his laptop toward her. \"I've drafted an outline for the remainder of the article. We've documented your physical recovery beautifully, but I'd like to delve deeper into the mental aspects—how you've coped with the setback to your career.\"", "Eliza sipped her coffee, considering. \"It hasn't been easy,\" she admitted. \"When you've defined yourself by one thing your entire life, losing it feels like losing your identity.\"", "Julian nodded encouragingly. \"That's exactly the kind of insight readers connect with. Would you be comfortable discussing the depression you experienced after your diagnosis?\"", "She tensed slightly. \"How did you know about that? I don't recall mentioning it.\"", "A flicker of something—alarm?—crossed Julian's face before his professional smile returned. \"You mentioned taking antidepressants during our first interview. I assumed—\"", "\"I never said that,\" Eliza interrupted, certain of her recollection. \"I've never taken antidepressants.\"", "Julian's expression remained pleasant, but his knuckles whitened around his coffee cup. \"My mistake. Perhaps I confused you with another subject.\"", "The conversation moved on, but Eliza's unease lingered. As they finished breakfast and parted ways—Julian to file some photos, Eliza to her physical therapy appointment—she made a decision. It was time to learn more about Julian Whitaker.", "---", "The Harborview Public Library was quiet that afternoon. Eliza sat at a computer terminal, searching for information about Julian. His professional profile was impressive: education at Oxford, positions at several prestigious publications in London, then a seemingly abrupt move to the United States three years ago.", "What struck her as odd was the lack of photographs. For a society editor who moved in elite circles, Julian had remarkably little visual presence online. The few photos she found showed him at events, always partially turned away from the camera or standing in shadows.", "On impulse, she searched for \"Julian Whitaker scandal London.\" The results made her breath catch.", "*WHITAKER PUBLISHING HEIR DISAPPEARS AMID FRAUD ALLEGATIONS*", "The article, dated three years ago, described how Julian Whitaker, son of British publishing magnate Harold Whitaker, had vanished after being accused of embezzling millions from his father's company. The accompanying photograph showed a man who resembled Julian, but with subtle differences—a rounder face, different nose shape, a small scar near his right eye.", "Eliza sat back, her mind racing. Could the Julian she knew be an impostor? Or had he somehow altered his appearance?", "Her phone buzzed with a text from an unknown number: *Stop digging. Some secrets are dangerous.*", "Her heart pounding, Eliza looked around the library, but saw only the elderly librarian and a couple of teenagers with textbooks. How had someone known what she was researching? She quickly closed the browser window and gathered her things, suddenly feeling exposed.", "Outside, the afternoon had turned overcast again. Eliza walked briskly toward her cottage, constantly checking over her shoulder. When she reached her door, she found an envelope tucked into the frame. Inside was a newspaper clipping about the death of a journalist in London who had been investigating corporate fraud. A handwritten note read: *This could be you.*", "With trembling hands, Eliza locked her door and drew the curtains. She needed help, but who could she trust? The local police might dismiss her concerns without evidence. Then she remembered Dr. Vivian Chen, her physical therapist, whose brother worked for the FBI.", "She dialed Vivian's number, relieved when the woman answered immediately.", "\"Vivian, I need your help,\" Eliza said, keeping her voice low. \"I think I'm in danger.\"", "---", "Two hours later, Eliza sat in Vivian's home office, having related everything she'd discovered. Vivian, a petite woman with keen intelligence behind her glasses, listened without interruption.", "\"So you believe this man is not actually Julian Whitaker, but someone impersonating him?\" Vivian clarified.", "\"Or he is Julian Whitaker, but he's hiding his true appearance and background,\" Eliza replied. \"Either way, he's not who he claims to be, and now I'm being threatened.\"", "Vivian nodded thoughtfully. \"My brother Michael specializes in identity theft cases. Let me call him.\"", "While Vivian spoke with her brother, Eliza paced the room, her gymnast's instinct for balance and control at odds with her internal turmoil. The wall of windows overlooked the ocean, where the setting sun cast long shadows across the water. In the distance, a solitary figure walked along the beach—tall, with familiar posture.", "\"Julian,\" she whispered, moving away from the window.", "Vivian ended her call. \"Michael is driving up from Boston tonight. He wants you to stay here until he arrives. He's taking this very seriously.\"", "\"Thank you,\" Eliza said, relief washing over her. \"I was beginning to think I was imagining things.\"", "\"Trust your instincts,\" Vivian advised. \"They've served you well as an athlete; they'll serve you well now.\"", "As evening deepened into night, Eliza tried to relax in Vivian's guest room, but sleep eluded her. Her mind kept returning to Julian—the genuine interest he'd shown in her recovery, the way he'd risked his life to save the fishermen. Could someone truly evil show such compassion?", "Around midnight, her phone lit up with a text from Julian: *We need to talk. I can explain everything. Meet me at the lighthouse. Come alone.*", "Eliza stared at the message, her heart racing. Going alone would be foolish, but this might be her only chance to learn the truth. She quietly dressed and slipped out of Vivian's house, leaving a note explaining where she'd gone.", "The night was clear and cool, with a three-quarter moon illuminating the path to the lighthouse. The historic structure stood sentinel on its rocky promontory, its beam sweeping rhythmically across the dark water. As Eliza approached, she saw Julian's silhouette against the stone wall.", "\"I wasn't sure you'd come,\" he said as she drew near.", "\"I almost didn't,\" she replied, maintaining a safe distance. \"Who are you, really?\"", "Julian sighed, his shoulders slumping. \"I am Julian Whitaker. But not the one who disappeared three years ago.\"", "\"Explain,\" Eliza demanded.", "\"The man who vanished—the one accused of embezzlement—was my identical twin brother, James.\" Julian's voice was heavy with emotion. \"We were estranged for years. He used my identity, my credentials, to gain access to our father's company. When the fraud was discovered, everyone believed it was me.\"", "Eliza frowned. \"If you're innocent, why hide? Why change your appearance?\"", "\"Because James threatened to kill me if I revealed the truth,\" Julian said. \"He's still out there, still powerful. The makeup, the altered features—they're protection against being recognized by his associates.\"", "\"And the article about me? Was that just a cover story to hide in Harborview?\"", "Julian stepped closer, moonlight revealing the earnestness in his eyes. \"No. That was real. Your story of recovery, of fighting to reclaim your identity after losing what defined you—it resonated with me. Perhaps selfishly, I saw parallels to my own situation.\"", "Eliza wanted to believe him, but caution held her back. \"The threats I received today—\"", "\"Not from me,\" Julian interrupted. \"James must have discovered where I am. He has people everywhere.\" He reached for her hand. \"Eliza, you're in danger because of me. I'm so sorry.\"", "Before she could respond, a sharp crack echoed across the rocks, and Julian jerked backward, clutching his shoulder. Blood seeped between his fingers.", "\"Run!\" he gasped, pushing her toward the lighthouse door.", "They stumbled inside as another shot splintered the wooden frame. Julian leaned heavily against the wall, his face pale with pain.", "\"We need to get to the top,\" he panted. \"There's only one way up—easier to defend.\"", "Eliza helped him up the spiral staircase, her gymnast's strength supporting his increasingly unsteady steps. By the time they reached the lantern room, Julian was barely conscious. She eased him to the floor and used her scarf to apply pressure to his wound.", "\"Stay with me,\" she urged, pulling out her phone. No signal.", "Julian's eyes fluttered open. \"There's something you should know,\" he whispered. \"In case I don't—\"", "\"Don't talk like that,\" Eliza interrupted. \"You're going to be fine.\"", "He shook his head weakly. \"The makeup isn't just to change my appearance. It's to hide the scars.\" With his uninjured arm, he wiped at his face, revealing puckered tissue along his jawline. \"James tried to kill me before he disappeared. He left me for dead in a burning car. The doctors said I'd never walk normally again.\"", "Eliza stared at the revealed scars, understanding dawning. \"That's why you always wear long sleeves, even at the beach. You're not hiding your identity—you're hiding your injuries.\"", "Julian nodded. \"The world thinks Julian Whitaker is a criminal. I couldn't bear for them to see me as a victim too.\"", "Footsteps echoed on the metal stairs below. Julian struggled to sit up. \"He's coming. James always finishes what he starts.\"", "Eliza looked around desperately for a weapon, finding only a heavy flashlight. She positioned herself between Julian and the stairwell, her athlete's body tense and ready.", "The footsteps grew louder, and then a man appeared—so similar to Julian that Eliza gasped. Same height, same features, but with cold, calculating eyes that bore no resemblance to Julian's warmth.", "\"Hello, brother,\" James said, a pistol held casually at his side. \"You've led me on quite a chase.\"", "\"It's over, James,\" Julian said, his voice stronger than Eliza expected. \"The FBI knows everything.\"", "James laughed. \"Always the bluffer. No one knows I'm here.\" His gaze shifted to Eliza. \"Pity about the girl. Wrong place, wrong time.\"", "As he raised his gun, Eliza acted on instinct. She launched into a gymnast's tumbling pass, closing the distance between them before James could react. The flashlight connected with his wrist, sending the gun skittering across the floor. James howled in pain and lunged for her throat.", "They grappled fiercely, James's superior size countered by Eliza's athletic training. He slammed her against the wall, stars exploding behind her eyes. As her vision cleared, she saw Julian dragging himself toward the fallen gun.", "\"James!\" Julian called, his voice commanding despite his weakness.", "James turned, his face contorting with hatred as he saw Julian aiming the pistol at him.", "\"You don't have the courage,\" James sneered.", "\"You're right,\" Julian replied. \"I won't kill you. But I will stop you.\" He shifted his aim and fired, the bullet striking James in the leg.", "James collapsed, cursing violently. Eliza quickly bound his hands with her belt, then returned to Julian, who had slumped back to the floor, the gun falling from his limp fingers.", "\"Stay with me,\" she pleaded, pressing her scarf more firmly against his wound. \"Help is coming.\"", "As if in answer, sirens wailed in the distance. Through the lighthouse windows, Eliza could see flashing lights approaching along the coastal road.", "\"How?\" Julian murmured.", "\"I left a note for Vivian,\" Eliza explained. \"Her brother is FBI, remember?\"", "Julian's lips curved in a weak smile. \"Clever gymnast.\"", "---", "Three months later, Eliza stood on the same pier where she had performed handstands for Julian's camera. The autumn air was crisp, carrying the scent of salt and impending snow. She executed a perfect aerial cartwheel, landing with the precision that had once defined her competitive career.", "\"Impressive,\" called a familiar British voice. \"Though perhaps still not front-page material.\"", "Eliza turned to see Julian walking toward her, his gait slightly uneven but steadier than it had been weeks ago. The physical therapy they now shared with Vivian was paying dividends for both of them.", "\"The magazine disagrees,\" she replied, holding up the latest issue of *Coastal Living*. The cover featured her mid-handstand against the backdrop of the lighthouse, with the headline: \"Strength Beyond Limits: The Eliza Morgan Story.\"", "Julian smiled, genuine pride in his eyes. \"Your byline suits you.\"", "After the confrontation at the lighthouse, with James in federal custody and the truth about the embezzlement finally exposed, Julian had encouraged Eliza to write her own story. The article had led to a regular column about athletes overcoming adversity.", "\"How was your father's visit?\" Eliza asked as they walked along the pier.", "\"Emotional,\" Julian admitted. \"Three years of estrangement, believing the worst of each other. We have much to rebuild.\" He paused, gazing out at the horizon. \"He wants me to return to London, to help restore the company's reputation.\"", "Eliza's heart sank. \"Will you go?\"", "Julian turned to her, no longer hiding the scars that traced his jawline and disappeared beneath his collar. \"That depends.\"", "\"On what?\"", "\"On whether I have a reason to stay.\" His blue eyes held hers, vulnerable and hopeful.", "Eliza stepped closer, her hand finding his. \"I can think of at least one good reason.\"", "The kiss they shared was gentle, a promise of possibilities. When they parted, Julian's expression was thoughtful.", "\"You know, when I first came to Harborview, I was hiding—from my brother, from my past, from myself,\" he said. \"I covered my scars because I couldn't bear to be seen as damaged.\"", "\"And now?\" Eliza prompted.", "\"Now I understand what you've known all along. Our scars don't define us. It's how we heal that matters.\" He squeezed her hand. \"You taught me that, with every determined step of your recovery.\"", "Eliza smiled, thinking of how far they'd both come. \"So what's next for Julian Whitaker, now that he's reclaimed his name and reputation?\"", "\"I'm considering a series on identity—how we define ourselves beyond our public personas,\" he replied. \"Starting with a certain gymnast who discovered she's also a writer, an investigator, and quite possibly a lifesaver.\"", "\"Sounds ambitious,\" Eliza said. \"You might need a co-author.\"", "Julian's smile widened. \"I was hoping you'd say that.\"", "As they continued their walk, the lighthouse beam began its evening rotation, sweeping across the darkening water. Like the steady rhythm of the tides, their shared journey of recovery continued—each day revealing new strengths, new possibilities, and the enduring power of truth over deception.", "In the distance, storm clouds gathered on the horizon, but neither Eliza nor Julian feared them now. They had weathered worse together, and emerged stronger for it. Whatever challenges lay ahead, they would face them in the clear light of honesty, their true selves finally revealed."];
+            const storyContainer = document.getElementById("storyContainer");
+            const pagination = document.getElementById("paginationControls");
+            const pageIndicator = document.getElementById("pageIndicator");
+            const pageSizeSelect = document.getElementById("pageSizeSelect");
+            const pageOptions = document.getElementById("pageOptions");
+
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const firstBtn = document.getElementById("firstBtn");
+            const lastBtn = document.getElementById("lastBtn");
+
+            let currentPage = 0;
+            let pageSize = 4;
+
+            function getAutoPageSize() {
+                return Math.max(2, Math.floor(window.innerHeight / 250));
+            }
+
+            function renderPage(page) {
+                const totalPages = Math.ceil(paragraphs.length / pageSize);
+                const start = page * pageSize;
+                const end = start + pageSize;
+                storyContainer.innerHTML = paragraphs.slice(start, end).map(p => `<p>${p}</p>`).join('');
+                pageIndicator.textContent = `Page ${page + 1} of ${totalPages}`;
+                prevBtn.style.display = page > 0 ? "inline-block" : "none";
+                firstBtn.style.display = page > 0 ? "inline-block" : "none";
+                nextBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+                lastBtn.style.display = (page + 1 < totalPages) ? "inline-block" : "none";
+            }
+
+            function switchToPagedView() {
+                const mode = document.querySelector('input[name="pageMode"]:checked').value;
+                pageSize = (mode === 'auto') ? getAutoPageSize() : parseInt(pageSizeSelect.value);
+                currentPage = 0;
+                pagination.style.display = 'block';
+                renderPage(currentPage);
+            }
+
+            function switchToFullView() {
+                pagination.style.display = 'none';
+                storyContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+            }
+
+            function nextPage() { const totalPages = Math.ceil(paragraphs.length / pageSize); if ((currentPage + 1) < totalPages) { currentPage++; renderPage(currentPage); } }
+            function prevPage() { if (currentPage > 0) { currentPage--; renderPage(currentPage); } }
+            function firstPage() { currentPage = 0; renderPage(currentPage); }
+            function lastPage() { currentPage = Math.ceil(paragraphs.length / pageSize) - 1; renderPage(currentPage); }
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+
+            function exportToPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const pageHeight = doc.internal.pageSize.height;
+                const margin = 15;
+                let y = margin;
+            
+                // Title
+                doc.setFontSize(18);
+                doc.setFont("times", "bold");
+                doc.text(document.title, doc.internal.pageSize.width / 2, y, { align: "center" });
+                y += 15;
+            
+                // Content
+                doc.setFontSize(12);
+                doc.setFont("times", "normal");
+            
+                paragraphs.forEach(p => {
+                    const lines = doc.splitTextToSize(p, 180);
+                    const blockHeight = lines.length * 8;
+            
+                    if (y + blockHeight > pageHeight - margin) {
+                        doc.addPage();
+                        y = margin;
+                    }
+            
+                    doc.text(lines, margin, y);
+                    y += blockHeight; // space between paragraphs
+                });
+            
+                const safeTitle = document.title.replace(/[^a-z0-9]/gi, "_").toLowerCase();
+                doc.save(`${safeTitle}.pdf`);
+            }
+
+
+            document.querySelectorAll('input[name="viewMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    if (e.target.value === 'full') {
+                        pageOptions.style.display = 'none';
+                        switchToFullView();
+                    } else {
+                        pageOptions.style.display = 'block';
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            document.querySelectorAll('input[name="pageMode"]').forEach(r => {
+                r.addEventListener('change', e => {
+                    const isManual = e.target.value === 'manual';
+                    pageSizeSelect.disabled = !isManual;
+                    if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                        switchToPagedView();
+                    }
+                });
+            });
+
+            pageSizeSelect.addEventListener('change', () => {
+                if (document.querySelector('input[name="viewMode"]:checked').value === 'paged') {
+                    switchToPagedView();
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                const btn = document.getElementById("backToTop");
+                btn.style.display = window.scrollY > 300 ? "block" : "none";
+            });
+
+            switchToFullView();
+        </script>
+        
+</body>
+</html>
